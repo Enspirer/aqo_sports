@@ -41,3 +41,20 @@ if (! function_exists('home_route')) {
         return 'frontend.index';
     }
 }
+
+
+if (! function_exists('check_module')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function get_module($module_name)
+    {
+        $module = Module::find($module_name);
+        return $module;
+    }
+}
+
+
+

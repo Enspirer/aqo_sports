@@ -12,7 +12,6 @@
 */
 
 Route::prefix('competition')->group(function() {
-    Route::get('/', 'CompetitionController@index');
 
     /*
  * Frontend Routes
@@ -37,8 +36,11 @@ Route::prefix('competition')->group(function() {
          */
         include_route_files(__DIR__.'/backend/');
     });
+});
 
 
+Breadcrumbs::for('admin.competition', function ($trail) {
+    $trail->push('Backend Competition', route('admin.competition'));
 });
 
 
