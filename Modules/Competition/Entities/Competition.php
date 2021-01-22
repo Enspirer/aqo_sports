@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Competition extends Model
 {
-    use HasFactory;
 
     protected $fillable = [];
     

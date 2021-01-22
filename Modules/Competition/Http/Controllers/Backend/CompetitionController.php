@@ -6,6 +6,8 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Module;
+use DataTables;
+use Modules\Competition\Entities\Competition;
 
 class CompetitionController extends Controller
 {
@@ -78,5 +80,18 @@ class CompetitionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function getTableDetails()
+    {
+        $compeition = Competition::all();
+        return Datatables::of($compeition)
+            ->addColumn('action', function($row){
+                $btn = '<a href="'.$row->id.'" class="edit btn btn-primary btn-sm"><i class="fa fa-eye"></i> View </a>';
+                return $btn;
+            })
+            ->rawColumns(['action'])
+            ->make();
     }
 }
