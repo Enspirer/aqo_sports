@@ -179,7 +179,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Nwidart\Modules\LaravelModulesServiceProvider::class,
-
+        Yajra\DataTables\DataTablesServiceProvider::class,
         // Package Service Providers that aren't auto-discover...
 
         // Application Service Providers...
@@ -241,7 +241,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Module' => Nwidart\Modules\Facades\Module::class,
-
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         // Package Aliases
     ],
 ];
