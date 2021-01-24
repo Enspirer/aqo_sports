@@ -25,6 +25,8 @@ class CreateCompetitionsTable extends Migration
             $table->integer('status')->default(0)->comment('active,deactive status');
             $table->date('started_date')->comment('coundown_started_date');
             $table->date('end_date')->comment('coundown_end_date');
+            $table->text('register_form')->comment('register_form_details');
+            $table->text('game_rules')->comment('register_form_details');
             $table->timestamps();
         });
     }

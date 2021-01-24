@@ -8,6 +8,9 @@ use Illuminate\Routing\Controller;
 use Module;
 use DataTables;
 use Modules\Competition\Entities\Competition;
+use Validator;
+use File;
+use Storage;
 
 class CompetitionController extends Controller
 {
@@ -28,7 +31,7 @@ class CompetitionController extends Controller
      */
     public function create()
     {
-        return view('competition::create');
+        return view('competition::backend.competition.competion_creator');
     }
 
     /**
@@ -38,7 +41,55 @@ class CompetitionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'competition_name' => 'required:max:255',
+            'competition_description' => 'required',
+            'is_feature' => 'required',
+            'category' => 'required',
+            'payment_type' => 'required',
+            'status' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
+
+        $competition = new Competition;
+        $competition->competition_name = $request->competition_name;
+        $competition->description = $request->competition_description;
+        $competition->is_feature = $request->is_feature;
+
+        //Feature Images
+        $imageName = time().'.'.$request->feature_image->getClientOriginalExtension();
+        $fullURLs = $request->feature_image->move(public_path('files'), $imageName);
+        $competition->feature_image = $imageName;
+        $competition->user_id = auth()->user()->id;
+        $competition->category_id = $request->category;
+        $competition->payment_type = $request->payment_type;
+        $competition->status = $request->status;
+        $competition->started_date = $request->start_date;
+        $competition->end_date = $request->end_date;
+        $competition->register_form = $request->register_form_data;
+
+        //Game Rules
+        $ruleNames= $request->rule_name;
+        $ruleDescriptions = $request->rule_name;
+        $outArray =[];
+        if($ruleNames != null)
+        {
+            foreach ($ruleNames as $ruleName){
+                foreach ($ruleDescriptions as $ruleDescription)
+                {
+                    $out2 = [
+                        'rule_description' => $ruleDescription,
+                        'rule_name' => $ruleName
+                    ];
+                }
+                array_push( $outArray, $out2);
+            }
+        }
+        $jsonOutput = json_encode($outArray);
+        $competition->game_rules = $jsonOutput;
+        $competition->save();
+        return back();
     }
 
     /**
