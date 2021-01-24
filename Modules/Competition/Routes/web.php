@@ -40,7 +40,12 @@ Route::prefix('competition')->group(function() {
 
 
 Breadcrumbs::for('admin.competition', function ($trail) {
-    $trail->push('Backend Competition', route('admin.competition'));
+    $trail->push('Competitions', route('admin.competition'));
+});
+
+
+Breadcrumbs::for('admin.competition.create', function ($trail) {
+    $trail->push('Create Competition', route('admin.competition.create'));
 });
 
 
