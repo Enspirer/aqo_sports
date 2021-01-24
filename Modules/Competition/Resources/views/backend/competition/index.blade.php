@@ -7,7 +7,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <strong>Create Competition</strong>
+                    <strong>Competition</strong>
                     <a href="{{route('admin.competition.create')}}" class="btn btn-primary" style="float: right">Create Competition</a>
                 </div><!--card-header-->
 
@@ -50,4 +50,5 @@
             });
         });
     </script>
+
 @endsection
