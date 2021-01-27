@@ -9,7 +9,7 @@
         }
     </style>
     <div class="light-style flex-grow-1 container-p-y">
-        <form action="{{route('admin.competition.store')}}" method="post" id="create_formInit" enctype="multipart/form-data">
+        <form action="{{route('admin.category.store')}}" method="post" id="create_formInit" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="card overflow-hidden">
                 <div class="row no-gutters row-bordered row-border-light">
@@ -22,8 +22,20 @@
                         <div class="tab-content">
                             <div class="tab-pane fade active show" id="general">
                                 <div class="card-body pb-2">
-                                    <div
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control" name="category_name" value="" required>
+                                    </div>
 
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea type="text" name="description" rows="10" class="form-control"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Category Image</label>
+                                        <input type="file" name="category_image" class="form-control">
+                                    </div>
                                 </div>
                             </div>
 

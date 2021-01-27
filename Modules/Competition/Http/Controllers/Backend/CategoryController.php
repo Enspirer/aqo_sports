@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use DataTables;
 use Modules\Competition\Entities\CompetitionCategory;
+use File;
+
 
 class CategoryController extends Controller
 {
@@ -24,8 +26,9 @@ class CategoryController extends Controller
         $category = CompetitionCategory::all();
         return Datatables::of($category)
             ->addColumn('action', function($row){
-                $btn = '<a href="'.route('admin.competition.edit',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit </a>';
-                return $btn;
+                $btn1 = '<a href="'.route('admin.category.edit',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit </a>';
+                $btn2 = ' <a href="'.route('admin.category.delete',$row->id).'" class="edit btn btn-danger btn-sm"><i class="fa fa-trash"></i> Trash </a>';
+                return $btn1.$btn2;
             })
             ->rawColumns(['action'])
             ->make();
@@ -47,7 +50,24 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new CompetitionCategory;
+        $category->category_name = $request->category_name;
+        $category->description = $request->description;
+        if($request->file('category_image'))
+        {
+            //Feature Images
+            $imageName = time().'.'.$request->category_image->getClientOriginalExtension();
+            $fullURLs = $request->category_image->move(public_path('files'), $imageName);
+            $category->feature_image = $imageName;
+        }else{
+            $category->feature_image = 'no_img.jpg';
+        }
+
+        $category->save();
+
+        return redirect()->route('admin.category.index');
+
+
     }
 
     /**
@@ -67,7 +87,11 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        return view('competition::edit');
+        $category = CompetitionCategory::where('id',$id)->first();
+
+        return view('competition::backend.category.edit',[
+            'category' => $category
+        ]);
     }
 
     /**
@@ -76,9 +100,27 @@ class CategoryController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+
+        if($request->file('category_image'))
+        {
+            //Feature Images
+            $imageName = time().'.'.$request->category_image->getClientOriginalExtension();
+            $fullURLs = $request->category_image->move(public_path('files'), $imageName);
+            $category_image = $imageName;
+        }else{
+            $category_image = 'no_img.jpg';
+        }
+
+        $category = CompetitionCategory::where('id',$request->id)->update([
+            'category_name' => $request->category_name,
+            'description' => $request->description,
+            'feature_image' => $category_image,
+        ]);
+
+        return back();
+
     }
 
     /**
@@ -88,6 +130,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        CompetitionCategory::where('id',$id)->delete();
+        return back();
     }
 }

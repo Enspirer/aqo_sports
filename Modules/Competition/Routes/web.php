@@ -58,5 +58,9 @@ Breadcrumbs::for('admin.category.create', function ($trail) {
 });
 
 
+Breadcrumbs::for('admin.category.edit', function ($trail) {
+    $trail->push('Edit Categories', route('admin.category.edit',1));
+});
+
 
 
