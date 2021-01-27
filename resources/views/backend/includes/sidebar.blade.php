@@ -19,6 +19,13 @@
                         Competitions
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{active_class(Active::checkUriPattern('admin/create'))}}" href="{{ route('admin.category.index') }}">
+                        <i class="nav-icon fa fa-list"></i>
+                        Category
+                    </a>
+                </li>
             @endif
 
 

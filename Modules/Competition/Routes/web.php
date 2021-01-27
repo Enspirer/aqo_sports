@@ -49,5 +49,14 @@ Breadcrumbs::for('admin.competition.create', function ($trail) {
 });
 
 
+Breadcrumbs::for('admin.category.index', function ($trail) {
+    $trail->push('Categories', route('admin.category.index'));
+});
+
+Breadcrumbs::for('admin.category.create', function ($trail) {
+    $trail->push('Create Categories', route('admin.category.create'));
+});
+
+
 
 

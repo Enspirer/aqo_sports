@@ -51,16 +51,19 @@ class CompetitionController extends Controller
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
-
         $competition = new Competition;
         $competition->competition_name = $request->competition_name;
         $competition->description = $request->competition_description;
         $competition->is_feature = $request->is_feature;
-
-        //Feature Images
-        $imageName = time().'.'.$request->feature_image->getClientOriginalExtension();
-        $fullURLs = $request->feature_image->move(public_path('files'), $imageName);
-        $competition->feature_image = $imageName;
+        if($request->file('feature_image'))
+        {
+            //Feature Images
+            $imageName = time().'.'.$request->feature_image->getClientOriginalExtension();
+            $fullURLs = $request->feature_image->move(public_path('files'), $imageName);
+            $competition->feature_image = $imageName;
+        }else{
+            $competition->feature_image = 'no_img.jpg';
+        }
         $competition->user_id = auth()->user()->id;
         $competition->category_id = $request->category;
         $competition->payment_type = $request->payment_type;
@@ -68,7 +71,6 @@ class CompetitionController extends Controller
         $competition->started_date = $request->start_date;
         $competition->end_date = $request->end_date;
         $competition->register_form = $request->register_form_data;
-
         //Game Rules
         $ruleNames= $request->rule_name;
         $ruleDescriptions = $request->rule_name;
@@ -109,7 +111,13 @@ class CompetitionController extends Controller
      */
     public function edit($id)
     {
-        return view('competition::edit');
+        $getCompetionDetaills = Competition::where('id',$id)->first();
+
+        $getRegiterFormData = json_decode($getCompetionDetaills->register_form);
+
+        return view('competition::edit',[
+            'competition_details' => $getCompetionDetaills,
+        ]);
     }
 
     /**
@@ -139,7 +147,7 @@ class CompetitionController extends Controller
         $compeition = Competition::all();
         return Datatables::of($compeition)
             ->addColumn('action', function($row){
-                $btn = '<a href="'.$row->id.'" class="edit btn btn-primary btn-sm"><i class="fa fa-eye"></i> View </a>';
+                $btn = '<a href="'.route('admin.competition.edit',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit </a>';
                 return $btn;
             })
             ->rawColumns(['action'])

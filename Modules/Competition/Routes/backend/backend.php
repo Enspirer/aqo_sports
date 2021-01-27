@@ -6,4 +6,7 @@ Route::get('competition/edit/{id}', 'CompetitionController@edit')->name('competi
 Route::get('competition/create', 'CompetitionController@create')->name('competition.create');
 Route::post('competition/create', 'CompetitionController@store')->name('competition.store');
 
+
+
+
 ?>
