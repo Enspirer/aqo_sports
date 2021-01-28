@@ -2,9 +2,12 @@
 
 namespace Modules\Competition\Http\Controllers\Frontend;
 
+use function GuzzleHttp\Promise\all;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Competition\Entities\Competition;
+use Modules\Competition\Entities\CompetitionCategory;
 
 class CompetitionController extends Controller
 {
@@ -17,6 +20,30 @@ class CompetitionController extends Controller
         return view('competition::index');
     }
 
+
+    public function explorer($category_id,$keyword,$sort,$type,$contry,$start_date,$end_date)
+    {
+        $categories = CompetitionCategory::all();
+        $competitions = Competition::query();
+
+
+
+
+        if($category_id != 'all' ){
+            $competitions =  $competitions->where('id',$category_id);
+        }
+
+//        if($keyword != 'all')
+//        {
+//            $competitions = $competitions->w
+//        }
+
+
+        return view('competition::frontend.explorer',
+            [
+                'categories' => $categories
+            ]);
+    }
     /**
      * Show the form for creating a new resource.
      * @return Renderable

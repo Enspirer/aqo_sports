@@ -3,10 +3,10 @@
     <nav>
         <ul>
             <li>
-                <a href="#">Home</a>
+                <a href="{{url('/')}}">Home</a>
             </li>
             <li>
-                <a href="#">Explore</a>
+                <a href="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}">Explore</a>
             </li>
             <li>
                 <a href="#">Training</a>

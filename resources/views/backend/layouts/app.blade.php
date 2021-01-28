@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 @langrtl
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl">
+    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl">
 @else
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    @endlangrtl
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>Lanka Tile Backend</title>
-        <meta name="description" content="@yield('meta_description', 'Lanka Tile Backend')">
-        <meta name="author" content="@yield('meta_author', 'Enspirer Web Studio')">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+@endlangrtl
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>@yield('title', app_name())</title>
+    <meta name="description" content="@yield('meta_description', 'Laravel 5 Boilerplate')">
+    <meta name="author" content="@yield('meta_author', 'Anthony Rappa')">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 
-    @yield('meta')
-
-
+@yield('meta')
 
     {{-- See https://laravel.com/docs/5.5/blade#stacks for usage --}}
     @stack('before-styles')
 
     <!-- Check if the language is set to RTL, so apply the RTL layouts -->
-        <!-- Otherwise apply the normal LTR layouts -->
-        {{ style(mix('css/backend.css')) }}
-        <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-        @stack('after-styles')
-    </head>
+    <!-- Otherwise apply the normal LTR layouts -->
+    {{ style(mix('css/backend.css')) }}
+    <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    @stack('after-styles')
+</head>
 
-    <body class="{{ config('backend.body_classes') }}">
+<body class="{{ config('backend.body_classes') }}">
     @include('backend.includes.header')
 
     <div class="app-body">
@@ -50,9 +48,12 @@
             </div><!--container-fluid-->
         </main><!--main-->
 
+        @include('backend.includes.aside')
     </div><!--app-body-->
 
     @include('backend.includes.footer')
+
+
 
     <!-- Scripts -->
     @stack('before-scripts')
@@ -63,6 +64,32 @@
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap4.min.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+
     @stack('after-scripts')
-    </body>
-    </html>
+    <script src='{{url('js/form-builder.min.js')}}'></script>
+
+
+
+    <script>
+        jQuery($ => {
+            const fbTemplate = document.getElementById('build-wrap');
+            var options = {
+                showActionButtons: false ,// defaults: `true`
+                typeUserEvents: {
+                    text: {
+                        onAddField: function(fld) {
+                          console.log('aaaa');
+                        }
+                    }}
+            };
+            var final_out = $(fbTemplate).formBuilder(options);
+
+            $('#create_formInit').submit(function() {
+                $('#output_data').val(final_out.actions.getData('json'));
+            });
+        });
+    </script>
+</body>
+</html>

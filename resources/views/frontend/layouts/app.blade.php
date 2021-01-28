@@ -14,18 +14,14 @@
     />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="aqo_se/Styles/css/style.css" />
+    <link rel="stylesheet" href="{{url('aqo_se/Styles/css/style.css')}}" />
 </head>
 <body>
 <div class="main">
     <header>
         @include('frontend.includes.nav')
         @yield('content')
-
-
-
     </header>
-
 </div>
 
 <!-- Optional JavaScript -->
