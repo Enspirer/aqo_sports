@@ -33,15 +33,29 @@ class CompetitionController extends Controller
             $competitions =  $competitions->where('id',$category_id);
         }
 
-//        if($keyword != 'all')
-//        {
-//            $competitions = $competitions->w
-//        }
+        if($keyword != 'all')
+        {
+            $competitions = $competitions->where('name', 'like', $keyword );
+        }
 
+        if($sort == 'desc')
+        {
+            $competitions = $competitions->orderBy('started_date','desc');
+        }elseif ($sort == 'asc')
+        {
+            $competitions = $competitions->orderBy('started_date','asc');
+        }
 
+        if($type == 'explorer')
+        {
+
+        }
+
+        $competitions = $competitions->get();
         return view('competition::frontend.explorer',
             [
-                'categories' => $categories
+                'categories' => $categories,
+                'competitions' => $competitions
             ]);
     }
     /**
@@ -70,7 +84,8 @@ class CompetitionController extends Controller
      */
     public function show($id)
     {
-        return view('competition::show');
+
+        return view('competition::backend.competition.edit');
     }
 
     /**
@@ -80,7 +95,7 @@ class CompetitionController extends Controller
      */
     public function edit($id)
     {
-        return view('competition::edit');
+        return view('competition::backend.competition.edit');
     }
 
     /**

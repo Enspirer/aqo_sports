@@ -54,133 +54,24 @@
             </div>
             <div class="exploreBody">
                 <div class="row">
-                    <div class="imageCard col-md-3 col-sm-6 col-xs-12">
-                        <div class="imageSize">
-                            <img
-                                    src="assets/image/ee29f227fe413cf24866936a9c5de3a3.jpg"
-                                    alt=""
-                                    srcset=""
-                            />
-                        </div>
-                        <div class="container">
-                            <div class="nameCard">
-                                <h4>Rhythmic Gymnastic</h4>
-                                <p>Virtual Tournament</p>
+                    @foreach($competitions as $competition)
+                        <div class="imageCard col-md-3 col-sm-6 col-xs-12">
+                            <div class="imageSize">
+                                <img src="{{url('/files/').'/'.$competition->feature_image}}" alt="" srcset=""/>
+                            </div>
+                            <div class="container">
+                                <div class="nameCard">
+                                    <h4>{{$competition->competition_name}}</h4>
+                                    <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;padding-left: 20px;padding-right: 20px;">
+                                        {{$competition->description}}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
 
-                    <div class="imageCard col-md-3 col-sm-6 col-xs-12">
-                        <div class="imageSize">
-                            <img
-                                    src="assets/image/gimnasia-ritmica-banner_0.jpg"
-                                    alt=""
-                                    srcset=""
-                            />
-                        </div>
-                        <div class="container">
-                            <div class="nameCard">
-                                <h4>Rhythmic Gymnastic</h4>
-                                <p>Virtual Tournament</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="imageCard col-md-3 col-sm-6 col-xs-12">
-                        <div class="imageSize">
-                            <img
-                                    src="assets/image/horizontal-banner-women-s-karate-class_23-2148717571.jpg"
-                                    alt=""
-                                    srcset=""
-                            />
-                        </div>
-                        <div class="container">
-                            <div class="nameCard">
-                                <h4>Rhythmic Gymnastic</h4>
-                                <p>Virtual Tournament</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="imageCard col-md-3 col-sm-6 col-xs-12">
-                        <div class="imageSize">
-                            <img
-                                    src="assets/image/531027_16155704_2924445_facad91f_image.jpg"
-                                    alt=""
-                                    srcset=""
-                            />
-                        </div>
-                        <div class="container">
-                            <div class="nameCard">
-                                <h4>Rhythmic Gymnastic</h4>
-                                <p>Virtual Tournament</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="imageCard col-md-3 col-sm-6 col-xs-12">
-                        <div class="imageSize">
-                            <img
-                                    src="assets/image/531027_16155704_2924445_facad91f_image.jpg"
-                                    alt=""
-                                    srcset=""
-                            />
-                        </div>
-                        <div class="container">
-                            <div class="nameCard">
-                                <h4>Rhythmic Gymnastic</h4>
-                                <p>Virtual Tournament</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="imageCard col-md-3 col-sm-6 col-xs-12">
-                        <div class="imageSize">
-                            <img
-                                    src="assets/image/ee29f227fe413cf24866936a9c5de3a3.jpg"
-                                    alt=""
-                                    srcset=""
-                            />
-                        </div>
-                        <div class="container">
-                            <div class="nameCard">
-                                <h4>Rhythmic Gymnastic</h4>
-                                <p>Virtual Tournament</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="imageCard col-md-3 col-sm-6 col-xs-12">
-                        <div class="imageSize">
-                            <img
-                                    src="assets/image/gimnasia-ritmica-banner_0.jpg"
-                                    alt=""
-                                    srcset=""
-                            />
-                        </div>
-                        <div class="container">
-                            <div class="nameCard">
-                                <h4>Rhythmic Gymnastic</h4>
-                                <p>Virtual Tournament</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="imageCard col-md-3 col-sm-6 col-xs-12">
-                        <div class="imageSize">
-                            <img
-                                    src="assets/image/horizontal-banner-women-s-karate-class_23-2148717571.jpg"
-                                    alt=""
-                                    srcset=""
-                            />
-                        </div>
-                        <div class="container">
-                            <div class="nameCard">
-                                <h4>Rhythmic Gymnastic</h4>
-                                <p>Virtual Tournament</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="pagination">

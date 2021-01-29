@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Module;
 use DataTables;
 use Modules\Competition\Entities\Competition;
+use Modules\Competition\Entities\CompetitionCategory;
 use Validator;
 use File;
 use Storage;
@@ -31,7 +32,10 @@ class CompetitionController extends Controller
      */
     public function create()
     {
-        return view('competition::backend.competition.competion_creator');
+        $getCategory = CompetitionCategory::all();
+        return view('competition::backend.competition.competion_creator',[
+            'get_category' => $getCategory,
+        ]);
     }
 
     /**
@@ -112,11 +116,12 @@ class CompetitionController extends Controller
     public function edit($id)
     {
         $getCompetionDetaills = Competition::where('id',$id)->first();
-
-        $getRegiterFormData = json_decode($getCompetionDetaills->register_form);
-
-        return view('competition::edit',[
+        $getGameRules = json_decode($getCompetionDetaills->game_rules);
+        $getCategory = CompetitionCategory::all();
+        return view('competition::backend.competition.edit',[
             'competition_details' => $getCompetionDetaills,
+            'game_rules' => $getGameRules,
+            'get_category' => $getCategory,
         ]);
     }
 
@@ -126,7 +131,7 @@ class CompetitionController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
     }

@@ -5,6 +5,8 @@ Route::get('competition/index', 'CompetitionController@getTableDetails')->name('
 Route::get('competition/edit/{id}', 'CompetitionController@edit')->name('competition.edit');
 Route::get('competition/create', 'CompetitionController@create')->name('competition.create');
 Route::post('competition/create/insert', 'CompetitionController@store')->name('competition.store');
+Route::post('competition/update', 'CompetitionController@update')->name('competition.update');
+
 
 Route::get('category', 'CategoryController@index')->name('category.index');
 Route::get('category/index', 'CategoryController@getTableDetails')->name('category.get_table_details');

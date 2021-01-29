@@ -48,6 +48,10 @@ Breadcrumbs::for('admin.competition.create', function ($trail) {
     $trail->push('Create Competition', route('admin.competition.create'));
 });
 
+Breadcrumbs::for('admin.competition.edit', function ($trail) {
+    $trail->push('Edit Competition', route('admin.competition.edit',1));
+});
+
 
 Breadcrumbs::for('admin.category.index', function ($trail) {
     $trail->push('Categories', route('admin.category.index'));

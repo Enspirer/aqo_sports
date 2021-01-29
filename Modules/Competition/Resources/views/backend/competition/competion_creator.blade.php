@@ -59,6 +59,38 @@
 
     </div>
 
+    @stack('before-scripts')
+    {!! script(mix('js/manifest.js')) !!}
+    {!! script(mix('js/vendor.js')) !!}
+    {!! script(mix('js/backend.js')) !!}
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap4.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+
+    @stack('after-scripts')
+    <script src='{{url('js/form-builder.min.js')}}'></script>
+    <script>
+        jQuery($ => {
+            const fbTemplate = document.getElementById('build-wrap');
+            var options = {
+                showActionButtons: false ,// defaults: `true`
+                typeUserEvents: {
+                    text: {
+                        onAddField: function(fld) {
+                            console.log('aaaa');
+                        }
+                    }}
+            };
+            var final_out = $(fbTemplate).formBuilder(options);
+
+            $('#create_formInit').submit(function() {
+                $('#output_data').val(final_out.actions.getData('json'));
+            });
+        });
+    </script>
+
     <script>
         function tabInvalied(id) {
            $('#'+id).css("color", "red");
