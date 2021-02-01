@@ -118,10 +118,18 @@ class CompetitionController extends Controller
         $getCompetionDetaills = Competition::where('id',$id)->first();
         $getGameRules = json_decode($getCompetionDetaills->game_rules);
         $getCategory = CompetitionCategory::all();
+        $getCompetitionForm = json_decode($getCompetionDetaills->register_form);
+        $encorededJson = json_encode($getCompetitionForm);
+
+
+
+
+
         return view('competition::backend.competition.edit',[
             'competition_details' => $getCompetionDetaills,
             'game_rules' => $getGameRules,
             'get_category' => $getCategory,
+            'form_data' => $encorededJson,
         ]);
     }
 
@@ -133,7 +141,66 @@ class CompetitionController extends Controller
      */
     public function update(Request $request)
     {
-        //
+
+        $validatedData = $request->validate([
+            'competition_name' => 'required:max:255',
+            'competition_description' => 'required',
+            'is_feature' => 'required',
+            'category' => 'required',
+            'payment_type' => 'required',
+            'status' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
+
+        if($request->file('feature_image'))
+        {
+            //Feature Images
+            $imageName = time().'.'.$request->feature_image->getClientOriginalExtension();
+            $fullURLs = $request->feature_image->move(public_path('files'), $imageName);
+            $competition_feature_img = $imageName;
+        }else{
+            $competition_feature_img = $request->feature_image;
+        }
+
+        //Game Rules
+        $ruleNames= $request->rule_name;
+        $ruleDescriptions = $request->rule_name;
+        $outArray =[];
+        if($ruleNames != null)
+        {
+            foreach ($ruleNames as $ruleName){
+                foreach ($ruleDescriptions as $ruleDescription)
+                {
+                    $out2 = [
+                        'rule_description' => $ruleDescription,
+                        'rule_name' => $ruleName
+                    ];
+                }
+                array_push( $outArray, $out2);
+            }
+        }
+        $jsonOutput = json_encode($outArray);
+
+        $competition = Competition::where('id',$request->id)->update(
+            [
+                'competition_name' => $request->competition_name,
+                'description' => $request->competition_description,
+                'is_feature' => $request->is_feature,
+                'feature_image' => $competition_feature_img,
+                'category_id' => $request->category,
+                'payment_type' => $request->payment_type,
+                'status' => $request->status,
+                'started_date' => $request->start_date,
+                'end_date' => $request->end_date,
+                'register_form' => $request->register_form_data,
+                'game_rules' => $jsonOutput,
+            ]
+        );
+
+        return redirect()->route('admin.competition');
+
+
     }
 
     /**

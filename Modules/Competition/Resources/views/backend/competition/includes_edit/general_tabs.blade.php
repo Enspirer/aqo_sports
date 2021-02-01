@@ -17,7 +17,7 @@
     <label class="form-label">Category</label>
     <select class="form-control" oninvalid="tabInvalied('generalTabs')" name="category" required>
         @foreach($get_category as $getCategory)
-            <option value="1" {{$competition_details->category_id == $getCategory->id ? 'selected':''}}>{{$getCategory->category_name}}</option>
+            <option value="{{$getCategory->id}}" {{$competition_details->category_id == $getCategory->id ? 'selected':''}}>{{$getCategory->category_name}}</option>
         @endforeach
     </select>
 </div>

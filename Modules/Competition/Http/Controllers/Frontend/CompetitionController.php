@@ -2,13 +2,14 @@
 
 namespace Modules\Competition\Http\Controllers\Frontend;
 
+use App\Models\Auth\User;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Competition\Entities\Competition;
 use Modules\Competition\Entities\CompetitionCategory;
-
+use Carbon\Carbon;
 class CompetitionController extends Controller
 {
     /**
@@ -96,6 +97,29 @@ class CompetitionController extends Controller
     public function edit($id)
     {
         return view('competition::backend.competition.edit');
+    }
+
+    public function competition_page($id)
+    {
+        $competitionDetails = Competition::where('id',$id)->first();
+        $carbonStartDate = new Carbon($competitionDetails->started_date);
+        $carbonEndDate = new Carbon($competitionDetails->end_date);
+        $carbonTody = new Carbon(today());
+        $userDetails = User::where('id',$competitionDetails->user_id)->first();
+
+        if($carbonEndDate < $carbonTody)
+        {
+            $exp = 'Closed';
+        }else{
+            $exp = 'Open';
+        }
+        return view('competition::frontend.competition_page',[
+            'competition_details' => $competitionDetails,
+            'start_date' =>$carbonStartDate->format('M d Y'),
+            'end_date' =>$carbonEndDate->format('M d Y'),
+            'is_closed' => $exp,
+            'userDetails' => $userDetails,
+        ]);
     }
 
     /**

@@ -55,50 +55,49 @@
             <div class="exploreBody">
                 <div class="row">
                     @foreach($competitions as $competition)
-                        <div class="imageCard col-md-3 col-sm-6 col-xs-12">
-                            <div class="imageSize">
-                                <img src="{{url('/files/').'/'.$competition->feature_image}}" alt="" srcset=""/>
-                            </div>
-                            <div class="container">
-                                <div class="nameCard">
-                                    <h4>{{$competition->competition_name}}</h4>
-                                    <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;padding-left: 20px;padding-right: 20px;">
-                                        {{$competition->description}}
-                                    </p>
+                            <div class="imageCard col-md-3 col-sm-6 col-xs-12">
+                                <div class="imageSize">
+                                    <a href="{{route('frontend.competition_page',$competition->id)}}">
+                                        <img src="{{url('/files/').'/'.$competition->feature_image}}" alt="" srcset=""/>
+                                    </a>
+                                </div>
+                                <div class="container">
+                                    <div class="nameCard">
+                                        <h4>{{$competition->competition_name}}</h4>
+                                        <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;padding-left: 20px;padding-right: 20px;">
+                                            {{$competition->description}}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     @endforeach
-
-
-
                 </div>
 
-                <div class="pagination">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                                <a class="page-link" href="#"
-                                ><i class="fa fa-angle-left" aria-hidden="true"></i
-                                    ></a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#"
-                                ><i class="fa fa-angle-right" aria-hidden="true"></i
-                                    ></a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                {{--<div class="pagination">--}}
+                    {{--<nav aria-label="Page navigation example">--}}
+                        {{--<ul class="pagination justify-content-center">--}}
+                            {{--<li class="page-item">--}}
+                                {{--<a class="page-link" href="#"--}}
+                                {{--><i class="fa fa-angle-left" aria-hidden="true"></i--}}
+                                    {{--></a>--}}
+                            {{--</li>--}}
+                            {{--<li class="page-item">--}}
+                                {{--<a class="page-link" href="#">1</a>--}}
+                            {{--</li>--}}
+                            {{--<li class="page-item">--}}
+                                {{--<a class="page-link" href="#">2</a>--}}
+                            {{--</li>--}}
+                            {{--<li class="page-item">--}}
+                                {{--<a class="page-link" href="#">3</a>--}}
+                            {{--</li>--}}
+                            {{--<li class="page-item">--}}
+                                {{--<a class="page-link" href="#"--}}
+                                {{--><i class="fa fa-angle-right" aria-hidden="true"></i--}}
+                                    {{--></a>--}}
+                            {{--</li>--}}
+                        {{--</ul>--}}
+                    {{--</nav>--}}
+                {{--</div>--}}
             </div>
             <div class="addSectionHorizantle">
                 <div class="container">

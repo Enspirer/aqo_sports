@@ -5,6 +5,6 @@
 
 
 <div>
-    <input type="hidden" name="register_form_data" value="{{$competition_details->register_form}}" id="output_data" oninvalid="tabInvalied('register_formTabs')" required>
+    <input type="hidden" name="register_form_data" value="{!! $form_data !!}" id="output_data" oninvalid="tabInvalied('register_formTabs')" required>
 </div>
 

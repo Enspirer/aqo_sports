@@ -47,9 +47,10 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" value="{{$competition_details->id}}" name="id">
 
                 <div class="text-right mt-3">
-                    <button type="submit" class="btn btn-primary">Create Competition</button>&nbsp;
+                    <button type="submit" class="btn btn-primary">Edit Competition</button>&nbsp;
                     <button type="button"  onclick="submitForm()" class="btn btn-default">Cancel</button>
                     <br>  <br>
                 </div>
@@ -78,7 +79,7 @@
                             console.log('aaaa');
                         }
                     }},
-                formData: '{{$competition_details->register_form}}'
+                formData: '{!!  $form_data!!}'
             };
             var final_out = $(fbTemplate).formBuilder(options);
 
