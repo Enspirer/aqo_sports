@@ -19,37 +19,45 @@
         <div class="secondNavigation">
             <nav>
                 <div class="nav">
-                    <ul class="nav-list" id="myTab" role="tablist">
-                        <li class="nav-item" id="home-tab">
-                            About
-                            <span class="border" style="display: none; left: 0px;"></span>
-                        </li>
-                        <li class="nav-item"  id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
-                            Rules
-                            <span class="border" style="display: none; left: 0px;"></span>
-                        </li>
+                    <ul class="nav-list nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            Organizer
-                            <span class="border" style="display: none; left: 0px;"></span>
-                        </li>
-                        <li class="nav-item">
-                            Payments
-                            <span class="border" style="display: none; left: 0px;"></span>
-                        </li>
-                        <li class="nav-item">
-                            Voting
+                            <a class="active" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about"
+                               aria-selected="true">About</a>
                             <span class="border"></span>
                         </li>
                         <li class="nav-item">
-                            Leaderboard
+                            <a id="nav-rules-tab" data-toggle="tab" href="#nav-rules" role="tab" aria-controls="nav-rules"
+                               aria-selected="false">Rules</a>
                             <span class="border"></span>
                         </li>
                         <li class="nav-item">
-                            Competitors
+                            <a id="nav-organizer-tab" data-toggle="tab" href="#nav-organizer" role="tab" aria-controls="nav-organizer"
+                               aria-selected="false">Organizer</a>
                             <span class="border"></span>
                         </li>
                         <li class="nav-item">
-                            Judge Panel
+                            <a id="nav-payments-tab" data-toggle="tab" href="#nav-payments" role="tab" aria-controls="nav-payments"
+                               aria-selected="false">Payments</a>
+                            <span class="border"></span>
+                        </li>
+                        <li class="nav-item">
+                            <a id="nav-voting-tab" data-toggle="tab" href="#nav-voting" role="tab" aria-controls="nav-voting"
+                               aria-selected="false">Voting</a>
+                            <span class="border"></span>
+                        </li>
+                        <li class="nav-item">
+                            <a id="nav-leaderboard-tab" data-toggle="tab" href="#nav-leaderboard" role="tab" aria-controls="nav-leaderboard"
+                               aria-selected="false">Leaderboard</a>
+                            <span class="border"></span>
+                        </li>
+                        <li class="nav-item">
+                            <a id="nav-competitors-tab" data-toggle="tab" href="#nav-competitors" role="tab" aria-controls="nav-competitors"
+                               aria-selected="false">Competitors</a>
+                            <span class="border"></span>
+                        </li>
+                        <li class="nav-item">
+                            <a id="nav-judge-tab" data-toggle="tab" href="#nav-judge" role="tab" aria-controls="nav-judge"
+                               aria-selected="false">Judge Panel</a>
                             <span class="border"></span>
                         </li>
                     </ul>
@@ -60,32 +68,36 @@
             <div class="container">
                 <div class="row">
                     <div class="leftSide col-md-8">
-                        <h2>{{$competition_details->competition_name}}</h2>
-                        <h6>{{$userDetails->first_name}} {{$userDetails->last_name}} - {{$start_date}}</h6>
-                        <p>{!! $competition_details->description !!}</p>
 
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="aboutÎ-tab">
+                                <h2>{{$competition_details->competition_name}}</h2>
+                                <h6>{{$userDetails->first_name}} {{$userDetails->last_name}} - {{$start_date}}</h6>
+                                <p>{!! $competition_details->description !!}</p>
+                            </div>
+                            <div class="tab-pane fade" id="nav-rules" role="tabpanel" aria-labelledby="nav-rules-tab">
+                                @foreach($gameRule as $rule)
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4>{{$rule->rule_name}}</h4>
+                                            <p>{{$rule->rule_description}}</p>
+                                        </div>
+                                    </div><br>
+                                @endforeach
+                            </div>
+                            <div class="tab-pane fade" id="nav-organizer" role="tabpanel" aria-labelledby="nav-organizer-tab">...</div>
+                            <div class="tab-pane fade" id="nav-payments" role="tabpanel" aria-labelledby="nav-payments-tab">...</div>
+                            <div class="tab-pane fade" id="nav-voting" role="tabpanel" aria-labelledby="nav-voting-tab">...</div>
+                            <div class="tab-pane fade" id="nav-leaderboard" role="tabpanel" aria-labelledby="nav-leaderboard-tab">...</div>
+                            <div class="tab-pane fade" id="nav-competitors" role="tabpanel" aria-labelledby="nav-competitors-tab">...</div>
+                            <div class="tab-pane fade" id="nav-judge" role="tabpanel" aria-labelledby="nav-judge-tab">...</div>
+                        </div>
                     </div>
                     <div class="rightSide col-md-4">
                         <div class="dateForm">
                             <div class="container">
                                 <div class="dateForm">
                                     <div class="countDown row">
-                                        <!-- <div class="time">
-                                          <h4>Days</h4>
-                                          <h3 id="days">6</h3>
-                                        </div>
-                                        <div class="time">
-                                          <h4>Hours</h4>
-                                          <h3 id="hours">10</h3>
-                                        </div>
-                                        <div class="time">
-                                          <h4>Mins</h4>
-                                          <h3 id="minutes">44</h3>
-                                        </div>
-                                        <div class="time">
-                                          <h4>Second</h4>
-                                          <h3 id="seconds">44</h3>
-                                        </div> -->
                                     </div>
                                     <div class="ocl-timer">
                                         @if($is_closed == 'Open')
@@ -144,60 +156,115 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            @auth()
+                                <div class="container">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                        Register Competition
+                                    </button>
+                                </div>
 
-
-                        @auth()
-
-                        @elseauth
-                        <div class="loginFormComp">
-                            <div class="container">
-                                <div class="loginFormComp">
-                                    <div class="title">
-                                        <h3>Welcome to AQOSE,</h3>
-                                        <p>Please Sign In to continue</p>
-                                    </div>
-                                    <a href="" class="button button--facebook">Continue With Facebook</a>
-                                    <a href="" class="button button--google">Continue With Google</a>
-
-                                    <div class="separator">or</div>
-
-                                    <div>
-                                        <form>
-                                            <div class="form-group">
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email / Username">
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
                                             </div>
-                                            <div class="form-group">
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                            </div>
+                                            <div class="modal-body">
+                                                <div class="" id="fb-render">
 
-                                            <button type="submit" class="btn btn-primary btn-block">
-                                                Submit
-                                            </button>
-                                        </form>
-                                        <div class="row d-flex justify-content-between">
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                                                </div>
                                             </div>
-                                            <p class="text-right">Forget Password?</p>
-                                        </div>
-
-                                        <div class="bottumText">
-                                            <p>Not a member yet? <a>Register Now</a></p>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @elseauth
+                                <div class="loginFormComp">
+                                    <div class="container">
+                                        <div class="loginFormComp">
+                                            <div class="title">
+                                                <h3>Welcome to AQOSE,</h3>
+                                                <p>Please Sign In to continue</p>
+                                            </div>
+                                            <a href="" class="button button--facebook">Continue With Facebook</a>
+                                            <a href="" class="button button--google">Continue With Google</a>
+
+                                            <div class="separator">or</div>
+
+                                            <div>
+                                                <form>
+                                                    <div class="form-group">
+                                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email / Username">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                    </div>
+
+                                                    <button type="submit" class="btn btn-primary btn-block">
+                                                        Submit
+                                                    </button>
+                                                </form>
+                                                <div class="row d-flex justify-content-between">
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                        <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                                                    </div>
+                                                    <p class="text-right">Forget Password?</p>
+                                                </div>
+
+                                                <div class="bottumText">
+                                                    <p>Not a member yet? <a>Register Now</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endauth
                         </div>
-                        @endauth
-
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    @push('footer_script')
+        <script>
+            /*
+             This has been updated to use the new userData method available in formRender
+             */
+            const getUserDataBtn = document.getElementById("get-user-data");
+            const fbRender = document.getElementById("fb-render");
+            const originalFormData = {!! $competition_details->register_form !!};
+            jQuery(function($) {
+                const formData = JSON.stringify(originalFormData);
+
+                $(fbRender).formRender({ formData });
+                getUserDataBtn.addEventListener(
+                    "click",
+                    () => {
+                        window.alert(window.JSON.stringify($(fbRender).formRender("userData")));
+                    },
+                    false
+                );
+            });
+        </script>
+    @endpush
+
+
+
+
+
+
+
+
+
     @if($is_closed == 'Open')
         <script>
             // time countdown
@@ -229,6 +296,8 @@
             countdown();
             setInterval(countdown, 1000);
         </script>
+
+
     @else
 
     @endif

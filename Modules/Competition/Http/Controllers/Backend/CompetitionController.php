@@ -92,6 +92,8 @@ class CompetitionController extends Controller
                 array_push( $outArray, $out2);
             }
         }
+
+        dd($outArray);
         $jsonOutput = json_encode($outArray);
         $competition->game_rules = $jsonOutput;
         $competition->save();
@@ -165,23 +167,20 @@ class CompetitionController extends Controller
 
         //Game Rules
         $ruleNames= $request->rule_name;
-        $ruleDescriptions = $request->rule_name;
+        $ruleDescriptions = $request->description_rule;
         $outArray =[];
         if($ruleNames != null)
         {
-            foreach ($ruleNames as $ruleName){
-                foreach ($ruleDescriptions as $ruleDescription)
-                {
-                    $out2 = [
-                        'rule_description' => $ruleDescription,
-                        'rule_name' => $ruleName
+            foreach ($ruleNames as $key=>$ruleName){
+                    $outputArray = [
+                        'rule_name' => $ruleName,
+                        'rule_description' =>$ruleDescriptions[$key]
                     ];
-                }
-                array_push( $outArray, $out2);
+                array_push($outArray,$outputArray);
             }
         }
-        $jsonOutput = json_encode($outArray);
 
+        $jsonOutput = json_encode($outArray);
         $competition = Competition::where('id',$request->id)->update(
             [
                 'competition_name' => $request->competition_name,

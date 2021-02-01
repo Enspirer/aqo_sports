@@ -8,6 +8,7 @@
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  line-height: 20px;
 }
 
 .section {
@@ -45,6 +46,64 @@ a {
   margin-right: auto;
 }
 
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: none;
+  background: black;
+  color: white;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  padding-top: 60px;
+  text-align: center;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
 header .top {
   top: 0px;
   left: 0px;
@@ -55,6 +114,123 @@ header .top {
   -webkit-box-shadow: 0px 5px 10px #00000029;
           box-shadow: 0px 5px 10px #00000029;
   opacity: 1;
+  z-index: 10;
+}
+
+header .top .container {
+  height: 100%;
+}
+
+header .top .container .row {
+  height: 100%;
+}
+
+header .top .container .row .logo {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .top .container .row .logo img {
+  height: 29px;
+  margin: auto;
+  text-align: center;
+}
+
+@media (max-width: 1120px) {
+  header .top .container .row .logo img {
+    height: 25px;
+  }
+}
+
+header .top .container .row .name {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .top .container .row .name img {
+  height: 29px;
+  margin: auto;
+  text-align: center;
+}
+
+@media (max-width: 1120px) {
+  header .top .container .row .name img {
+    height: 29px;
+  }
+}
+
+@media (max-width: 998px) {
+  header .top .container .row .name {
+    display: none;
+  }
+}
+
+header .top .container .row .buttons {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .top .container .row .buttons .inline {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+header .top .container .row .buttons .inline .selectpicker {
+  margin: auto;
+  background: transparent;
+  border: transparent;
+  color: white;
+}
+
+header .top .container .row .buttons .inline .buttonSignIn {
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  margin: auto;
+  padding: 3px 20px 6px 20px;
+  background: transparent;
+  color: white;
+  margin-left: 10px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+header .top .container .row .buttons .inline .buttonRegister {
+  background: transparent -webkit-gradient(linear, left top, left bottom, from(#f6d703), to(#fabf02)) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #f6d703 0%, #fabf02 100%) 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  margin: auto;
+  padding: 4px 20px 6px 20px;
+  color: white;
+  margin-left: 10px;
+}
+
+@media (max-width: 998px) {
+  header .top .container .row .buttons {
+    display: none;
+  }
+}
+
+header .top .menu {
+  color: white !important;
+  font-size: 25px;
+  margin-top: 23px;
+}
+
+@media (min-width: 998px) {
+  header .top .menu {
+    display: none;
+  }
+}
+
+header .top .menu a {
+  color: white;
 }
 
 header .bottom {
@@ -65,7 +241,17 @@ header .bottom {
   background: #ffffff 0% 0% no-repeat padding-box;
   -webkit-box-shadow: 0px 5px 10px #00000029;
           box-shadow: 0px 5px 10px #00000029;
+  -webkit-transform: all 0.3s;
+          transform: all 0.3s;
   opacity: 0.7;
+  z-index: 9;
+}
+
+header .bottom .container .row .leftLogo .logoDark img {
+  width: 100px;
+  margin: auto;
+  text-align: center;
+  margin-top: 12px;
 }
 
 header .bottom nav {
@@ -105,7 +291,55 @@ header .bottom nav ul li a:hover {
   color: rgba(0, 35, 122, 0.99);
 }
 
-header .loginForm {
+@media (max-width: 998px) {
+  header .bottom {
+    display: none;
+  }
+}
+
+header .bottom.sticky {
+  top: 0px !important;
+  opacity: 1 !important;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  -webkit-box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.35);
+  -webkit-animation-name: animationFade;
+          animation-name: animationFade;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes animationFade {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100, 0);
+            transform: translate3d(0, -100, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes animationFade {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100, 0);
+            transform: translate3d(0, -100, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+.loginFormmain {
   background-image: url("../../assets/image/loginBackground.png");
   width: 100%;
   height: calc(100% - 131px);
@@ -115,12 +349,18 @@ header .loginForm {
   background-size: cover;
 }
 
-header .loginForm .container {
+@media (max-width: 998px) {
+  .loginFormmain {
+    height: calc(100vh - 70px);
+  }
+}
+
+.loginFormmain .container {
   padding: 40px;
   height: 100%;
 }
 
-header .loginForm .container .loginForm {
+.loginFormmain .container .loginForm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -136,25 +376,25 @@ header .loginForm .container .loginForm {
   padding: 40px;
 }
 
-header .loginForm .container .loginForm .title {
+.loginFormmain .container .loginForm .title {
   text-align: center;
 }
 
-header .loginForm .container .loginForm .title h3 {
+.loginFormmain .container .loginForm .title h3 {
   font: normal normal bold 26px/35px Playfair Display;
   letter-spacing: 0px;
   color: #4f4f4f;
   opacity: 1;
 }
 
-header .loginForm .container .loginForm .title p {
+.loginFormmain .container .loginForm .title p {
   font: normal normal normal 18px/23px Source Sans Pro;
   letter-spacing: 0px;
   color: #4f4f4f;
   opacity: 1;
 }
 
-header .loginForm .container .loginForm .button {
+.loginFormmain .container .loginForm .button {
   display: block;
   color: white;
   padding: 0.45rem;
@@ -169,23 +409,23 @@ header .loginForm .container .loginForm .button {
   opacity: 1;
 }
 
-header .loginForm .container .loginForm .button--facebook {
+.loginFormmain .container .loginForm .button--facebook {
   background: #4267b2 0% 0% no-repeat padding-box;
   opacity: 1;
   border-radius: 3px;
 }
 
-header .loginForm .container .loginForm .button--facebook:hover {
+.loginFormmain .container .loginForm .button--facebook:hover {
   background-color: #2d4373;
 }
 
-header .loginForm .container .loginForm .button--facebook:before {
+.loginFormmain .container .loginForm .button--facebook:before {
   content: "\f230";
   font-family: "FontAwesome";
   padding-right: 1rem;
 }
 
-header .loginForm .container .loginForm .button--google {
+.loginFormmain .container .loginForm .button--google {
   background-color: #fff;
   border: 1px solid #9f9f9f;
   opacity: 1;
@@ -193,19 +433,19 @@ header .loginForm .container .loginForm .button--google {
   color: #4f4f4f;
 }
 
-header .loginForm .container .loginForm .button--google:hover {
+.loginFormmain .container .loginForm .button--google:hover {
   background-color: #c23321;
   color: #fff;
   border: 1px solid #fff;
 }
 
-header .loginForm .container .loginForm .button--google:before {
+.loginFormmain .container .loginForm .button--google:before {
   content: "\f1a0";
   font-family: "FontAwesome";
   padding-right: 1rem;
 }
 
-header .loginForm .container .loginForm .separator {
+.loginFormmain .container .loginForm .separator {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -220,8 +460,8 @@ header .loginForm .container .loginForm .separator {
   margin-bottom: 10px;
 }
 
-header .loginForm .container .loginForm .separator::before,
-header .loginForm .container .loginForm .separator::after {
+.loginFormmain .container .loginForm .separator::before,
+.loginFormmain .container .loginForm .separator::after {
   content: "";
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -229,22 +469,22 @@ header .loginForm .container .loginForm .separator::after {
   border-bottom: 1px solid #333333;
 }
 
-header .loginForm .container .loginForm .separator::before {
+.loginFormmain .container .loginForm .separator::before {
   margin-right: 0.25em;
 }
 
-header .loginForm .container .loginForm .separator::after {
+.loginFormmain .container .loginForm .separator::after {
   margin-left: 0.25em;
 }
 
-header .loginForm .container .loginForm form input {
+.loginFormmain .container .loginForm form input {
   font: normal normal normal 13px/17px Source Sans Pro;
   letter-spacing: 0px;
   color: #9f9f9f;
   opacity: 1;
 }
 
-header .loginForm .container .loginForm form button {
+.loginFormmain .container .loginForm form button {
   background: transparent -webkit-gradient(linear, left top, left bottom, from(#f6d703), to(#fabf02)) 0% 0% no-repeat padding-box;
   background: transparent linear-gradient(180deg, #f6d703 0%, #fabf02 100%) 0% 0% no-repeat padding-box;
   border-radius: 4px;
@@ -256,12 +496,12 @@ header .loginForm .container .loginForm form button {
   border: none;
 }
 
-header .loginForm .container .loginForm .row {
+.loginFormmain .container .loginForm .row {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
 
-header .loginForm .container .loginForm .row input {
+.loginFormmain .container .loginForm .row input {
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 0.5px solid #333333;
   opacity: 1;
@@ -270,14 +510,14 @@ header .loginForm .container .loginForm .row input {
   margin-top: 8px;
 }
 
-header .loginForm .container .loginForm .row label {
+.loginFormmain .container .loginForm .row label {
   font: normal normal normal 12px/13px Source Sans Pro;
   letter-spacing: 0.18px;
   color: #333333;
   opacity: 1;
 }
 
-header .loginForm .container .loginForm .row p {
+.loginFormmain .container .loginForm .row p {
   text-align: left;
   font: normal normal normal 12px/13px Source Sans Pro;
   letter-spacing: 0.18px;
@@ -286,7 +526,7 @@ header .loginForm .container .loginForm .row p {
   margin-top: 8px;
 }
 
-header .loginForm .container .loginForm .bottumText {
+.loginFormmain .container .loginForm .bottumText {
   font: normal normal normal 13px/14px Source Sans Pro;
   letter-spacing: 0.2px;
   color: #333333;
@@ -295,7 +535,7 @@ header .loginForm .container .loginForm .bottumText {
   margin-top: 30px;
 }
 
-header .loginForm .container .loginForm .bottumText a {
+.loginFormmain .container .loginForm .bottumText a {
   letter-spacing: 0.2px;
   color: #002a89;
   opacity: 1;
@@ -604,5 +844,454 @@ header .loginForm .container .loginForm .bottumText a {
   border: 1px solid #333333;
   border-radius: 2px;
   color: #333333;
+}
+
+.competetionHero {
+  padding: 10px;
+  height: 513px;
+}
+
+.competetionHero .imgaeSection {
+  height: 513px;
+}
+
+.competetionHero .imgaeSection img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.competetionHero .addSection {
+  height: 513px;
+}
+
+.competetionHero .addSection img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.secondNavigation {
+  margin-top: 20px;
+  width: 100%;
+  height: 51px;
+  background: #f0f2f6 0% 0% no-repeat padding-box;
+  -webkit-box-shadow: 0px 5px 10px #00000029;
+          box-shadow: 0px 5px 10px #00000029;
+  opacity: 0.7;
+}
+
+.secondNavigation .nav {
+  width: 100%;
+  height: 50px;
+  background: #fff;
+}
+
+.secondNavigation .nav .nav-list {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style: none;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.secondNavigation .nav .nav-list .nav-item {
+  padding: 0 20px;
+  line-height: 50px;
+  cursor: pointer;
+  position: relative;
+  font-size: 18px;
+}
+
+.secondNavigation .nav .nav-list .nav-item .border {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #002a89;
+}
+
+.secondNavigation .nav .nav-list .nav-item .borderActive {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #002a89;
+}
+
+.competetionDetails {
+  padding-top: 67px;
+}
+
+.competetionDetails .container .row .leftSide h2 {
+  font: normal normal bold 36px/58px Playfair Display;
+  letter-spacing: 0px;
+  color: #002a89;
+  text-transform: uppercase;
+  opacity: 1;
+}
+
+.competetionDetails .container .row .leftSide h6 {
+  font: normal normal normal 19px/30px Playfair Display;
+  letter-spacing: 0px;
+  color: #002a89;
+}
+
+.competetionDetails .container .row .leftSide p {
+  padding-top: 29px;
+  font: normal normal normal 17px/35px Source Sans Pro;
+  letter-spacing: 0px;
+  color: #4f4f4f;
+}
+
+.competetionDetails .container .row .rightSide .dateForm {
+  width: 100%;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container {
+  padding: 40px;
+  height: 100%;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm {
+  background-color: rgba(0, 0, 0, 0.01) !important;
+  font-family: Source Sans Pro;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 324px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 5px 10px #00000029;
+          box-shadow: 0px 5px 10px #00000029;
+  padding: 40px;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm .ocl-timer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm .ocl-timer__main-unit-amount {
+  font-size: 80px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.8px;
+  text-align: center;
+  color: #4f4f4f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm .ocl-timer__main-unit {
+  font-size: 16px;
+  font-weight: 500;
+  color: #4f4f4f;
+  display: block;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm .ocl-timer__secondary-unit {
+  display: block;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm .ocl-timer__secondary-units {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm .ocl-timer__secondary-unit-name {
+  display: block;
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 2;
+  letter-spacing: 0.1px;
+  color: #4f4f4f;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm .ocl-timer__secondary-unit-amount {
+  display: block;
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: 0.23px;
+  color: #4f4f4f;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm .ocl-timer__secondary-units-divider {
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: 0.23px;
+  color: #4f4f4f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 3px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm .ocl-timer__timer-details {
+  display: block;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm h3 {
+  font-size: 15px;
+  letter-spacing: 0px;
+  color: #4f4f4f;
+  margin: 4px 0px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm .dateRange {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm .dateRange h3 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0px;
+  color: #4f4f4f;
+  line-height: 1;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm .dateRange h3 span {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.competetionDetails .container .row .rightSide .dateForm .container .dateForm .dateRange p {
+  text-align: center;
+  letter-spacing: 0px;
+  color: #4f4f4f;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp {
+  width: 100%;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container {
+  padding: 40px;
+  height: 100%;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp {
+  background-color: rgba(0, 0, 0, 0.01) !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 324px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 5px 10px #00000029;
+          box-shadow: 0px 5px 10px #00000029;
+  padding: 40px;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .title {
+  text-align: center;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .title h3 {
+  font: normal normal bold 26px/35px Playfair Display;
+  letter-spacing: 0px;
+  color: #4f4f4f;
+  opacity: 1;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .title p {
+  font: normal normal normal 18px/23px Source Sans Pro;
+  letter-spacing: 0px;
+  color: #4f4f4f;
+  opacity: 1;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .button {
+  display: block;
+  color: white;
+  padding: 0.45rem;
+  padding-left: 1rem;
+  text-decoration: none;
+  margin: 0.3rem 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font: normal normal 400 13px/17px Source Sans Pro;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .button--facebook {
+  background: #4267b2 0% 0% no-repeat padding-box;
+  opacity: 1;
+  border-radius: 3px;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .button--facebook:hover {
+  background-color: #2d4373;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .button--facebook:before {
+  content: "\f230";
+  font-family: "FontAwesome";
+  padding-right: 1rem;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .button--google {
+  background-color: #fff;
+  border: 1px solid #9f9f9f;
+  opacity: 1;
+  border-radius: 3px;
+  color: #4f4f4f;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .button--google:hover {
+  background-color: #c23321;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .button--google:before {
+  content: "\f1a0";
+  font-family: "FontAwesome";
+  padding-right: 1rem;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .separator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  font: normal normal normal 15px/19px Source Sans Pro;
+  letter-spacing: 0px;
+  color: #333333;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .separator::before,
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .separator::after {
+  content: "";
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-bottom: 1px solid #333333;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .separator::before {
+  margin-right: 0.25em;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .separator::after {
+  margin-left: 0.25em;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp form input {
+  font: normal normal normal 13px/17px Source Sans Pro;
+  letter-spacing: 0px;
+  color: #9f9f9f;
+  opacity: 1;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp form button {
+  background: transparent -webkit-gradient(linear, left top, left bottom, from(#f6d703), to(#fabf02)) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #f6d703 0%, #fabf02 100%) 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  opacity: 1;
+  font: normal normal 600 13px/17px Source Sans Pro;
+  letter-spacing: 0.2px;
+  color: #002a89;
+  opacity: 1;
+  border: none;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .row input {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 0.5px solid #333333;
+  opacity: 1;
+  width: 12px;
+  height: 12px;
+  margin-top: 8px;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .row label {
+  font: normal normal normal 12px/13px Source Sans Pro;
+  letter-spacing: 0.18px;
+  color: #333333;
+  opacity: 1;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .row p {
+  text-align: left;
+  font: normal normal normal 12px/13px Source Sans Pro;
+  letter-spacing: 0.18px;
+  color: #002a89;
+  opacity: 1;
+  margin-top: 8px;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .bottumText {
+  font: normal normal normal 13px/14px Source Sans Pro;
+  letter-spacing: 0.2px;
+  color: #333333;
+  opacity: 1;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp .bottumText a {
+  letter-spacing: 0.2px;
+  color: #002a89;
+  opacity: 1;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

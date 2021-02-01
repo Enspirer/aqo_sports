@@ -106,6 +106,8 @@ class CompetitionController extends Controller
         $carbonEndDate = new Carbon($competitionDetails->end_date);
         $carbonTody = new Carbon(today());
         $userDetails = User::where('id',$competitionDetails->user_id)->first();
+        $gameRules = json_decode($competitionDetails->game_rules);
+
 
         if($carbonEndDate < $carbonTody)
         {
@@ -119,6 +121,7 @@ class CompetitionController extends Controller
             'end_date' =>$carbonEndDate->format('M d Y'),
             'is_closed' => $exp,
             'userDetails' => $userDetails,
+            'gameRule' => $gameRules,
         ]);
     }
 
