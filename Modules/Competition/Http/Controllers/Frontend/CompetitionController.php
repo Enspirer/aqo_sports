@@ -10,6 +10,9 @@ use Illuminate\Routing\Controller;
 use Modules\Competition\Entities\Competition;
 use Modules\Competition\Entities\CompetitionCategory;
 use Carbon\Carbon;
+use Modules\Competition\Entities\Competitor;
+
+
 class CompetitionController extends Controller
 {
     /**
@@ -18,7 +21,7 @@ class CompetitionController extends Controller
      */
     public function index()
     {
-        return view('competition::index');
+
     }
 
 
@@ -134,6 +137,50 @@ class CompetitionController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+
+    public function register_request(Request $request)
+    {
+        $competitionDetails = Competition::where('id',$request->competition_id)->first();
+        $competitior = self::registerDetails($request,$competitionDetails->register_form);
+        $competitor = new Competitor;
+        $competitor->user_id = auth()->user()->id;
+        $competitor->competitior_type = 1;
+        $competitor->competitor_status  = 0;
+        $competitor->score  = 0;
+        $competitor->description  = 0;
+        $competitor->competition_id  = $request->competition_id;
+        $competitor->competition_form  = $competitionDetails->register_form;
+        $competitor->competition_details  = json_encode($competitior);
+        $competitor->save();
+        return back();
+    }
+
+
+    public static function registerDetails ($request,$register_form)
+    {
+        $requestValue = array_except($request->all(), ['_token']);
+        $registerDetails = json_decode($register_form);
+        $finalOur = [];
+
+        foreach ($registerDetails as $registerDetail)
+        {
+            if($request->file($registerDetail->name))
+            {
+                $imageName = time().'.'.$request->file($registerDetail->name)->getClientOriginalExtension();
+                $fullURLs = $request->file($registerDetail->name)->move(public_path('files'), $imageName);
+                $value = $imageName;
+            }else{
+                $value = $requestValue[$registerDetail->name];
+            }
+            $output = [
+              'label' => $registerDetail->label,
+              'value' => $value
+            ];
+            array_push($finalOur,$output);
+        }
+        return $finalOur;
     }
 
     /**

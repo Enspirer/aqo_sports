@@ -10,6 +10,8 @@
     <label class="form-label">Feature Image</label>
     <div class="" style="background-image: url('{{url('/files/'.$competition_details->feature_image)}}');height: 190px;background-position: center;background-size: contain;background-repeat: no-repeat;"></div>
     <input type="file" name="feature_image" value="{{$competition_details->feature_image}}" class="form-control">
+    <input type="hidden" name="feature_image_name" class="form-control" value="{{$competition_details->feature_image}}">
+
 </div>
 <div class="form-group">
     <label class="form-label">Status</label>

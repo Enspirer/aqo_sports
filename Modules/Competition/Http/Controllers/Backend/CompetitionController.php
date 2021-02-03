@@ -75,25 +75,22 @@ class CompetitionController extends Controller
         $competition->started_date = $request->start_date;
         $competition->end_date = $request->end_date;
         $competition->register_form = $request->register_form_data;
+
         //Game Rules
         $ruleNames= $request->rule_name;
-        $ruleDescriptions = $request->rule_name;
+        $ruleDescriptions = $request->description_rule;
         $outArray =[];
         if($ruleNames != null)
         {
-            foreach ($ruleNames as $ruleName){
-                foreach ($ruleDescriptions as $ruleDescription)
-                {
-                    $out2 = [
-                        'rule_description' => $ruleDescription,
-                        'rule_name' => $ruleName
-                    ];
-                }
-                array_push( $outArray, $out2);
+            foreach ($ruleNames as $key=>$ruleName){
+                $outputArray = [
+                    'rule_name' => $ruleName,
+                    'rule_description' =>$ruleDescriptions[$key]
+                ];
+                array_push($outArray,$outputArray);
             }
         }
 
-        dd($outArray);
         $jsonOutput = json_encode($outArray);
         $competition->game_rules = $jsonOutput;
         $competition->save();
@@ -162,7 +159,7 @@ class CompetitionController extends Controller
             $fullURLs = $request->feature_image->move(public_path('files'), $imageName);
             $competition_feature_img = $imageName;
         }else{
-            $competition_feature_img = $request->feature_image;
+            $competition_feature_img = $request->feature_image_name;
         }
 
         //Game Rules
