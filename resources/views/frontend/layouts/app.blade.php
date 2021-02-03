@@ -13,7 +13,9 @@
             href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"
     />
     <link rel="stylesheet" href="{{url('aqo_se/Styles/css/style.css')}}"/>
-
+    <link rel="stylesheet" href="{{url('aqo_se/plugin/owl-carousel/css/owl.carousel.min.css')}}">
+    <!-- Styles -->
+    <link rel="stylesheet" href="Styles/css/style.css" />
 </head>
 <body>
 <div class="main">
@@ -37,8 +39,47 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 <script src='https://kevinchappell.github.io/formBuilder/assets/js/form-render.min.js'></script>
 
+
+<script src="{{url('/aqo_se/plugin/owl-carousel/js/owl.carousel.js')}}"></script>
+<script src="{{url('/aqo_se/plugin/owl-carousel/js/jquery.mousewheel.min.js')}}"></script>
+
+
 @stack('footer_script')
 
 <script src="{{url('aqo_se/JS/main.js')}}"></script>
+<script>
+    $(document).ready(function () {
+        var owl = $('.owl-carousel');
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            lazyLoad: true,
+            autoplay: true,
+            autoplayTimeout:1000,
+            // nav: true,
+            // navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        });
+        // owl.on('mousewheel', '.owl-stage', function (e) {
+        //     if (e.deltaY > 0) {
+        //         owl.trigger('next.owl');
+        //     } else {
+        //         owl.trigger('prev.owl');
+        //     }
+        //     e.preventDefault();
+        // });
+    })
+</script>
 </body>
 </html>

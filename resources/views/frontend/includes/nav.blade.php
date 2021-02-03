@@ -17,14 +17,66 @@
                 <img src="{{url('aqo_se/assets/image/logo/aqoselightlg.png')}}" alt="" srcset=""/>
             </div>
             <div class="buttons col col-md-3">
-                <div class="inline">
-                    <select class="selectpicker" data-width="fit">
-                        <option>En</option>
-                        <option>Es</option>
-                    </select>
-                    <a href="{{route('frontend.auth.login')}}" class="buttonSignIn">Sign In</a>
-                    <a href="{{route('frontend.auth.register')}}" class="buttonRegister">Register</a>
-                </div>
+
+                    @auth()
+                    <div class="inline">
+                        <div class="user-menu-wrap">
+                            <a class="mini-photo-wrapper" href="#">
+                                <img class="mini-photo" src="https://images.unsplash.com/photo-1578976563986-fb8769ab695e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" width="36" height="36" />
+                                <div class="menu-container">
+                                    <ul class="user-menu">
+                                        <div class="profile-highlight">
+                                            <img src="https://images.unsplash.com/photo-1578976563986-fb8769ab695e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+                                                 alt="profile-img" width=36 height=36>
+                                            <div class="details">
+                                                <div id="profile-name">{{auth()->user()->first_name}} {{auth()->user()->last_name}}</div>
+                                                <div id="profile-footer">Team Hallaway</div>
+                                            </div>
+                                        </div>
+                                        <li class="user-menu__item">
+                                            <a class="user-menu-link" href="#">
+                                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/trophy.png"
+                                                     alt="trophy_icon" width=20 height=20>
+                                                <div>Achievements</div>
+                                            </a>
+                                        </li>
+                                        <li class="user-menu__item">
+                                            <a class="user-menu-link" href="#">
+                                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/team.png"
+                                                     alt="team_icon" width=20 height=20>
+                                                <div>Team</div>
+                                            </a>
+                                        </li>
+                                        <li class="user-menu__item">
+                                            <a class="user-menu-link" href="#">
+                                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/book.png"
+                                                     alt="team_icon" width=20 height=20>
+                                                <div>Log History</div>
+                                            </a>
+                                        </li>
+                                        <div class="footer">
+                                            <li class="user-menu__item"><a class="user-menu-link" href="{{route('frontend.auth.logout')}}"
+                                                                           style="color: #F44336;">Logout</a></li>
+                                            <li class="user-menu__item"><a class="user-menu-link"
+                                                                           href="#">Settings</a></li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                        <h6>{{auth()->user()->first_name}}</h6>
+                    </div>
+                    @else
+                    <div class="inline">
+                        <select class="selectpicker" data-width="fit">
+                            <option>En</option>
+                            <option>Es</option>
+                        </select>
+                        <a href="{{route('frontend.auth.login')}}" class="buttonSignIn">Sign In</a>
+                        <a href="{{route('frontend.auth.register')}}" class="buttonRegister">Register</a>
+                    </div>
+                    @endauth
+
             </div>
 
             <div class="menu col col-sm-4 col-xs-3 text-right float-right justify-content-end">
@@ -46,7 +98,7 @@
                 <nav>
                     <ul>
                         <li>
-                            <a href="#">Home</a>
+                            <a href="{{url('/')}}">Home</a>
                         </li>
                         <li>
                             <a href="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}">Explore</a>
