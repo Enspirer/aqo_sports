@@ -7,8 +7,8 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <strong>Competition</strong>
-                    <a href="{{route('admin.competition.create')}}" class="btn btn-primary" style="float: right">Create Competition</a>
+                    <strong>Competitor List - {{$competitionDetails->competition_name}}</strong>
+                    <a href="{{route('admin.competition.create')}}" class="btn btn-primary" style="float: right">Add Competitors</a>
                 </div><!--card-header-->
 
                 <div class="card-body">
@@ -16,9 +16,8 @@
                         <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Competition Name</th>
-                            <th scope="col">Start Date</th>
-                            <th scope="col">End Date</th>
+                            <th scope="col">Competitor Name</th>
+                            <th scope="col">Status</th>
                             <th scope="col">Created at</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -38,12 +37,11 @@
 
             var table = $('#data_table').DataTable({
                 processing: false,
-                ajax: "{{route('admin.competition.get_table_details')}}",
+                ajax: "{{route('admin.competitior.get_table_details',$competitionDetails->id)}}",
                 columns: [
                     {data: 'id', name: 'id'},
-                    {data: 'competition_name', name: 'competition_name'},
-                    {data: 'started_date', name: 'started_date'},
-                    {data: 'end_date', name: 'end_date'},
+                    {data: 'competitor_name', name: 'competitor_name'},
+                    {data: 'competitor_status', name: 'competitor_status'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]

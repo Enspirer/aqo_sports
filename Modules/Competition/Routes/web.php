@@ -67,4 +67,10 @@ Breadcrumbs::for('admin.category.edit', function ($trail) {
 });
 
 
+Breadcrumbs::for('admin.competitior.index', function ($trail) {
+    $trail->push('View Competitor', route('admin.competitior.index',1));
+});
+
+
+
 

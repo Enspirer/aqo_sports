@@ -7,7 +7,8 @@ Route::get('competition/create', 'CompetitionController@create')->name('competit
 Route::post('competition/create/insert', 'CompetitionController@store')->name('competition.store');
 Route::post('competition/update', 'CompetitionController@update')->name('competition.update');
 
-Route::get('competitiors/{competition_id}', 'CompetitionController@update')->name('competitior.list');
+Route::get('competitiors/{competition_id}', 'CompetitorController@index')->name('competitior.index');
+Route::get('competitiors_details/{competition_id}', 'CompetitorController@getTableDetails')->name('competitior.get_table_details');
 
 
 Route::get('category', 'CategoryController@index')->name('category.index');
