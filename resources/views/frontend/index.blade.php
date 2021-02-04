@@ -8,10 +8,10 @@
             <div class="container">
                 <div class="yellow-background"></div>
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-8">
                         <img src="{{url('aqo_se/assets/image/gettyimages-592331286.jpg')}}" alt="">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-4">
                         <img src="{{url('aqo_se/assets/image/531027_16155704_2924445_facad91f_image.jpg')}}" alt="" srcset="">
                     </div>
                 </div>
