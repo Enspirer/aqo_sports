@@ -111,6 +111,11 @@ class CompetitionController extends Controller
         $userDetails = User::where('id',$competitionDetails->user_id)->first();
         $gameRules = json_decode($competitionDetails->game_rules);
 
+        $competiorDetails = Competitor::IsAppliedCompetition($id);
+
+
+
+
 
         if($carbonEndDate < $carbonTody)
         {
@@ -125,6 +130,7 @@ class CompetitionController extends Controller
             'is_closed' => $exp,
             'userDetails' => $userDetails,
             'gameRule' => $gameRules,
+            'competitorDetails' => $competiorDetails
         ]);
     }
 

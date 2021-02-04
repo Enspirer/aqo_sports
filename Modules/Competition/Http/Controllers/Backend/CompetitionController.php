@@ -120,10 +120,6 @@ class CompetitionController extends Controller
         $getCompetitionForm = json_decode($getCompetionDetaills->register_form);
         $encorededJson = json_encode($getCompetitionForm);
 
-
-
-
-
         return view('competition::backend.competition.edit',[
             'competition_details' => $getCompetionDetaills,
             'game_rules' => $getGameRules,
@@ -215,8 +211,9 @@ class CompetitionController extends Controller
         $compeition = Competition::all();
         return Datatables::of($compeition)
             ->addColumn('action', function($row){
-                $btn = '<a href="'.route('admin.competition.edit',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit </a>';
-                return $btn;
+                $btn1 = '<a href="'.route('admin.competition.edit',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit </a>';
+                $btn2 = ' <a href="'.route('admin.competitior.index',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-users"></i> View Competitors </a>';
+                return $btn1.$btn2;
             })
             ->rawColumns(['action'])
             ->make();
