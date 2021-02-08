@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Frontend\User;
 
 use App\Http\Controllers\Controller;
+use Modules\Competition\Entities\Competition;
+use Modules\Competition\Entities\Competitor;
 
 /**
  * Class DashboardController.
@@ -14,6 +16,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('frontend.user.dashboard');
+       return redirect()->route('frontend.user.my_competition');
     }
 }
