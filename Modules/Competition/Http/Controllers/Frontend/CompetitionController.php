@@ -110,8 +110,9 @@ class CompetitionController extends Controller
         $carbonTody = new Carbon(today());
         $userDetails = User::where('id',$competitionDetails->user_id)->first();
         $gameRules = json_decode($competitionDetails->game_rules);
-
         $competiorDetails = Competitor::IsAppliedCompetition($id);
+
+        $getCompetitorDetails = Competitor::getAppliedCompetitorsUsers($id,1);
 
 
 
@@ -130,7 +131,8 @@ class CompetitionController extends Controller
             'is_closed' => $exp,
             'userDetails' => $userDetails,
             'gameRule' => $gameRules,
-            'competitorDetails' => $competiorDetails
+            'competitorDetails' => $competiorDetails,
+            'getCompetitorDetails' => $getCompetitorDetails
         ]);
     }
 
@@ -177,12 +179,15 @@ class CompetitionController extends Controller
                 $imageName = time().'.'.$request->file($registerDetail->name)->getClientOriginalExtension();
                 $fullURLs = $request->file($registerDetail->name)->move(public_path('files'), $imageName);
                 $value = $imageName;
+                $type = $request->file($registerDetail->name)->getClientOriginalExtension();
             }else{
                 $value = $requestValue[$registerDetail->name];
+                $type = 'text';
             }
             $output = [
               'label' => $registerDetail->label,
-              'value' => $value
+              'value' => $value,
+              'type' => $type,
             ];
             array_push($finalOur,$output);
         }
