@@ -2,6 +2,7 @@
 
 namespace Modules\Competition\Entities;
 
+use App\Models\Auth\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -26,5 +27,27 @@ class Competitor extends Model
         }else{
             return null;
         }
+    }
+
+
+    public static function getAppliedCompetitorsUsers($competitionID,$status)
+    {
+        $getCompetitions = Competitor::where('competition_id',$competitionID)
+            ->where('competitor_status', $status)
+            ->get();
+        $output = [];
+        foreach ($getCompetitions as $competionDetails)
+        {
+            $getUser = User::where('id',$competionDetails->user_id)->first();
+
+            $outputAppend = [
+                'competitor_name' => $getUser->first_name.' '.$getUser->last_name,
+                'score' => $competionDetails->score,
+                'competitor_id' => $competionDetails->id
+            ];
+            array_push($output,$outputAppend);
+        }
+
+       return $output;
     }
 }
