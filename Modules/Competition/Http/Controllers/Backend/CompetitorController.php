@@ -7,6 +7,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Competition\Entities\Competition;
+use Modules\Competition\Entities\CompetitionCategory;
 use Modules\Competition\Entities\Competitor;
 use DataTables;
 
@@ -51,7 +52,32 @@ class CompetitorController extends Controller
      */
     public function show($id)
     {
-        return view('competition::show');
+
+        $competitor = Competitor::where('id',$id)->first();
+
+        $competionDetails = Competition::where('id',$competitor->competition_id)->first();
+        $userDetails = User::where('id',$competitor->user_id)->first();
+        $categoryDetails = CompetitionCategory::where('id',$competionDetails->category_id)->first();
+        $requestFormDetails = json_decode($competitor->competition_details);
+        return view('competition::backend.competitors.show',[
+                'competitorDetails' => $competitor,
+                'competitionDetails' => $competionDetails,
+                'userDetais' => $userDetails,
+                'categoryDetails' => $categoryDetails,
+                'competitionformDetails' =>$requestFormDetails
+            ]);
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $competitions = Competitor::where('id',$request->competitor_id)->update(
+            [
+                'competitor_status' => $request->accept_status
+            ]
+        );
+
+        return back();
+
     }
 
     /**
@@ -95,7 +121,7 @@ class CompetitorController extends Controller
                 return $userDetails->first_name.' '.$userDetails->last_name;
             })
             ->addColumn('action', function($row){
-                $btn1 = '<a href="" class="edit btn btn-primary btn-sm"><i class="fa fa-eye"></i> View </a>';
+                $btn1 = '<a href="'.route('admin.competitior.show',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-eye"></i> View </a>';
                 $btn2 = ' <a href="" class="edit btn btn-primary btn-sm"><i class="fa fa-bars"></i>Performance</a>';
                 return $btn1.$btn2;
             })

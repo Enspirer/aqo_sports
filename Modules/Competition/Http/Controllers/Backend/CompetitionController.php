@@ -104,6 +104,7 @@ class CompetitionController extends Controller
      */
     public function show($id)
     {
+
         return view('competition::show');
     }
 
@@ -194,6 +195,8 @@ class CompetitionController extends Controller
 
 
     }
+
+
 
     /**
      * Remove the specified resource from storage.
