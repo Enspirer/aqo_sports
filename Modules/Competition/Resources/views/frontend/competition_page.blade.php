@@ -88,8 +88,62 @@
                             <div class="tab-pane fade" id="nav-organizer" role="tabpanel" aria-labelledby="nav-organizer-tab">...</div>
                             <div class="tab-pane fade" id="nav-payments" role="tabpanel" aria-labelledby="nav-payments-tab">...</div>
                             <div class="tab-pane fade" id="nav-voting" role="tabpanel" aria-labelledby="nav-voting-tab">...</div>
-                            <div class="tab-pane fade" id="nav-leaderboard" role="tabpanel" aria-labelledby="nav-leaderboard-tab">...</div>
-                            <div class="tab-pane fade" id="nav-competitors" role="tabpanel" aria-labelledby="nav-competitors-tab">...</div>
+                            <div class="tab-pane fade" id="nav-leaderboard" role="tabpanel" aria-labelledby="nav-leaderboard-tab">
+
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th scope="col">Handle</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td colspan="2">Larry the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
+
+
+                            </div>
+                            <div class="tab-pane fade" id="nav-competitors" role="tabpanel" aria-labelledby="nav-competitors-tab">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Competitior Name</th>
+                                        <th scope="col">Score</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($getCompetitorDetails as $getCompetitor)
+                                        <tr>
+                                            <td scope="row">{{$getCompetitor['competitor_name']}}</td>
+                                            <td>{{$getCompetitor['score']}}</td>
+
+                                        </tr>
+                                    @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
                             <div class="tab-pane fade" id="nav-judge" role="tabpanel" aria-labelledby="nav-judge-tab">...</div>
                         </div>
                     </div>
@@ -157,18 +211,23 @@
                                 </div>
                             </div>
                             @auth()
+
+                            <div class="loginFormComp">
                                 <div class="container">
                                     @if($competitorDetails)
-                                        <button type="button" class="btn btn-primary" disabled>
+                                        <button type="button" class="btn-apply-now" disabled>
                                             Applied Competition
                                         </button>
                                     @else
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                        <button type="button" class="btn-apply-now" data-toggle="modal" data-target="#exampleModal">
                                             Register Competition
                                         </button>
                                     @endif
-
                                 </div>
+                            </div>
+
+
+
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

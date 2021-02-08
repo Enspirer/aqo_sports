@@ -3,13 +3,58 @@
 @section('title', app_name() . ' | ' . __('navs.general.home'))
 
 @section('content')
+
     <div class="main">
         <div class="hero-image">
             <div class="container">
-                <div class="yellow-background"></div>
+                <!-- <div class="yellow-background"></div> -->
                 <div class="row">
                     <div class="col-md-8">
-                        <img src="{{url('aqo_se/assets/image/gettyimages-592331286.jpg')}}" alt="">
+
+                        <!-- <div class="slider">
+
+                            <ul class="js__slider__images slider__images">
+                              <li class="slider__images-item"><img class="slider__images-image" src="assets/image/gettyimages-592331286.jpg" /></li>
+                              <li class="slider__images-item"><img class="slider__images-image" src="assets/image/slider1.jpg" /></li>
+                              <li class="slider__images-item"><img class="slider__images-image" src="assets/image/slider2.jpg" /></li>
+                              <li class="slider__images-item"><img class="slider__images-image" src="assets/image/sllider3.jpg" /></li>
+                              <li class="slider__images-item"><img class="slider__images-image" src="assets/image/slider4.webp" /></li>
+                            </ul>
+
+                            <div class="slider__controls">
+                                <span class="slider__control js__slider__control--prev slider__control--prev">Prev</span>
+
+                                <ol class="js__slider__pagers slider__pagers"></ol>
+
+                                <span class="slider__control js__slider__control--next slider__control--next">Next</span>
+                              </div>
+                          </div> -->
+
+                        <!-- <div id="slideshow">
+                            <div><img src="assets/image/gettyimages-592331286.jpg"></div>
+                            <div><img src="assets/image/slider1.jpg" alt=""></div>
+                            <div><img src="assets/image/slider2.jpg" alt=""></div>
+                            <div><img src="assets/image/sllider3.jpg" alt=""></div>
+                            <div><img src="assets/image/slider4.webp" alt=""></div>
+                        </div> -->
+
+                        <div id="slideshow">
+                            <div>
+                                <img src="{{url('aqo_se/assets/image/gettyimages-592331286.jpg')}}">
+                            </div>
+                            <div>
+                                <img src="{{url('aqo_se/assets/image/slider1.jpg')}}">
+                            </div>
+                            <div>
+                                <img src="{{url('aqo_se/assets/image/slider2.jpg')}}">
+                            </div>
+                            <div>
+                                <img src="{{url('aqo_se/assets/image/slider3.jpg')}}">
+                            </div>
+                            <div>
+                                <img src="{{url('aqo_se/assets/image/slider4.webp')}}">
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <img src="{{url('aqo_se/assets/image/531027_16155704_2924445_facad91f_image.jpg')}}" alt="" srcset="">

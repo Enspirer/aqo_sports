@@ -71,6 +71,11 @@ Breadcrumbs::for('admin.competitior.index', function ($trail) {
     $trail->push('View Competitor', route('admin.competitior.index',1));
 });
 
+Breadcrumbs::for('admin.competitior.show', function ($trail) {
+    $trail->push('Competition Details', route('admin.competitior.show',1));
+});
+
+
 
 
 

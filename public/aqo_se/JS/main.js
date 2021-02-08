@@ -30,6 +30,14 @@ $(document).ready(function () {
     document.querySelector('.menu-container').classList.toggle('active');
   });
 
+  // side nav-toggl 
+  $('.nav-toggle').click(function(e) {
+  
+    e.preventDefault();
+    $("html").toggleClass("openNav");
+    $(".nav-toggle").toggleClass("active");
+  
+  });
  
 });
 
@@ -127,6 +135,5 @@ elem.each(function(i){
 $('.nav').mouseleave(function() {
   index = undefined;
 });
-
 
 

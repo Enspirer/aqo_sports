@@ -5,7 +5,7 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\ProfileController;
 use App\Http\Controllers\Frontend\User\DashboardController;
-
+use App\Http\Controllers\Frontend\User\MyCompetitionController;
 /*
  * Frontend Controllers
  * All route names are prefixed with 'frontend.'.
@@ -23,6 +23,8 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
     Route::group(['namespace' => 'User', 'as' => 'user.'], function () {
         // User Dashboard Specific
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+        Route::get('my_competition', [MyCompetitionController::class, 'index'])->name('my_competition');
 
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');

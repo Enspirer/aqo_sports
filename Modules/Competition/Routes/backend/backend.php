@@ -9,6 +9,8 @@ Route::post('competition/update', 'CompetitionController@update')->name('competi
 
 Route::get('competitiors/{competition_id}', 'CompetitorController@index')->name('competitior.index');
 Route::get('competitiors_details/{competition_id}', 'CompetitorController@getTableDetails')->name('competitior.get_table_details');
+Route::get('competitiors_details/view/{id}', 'CompetitorController@show')->name('competitior.show');
+Route::post('competitiors_add','CompetitorController@changeStatus')->name('competitior.change_status');
 
 
 Route::get('category', 'CategoryController@index')->name('category.index');

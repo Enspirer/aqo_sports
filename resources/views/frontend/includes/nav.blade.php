@@ -22,15 +22,18 @@
                     <div class="inline">
                         <div class="user-menu-wrap">
                             <a class="mini-photo-wrapper" href="#">
-                                <img class="mini-photo" src="https://images.unsplash.com/photo-1578976563986-fb8769ab695e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" width="36" height="36" />
+                                <img class="mini-photo" src=" {{ $logged_in_user->picture }}" width="36" height="36" />
                                 <div class="menu-container">
                                     <ul class="user-menu">
                                         <div class="profile-highlight">
-                                            <img src="https://images.unsplash.com/photo-1578976563986-fb8769ab695e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+                                            <img src=" {{ $logged_in_user->picture }}"
                                                  alt="profile-img" width=36 height=36>
                                             <div class="details">
-                                                <div id="profile-name">{{auth()->user()->first_name}} {{auth()->user()->last_name}}</div>
-                                                <div id="profile-footer">Team Hallaway</div>
+                                                <a href="{{route('frontend.user.dashboard')}}">
+                                                    <div id="profile-name">{{auth()->user()->first_name}} {{auth()->user()->last_name}}</div>
+                                                    <div id="profile-footer">Dashboad</div>
+                                                </a>
+
                                             </div>
                                         </div>
                                         <li class="user-menu__item">
