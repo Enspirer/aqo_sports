@@ -13,19 +13,20 @@
                     <div class="exploreBody">
                         <div class="row">
                             @foreach($my_competitions as $my_competition)
-                                <div class="imageCard col-md-3 col-sm-6 col-xs-12">
-                                    <div class="imageSize">
-                                        <img src="{{url('files/'.$my_competition['feature_image'])}}" alt="" srcset="">
-                                    </div>
-                                    <div class="container">
-                                        <div class="nameCard">
-                                            <h4>{{$my_competition['competition_name']}}</h4>
-                                            <p>Virtual Tournament</p>
+                                    <div class="imageCard col-md-3 col-sm-6 col-xs-12">
+                                        <a href="{{route('frontend.user.performance_page',$my_competition['id'])}}">
+                                            <div class="imageSize">
+                                                <img src="{{url('files/'.$my_competition['feature_image'])}}" alt="" srcset="">
+                                            </div>
+                                        </a>
+                                        <div class="container">
+                                            <div class="nameCard">
+                                                <h4>{{$my_competition['competition_name']}}</h4>
+                                                <p>Virtual Tournament</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                             @endforeach
-
                         </div>
                         <div class="addSectionHorizantle">
                             <div class="container">
