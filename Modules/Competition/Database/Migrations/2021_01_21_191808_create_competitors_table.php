@@ -23,6 +23,8 @@ class CreateCompetitorsTable extends Migration
             $table->text('competition_id');
             $table->text('competition_form')->nullable();
             $table->text('competition_details')->nullable();
+            $table->text('performance_link')->nullable();
+            $table->text('performance_description')->nullable();
             $table->timestamps();
         });
     }
