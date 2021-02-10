@@ -81,5 +81,34 @@
         // });
     })
 </script>
+
+<script>
+    // This function will get the video ID
+    function get_video_id(url){
+        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+        var match = url.match(regExp);
+        return (match&&match[7].length==11)? match[7] : false;
+    }
+
+    // Start Appending the elements to the dom
+    $(document).ready(function(){
+
+        // Append the video thumbnail on load
+        $('.video-warpper').is(function(){
+            var id = get_video_id($(this).data('url')) // Video ID
+            $(this).append( '<img class="video-thump" src="https://img.youtube.com/vi/'+ id +'/0.jpg" alt="" />' ); // Append the image
+        });
+
+        // Append the video iframe on user's click on the thumbnail
+        $('.video-warpper').click(function(){
+            var id = get_video_id($(this).data('url')) // Get the ID
+            $(this).append(
+                '<iframe src="https://www.youtube.com/embed/' + id + '?showinfo=0&iv_load_policy=3&modestbranding=1&autoplay=1&rel=0"></iframe>'); // Appending the iframe
+            $(this).find('.dark-layer').fadeOut() // Remove the dark layer
+            $(this).find('.video-thump').fadeOut() // Remove the video thumbnail
+        });
+
+    });
+</script>
 </body>
 </html>
