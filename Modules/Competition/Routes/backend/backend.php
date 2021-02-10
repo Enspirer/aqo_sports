@@ -7,10 +7,15 @@ Route::get('competition/create', 'CompetitionController@create')->name('competit
 Route::post('competition/create/insert', 'CompetitionController@store')->name('competition.store');
 Route::post('competition/update', 'CompetitionController@update')->name('competition.update');
 
+Route::get('competition/register_judge/{competition_id}','JudgeRequestController@edit')->name('competition.register_judge.edit');
+Route::post('competition/post_judgedetails','JudgeRequestController@postDetails')->name('competition.register_judge.judge_form_edit');
+
+
 Route::get('competitiors/{competition_id}', 'CompetitorController@index')->name('competitior.index');
 Route::get('competitiors_details/{competition_id}', 'CompetitorController@getTableDetails')->name('competitior.get_table_details');
 Route::get('competitiors_details/view/{id}', 'CompetitorController@show')->name('competitior.show');
 Route::post('competitiors_add','CompetitorController@changeStatus')->name('competitior.change_status');
+
 
 
 Route::get('category', 'CategoryController@index')->name('category.index');

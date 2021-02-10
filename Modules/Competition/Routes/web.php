@@ -75,6 +75,11 @@ Breadcrumbs::for('admin.competitior.show', function ($trail) {
     $trail->push('Competition Details', route('admin.competitior.show',1));
 });
 
+Breadcrumbs::for('admin.competition.register_judge.edit', function ($trail) {
+    $trail->push('', route('admin.competition.register_judge.edit',1));
+});
+
+
 
 
 
