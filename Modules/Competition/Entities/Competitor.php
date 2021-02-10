@@ -30,6 +30,7 @@ class Competitor extends Model
     }
 
 
+
     public static function getAppliedCompetitorsUsers($competitionID,$status)
     {
         $getCompetitions = Competitor::where('competition_id',$competitionID)
