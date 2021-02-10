@@ -216,7 +216,9 @@ class CompetitionController extends Controller
             ->addColumn('action', function($row){
                 $btn1 = '<a href="'.route('admin.competition.edit',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit </a>';
                 $btn2 = ' <a href="'.route('admin.competitior.index',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-users"></i> View Competitors </a>';
-                return $btn1.$btn2;
+                $btn3 = ' <a href="'.route('admin.competition.register_judge.edit',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-user"></i> Judge Register Form</a>';
+
+                return $btn1.$btn2.$btn3;
             })
             ->rawColumns(['action'])
             ->make();
