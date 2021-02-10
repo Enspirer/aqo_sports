@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\ProfileController;
 use App\Http\Controllers\Frontend\User\DashboardController;
 use App\Http\Controllers\Frontend\User\MyCompetitionController;
+use App\Http\Controllers\Frontend\User\PendingController;
 /*
  * Frontend Controllers
  * All route names are prefixed with 'frontend.'.
@@ -25,6 +26,10 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::get('my_competition', [MyCompetitionController::class, 'index'])->name('my_competition');
+        Route::get('my_competition/details/{id}', [MyCompetitionController::class, 'performance_page'])->name('performance_page');
+        Route::post('my_competition/performance', [MyCompetitionController::class, 'postPerformance'])->name('postPerformance');
+
+        Route::get('my_competition/details_pending', [PendingController::class, 'pending_competition'])->name('details_pending');
 
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');
