@@ -11,6 +11,7 @@ use Modules\Competition\Entities\Competition;
 use Modules\Competition\Entities\CompetitionCategory;
 use Carbon\Carbon;
 use Modules\Competition\Entities\Competitor;
+use Modules\Competition\Entities\JudgeDetails;
 
 
 class CompetitionController extends Controller
@@ -171,19 +172,25 @@ class CompetitionController extends Controller
         $requestValue = array_except($request->all(), ['_token']);
         $registerDetails = json_decode($register_form);
         $finalOur = [];
-
         foreach ($registerDetails as $registerDetail)
         {
-            if($request->file($registerDetail->name))
-            {
-                $imageName = time().'.'.$request->file($registerDetail->name)->getClientOriginalExtension();
-                $fullURLs = $request->file($registerDetail->name)->move(public_path('files'), $imageName);
-                $value = $imageName;
-                $type = $request->file($registerDetail->name)->getClientOriginalExtension();
+            if (isset($registerDetail->name)){
+                if($request->file($registerDetail->name))
+                {
+
+                    $imageName = time().'.'.$request->file($registerDetail->name)->getClientOriginalExtension();
+                    $fullURLs = $request->file($registerDetail->name)->move(public_path('files'), $imageName);
+                    $value = $imageName;
+                    $type = $request->file($registerDetail->name)->getClientOriginalExtension();
+                }else{
+                    $value = $requestValue[$registerDetail->name];
+                    $type = 'text';
+                }
             }else{
-                $value = $requestValue[$registerDetail->name];
-                $type = 'text';
+                $value = 'null';
+                $type = 'not_input';
             }
+
             $output = [
               'label' => $registerDetail->label,
               'value' => $value,
@@ -192,6 +199,21 @@ class CompetitionController extends Controller
             array_push($finalOur,$output);
         }
         return $finalOur;
+    }
+
+
+    public function register_judge(Request $request)
+    {
+        $requestDetail = $request->competition_id;
+        $details = Competition::where('id',$requestDetail)
+            ->first();
+        $OutputDetails = self::registerDetails($request,$details->judge_register_form);
+        $judgeDetails = new JudgeDetails;
+        $judgeDetails->user_id = auth()->user()->id;
+        $judgeDetails->form_details = $details->judge_register_form;
+        $judgeDetails->submit_details = json_encode($OutputDetails);
+        $judgeDetails->save();
+        return back();
     }
 
     /**
