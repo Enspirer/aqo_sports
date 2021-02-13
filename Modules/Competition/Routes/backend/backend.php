@@ -10,6 +10,12 @@ Route::post('competition/update', 'CompetitionController@update')->name('competi
 Route::get('competition/register_judge/{competition_id}','JudgeRequestController@edit')->name('competition.register_judge.edit');
 Route::post('competition/post_judgedetails','JudgeRequestController@postDetails')->name('competition.register_judge.judge_form_edit');
 
+Route::get('competition/judge_request/{competition_id}','JudgeRequestController@index')->name('competition.judge_request.index');
+Route::get('competition/scoreboard/{competitionID}','ScoreController@index')->name('competition.score_board');
+
+
+
+
 
 Route::get('competitiors/{competition_id}', 'CompetitorController@index')->name('competitior.index');
 Route::get('competitiors_details/{competition_id}', 'CompetitorController@getTableDetails')->name('competitior.get_table_details');

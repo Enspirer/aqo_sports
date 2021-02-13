@@ -76,8 +76,20 @@ Breadcrumbs::for('admin.competitior.show', function ($trail) {
 });
 
 Breadcrumbs::for('admin.competition.register_judge.edit', function ($trail) {
-    $trail->push('', route('admin.competition.register_judge.edit',1));
+    $trail->push('Judge Edit', route('admin.competition.register_judge.edit',1));
 });
+
+
+Breadcrumbs::for('admin.competition.judge_request.index', function ($trail) {
+    $trail->push('Judge Request', route('admin.competition.judge_request.index',1));
+});
+
+Breadcrumbs::for('admin.competition.score_board', function ($trail) {
+    $trail->push('Score Board', route('admin.competition.score_board',1));
+});
+
+
+
 
 
 
