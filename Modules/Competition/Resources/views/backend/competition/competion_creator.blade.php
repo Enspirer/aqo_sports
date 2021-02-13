@@ -19,6 +19,7 @@
                             <a class="list-group-item list-group-item-action"  id="comeptitionTabs" data-toggle="list" href="#comeptition">Competition</a>
                             <a class="list-group-item list-group-item-action"  id="register_formTabs" data-toggle="list" href="#register_form">Register Form</a>
                             <a class="list-group-item list-group-item-action"  id="game_ruleTabs" data-toggle="list" href="#game_rule">Game Rules</a>
+                            <a class="list-group-item list-group-item-action"  id="score_board_settings_ruleTabs" data-toggle="list" href="#score_board_settings">Score Board</a>
                         </div>
                     </div>
                     <div class="col-md-9">
@@ -44,6 +45,16 @@
                                     @include('competition::backend.competition.includes.game_rule_tabs')
                                 </div>
                             </div>
+
+
+                            <div class="tab-pane fade" id="score_board_settings">
+                                <div class="card-body pb-2">
+                                    @include('competition::backend.competition.includes.score_board_settings')
+                                </div>
+                            </div>
+
+
+
                         </div>
                     </div>
                 </div>
