@@ -75,6 +75,8 @@ class CompetitionController extends Controller
         $competition->started_date = $request->start_date;
         $competition->end_date = $request->end_date;
         $competition->register_form = $request->register_form_data;
+        $competition->marks_sections = json_encode($request->marks_sections);
+        $competition->rounds_section = json_encode($request->rounds_section);
 
         //Game Rules
         $ruleNames= $request->rule_name;
@@ -216,9 +218,11 @@ class CompetitionController extends Controller
             ->addColumn('action', function($row){
                 $btn1 = '<a href="'.route('admin.competition.edit',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit </a>';
                 $btn2 = ' <a href="'.route('admin.competitior.index',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-users"></i> View Competitors </a>';
-                $btn3 = ' <a href="'.route('admin.competition.register_judge.edit',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-user"></i> Judge Register Form</a>';
+                $btn3 = ' <a href="'.route('admin.competition.register_judge.edit',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit judges Form</a>';
+                $btn4 = ' <a href="'.route('admin.competition.judge_request.index',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-user"></i> Judges</a>';
+                $btn5 = ' <a href="'.route('admin.competition.score_board',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-list"></i> Score</a>';
 
-                return $btn1.$btn2.$btn3;
+                return $btn1.$btn2.$btn3.$btn4.$btn5;
             })
             ->rawColumns(['action'])
             ->make();

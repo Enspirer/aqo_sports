@@ -3,21 +3,31 @@
 namespace Modules\Competition\Http\Controllers\Backend;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Competition\Entities\Competition;
 use Modules\Competition\Entities\CompetitionRule;
 
-class JudgeRequestController extends Controller
+class ScoreController extends Controller
 {
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index($competition_id)
+    public function index($competitionID)
     {
+        $competitionDetails = Competition::where('id',$competitionID)->first();
 
-        return view('competition::backend.judge_request.index');
+        $markSection = json_decode($competitionDetails->marks_sections);
+        $roundSection = json_decode($competitionDetails->rounds_section);
+
+
+
+        return view('competition::backend.score_board.view_score',[
+            'markSection' => $markSection,
+            'roundSection' => $roundSection
+        ]);
     }
 
     /**
@@ -46,7 +56,7 @@ class JudgeRequestController extends Controller
      */
     public function show($id)
     {
-
+        return view('competition::show');
     }
 
     /**
@@ -54,26 +64,9 @@ class JudgeRequestController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function edit($competition_id)
+    public function edit($id)
     {
-        $competitionDetails = Competition::where('id',$competition_id)->first();
-        $getCompetitionForm = json_decode($competitionDetails->judge_register_form);
-        return view('competition::backend.judge_register_form.index',[
-            'competitionDetails' => $competitionDetails,
-            'judge_register_form' => $getCompetitionForm,
-        ]);
-    }
-
-    public function postDetails (Request $request)
-    {
-        $id = $request->id;
-        $register_form_data_judge = $request->register_form_data;
-
-        Competition::where('id',$id)->update([
-           'judge_register_form' => $register_form_data_judge
-        ]);
-
-        return back();
+        return view('competition::edit');
     }
 
     /**
