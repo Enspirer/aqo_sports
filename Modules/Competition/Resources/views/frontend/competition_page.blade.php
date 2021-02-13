@@ -223,6 +223,10 @@
                                             Register Competition
                                         </button>
                                     @endif
+
+                                        <button type="button" class="btn-become-judge" data-toggle="modal" data-target="#judgeDialog">
+                                            Become a judge
+                                        </button>
                                 </div>
                             </div>
 
@@ -256,6 +260,39 @@
                                         </form>
                                     </div>
                                 </div>
+
+
+                                <!-- Judgement Models -->
+                                <div class="modal fade" id="judgeDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <form action="{{route('frontend.register_judge')}}" method="post" enctype="multipart/form-data">
+                                            {{csrf_field()}}
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+
+                                                    <h5 class="modal-title" id="exampleModalLabel">Become a judge</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="" id="fb_judge_render">
+
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <input type="hidden" name="competition_id" value="{{$competition_details->id}}">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+
                             @elseauth
                                 <div class="loginFormComp">
                                     <div class="container">
@@ -326,6 +363,29 @@
                 );
             });
         </script>
+
+        <script>
+            /*
+             This has been updated to use the new userData method available in formRender
+             */
+            const getUserDataBtnJudge = document.getElementById("get-user-data");
+            const fbRendeJudger = document.getElementById("fb_judge_render");
+            const originalFormDataJudge = {!! $competition_details->judge_register_form !!};
+            jQuery(function($) {
+                const formData = JSON.stringify(originalFormDataJudge);
+
+                $(fbRendeJudger).formRender({ formData });
+                getUserDataBtnJudge.addEventListener(
+                    "click",
+                    () => {
+                        window.alert(window.JSON.stringify($(fbRender).formRender("userData")));
+                    },
+                    false
+                );
+            });
+        </script>
+
+
     @endpush
 
 

@@ -7,8 +7,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <strong>Competitor List</strong>
-                    <a href="{{route('admin.competition.create')}}" class="btn btn-primary" style="float: right">Add Competitors</a>
+                    <strong>Judge Requests</strong>
                 </div><!--card-header-->
 
                 <div class="card-body">
