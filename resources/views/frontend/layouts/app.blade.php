@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{{url('aqo_se/Styles/css/style.css')}}"/>
     <link rel="stylesheet" href="{{url('aqo_se/plugin/owl-carousel/css/owl.carousel.min.css')}}">
     <!-- Styles -->
-    <link rel="stylesheet" href="Styles/css/style.css" />
 </head>
 <body>
 <div class="main">
