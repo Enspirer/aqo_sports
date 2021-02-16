@@ -88,6 +88,12 @@ Breadcrumbs::for('admin.competition.score_board', function ($trail) {
     $trail->push('Score Board', route('admin.competition.score_board',1));
 });
 
+Breadcrumbs::for('admin.competition.judgeRequest.show', function ($trail) {
+    $trail->push('Judge Request View', route('admin.competition.judgeRequest.show',1));
+});
+
+
+
 
 
 
