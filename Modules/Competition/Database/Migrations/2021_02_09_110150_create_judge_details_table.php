@@ -16,6 +16,7 @@ class CreateJudgeDetailsTable extends Migration
         Schema::create('judge_details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('user_id');
+            $table->text('competition_id');
             $table->text('form_details')->nullable();
             $table->text('submit_details')->nullable();
             $table->date('birth_day')->nullable();

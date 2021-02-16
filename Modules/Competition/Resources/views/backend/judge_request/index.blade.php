@@ -15,7 +15,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Competitor Name</th>
+                                <th scope="col">Judge Name</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Created at</th>
                                 <th scope="col">Action</th>
@@ -36,11 +36,11 @@
 
             var table = $('#data_table').DataTable({
                 processing: false,
-                ajax: "",
+                ajax: "{{route('admin.competition.judge_request.judgeRequetDetails',$competitionDetails->id)}}",
                 columns: [
                     {data: 'id', name: 'id'},
-                    {data: 'competitor_name', name: 'competitor_name'},
-                    {data: 'competitor_status', name: 'competitor_status'},
+                    {data: 'judge_name', name: 'judge_name'},
+                    {data: 'status', name: 'status'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]

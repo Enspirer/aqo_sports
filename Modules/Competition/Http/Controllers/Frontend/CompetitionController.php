@@ -112,8 +112,9 @@ class CompetitionController extends Controller
         $userDetails = User::where('id',$competitionDetails->user_id)->first();
         $gameRules = json_decode($competitionDetails->game_rules);
         $competiorDetails = Competitor::IsAppliedCompetition($id);
-
         $getCompetitorDetails = Competitor::getAppliedCompetitorsUsers($id,1);
+
+
 
 
 
@@ -212,6 +213,7 @@ class CompetitionController extends Controller
         $judgeDetails->user_id = auth()->user()->id;
         $judgeDetails->form_details = $details->judge_register_form;
         $judgeDetails->submit_details = json_encode($OutputDetails);
+        $judgeDetails->competition_id = $requestDetail;
         $judgeDetails->save();
         return back();
     }
