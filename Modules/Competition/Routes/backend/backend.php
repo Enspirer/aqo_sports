@@ -17,6 +17,7 @@ Route::get('competition/scoreboard/{competitionID}','ScoreController@index')->na
 
 
 Route::get('competition/judgeRequest/{judge_id}','JudgeRequestController@show')->name('competition.judgeRequest.show');
+Route::post('competition/judgeReq/ENPS','JudgeRequestController@ChangeStatus')->name('competition.judgeRequest.changeStatus');
 
 
 

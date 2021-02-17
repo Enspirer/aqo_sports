@@ -51,7 +51,7 @@
                                             </div>
                                           <div class="" style="background-image: url('{{url('/files/'.$formDetails->value)}}');height: 210px;background-position: center;background-repeat: no-repeat;background-size: contain;"></div>
                                         </div>
-                                        
+
                                         @endif
                                 @endforeach
                                 <div class="">

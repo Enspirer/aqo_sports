@@ -10,6 +10,10 @@ use Modules\Competition\Entities\Competition;
 use Modules\Competition\Entities\CompetitionRule;
 use Modules\Competition\Entities\JudgeDetails;
 use DataTables;
+use Modules\Competition\Entities\Competitor;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 class JudgeRequestController extends Controller
 {
     /**
@@ -73,7 +77,46 @@ class JudgeRequestController extends Controller
      */
     public function show($id)
     {
-       return view('competition::backend.judge_request.show');
+        $judgeDetails = JudgeDetails::where('id',$id)->first();
+        $userDetails = User::where('id',$judgeDetails->user_id)->first();
+        $competionDetails = Competition::where('id',$judgeDetails->competition_id)->first();
+
+        $requestFormDetails = json_decode($judgeDetails->submit_details);
+
+        return view('competition::backend.judge_request.show',[
+            'competitionDetails' => $competionDetails,
+            'userDetais' => $userDetails,
+            'JudgeformDetails' =>$requestFormDetails,
+            'judgeDetails' => $judgeDetails
+        ]);
+
+    }
+
+    public function ChangeStatus(Request $request)
+    {
+        if($request->status == 0)
+        {
+            $userDetails = User::find(1);
+            $userDetails->revokePermissionTo('view judge function');
+
+
+        }else if($request->status == 1)
+        {
+            $userDetails = User::find(1);
+            $userDetails->givePermissionTo('view judge function');
+
+        }else if($request->status == 2)
+        {
+            $userDetails = User::find(1);
+            $userDetails->revokePermissionTo('view judge function');
+        }
+        JudgeDetails::where('id',$request->judge_id)->update([
+           'status' => $request->status
+        ]);
+
+
+
+        return back();
     }
 
     /**
