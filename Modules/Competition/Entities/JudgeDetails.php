@@ -19,6 +19,7 @@ class JudgeDetails extends Model
     public static function getJudgeCompetition($userID)
     {
         $judgeDetails = JudgeDetails::where('user_id',$userID)
+            ->where('status','1')
             ->get();
 
 
