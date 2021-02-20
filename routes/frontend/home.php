@@ -34,6 +34,8 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('my_competition/save_proformance', [MyCompetitionController::class, 'save_performance'])->name('save_performance');
 
         Route::get('my_judgement', [MyJudgmentController::class, 'index'])->name('details_judgement');
+        Route::get('open_judgment/{id}', [MyJudgmentController::class, 'show'])->name('show_judgment');
+        Route::get('viewCompetitor/{id}', [MyJudgmentController::class, 'viewCompetitor'])->name('show_competitor');
 
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');

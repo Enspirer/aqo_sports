@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Competition\Entities\Competition;
+use Modules\Competition\Entities\Competitor;
 use Modules\Competition\Entities\JudgeDetails;
 
 class MyJudgmentController extends Controller
@@ -32,6 +33,18 @@ class MyJudgmentController extends Controller
         return view('competition::create');
     }
 
+
+    public function viewCompetitor($id)
+    {
+        $competitiorDetails = Competitor::where('id',$id)->first();
+        $competitionDetails = Competition::where('id',$competitiorDetails->competition_id)
+            ->first();
+        return view('frontend.user.competitor_page',[
+            'competitor_details' => $competitiorDetails,
+            'competition_details' => $competitionDetails
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      * @param Request $request
@@ -49,7 +62,12 @@ class MyJudgmentController extends Controller
      */
     public function show($id)
     {
-        return view('competition::show');
+        $competitiorDetails = Competitor::getAppliedCompetitorsUsers($id,1);
+        $competitionDetails = Competition::where('id',$id)->first();
+        return view('frontend.user.view_judgment',[
+            'competitorDetails' => $competitiorDetails,
+            'competitionDetails' =>$competitionDetails
+        ]);
     }
 
     /**
@@ -74,7 +92,7 @@ class MyJudgmentController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified reCsource from storage.
      * @param int $id
      * @return Renderable
      */

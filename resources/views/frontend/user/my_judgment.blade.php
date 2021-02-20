@@ -14,14 +14,14 @@
                         <div class="row">
                             @foreach($competition_details as $competition)
                                 <div class="imageCard col-md-3 col-sm-6 col-xs-12">
-                                    <a href="{{route('frontend.user.performance_page',$competition->id)}}">
+                                    <a href="{{route('frontend.user.show_judgment',$competition->id)}}">
                                         <div class="imageSize">
                                             <img src="{{url('files/'.$competition->feature_image)}}" alt="" srcset="">
                                         </div>
                                     </a>
                                     <div class="container">
                                         <div class="nameCard">
-                                            <h4>{{$competition->name}}</h4>
+                                            <h4>{{$competition->competition_name}}</h4>
                                             <p>Virtual Tournament</p>
                                         </div>
                                     </div>
