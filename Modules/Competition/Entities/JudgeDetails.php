@@ -16,5 +16,27 @@ class JudgeDetails extends Model
     }
 
 
+    public static function getJudgeCompetition($userID)
+    {
+        $judgeDetails = JudgeDetails::where('user_id',$userID)
+            ->get();
+
+
+
+        $OutputID = [];
+        if(count($judgeDetails) != 0)
+        {
+            foreach ($judgeDetails as $jDetails)
+            {
+                array_push($OutputID,$jDetails->competition_id);
+
+            }
+        }
+
+        return $OutputID;
+
+    }
+
+
 
 }

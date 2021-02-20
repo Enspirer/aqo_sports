@@ -5,6 +5,8 @@ namespace Modules\Competition\Http\Controllers\Frontend;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Competition\Entities\Competition;
+use Modules\Competition\Entities\JudgeDetails;
 
 class MyJudgmentController extends Controller
 {
@@ -14,7 +16,11 @@ class MyJudgmentController extends Controller
      */
     public function index()
     {
-        return view('competition::index');
+        $competotorIDs = JudgeDetails::getJudgeCompetition(auth()->user()->id);
+        $competitionDetails = Competition::wherein('id',$competotorIDs)->get();
+        return view('frontend.user.my_judgment',[
+            'competition_details' => $competitionDetails,
+        ]);
     }
 
     /**
