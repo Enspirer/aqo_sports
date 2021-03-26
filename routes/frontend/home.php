@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('viewCompetitor/{id}', [MyJudgmentController::class, 'viewCompetitor'])->name('show_competitor');
         Route::post('add_marks_judge', [MyJudgmentController::class, 'add_marks_judge'])->name('add_marks_judge');
 
+
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');
 

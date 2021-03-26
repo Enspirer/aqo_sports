@@ -6,4 +6,6 @@ Route::get('explorer/competition_page/{id}', 'CompetitionController@competition_
 Route::post('explorer/register_request', 'CompetitionController@register_request')->name('register_request');
 Route::post('explorer/judge_request', 'CompetitionController@register_judge')->name('register_judge');
 
+Route::post('explorer/search_keyword', 'CompetitionController@search')->name('search_keyword');
+
 ?>

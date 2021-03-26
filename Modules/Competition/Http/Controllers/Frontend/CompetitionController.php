@@ -27,6 +27,15 @@ class CompetitionController extends Controller
     }
 
 
+    public function search(Request $request)
+    {
+        $requestdetails = $request->search_keyword;
+
+        return redirect()->route('frontend.explorer',['all', $requestdetails ,'desc','explorer','all','null','null']);
+
+    }
+
+
     public function explorer($category_id,$keyword,$sort,$type,$contry,$start_date,$end_date)
     {
         $categories = CompetitionCategory::all();
@@ -42,18 +51,13 @@ class CompetitionController extends Controller
             $categoryName = 'All';
         }
 
-
-
-
-
-
         if($category_id != 'all' ){
             $competitions =  $competitions->where('id',$category_id);
         }
 
         if($keyword != 'all')
         {
-            $competitions = $competitions->where('name', 'like', $keyword );
+            $competitions = $competitions->where('competition_name', 'like', $keyword );
         }
 
         if($sort == 'desc')
@@ -68,7 +72,6 @@ class CompetitionController extends Controller
         {
 
         }
-
         $competitions = $competitions->get();
 
 
@@ -76,9 +79,12 @@ class CompetitionController extends Controller
             [
                 'categories' => $categories,
                 'competitions' => $competitions,
-                'category_name' => $categoryName
+                'category_name' => $categoryName,
+                'keyword' => $keyword
             ]);
     }
+
+
     /**
      * Show the form for creating a new resource.
      * @return Renderable

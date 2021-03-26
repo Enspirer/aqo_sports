@@ -6,12 +6,13 @@
     <div class="contentExplore">
         <div class="container">
             <div class="srarchBar">
-                <form action="" method="">
+                <form action="{{route('frontend.search_keyword')}}" method="post">
+                    {{csrf_field()}}
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Try Rhythmic Gymnastic" />
+                        <input type="text" class="form-control" name="search_keyword" placeholder="Try Rhythmic Gymnastic" />
                         <div class="input-group-append">
                             <button class="btn btn-success" type="submit">Find</button>
                         </div>
@@ -23,22 +24,37 @@
                     <a href="{{url('/')}}">Home</a>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
 
-                    @if($category_name == 'All')
-                        <span>
+                    @if($keyword == 'all')
+                        @if($category_name == 'All')
+                            <span>
                             <a href="">Explorer</a>
                         </span>
-                    @else
-                        <span>
+                        @else
+                            <span>
                              <a href="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}">Explorer</a>
                         </span>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            <span>{{$category_name}}</span>
+                        @endif
+
+                    @else
+                        <span>
+                             <a href="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}">Search Result</a>
+                        </span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        <span>{{$category_name}}</span>
+                        <span>{{$keyword}}</span>
                     @endif
+
+
 
                 </p>
             </div>
             <div class="headingTitle">
-                <h1>{{$category_name}}</h1>
+                @if($keyword == 'all')
+                    <h1>{{$category_name}}</h1>
+                @else
+                    <h2>Search for {{$keyword}}...</h2>
+                @endif
             </div>
             <div class="searchEvent">
                 <select id="countries" name="countries">
