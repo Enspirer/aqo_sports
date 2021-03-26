@@ -82,7 +82,18 @@
             </div>
             <div class="exploreBody">
                 <div class="row">
-                    @foreach($competitions as $competition)
+                    @if(count($competitions) == 0)
+                        <div class="container" style="text-align: center;">
+
+                            <div class="think-image">
+                                <img src="http://localhost:8000/aqo_se/assets/image/think-image-2.png" alt="">
+                                <h1>looks a little bit <br> empty here!</h1>
+                                <p>No competitions found, Do you <br> want to explorer new competitions?</p>
+                                <button>Find competitions</button>
+                            </div>
+                        </div>
+                    @else
+                        @foreach($competitions as $competition)
                             <div class="imageCard col-md-3 col-sm-6 col-xs-12">
                                 <div class="imageSize">
                                     <a href="{{route('frontend.competition_page',$competition->id)}}">
@@ -98,7 +109,8 @@
                                     </div>
                                 </div>
                             </div>
-                    @endforeach
+                        @endforeach
+                    @endif
                 </div>
 
                 {{--<div class="pagination">--}}
