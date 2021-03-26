@@ -12,6 +12,7 @@ use Modules\Competition\Entities\CompetitionCategory;
 use Carbon\Carbon;
 use Modules\Competition\Entities\Competitor;
 use Modules\Competition\Entities\JudgeDetails;
+use Modules\Competition\Http\Controllers\Backend\CategoryController;
 
 
 class CompetitionController extends Controller
@@ -30,6 +31,18 @@ class CompetitionController extends Controller
     {
         $categories = CompetitionCategory::all();
         $competitions = Competition::query();
+
+        $categoryDetails = CompetitionCategory::where('id',$category_id)->first();
+
+        if($categoryDetails)
+        {
+            $categoryName = $categoryDetails->category_name;
+
+        }else{
+            $categoryName = 'All';
+        }
+
+
 
 
 
@@ -57,10 +70,13 @@ class CompetitionController extends Controller
         }
 
         $competitions = $competitions->get();
+
+
         return view('competition::frontend.explorer',
             [
                 'categories' => $categories,
-                'competitions' => $competitions
+                'competitions' => $competitions,
+                'category_name' => $categoryName
             ]);
     }
     /**

@@ -67,7 +67,6 @@
                 <h1>Trending Competitions</h1>
                 <div class="exploreBody">
                     <div class="row">
-
                         @if(count($trendingCompetition) == 0)
                             <div class="col-md-12">
                                 <div style="border-style: dashed;border-width: 2px;padding: 90px;color: grey;">
@@ -91,9 +90,6 @@
                                 </div>
                             @endforeach
                         @endif
-
-
-
                     </div>
 
                     <div class="discover-more">
@@ -112,11 +108,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div style="border-style: dashed;border-width: 2px;padding: 90px;color: grey;">
-                                <h2 style="text-align: center;color: grey;"> Competition Not Found</h2>
+                                <h2 style="text-align: center;color: grey;"> Popular Category Not Found</h2>
                             </div>
                         </div>
                     </div>
-
                 @else
                     <section id="categories-slider">
                         <div id="owl-example" class="owl-carousel">

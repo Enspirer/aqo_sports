@@ -20,13 +20,25 @@
             </div>
             <div class="col-sm-12 breadcrumb">
                 <p class="font-Abel">
-                    <a href="index.html">Home</a>
+                    <a href="{{url('/')}}">Home</a>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    <span>About Us</span>
+
+                    @if($category_name == 'All')
+                        <span>
+                            <a href="">Explorer</a>
+                        </span>
+                    @else
+                        <span>
+                             <a href="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}">Explorer</a>
+                        </span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        <span>{{$category_name}}</span>
+                    @endif
+
                 </p>
             </div>
             <div class="headingTitle">
-                <h1>Rhythmic Gymnastic</h1>
+                <h1>{{$category_name}}</h1>
             </div>
             <div class="searchEvent">
                 <select id="countries" name="countries">
