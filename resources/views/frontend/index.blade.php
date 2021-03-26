@@ -67,21 +67,32 @@
                 <h1>Trending Competitions</h1>
                 <div class="exploreBody">
                     <div class="row">
-                        @foreach($trendingCompetition as $competition)
-                            <div class="imageCard col-md-3 col-sm-6 col-xs-12">
-                                <div class="imageSize">
-                                    <a href="{{route('frontend.competition_page',$competition->id)}}">
-                                        <img src="{{url('files/'.$competition->feature_image)}}" alt="" srcset="" />
-                                    </a>
-                                </div>
-                                <div class="container">
-                                    <div class="nameCard">
-                                        <h4>{{$competition->competition_name}}</h4>
-                                        <p>Virtual Tournament</p>
-                                    </div>
+
+                        @if(count($trendingCompetition) == 0)
+                            <div class="col-md-12">
+                                <div style="border-style: dashed;border-width: 2px;padding: 90px;color: grey;">
+                                    <h2 style="text-align: center;color: grey;"> Competition Not Found</h2>
                                 </div>
                             </div>
-                        @endforeach
+                        @else
+                            @foreach($trendingCompetition as $competition)
+                                <div class="imageCard col-md-3 col-sm-6 col-xs-12">
+                                    <div class="imageSize">
+                                        <a href="{{route('frontend.competition_page',$competition->id)}}">
+                                            <img src="{{url('files/'.$competition->feature_image)}}" alt="" srcset="" />
+                                        </a>
+                                    </div>
+                                    <div class="container">
+                                        <div class="nameCard">
+                                            <h4>{{$competition->competition_name}}</h4>
+                                            <p>Virtual Tournament</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+
+
 
                     </div>
 
@@ -96,24 +107,35 @@
             <div class="container">
                 <div class="gray-background"></div>
                 <h1>Popular Categories</h1>
-                <section id="categories-slider">
-                    <div id="owl-example" class="owl-carousel">
-                        {{--explorer/{category_id}/{keyword}/{sort}/{type}/{country}/{start_date}/{end_date}--}}
-                        @foreach($competitionCategory as $competitionCat)
-                            <div>
-                                <a href="{{route('frontend.explorer',[$competitionCat->id,'all','desc','explorer','all','null','null'])}}">
-                                    <div style="background-image: url('{{url('files/'.$competitionCat->feature_image)}}');height: 200px;background-size: cover;background-repeat: no-repeat;background-position: center;" alt="">
 
-                                    </div>
-                                </a>
-
-                                <h3>{{$competitionCat->category_name}}</h3>
+                @if(count($competitionCategory) == 0)
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div style="border-style: dashed;border-width: 2px;padding: 90px;color: grey;">
+                                <h2 style="text-align: center;color: grey;"> Competition Not Found</h2>
                             </div>
-                        @endforeach
-
-
+                        </div>
                     </div>
-                </section>
+
+                @else
+                    <section id="categories-slider">
+                        <div id="owl-example" class="owl-carousel">
+                            @foreach($competitionCategory as $competitionCat)
+                                <div>
+                                    <a href="{{route('frontend.explorer',[$competitionCat->id,'all','desc','explorer','all','null','null'])}}">
+                                        <div style="background-image: url('{{url('files/'.$competitionCat->feature_image)}}');height: 200px;background-size: cover;background-repeat: no-repeat;background-position: center;" alt="">
+
+                                        </div>
+                                    </a>
+
+                                    <h3>{{$competitionCat->category_name}}</h3>
+                                </div>
+                            @endforeach
+                        </div>
+                    </section>
+                @endif
+
+
             </div>
         </div>
 
