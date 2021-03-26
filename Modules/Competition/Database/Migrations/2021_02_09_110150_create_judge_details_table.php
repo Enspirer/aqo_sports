@@ -21,7 +21,7 @@ class CreateJudgeDetailsTable extends Migration
             $table->text('submit_details')->nullable();
             $table->date('birth_day')->nullable();
             $table->text('description')->nullable();
-            $table->text('status')->default(0)->comment('0 is pending, 1 is active 2 is blocked');
+            $table->text('status');
             $table->timestamps();
         });
     }
