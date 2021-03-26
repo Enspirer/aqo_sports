@@ -18,6 +18,7 @@ class CreateCompetitionCategoriesTable extends Migration
             $table->text('category_name');
             $table->text('description')->nullable();
             $table->text('feature_image')->nullable();
+            $table->text('vote_function')->default(0);
             $table->timestamps();
         });
     }

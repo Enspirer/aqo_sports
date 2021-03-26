@@ -53,6 +53,7 @@ class CategoryController extends Controller
         $category = new CompetitionCategory;
         $category->category_name = $request->category_name;
         $category->description = $request->description;
+        $category->vote_function = $request->vote_function;
         if($request->file('category_image'))
         {
             //Feature Images
@@ -117,6 +118,7 @@ class CategoryController extends Controller
             'category_name' => $request->category_name,
             'description' => $request->description,
             'feature_image' => $category_image,
+            'vote_function' => $request->vote_function
         ]);
 
         return back();

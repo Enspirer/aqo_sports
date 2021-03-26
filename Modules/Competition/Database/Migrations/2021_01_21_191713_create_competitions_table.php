@@ -27,9 +27,10 @@ class CreateCompetitionsTable extends Migration
             $table->date('end_date')->comment('coundown_end_date');
             $table->text('register_form')->comment('register_form_details');
             $table->text('game_rules')->comment('register_form_details');
-            $table->text('judge_register_form')->comment('judge_register_form');
+            $table->text('judge_register_form')->comment('judge_register_form')->nullable();
             $table->text('marks_sections')->nullable()->comment('mark_section');
             $table->text('rounds_section')->nullable()->comment('game rounds');
+            $table->text('votes')->nullable()->comment('votes Count');
             $table->timestamps();
         });
     }

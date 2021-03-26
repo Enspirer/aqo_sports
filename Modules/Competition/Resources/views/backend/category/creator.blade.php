@@ -36,6 +36,14 @@
                                         <label>Category Image</label>
                                         <input type="file" name="category_image" class="form-control">
                                     </div>
+
+                                    <div class="form-group">
+                                        <label>Vote Function</label>
+                                        <select class="form-control" name="vote_function">
+                                            <option value="0" selected>Disabled</option>
+                                            <option value="1" >Enabled</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 

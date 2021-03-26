@@ -40,11 +40,16 @@
                                aria-selected="false">Payments</a>
                             <span class="border"></span>
                         </li>
-                        <li class="nav-item">
-                            <a id="nav-voting-tab" data-toggle="tab" href="#nav-voting" role="tab" aria-controls="nav-voting"
-                               aria-selected="false">Voting</a>
-                            <span class="border"></span>
-                        </li>
+                        @if($categoryDetails->vote_function == 0)
+
+                        @else
+                            <li class="nav-item">
+                                <a id="nav-voting-tab" data-toggle="tab" href="#nav-voting" role="tab" aria-controls="nav-voting"
+                                   aria-selected="false">Voting</a>
+                                <span class="border"></span>
+                            </li>
+                        @endif
+
                         <li class="nav-item">
                             <a id="nav-leaderboard-tab" data-toggle="tab" href="#nav-leaderboard" role="tab" aria-controls="nav-leaderboard"
                                aria-selected="false">Leaderboard</a>
@@ -87,7 +92,34 @@
                             </div>
                             <div class="tab-pane fade" id="nav-organizer" role="tabpanel" aria-labelledby="nav-organizer-tab">...</div>
                             <div class="tab-pane fade" id="nav-payments" role="tabpanel" aria-labelledby="nav-payments-tab">...</div>
-                            <div class="tab-pane fade" id="nav-voting" role="tabpanel" aria-labelledby="nav-voting-tab">...</div>
+                            <div class="tab-pane fade" id="nav-voting" role="tabpanel" aria-labelledby="nav-voting-tab">
+
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Competitor Name</th>
+                                        <th scope="col">Vote Count</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($getCompetitorDetails as $competiotrDetail)
+                                        <tr>
+                                            <td>{{$competiotrDetail['competitor_name']}}</td>
+                                            <td>{{$competiotrDetail['votes']}}</td>
+                                            <td>
+                                                <button class="btn btn-primary">Vote Now</button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+
+
+
+
+
+                            </div>
                             <div class="tab-pane fade" id="nav-leaderboard" role="tabpanel" aria-labelledby="nav-leaderboard-tab">
 
                                 <table class="table table-hover">
@@ -403,7 +435,7 @@
             const hoursEl = document.getElementById("hours");
             const minutesEl = document.getElementById("minutes");
             const secondsEl = document.getElementById("seconds");
-            const date = "13 feb 2021";
+            const date = "30 march 2021";
 
             function countdown() {
                 const newYearsDate = new Date(date);

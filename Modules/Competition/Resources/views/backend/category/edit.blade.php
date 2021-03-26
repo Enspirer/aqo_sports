@@ -38,6 +38,14 @@
                                         <div class="" style="background-image: url('{{url('files').'/'.$category->feature_image}}');height: 100px;background-size: contain;background-repeat: no-repeat;"></div>
                                         <input type="file" name="category_image" class="form-control" value="{{$category->feature_image}}">
                                     </div>
+
+                                    <div class="form-group">
+                                        <label>Vote Function</label>
+                                        <select class="form-control" name="vote_function">
+                                            <option value="1" {{$category->vote_function == 1 ? 'selected':''}}>Enabled</option>
+                                            <option value="0" {{$category->vote_function == 0 ? 'selected':''}}>Disabled</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 

@@ -38,7 +38,6 @@ class MyCompetitionController extends Controller
         $competitionDetails = Competition::where('id', $id)->first();
         $competitiorDetails = Competitor::where('competition_id', $id)
             ->where('user_id', auth()->user()->id)
-
             ->first();
 
         $roundSection = json_decode($competitionDetails->rounds_section);
@@ -50,7 +49,7 @@ class MyCompetitionController extends Controller
             'competitorDetails' => $competitiorDetails,
             'competitionDetails' => $competitionDetails,
             'roundDetails' => $roundSection,
-            'marksSections' => $marksSection
+            'marksSections' => $marksSection,
         ]);
     }
 

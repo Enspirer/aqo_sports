@@ -44,6 +44,7 @@ class Competitor extends Model
             $outputAppend = [
                 'competitor_name' => $getUser->first_name.' '.$getUser->last_name,
                 'score' => $competionDetails->score,
+                'votes' => $competionDetails->votes,
                 'score_details' => $competionDetails->score,
                 'competitor_id' => $competionDetails->id,
                 'created_at' => $competionDetails->created_at,

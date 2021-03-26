@@ -113,10 +113,7 @@ class CompetitionController extends Controller
         $gameRules = json_decode($competitionDetails->game_rules);
         $competiorDetails = Competitor::IsAppliedCompetition($id);
         $getCompetitorDetails = Competitor::getAppliedCompetitorsUsers($id,1);
-
-
-
-
+        $categoryDetails = CompetitionCategory::where('id',$competitionDetails->category_id)->first();
 
 
 
@@ -134,7 +131,8 @@ class CompetitionController extends Controller
             'userDetails' => $userDetails,
             'gameRule' => $gameRules,
             'competitorDetails' => $competiorDetails,
-            'getCompetitorDetails' => $getCompetitorDetails
+            'getCompetitorDetails' => $getCompetitorDetails,
+            'categoryDetails' => $categoryDetails
         ]);
     }
 
