@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="row">
                     <div class="imgaeSection col-md-10">
-                        <div class="" style="background-image: url('{{url('/files/').'/'.$competition_details->feature_image}}');height: 100%"></div>
+                        <div class="" style="background-image: url('{{url('/files/').'/'.$competition_details->feature_image}}');height: 100%;background-size: cover"></div>
                     </div>
                     <div class="addSection col-md-2">
                         <img src="{{url('/img/frontend/verticle.jpg')}}" alt="" srcset="" />
