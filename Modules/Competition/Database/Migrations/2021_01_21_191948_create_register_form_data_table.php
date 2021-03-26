@@ -28,7 +28,7 @@ class CreateRegisterFormDataTable extends Migration
             $table->text('class')->nullable();
             $table->text('inline_style')->nullable();
             $table->text('options')->nullable();
-            $table->text('element_type')->default('text');
+            $table->text('element_type')->nullable();
             $table->integer('competion_id');
             $table->text('description')->nullable();
 
