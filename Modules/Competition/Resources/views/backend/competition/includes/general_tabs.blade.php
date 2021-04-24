@@ -14,6 +14,14 @@
     </select>
 </div>
 <div class="form-group">
+    @if(count($get_category) == 0)
+        <div class="" style="background:palevioletred;padding: 10px;color: white;margin-bottom: 5px;">
+            Category Data not found
+        </div>
+    @else
+
+    @endif
+
     <label class="form-label">Category</label>
     <select class="form-control" oninvalid="tabInvalied('generalTabs')" name="category" required>
         @foreach($get_category as $getCategory)
