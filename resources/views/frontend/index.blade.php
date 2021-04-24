@@ -10,34 +10,6 @@
                 <!-- <div class="yellow-background"></div> -->
                 <div class="row">
                     <div class="col-md-8">
-
-                        <!-- <div class="slider">
-
-                            <ul class="js__slider__images slider__images">
-                              <li class="slider__images-item"><img class="slider__images-image" src="assets/image/gettyimages-592331286.jpg" /></li>
-                              <li class="slider__images-item"><img class="slider__images-image" src="assets/image/slider1.jpg" /></li>
-                              <li class="slider__images-item"><img class="slider__images-image" src="assets/image/slider2.jpg" /></li>
-                              <li class="slider__images-item"><img class="slider__images-image" src="assets/image/sllider3.jpg" /></li>
-                              <li class="slider__images-item"><img class="slider__images-image" src="assets/image/slider4.webp" /></li>
-                            </ul>
-
-                            <div class="slider__controls">
-                                <span class="slider__control js__slider__control--prev slider__control--prev">Prev</span>
-
-                                <ol class="js__slider__pagers slider__pagers"></ol>
-
-                                <span class="slider__control js__slider__control--next slider__control--next">Next</span>
-                              </div>
-                          </div> -->
-
-                        <!-- <div id="slideshow">
-                            <div><img src="assets/image/gettyimages-592331286.jpg"></div>
-                            <div><img src="assets/image/slider1.jpg" alt=""></div>
-                            <div><img src="assets/image/slider2.jpg" alt=""></div>
-                            <div><img src="assets/image/sllider3.jpg" alt=""></div>
-                            <div><img src="assets/image/slider4.webp" alt=""></div>
-                        </div> -->
-
                         <div id="slideshow">
                             <div>
                                 <img src="{{url('aqo_se/assets/image/gettyimages-592331286.jpg')}}">

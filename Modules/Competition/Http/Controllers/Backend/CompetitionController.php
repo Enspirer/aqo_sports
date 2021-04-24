@@ -190,6 +190,8 @@ class CompetitionController extends Controller
                 'end_date' => $request->end_date,
                 'register_form' => $request->register_form_data,
                 'game_rules' => $jsonOutput,
+                'marks_sections' => json_encode($request->marks_sections),
+                'rounds_section' => json_encode($request->rounds_section)
             ]
         );
 

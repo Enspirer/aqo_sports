@@ -14,7 +14,7 @@
 
             @if(get_module('Competition'))
                 <li class="nav-item">
-                    <a class="nav-link {{active_class(Active::checkUriPattern('admin/dashboard'))}}" href="{{ route('admin.competition') }}">
+                    <a class="nav-link {{active_class(Active::checkUriPattern('admin/competition'))}}" href="{{ route('admin.competition') }}">
                         <i class="nav-icon fas fa-trophy"></i>
                         Competitions
                     </a>

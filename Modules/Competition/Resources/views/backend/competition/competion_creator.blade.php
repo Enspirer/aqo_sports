@@ -39,22 +39,16 @@
                                     @include('competition::backend.competition.includes.regiter_form_creator')
                                 </div>
                             </div>
-
                             <div class="tab-pane fade" id="game_rule">
                                 <div class="card-body pb-2">
                                     @include('competition::backend.competition.includes.game_rule_tabs')
                                 </div>
                             </div>
-
-
                             <div class="tab-pane fade" id="score_board_settings">
                                 <div class="card-body pb-2">
                                     @include('competition::backend.competition.includes.score_board_settings')
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>
