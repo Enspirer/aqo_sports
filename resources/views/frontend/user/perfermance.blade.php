@@ -55,7 +55,7 @@
                                                 </div>
                                             </div>
                                         @else
-                                            <button class="btn btn-primary" href="" data-toggle="modal" data-target=".bd-example-modal-lg">Add My Performance</button>
+
                                         @endif
                                     </div>
                                 </div>
@@ -131,6 +131,7 @@
                                                                                     <table class="table table-bordered">
                                                                                         <thead>
                                                                                             <tr>
+                                                                                                <th scope="col">Name</th>
                                                                                                 @foreach($marksSections as $markSection)
                                                                                                     <th scope="col">{{$markSection}}</th>
                                                                                                 @endforeach
@@ -138,11 +139,19 @@
                                                                                         </thead>
 
                                                                                         <tbody>
-                                                                                            <tr>
-                                                                                                <th scope="row">1</th>
-                                                                                                <td>Mark</td>
-                                                                                                <td>Otto</td>
-                                                                                            </tr>
+                                                                                            @if(count($judge_details) == 0)
+
+                                                                                            @else
+                                                                                                @foreach($judge_details as $judgeDetails)
+                                                                                                    <tr>
+                                                                                                        <th scope="row">{{$judgeDetails->first_name}}</th>
+                                                                                                        <td>1</td>
+                                                                                                        <td>1</td>
+                                                                                                        <td>1</td>
+                                                                                                    </tr>
+                                                                                                @endforeach
+                                                                                            @endif
+
                                                                                         </tbody>
                                                                                     </table>
                                                                                     <b>Round:</b> {{$roundData}}<br>

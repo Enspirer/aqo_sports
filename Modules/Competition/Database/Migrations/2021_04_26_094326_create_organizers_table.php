@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJudgeDetailsTable extends Migration
+class CreateOrganizersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateJudgeDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('judge_details', function (Blueprint $table) {
+        Schema::create('organizers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('organization');
+            $table->text('contact_details');
+            $table->text('address');
+            $table->text('country');
+            $table->text('status');
             $table->text('user_id');
-            $table->text('competition_id');
-            $table->text('form_details')->nullable();
-            $table->text('submit_details')->nullable();
-            $table->date('birth_day')->nullable();
-            $table->text('description')->nullable();
-            $table->text('status')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ class CreateJudgeDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('judge_details');
+        Schema::dropIfExists('organizers');
     }
 }

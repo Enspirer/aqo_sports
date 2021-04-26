@@ -5,11 +5,13 @@ namespace Modules\Competition\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class JudgmentMarks extends Model
+class Organizer extends Model
 {
 
     protected $fillable = [];
-    protected $table = 'judgment_marks';
     
-
+    protected static function newFactory()
+    {
+        return \Modules\Competition\Database\factories\OrganizerFactory::new();
+    }
 }

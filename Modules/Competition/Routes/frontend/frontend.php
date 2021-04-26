@@ -8,4 +8,6 @@ Route::post('explorer/judge_request', 'CompetitionController@register_judge')->n
 
 Route::post('explorer/search_keyword', 'CompetitionController@search')->name('search_keyword');
 
+Route::get('my_team', 'MyTeamController@index')->name('my_team');
+
 ?>

@@ -1,39 +1,20 @@
 <?php
 
-namespace Modules\Competition\Http\Controllers\Backend;
+namespace Modules\Competition\Http\Controllers\Frontend;
 
-use App\Models\Auth\User;
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Competition\Entities\Competition;
-use Modules\Competition\Entities\CompetitionRule;
-use Modules\Competition\Entities\Competitor;
 
-class ScoreController extends Controller
+class MyTeamController extends Controller
 {
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index($competitionID)
+    public function index()
     {
-        $competitionDetails = Competition::where('id',$competitionID)->first();
-        $markSection = json_decode($competitionDetails->marks_sections);
-        $roundSection = json_decode($competitionDetails->rounds_section);
-        $competitorDetails = Competitor::where('competition_id',$competitionID)->select('user_id')->get();
-        $competitorUserID = [];
-        foreach ($competitorDetails as $competitor){
-            array_push($competitorUserID,$competitor->user_id);
-        }
-        $userDetails = User::whereIn('id',$competitorUserID)->get();
-        return view('competition::backend.score_board.view_score',[
-            'markSection' => $markSection,
-            'roundSection' => $roundSection,
-            'competitor_details' => $competitorDetails,
-            'user_details' => $userDetails
-        ]);
+        return view('competition::index');
     }
 
     /**

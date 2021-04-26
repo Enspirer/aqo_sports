@@ -48,12 +48,13 @@ class MyJudgmentController extends Controller
         $roundSection = json_decode($competitionDetails->rounds_section);
         $marksSection = json_decode($competitionDetails->marks_sections);
 
+
         return view('frontend.user.competitor_page',[
             'competitorDetails' => $competitiorDetails,
             'competitionDetails' => $competitionDetails,
             'user_details' => $userDetails,
             'marksSections'=>$marksSection,
-            'roundDetails' => $roundSection
+            'roundDetails' => $roundSection,
         ]);
     }
 
@@ -71,7 +72,6 @@ class MyJudgmentController extends Controller
             array_push($resultOut,$judgementResult);
         }
 
-        dd($resultOut);
 
     }
 
@@ -85,23 +85,16 @@ class MyJudgmentController extends Controller
         $getCompetitorDetails = Competitor::where('id',$competitor_id)->first();
         $getCompetitionDetails = Competition::where('id',$competition_id)->first();
         $calulateAllScore = array_sum($marks);
-
         self::generateCompetitorAllScore($competitor_id);
-
-
         $finalArrayMarks = [];
-
         foreach ($markSection as $key => $marksections)
         {
             $arrayout = [
               'mark_section' => $marksections,
               'score' => $marks[$key]
             ];
-
             array_push($finalArrayMarks,$arrayout);
         }
-
-
             $judgeDetails = new JudgmentMarks;
             $judgeDetails->judge_id = auth()->user()->id;
             $judgeDetails->competitor_id = $competitor_id;
@@ -110,14 +103,11 @@ class MyJudgmentController extends Controller
             $judgeDetails->judge_score = $calulateAllScore ;
             $judgeDetails->competitor_all_score = $getCompetitorDetails->score;
             $judgeDetails->judge_score_details = json_encode($finalArrayMarks);
+            $judgeDetails->competitor_all_score_details = 1;
             $judgeDetails->round_name = $round_name;
             $judgeDetails->save();
 
-
-        dd($getCompetitorDetails);
-
-
-        dd($request);
+        return back();
     }
 
     /**

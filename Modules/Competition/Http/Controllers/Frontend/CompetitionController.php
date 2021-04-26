@@ -40,26 +40,20 @@ class CompetitionController extends Controller
     {
         $categories = CompetitionCategory::all();
         $competitions = Competition::query();
-
         $categoryDetails = CompetitionCategory::where('id',$category_id)->first();
-
         if($categoryDetails)
         {
             $categoryName = $categoryDetails->category_name;
-
         }else{
             $categoryName = 'All';
         }
-
         if($category_id != 'all' ){
             $competitions =  $competitions->where('id',$category_id);
         }
-
         if($keyword != 'all')
         {
             $competitions = $competitions->where('competition_name', 'like', $keyword );
         }
-
         if($sort == 'desc')
         {
             $competitions = $competitions->orderBy('started_date','desc');
@@ -67,7 +61,6 @@ class CompetitionController extends Controller
         {
             $competitions = $competitions->orderBy('started_date','asc');
         }
-
         if($type == 'explorer')
         {
 

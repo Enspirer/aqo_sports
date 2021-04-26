@@ -1,40 +1,41 @@
 <?php
 
-namespace Modules\Competition\Http\Controllers\Backend;
+namespace Modules\Competition\Http\Controllers\Frontend;
 
-use App\Models\Auth\User;
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Competition\Entities\Competition;
-use Modules\Competition\Entities\CompetitionRule;
 use Modules\Competition\Entities\Competitor;
-
-class ScoreController extends Controller
+use Modules\Competition\Entities\Organizer;
+use Modules\Competition\Entities\CompetitionCategory;
+class CreateEvenetController extends Controller
 {
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index($competitionID)
+    public function index()
     {
-        $competitionDetails = Competition::where('id',$competitionID)->first();
-        $markSection = json_decode($competitionDetails->marks_sections);
-        $roundSection = json_decode($competitionDetails->rounds_section);
-        $competitorDetails = Competitor::where('competition_id',$competitionID)->select('user_id')->get();
-        $competitorUserID = [];
-        foreach ($competitorDetails as $competitor){
-            array_push($competitorUserID,$competitor->user_id);
-        }
-        $userDetails = User::whereIn('id',$competitorUserID)->get();
-        return view('competition::backend.score_board.view_score',[
-            'markSection' => $markSection,
-            'roundSection' => $roundSection,
-            'competitor_details' => $competitorDetails,
-            'user_details' => $userDetails
+        $storeRequest = Organizer::where('user_id',auth()->user()->id)->first();
+        $comeptition = Competition::where('user_id',auth()->user()->id)->get();
+
+
+        return view('frontend.user.register_as_organizer',[
+            'organizer_details' => $storeRequest,
+            'competitions' => $comeptition
         ]);
     }
+
+    public function create_competition()
+    {
+        $getCategory = CompetitionCategory::all();
+        return view('frontend.user.orgz_create_competition',[
+            'get_category' => $getCategory,
+        ]);
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -42,6 +43,7 @@ class ScoreController extends Controller
      */
     public function create()
     {
+
         return view('competition::create');
     }
 
@@ -52,7 +54,15 @@ class ScoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $organizeer = new Organizer;
+        $organizeer->organization = $request->organization;
+        $organizeer->contact_details = $request->contact_details;
+        $organizeer->address = $request->address;
+        $organizeer->country = $request->country;
+        $organizeer->status = 0;
+        $organizeer->user_id = auth()->user()->id;
+        $organizeer->save();
+        return back();
     }
 
     /**

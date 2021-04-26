@@ -68,7 +68,19 @@
                                                                                                 @foreach($marksSections as $markSection)
                                                                                                     <input type="hidden" class="form-control" name="mark_section[]" value="{{$markSection}}">
                                                                                                     <th scope="row">
-                                                                                                        <input type="number" class="form-control" name="marks[]" value="0">
+                                                                                                        @if(isset(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('round_name',$roundData)->first()->judge_score_details))
+                                                                                                            @foreach(json_decode(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('round_name',$roundData)->first()->judge_score_details) as $oDetails)
+                                                                                                                @if($oDetails->mark_section == $markSection)
+                                                                                                                    <input type="number" class="form-control" name="marks[]" value="{{$oDetails->score}}">
+                                                                                                                @else
+
+                                                                                                                @endif
+
+                                                                                                            @endforeach
+                                                                                                        @else
+                                                                                                            <input type="number" class="form-control" name="marks[]" value="">
+
+                                                                                                        @endif
                                                                                                     </th>
                                                                                                 @endforeach
                                                                                                 <input type="hidden" name="round_section" value="{{$roundData}}">

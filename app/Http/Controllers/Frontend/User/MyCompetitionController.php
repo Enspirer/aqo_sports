@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Frontend\User;
 
+use App\Models\Auth\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Modules\Competition\Entities\Competition;
 use Modules\Competition\Entities\Competitor;
+use Modules\Competition\Entities\JudgeDetails;
 use Modules\Competition\Entities\Performance;
 
 class MyCompetitionController extends Controller
@@ -40,6 +42,19 @@ class MyCompetitionController extends Controller
             ->where('user_id', auth()->user()->id)
             ->first();
 
+        $judgeDetails = JudgeDetails::where('competition_id',$competitionDetails->id)
+            ->where('status',1)
+            ->get();
+
+        $judgeIDs = [];
+        foreach ($judgeDetails  as $judge_details)
+        {
+            array_push($judgeIDs,$judge_details->user_id);
+        }
+
+
+        $userDetails =User::whereIn('id',$judgeIDs)->get();
+
         $roundSection = json_decode($competitionDetails->rounds_section);
         $marksSection = json_decode($competitionDetails->marks_sections);
 
@@ -50,6 +65,7 @@ class MyCompetitionController extends Controller
             'competitionDetails' => $competitionDetails,
             'roundDetails' => $roundSection,
             'marksSections' => $marksSection,
+            'judge_details' => $userDetails
         ]);
     }
 

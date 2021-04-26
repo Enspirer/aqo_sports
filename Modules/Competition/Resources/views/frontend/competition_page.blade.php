@@ -43,10 +43,10 @@
                         @if($categoryDetails->vote_function == 0)
 
                         @else
-                            <li class="nav-item">
+                            <li class="nav-item" style="background: #c0c4f3;border-radius: 12px 12px 0px 0px;">
                                 <a id="nav-voting-tab" data-toggle="tab" href="#nav-voting" role="tab" aria-controls="nav-voting"
-                                   aria-selected="false">Voting</a>
-                                <span class="border"></span>
+                                   aria-selected="false" style="">Voting</a>
+                                <span class="border" style="color: white;"></span>
                             </li>
                         @endif
 
@@ -279,6 +279,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
+
                                                     <div class="" id="fb-render">
 
                                                     </div>
@@ -308,9 +309,17 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <div class="" id="fb_judge_render">
+                                                    @if($competition_details->judge_register_form == null)
+                                                        <div class="" style="text-align: center;color: grey">
+                                                            <h3>Judge form not created</h3>
+                                                        </div>
 
-                                                    </div>
+                                                    @else
+                                                        <div class="" id="fb_judge_render">
+
+                                                        </div>
+                                                    @endif
+
                                                 </div>
                                                 <div class="modal-footer">
                                                     <input type="hidden" name="competition_id" value="{{$competition_details->id}}">
