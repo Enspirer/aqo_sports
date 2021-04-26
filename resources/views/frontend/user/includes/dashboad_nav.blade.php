@@ -56,7 +56,7 @@
             My Judgment
         </a>
 
-        <a href="{{route('frontend.user.register_as_organizer')}}" style="{{ Request::segment(1) === 'register_as_organizer' ? 'background:#fabf02' : null }}" class="btn"><i><svg xmlns="http://www.w3.org/2000/svg" width="22.779" height="26.563" viewBox="0 0 22.779 26.563">
+        <a href="{{route('frontend.user.register_as_organizer')}}" style="{{ Request::segment(1) === 'create_event' ? 'background:#fabf02' : null }}" class="btn"><i><svg xmlns="http://www.w3.org/2000/svg" width="22.779" height="26.563" viewBox="0 0 22.779 26.563">
                     <g id="Group_139" data-name="Group 139" transform="translate(-2043.951 477.837)">
                         <path id="Path_151" data-name="Path 151" d="M2333.594-470.949l0-.051h0A.506.506,0,0,0,2333.594-470.949Z" transform="translate(-277.615 -6.553)" fill="#4f4f4f"></path>
                         <path id="Path_152" data-name="Path 152" d="M2173.2-316.305c1.222-.755,2.275-.7,3.1.15a2.257,2.257,0,0,1,.06,3.013c.165.169.331.342.5.512.376.377.756.75,1.131,1.127a1.461,1.461,0,0,1,.133,1.946.562.562,0,0,1-.42.225,15.53,15.53,0,0,0-4.4.978c-.663.27-1.291.626-1.928.955-.119.061-.182.068-.28-.03q-1.82-1.832-3.651-3.654a.166.166,0,0,1-.021-.249,13,13,0,0,0,1.827-5.244c.056-.376.085-.756.148-1.13a.583.583,0,0,1,.166-.314,1.413,1.413,0,0,1,1.893.007c.543.5,1.053,1.039,1.578,1.56C2173.093-316.4,2173.15-316.352,2173.2-316.305Zm2.566,2.5a1.33,1.33,0,0,0-.153-1.818,1.309,1.309,0,0,0-1.745-.063Z" transform="translate(-118.307 -152.837)" fill="#4f4f4f"></path>
