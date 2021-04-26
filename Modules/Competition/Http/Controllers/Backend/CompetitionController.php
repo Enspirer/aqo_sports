@@ -21,8 +21,6 @@ class CompetitionController extends Controller
      */
     public function index()
     {
-
-
         return view('competition::backend.competition.index');
     }
 
@@ -61,7 +59,6 @@ class CompetitionController extends Controller
         $competition->is_feature = $request->is_feature;
         if($request->file('feature_image'))
         {
-            //Feature Images
             $imageName = time().'.'.$request->feature_image->getClientOriginalExtension();
             $fullURLs = $request->feature_image->move(public_path('files'), $imageName);
             $competition->feature_image = $imageName;
@@ -77,7 +74,6 @@ class CompetitionController extends Controller
         $competition->register_form = $request->register_form_data;
         $competition->marks_sections = json_encode($request->marks_sections);
         $competition->rounds_section = json_encode($request->rounds_section);
-
         //Game Rules
         $ruleNames= $request->rule_name;
         $ruleDescriptions = $request->description_rule;
@@ -92,7 +88,6 @@ class CompetitionController extends Controller
                 array_push($outArray,$outputArray);
             }
         }
-
         $jsonOutput = json_encode($outArray);
         $competition->game_rules = $jsonOutput;
         $competition->save();
@@ -106,7 +101,6 @@ class CompetitionController extends Controller
      */
     public function show($id)
     {
-
         return view('competition::show');
     }
 
@@ -122,7 +116,6 @@ class CompetitionController extends Controller
         $getCategory = CompetitionCategory::all();
         $getCompetitionForm = json_decode($getCompetionDetaills->register_form);
         $encorededJson = json_encode($getCompetitionForm);
-
         return view('competition::backend.competition.edit',[
             'competition_details' => $getCompetionDetaills,
             'game_rules' => $getGameRules,
@@ -194,10 +187,7 @@ class CompetitionController extends Controller
                 'rounds_section' => json_encode($request->rounds_section)
             ]
         );
-
         return redirect()->route('admin.competition');
-
-
     }
 
 
@@ -223,7 +213,6 @@ class CompetitionController extends Controller
                 $btn3 = ' <a href="'.route('admin.competition.register_judge.edit',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit judges Form</a>';
                 $btn4 = ' <a href="'.route('admin.competition.judge_request.index',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-user"></i> Judges</a>';
                 $btn5 = ' <a href="'.route('admin.competition.score_board',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-list"></i> Score</a>';
-
                 return $btn1.$btn2.$btn3.$btn4.$btn5;
             })
             ->rawColumns(['action'])

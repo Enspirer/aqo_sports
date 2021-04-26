@@ -21,7 +21,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">View Competition Page</a>
                             <a class="dropdown-item" href="{{route('frontend.user.orz_edit_competition',$competition->id)}}">Edit Competition</a>
-                            <a class="dropdown-item" href="#">Edit Judge Form</a>
+                            <a class="dropdown-item" href="{{route('frontend.user.edit_judge_form',$competition->id)}}">Edit Judge Form</a>
                             <a class="dropdown-item" href="#">Delete Competition</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Score Board</a>

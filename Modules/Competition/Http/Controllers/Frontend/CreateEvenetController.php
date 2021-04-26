@@ -9,6 +9,8 @@ use Modules\Competition\Entities\Competition;
 use Modules\Competition\Entities\Competitor;
 use Modules\Competition\Entities\Organizer;
 use Modules\Competition\Entities\CompetitionCategory;
+use Modules\Competition\Entities\JudgeDetails;
+use App\Models\Auth\User;
 class CreateEvenetController extends Controller
 {
     /**
@@ -20,10 +22,18 @@ class CreateEvenetController extends Controller
         $storeRequest = Organizer::where('user_id',auth()->user()->id)->first();
         $comeptition = Competition::where('user_id',auth()->user()->id)->get();
 
-
         return view('frontend.user.register_as_organizer',[
             'organizer_details' => $storeRequest,
             'competitions' => $comeptition
+        ]);
+    }
+
+
+    public function edit_judge_form($id)
+    {
+        $competitionDetails = Competition::where('id',$id)->first();
+        return view('frontend.user.edit_judge_form',[
+            'competitionDetails' => $competitionDetails
         ]);
     }
 
@@ -83,9 +93,7 @@ class CreateEvenetController extends Controller
                 'rounds_section' => json_encode($request->rounds_section)
             ]
         );
-
         return back();
-
     }
 
     public function orz_create_competition_store(Request $request)
@@ -122,7 +130,6 @@ class CreateEvenetController extends Controller
         $competition->register_form = $request->register_form_data;
         $competition->marks_sections = json_encode($request->marks_sections);
         $competition->rounds_section = json_encode($request->rounds_section);
-
         //Game Rules
         $ruleNames= $request->rule_name;
         $ruleDescriptions = $request->description_rule;
@@ -137,7 +144,6 @@ class CreateEvenetController extends Controller
                 array_push($outArray,$outputArray);
             }
         }
-
         $jsonOutput = json_encode($outArray);
         $competition->game_rules = $jsonOutput;
         $competition->save();
@@ -160,7 +166,6 @@ class CreateEvenetController extends Controller
         $getCategory = CompetitionCategory::all();
         $getCompetitionForm = json_decode($getCompetionDetaills->register_form);
         $encorededJson = json_encode($getCompetitionForm);
-
         return view('frontend.user.orgz_edit_competition',[
             'competition_details' => $getCompetionDetaills,
             'game_rules' => $getGameRules,

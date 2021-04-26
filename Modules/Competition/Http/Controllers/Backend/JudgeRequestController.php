@@ -23,7 +23,7 @@ class JudgeRequestController extends Controller
     public function index($competition_id)
     {
         $competitionDetails = Competition::where('id',$competition_id)->first();
-
+        $competition = Competition::wherere('id',$competition_id)->first();
         return view('competition::backend.judge_request.index',[
             'competitionDetails' => $competitionDetails
         ]);
@@ -37,13 +37,10 @@ class JudgeRequestController extends Controller
         return Datatables::of($compeition)
             ->addColumn('action', function($row){
                 $btn1 = '<a href="'.route('admin.competition.judgeRequest.show',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-eye"></i> View </a>';
-
                 return $btn1;
-
             })
             ->addColumn('judge_name', function($row){
                 $userDetails = User::where('id',$row->user_id)->first();
-
                 return $userDetails->first_name.' '.$userDetails->last_name;
             })
             ->rawColumns(['action'])
