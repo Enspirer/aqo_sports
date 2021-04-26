@@ -26,9 +26,11 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
     Route::group(['namespace' => 'User', 'as' => 'user.'], function () {
         // User Dashboard Specific
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-        Route::get('register_as_organizer', [CreateEvenetController::class, 'index'])->name('register_as_organizer');
-        Route::post('register_as_organizer_store', [CreateEvenetController::class, 'store'])->name('reuqst_organizer');
-        Route::get('orz_create_competition', [CreateEvenetController::class, 'create_competition'])->name('orz_create_competition');
+        Route::get('create_event/register_as_organizer', [CreateEvenetController::class, 'index'])->name('register_as_organizer');
+        Route::post('create_event/register_as_organizer_store', [CreateEvenetController::class, 'store'])->name('reuqst_organizer');
+        Route::get('create_event/orz_create_competition', [CreateEvenetController::class, 'create_competition'])->name('orz_create_competition');
+
+        Route::post('create_event/create_competition_orz', [CreateEvenetController::class, 'orz_create_competition_store'])->name('orz_create_competition_store');
 
         Route::get('my_competition', [MyCompetitionController::class, 'index'])->name('my_competition');
         Route::get('my_competition/details/{id}', [MyCompetitionController::class, 'performance_page'])->name('performance_page');
