@@ -20,7 +20,7 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">View Competition Page</a>
-                            <a class="dropdown-item" href="#">Edit Competition</a>
+                            <a class="dropdown-item" href="{{route('frontend.user.orz_edit_competition',$competition->id)}}">Edit Competition</a>
                             <a class="dropdown-item" href="#">Edit Judge Form</a>
                             <a class="dropdown-item" href="#">Delete Competition</a>
                             <div class="dropdown-divider"></div>

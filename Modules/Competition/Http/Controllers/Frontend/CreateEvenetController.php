@@ -27,6 +27,67 @@ class CreateEvenetController extends Controller
         ]);
     }
 
+    public function edit_competition_update(Request $request)
+    {
+        $validatedData = $request->validate([
+            'competition_name' => 'required:max:255',
+            'competition_description' => 'required',
+            'is_feature' => 'required',
+            'category' => 'required',
+            'payment_type' => 'required',
+            'status' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
+
+        if($request->file('feature_image'))
+        {
+            //Feature Images
+            $imageName = time().'.'.$request->feature_image->getClientOriginalExtension();
+            $fullURLs = $request->feature_image->move(public_path('files'), $imageName);
+            $competition_feature_img = $imageName;
+        }else{
+            $competition_feature_img = $request->feature_image_name;
+        }
+
+        //Game Rules
+        $ruleNames= $request->rule_name;
+        $ruleDescriptions = $request->description_rule;
+        $outArray =[];
+        if($ruleNames != null)
+        {
+            foreach ($ruleNames as $key=>$ruleName){
+                $outputArray = [
+                    'rule_name' => $ruleName,
+                    'rule_description' =>$ruleDescriptions[$key]
+                ];
+                array_push($outArray,$outputArray);
+            }
+        }
+
+        $jsonOutput = json_encode($outArray);
+        $competition = Competition::where('id',$request->id)->update(
+            [
+                'competition_name' => $request->competition_name,
+                'description' => $request->competition_description,
+                'is_feature' => $request->is_feature,
+                'feature_image' => $competition_feature_img,
+                'category_id' => $request->category,
+                'payment_type' => $request->payment_type,
+                'status' => $request->status,
+                'started_date' => $request->start_date,
+                'end_date' => $request->end_date,
+                'register_form' => $request->register_form_data,
+                'game_rules' => $jsonOutput,
+                'marks_sections' => json_encode($request->marks_sections),
+                'rounds_section' => json_encode($request->rounds_section)
+            ]
+        );
+
+        return back();
+
+    }
+
     public function orz_create_competition_store(Request $request)
     {
         $validatedData = $request->validate([
