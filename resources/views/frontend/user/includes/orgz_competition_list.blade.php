@@ -12,7 +12,27 @@
     @foreach($competitions as $competition)
         <div class="col-md-4">
             <div class="card" style="padding: 10px;height: 200px;">
+
                 <div class="" style="background-image: url('{{url('files/'.$competition->feature_image)}}');height: 200px;background-position: center;background-repeat: no-repeat;background-size: cover">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" style="background: darkblue" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            More
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">View Competition Page</a>
+                            <a class="dropdown-item" href="#">Edit Competition</a>
+                            <a class="dropdown-item" href="#">Edit Judge Form</a>
+                            <a class="dropdown-item" href="#">Delete Competition</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Score Board</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Judges List</a>
+                            <a class="dropdown-item" href="#">Competitors List</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="" style="background-color: darkblue;color: white">
+                    <h4 style="text-align: center">{{$competition->competition_name}}</h4>
                 </div>
             </div>
         </div>

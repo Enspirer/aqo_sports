@@ -15,7 +15,7 @@
                             }
                         </style>
                         <div class="light-style flex-grow-1 container-p-y">
-                            <form action="{{route('admin.competition.store')}}" method="post" id="create_formInit" enctype="multipart/form-data">
+                            <form action="{{route('frontend.user.orz_create_competition_store')}}" method="post" id="create_formInit" enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 <div class="card overflow-hidden">
                                     <div class="row no-gutters row-bordered row-border-light">
