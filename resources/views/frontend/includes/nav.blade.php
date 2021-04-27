@@ -37,24 +37,17 @@
                                             </div>
                                         </div>
                                         <li class="user-menu__item">
-                                            <a class="user-menu-link" href="#">
+                                            <a class="user-menu-link" href="{{route('frontend.user.my_competition')}}">
                                                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/trophy.png"
                                                      alt="trophy_icon" width=20 height=20>
-                                                <div>Achievements</div>
+                                                <div>My Competitions</div>
                                             </a>
                                         </li>
                                         <li class="user-menu__item">
-                                            <a class="user-menu-link" href="#">
+                                            <a class="user-menu-link" href="{{route('frontend.user.details_judgement')}}">
                                                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/team.png"
                                                      alt="team_icon" width=20 height=20>
-                                                <div>Team</div>
-                                            </a>
-                                        </li>
-                                        <li class="user-menu__item">
-                                            <a class="user-menu-link" href="#">
-                                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/book.png"
-                                                     alt="team_icon" width=20 height=20>
-                                                <div>Log History</div>
+                                                <div>My Judgements</div>
                                             </a>
                                         </li>
                                         <div class="footer">

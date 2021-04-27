@@ -17,10 +17,13 @@
                     <div class="container">
 
                         <div class="think-image">
-                            <img src="{{url('aqo_se/assets/image/think-image-2.png')}}" alt="">
-                            <h1>looks a little bit <br> empty here!</h1>
-                            <p>No competitions found, Do you <br> want to explorer new competitions?</p>
-                            <button>Find competitions</button>
+                            <form method="get" action="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}">
+                                <img src="{{url('aqo_se/assets/image/think-image-2.png')}}" alt="">
+                                <h1>looks a little bit <br> empty here!</h1>
+                                <p>No competitions found, Do you <br> want to explorer new competitions?</p>
+                                <button>Find competitions</button>
+                            </form>
+
                         </div>
                     </div>
                 </div>
