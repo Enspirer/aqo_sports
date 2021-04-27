@@ -262,9 +262,6 @@
                                 </div>
                             </div>
 
-
-
-
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -293,8 +290,6 @@
                                         </form>
                                     </div>
                                 </div>
-
-
                                 <!-- Judgement Models -->
                                 <div class="modal fade" id="judgeDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -334,7 +329,7 @@
 
 
 
-                            @elseauth
+                            @else
                                 <div class="loginFormComp">
                                     <div class="container">
                                         <div class="loginFormComp">
@@ -348,12 +343,13 @@
                                             <div class="separator">or</div>
 
                                             <div>
-                                                <form>
+                                                <form action="{{route('frontend.auth.login.post')}}" method="post">
+                                                    {{csrf_field()}}
                                                     <div class="form-group">
-                                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email / Username">
+                                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email / Username">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                                                     </div>
 
                                                     <button type="submit" class="btn btn-primary btn-block">
@@ -369,7 +365,7 @@
                                                 </div>
 
                                                 <div class="bottumText">
-                                                    <p>Not a member yet? <a>Register Now</a></p>
+                                                    <p>Not a member yet? <a href="">Register Now</a></p>
                                                 </div>
                                             </div>
                                         </div>
