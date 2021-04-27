@@ -45,21 +45,16 @@
                                         <button type="submit" class="btn btn-primary">Register Organizer</button>
                                     </form>
                                 @else
-
                                     @if($organizer_details->status == 1)
-
                                         @include('frontend.user.includes.orgz_competition_list')
-
                                     @else
                                         <div class="" style="text-align: center;margin-top: 20px;">
-                                            <h3 style="text-align: center">Our review team reviewing your organizer request. </h3>
+                                            <h3 style="text-align: center">Your request is successfully sent. <br> </h3>
+                                            <p>You will be notified once the account is approved by AQOSE team..
                                             <h5 style="text-align: center">Thank you !</h5><br>
 
                                             <a href="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}" class="btn btn-primary">Explore Events and Competition</a>
                                         </div>
-
-
-
                                     @endif
 
                                 @endif

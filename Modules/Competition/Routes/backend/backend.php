@@ -19,6 +19,12 @@ Route::get('competition/scoreboard/{competitionID}','ScoreController@index')->na
 Route::get('competition/judgeRequest/{judge_id}','JudgeRequestController@show')->name('competition.judgeRequest.show');
 Route::post('competition/judgeReq/ENPS','JudgeRequestController@ChangeStatus')->name('competition.judgeRequest.changeStatus');
 
+Route::get('competition/organizer_request/','OrganizerRequestController@index')->name('competition.organizer_request.index');
+Route::get('competition/organizer_request/index', 'OrganizerRequestController@getTableDetails')->name('competition.organizer_request.get_table_details');
+Route::get('competition/organizer_request/show/{id}', 'OrganizerRequestController@show')->name('competition.organizer_request.show');
+
+Route::post('competition/organizer/appvoe', 'OrganizerRequestController@update')->name('competition.organizer_request.update');
+
 
 
 Route::get('competitiors/{competition_id}', 'CompetitorController@index')->name('competitior.index');

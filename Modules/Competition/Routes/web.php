@@ -92,7 +92,13 @@ Breadcrumbs::for('admin.competition.judgeRequest.show', function ($trail) {
     $trail->push('Judge Request View', route('admin.competition.judgeRequest.show',1));
 });
 
+Breadcrumbs::for('admin.competition.organizer_request.index', function ($trail) {
+    $trail->push('Score Board', route('admin.competition.organizer_request.index'));
+});
 
+Breadcrumbs::for('admin.competition.organizer_request.show', function ($trail) {
+    $trail->push('Judge Request Show', route('admin.competition.organizer_request.show',1));
+});
 
 
 
