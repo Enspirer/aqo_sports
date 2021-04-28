@@ -63,10 +63,11 @@
                             @endforeach
                         @endif
                     </div>
-
-                    <div class="discover-more">
-                        <button>DISCOVER MORE</button>
-                    </div>
+                    <form method="get" action="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}">
+                        <div class="discover-more">
+                                <button type="submit">DISCOVER MORE</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
