@@ -114,7 +114,6 @@
                             <div class="tab-pane fade" id="nav-payments" role="tabpanel" aria-labelledby="nav-payments-tab">
                                 <div class="" style="border-style:dashed;padding: 10px;border-color: grey;">
                                     <h2 style="color: grey;text-align: center">This feature not available</h2>
-                                    <p></p>
                                 </div>
 
                             </div>
@@ -142,6 +141,8 @@
                                 </table>
                             </div>
                             <div class="tab-pane fade" id="nav-leaderboard" role="tabpanel" aria-labelledby="nav-leaderboard-tab">
+                                @include('competition::frontend.include.leaderboard')
+
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
@@ -417,26 +418,7 @@
             });
         </script>
 
-        <script>
-            /*
-             This has been updated to use the new userData method available in formRender
-             */
-            const getUserDataBtnJudge = document.getElementById("get-user-data");
-            const fbRendeJudger = document.getElementById("fb_judge_render");
-            const originalFormDataJudge = {!! $competition_details->judge_register_form !!};
-            jQuery(function($) {
-                const formData = JSON.stringify(originalFormDataJudge);
 
-                $(fbRendeJudger).formRender({ formData });
-                getUserDataBtnJudge.addEventListener(
-                    "click",
-                    () => {
-                        window.alert(window.JSON.stringify($(fbRender).formRender("userData")));
-                    },
-                    false
-                );
-            });
-        </script>
     @endpush
 
 
@@ -472,7 +454,6 @@
             countdown();
             setInterval(countdown, 1000);
         </script>
-
 
     @else
 
