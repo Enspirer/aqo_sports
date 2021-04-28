@@ -113,7 +113,8 @@
                             </div>
                             <div class="tab-pane fade" id="nav-payments" role="tabpanel" aria-labelledby="nav-payments-tab">
                                 <div class="" style="border-style:dashed;padding: 10px;border-color: grey;">
-                                    <h2 style="color: grey;text-align: center">This feature not available</h2>
+                                    <h2 style="color: grey;text-align: center">This feature is currently not available</h2>
+                                    <p style="text-align: center;font-size: 21px;color: gray;">Our team is working on few improvements <br> Please check again later.</p>
                                 </div>
 
                             </div>
@@ -142,36 +143,6 @@
                             </div>
                             <div class="tab-pane fade" id="nav-leaderboard" role="tabpanel" aria-labelledby="nav-leaderboard-tab">
                                 @include('competition::frontend.include.leaderboard')
-
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
                             </div>
                             <div class="tab-pane fade" id="nav-competitors" role="tabpanel" aria-labelledby="nav-competitors-tab">
                                 <table class="table table-hover">
@@ -182,16 +153,30 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($getCompetitorDetails as $getCompetitor)
-                                        <tr>
-                                            <td scope="row">{{$getCompetitor['competitor_name']}}</td>
-                                            <td>{{$getCompetitor['score']}}</td>
+                                    @if(count($getCompetitorDetails) == 0)
 
-                                        </tr>
-                                    @endforeach
+
+                                    @else
+                                        @foreach($getCompetitorDetails as $getCompetitor)
+                                            <tr>
+                                                <td scope="row">{{$getCompetitor['competitor_name']}}</td>
+                                                <td>{{$getCompetitor['score']}}</td>
+
+                                            </tr>
+                                        @endforeach
+                                    @endif
+
 
                                     </tbody>
+
                                 </table>
+                                @if(count($getCompetitorDetails) == 0)
+                                    <div>
+                                        <td style="text-align: center">
+                                            <h3 style="padding-top: 5px;color: grey;text-align: center">Competitor not registed</h3>
+                                        </td>
+                                    </div>
+                                @endif
                             </div>
                             <div class="tab-pane fade" id="nav-judge" role="tabpanel" aria-labelledby="nav-judge-tab">...</div>
                         </div>
