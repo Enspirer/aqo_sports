@@ -12,8 +12,8 @@
                     <div class="think-image">
                         <form method="get" action="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}">
                             <div style="background: url('{{url('aqo_se/assets/image/notf.svg')}}');height: 100px;background-repeat: no-repeat;background-size: contain;background-position: center;margin-bottom: 10px;"></div>
-                            <h1>This feature not available</h1>
-                            <p>This feature available on next update, Thanks</p>
+                            <h1>This feature is currently not available</h1>
+                            <p>Our team is working on few improvements</p>
                             <button>Find competitions</button>
                         </form>
 
