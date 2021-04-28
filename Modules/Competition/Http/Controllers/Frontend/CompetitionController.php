@@ -12,6 +12,7 @@ use Modules\Competition\Entities\CompetitionCategory;
 use Carbon\Carbon;
 use Modules\Competition\Entities\Competitor;
 use Modules\Competition\Entities\JudgeDetails;
+use Modules\Competition\Entities\Organizer;
 use Modules\Competition\Http\Controllers\Backend\CategoryController;
 
 
@@ -129,8 +130,7 @@ class CompetitionController extends Controller
         $competiorDetails = Competitor::IsAppliedCompetition($id);
         $getCompetitorDetails = Competitor::getAppliedCompetitorsUsers($id,1);
         $categoryDetails = CompetitionCategory::where('id',$competitionDetails->category_id)->first();
-
-
+        $organizerDetails = Organizer::where('user_id',$competitionDetails->user_id)->first();
 
         if($carbonEndDate < $carbonTody)
         {
@@ -147,7 +147,8 @@ class CompetitionController extends Controller
             'gameRule' => $gameRules,
             'competitorDetails' => $competiorDetails,
             'getCompetitorDetails' => $getCompetitorDetails,
-            'categoryDetails' => $categoryDetails
+            'categoryDetails' => $categoryDetails,
+            'organizer_details' => $organizerDetails
         ]);
     }
 

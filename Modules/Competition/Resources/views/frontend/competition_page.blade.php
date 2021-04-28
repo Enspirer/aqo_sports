@@ -73,7 +73,6 @@
             <div class="container">
                 <div class="row">
                     <div class="leftSide col-md-8">
-
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="aboutÎ-tab">
                                 <h2>{{$competition_details->competition_name}}</h2>
@@ -90,8 +89,35 @@
                                     </div><br>
                                 @endforeach
                             </div>
-                            <div class="tab-pane fade" id="nav-organizer" role="tabpanel" aria-labelledby="nav-organizer-tab">...</div>
-                            <div class="tab-pane fade" id="nav-payments" role="tabpanel" aria-labelledby="nav-payments-tab">...</div>
+                            <div class="tab-pane fade" id="nav-organizer" role="tabpanel" aria-labelledby="nav-organizer-tab">
+                                @if($organizer_details == null)
+                                    <div class="" style="border-style:dashed;padding: 10px;border-color: grey;">
+                                        <h2 style="color: grey;text-align: center">Organizer Details Not Found</h2>
+                                    </div>
+                                @else
+                                    <div class="card" style="padding: 10px">
+                                        <h3>Organizer Name: {{$organizer_details->organization}}</h3><br>
+
+                                        <div class="row">
+                                            <div  class="col-md-6">
+                                                <strong>Address:</strong> {{$organizer_details->address}}<br>
+
+                                            </div>
+                                            <div  class="col-md-6">
+                                                <strong>Contact Number:</strong> {{$organizer_details->contact_details}}
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="tab-pane fade" id="nav-payments" role="tabpanel" aria-labelledby="nav-payments-tab">
+                                <div class="" style="border-style:dashed;padding: 10px;border-color: grey;">
+                                    <h2 style="color: grey;text-align: center">This feature not available</h2>
+                                    <p></p>
+                                </div>
+
+                            </div>
                             <div class="tab-pane fade" id="nav-voting" role="tabpanel" aria-labelledby="nav-voting-tab">
 
                                 <table class="table table-hover">
@@ -114,14 +140,8 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-
-
-
-
-
                             </div>
                             <div class="tab-pane fade" id="nav-leaderboard" role="tabpanel" aria-labelledby="nav-leaderboard-tab">
-
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
@@ -151,10 +171,6 @@
                                     </tr>
                                     </tbody>
                                 </table>
-
-
-
-
                             </div>
                             <div class="tab-pane fade" id="nav-competitors" role="tabpanel" aria-labelledby="nav-competitors-tab">
                                 <table class="table table-hover">
@@ -421,15 +437,7 @@
                 );
             });
         </script>
-
-
     @endpush
-
-
-
-
-
-
 
 
 
@@ -440,7 +448,7 @@
             const hoursEl = document.getElementById("hours");
             const minutesEl = document.getElementById("minutes");
             const secondsEl = document.getElementById("seconds");
-            const date = "30 march 2021";
+            const date = "{{$end_date}}";
 
             function countdown() {
                 const newYearsDate = new Date(date);

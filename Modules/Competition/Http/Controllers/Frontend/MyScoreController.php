@@ -6,7 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class MyTeamController extends Controller
+class MyScoreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class MyTeamController extends Controller
      */
     public function index()
     {
-        return view('frontend.user.my_team');
+        return view('competition::index');
     }
 
     /**

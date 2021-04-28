@@ -9,6 +9,8 @@ use App\Http\Controllers\Frontend\User\MyCompetitionController;
 use App\Http\Controllers\Frontend\User\PendingController;
 use Modules\Competition\Http\Controllers\Frontend\MyJudgmentController;
 use Modules\Competition\Http\Controllers\Frontend\CreateEvenetController;
+use Modules\Competition\Http\Controllers\Frontend\MyTeamController;
+use Modules\Competition\Http\Controllers\Frontend\LeaderBoardController;
 /*
  * Frontend Controllers
  * All route names are prefixed with 'frontend.'.
@@ -45,6 +47,11 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('my_judgement/open_judgment/{id}', [MyJudgmentController::class, 'show'])->name('show_judgment');
         Route::get('viewCompetitor/{id}', [MyJudgmentController::class, 'viewCompetitor'])->name('show_competitor');
         Route::post('add_marks_judge', [MyJudgmentController::class, 'add_marks_judge'])->name('add_marks_judge');
+
+        Route::get('my_team', [MyTeamController::class, 'index'])->name('my_team');
+        Route::get('my_leader_board', [MyTeamController::class, 'index'])->name('my_leader_board');
+
+
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account');
         // User Profile Specific
