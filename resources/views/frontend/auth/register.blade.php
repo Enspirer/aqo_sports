@@ -34,13 +34,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Password Conformation</label>
+                        <label for="exampleInputPassword1">Password Confirmation</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" name="password_confirmation" placeholder="Password" data-toggle="password" required>
                     </div>
 
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1" name="">
-                        <label class="form-check-label" for="exampleCheck1">By signing up a agree with <a>Terms and conditions.</a> </label>
+                        <label class="form-check-label" for="exampleCheck1">By signing up agree with <a>Terms and conditions.</a> </label>
                     </div>
 
                     @if(config('access.captcha.registration'))
