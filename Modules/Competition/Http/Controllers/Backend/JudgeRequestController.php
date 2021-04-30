@@ -23,7 +23,7 @@ class JudgeRequestController extends Controller
     public function index($competition_id)
     {
         $competitionDetails = Competition::where('id',$competition_id)->first();
-        $competition = Competition::wherere('id',$competition_id)->first();
+        $competition = Competition::where('id',$competition_id)->first();
         return view('competition::backend.judge_request.index',[
             'competitionDetails' => $competitionDetails
         ]);
