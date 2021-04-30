@@ -382,6 +382,10 @@
     </div>
 
     @push('footer_script')
+
+
+
+
         <script>
             /*
              This has been updated to use the new userData method available in formRender
@@ -402,6 +406,27 @@
                 );
             });
         </script>
+
+    <script>
+        /*
+         This has been updated to use the new userData method available in formRender
+         */
+        const getUserDataBtnJudge = document.getElementById("get-user-data");
+        const fbRendeJudger = document.getElementById("fb_judge_render");
+        const originalFormDataJudge = {!! $competition_details->judge_register_form !!};
+        jQuery(function($) {
+            const formData = JSON.stringify(originalFormDataJudge);
+
+            $(fbRendeJudger).formRender({ formData });
+            getUserDataBtnJudge.addEventListener(
+                "click",
+                () => {
+                    window.alert(window.JSON.stringify($(fbRender).formRender("userData")));
+                },
+                false
+            );
+        });
+    </script>
 
 
     @endpush
