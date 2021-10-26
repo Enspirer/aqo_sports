@@ -12,7 +12,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link {{active_class(Active::checkUriPattern('admin/competition'))}}" href="{{ route('admin.competition.organizer_request.index') }}">
+                <a class="nav-link {{active_class(Active::checkUriPattern('admin/dashboard'))}}" href="{{ route('admin.competition.organizer_request.index') }}">
                     <i class="nav-icon fas fa-file"></i>
                     Organizer Request
                 </a>
