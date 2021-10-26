@@ -94,7 +94,7 @@ class OrganizerRequestController extends Controller
             'status' => $request->status
         ]);
 
-        return back();
+        return redirect()->route('admin.competition.organizer_request.index')->withFlashSuccess('Updated Successfully');
     }
 
     /**
