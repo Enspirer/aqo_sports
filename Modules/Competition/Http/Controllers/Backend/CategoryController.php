@@ -27,7 +27,7 @@ class CategoryController extends Controller
         return Datatables::of($category)
             ->addColumn('action', function($row){
                 $btn1 = '<a href="'.route('admin.category.edit',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit </a>';
-                $btn2 = ' <a href="'.route('admin.category.delete',$row->id).'" class="edit btn btn-danger btn-sm"><i class="fa fa-trash"></i> Trash </a>';
+                $btn2 = ' <button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>';
                 return $btn1.$btn2;
             })
             ->rawColumns(['action'])
@@ -132,7 +132,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        CompetitionCategory::where('id',$id)->delete();
-        return back();
+        $data = CompetitionCategory::findOrFail($id);
+        $data->delete();  
     }
 }

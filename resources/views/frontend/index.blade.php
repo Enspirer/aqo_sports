@@ -10,7 +10,7 @@
                 <!-- <div class="yellow-background"></div> -->
                 <div class="row">
                     <div class="col-md-8">
-                        <div id="slideshow">
+                        <!-- <div id="slideshow">
                             <div>
                                 <img src="{{url('aqo_se/assets/image/gettyimages-592331286.jpg')}}">
                             </div>
@@ -26,6 +26,25 @@
                             <div>
                                 <img src="{{url('aqo_se/assets/image/slider4.webp')}}">
                             </div>
+                        </div> -->
+
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="{{url('aqo_se/assets/image/slider1.png')}}" class="w-100">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="{{url('aqo_se/assets/image/slider2.png')}}" class="w-100">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="{{url('aqo_se/assets/image/slider3.png')}}" class="w-100">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="{{url('aqo_se/assets/image/slider4.png')}}" class="w-100">
+                                </div>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -274,3 +293,23 @@
         </div>
     </div>
 @endsection
+
+
+@push('after-scripts')
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        loop: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+      });
+    </script>
+
+@endpush

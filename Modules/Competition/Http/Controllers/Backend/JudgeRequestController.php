@@ -36,8 +36,9 @@ class JudgeRequestController extends Controller
         $compeition =JudgeDetails::where('competition_id',$competition_id)->get();
         return Datatables::of($compeition)
             ->addColumn('action', function($row){
-                $btn1 = '<a href="'.route('admin.competition.judgeRequest.show',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-eye"></i> View </a>';
-                return $btn1;
+                $btn1 = '<a href="'.route('admin.competition.judgeRequest.show',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fas fa-info-circle"></i> View </a>';
+                $btn2 = ' <button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>';
+                return $btn1.$btn2;
             })
             ->addColumn('judge_name', function($row){
                 $userDetails = User::where('id',$row->user_id)->first();
@@ -161,6 +162,7 @@ class JudgeRequestController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = JudgeDetails::findOrFail($id);
+        $data->delete(); 
     }
 }

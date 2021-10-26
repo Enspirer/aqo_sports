@@ -199,7 +199,8 @@ class CompetitionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Competition::findOrFail($id);
+        $data->delete();  
     }
 
 
@@ -208,14 +209,16 @@ class CompetitionController extends Controller
         $compeition = Competition::all();
         return Datatables::of($compeition)
             ->addColumn('action', function($row){
-                $btn1 = '<a href="'.route('admin.competition.edit',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit </a>';
-                $btn2 = ' <a href="'.route('admin.competitior.index',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-users"></i> View Competitors </a>';
-                $btn3 = ' <a href="'.route('admin.competition.register_judge.edit',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit judges Form</a>';
-                $btn4 = ' <a href="'.route('admin.competition.judge_request.index',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-user"></i> Judges</a>';
-                $btn5 = ' <a href="'.route('admin.competition.score_board',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-list"></i> Score</a>';
-                return $btn1.$btn2.$btn3.$btn4.$btn5;
+                $btn = '<a href="'.route('admin.competition.edit',$row->id).'" class="edit btn btn-primary mb-2 btn-sm"><i class="fa fa-edit"></i> Edit </a>';
+                $btn .= ' <a href="'.route('admin.competitior.index',$row->id).'" class="edit btn btn-primary mb-2 btn-sm"><i class="fa fa-users"></i> View Competitors </a>';
+                $btn .= ' <a href="'.route('admin.competition.register_judge.edit',$row->id).'" class="edit btn btn-primary mb-2 btn-sm"><i class="fa fa-edit"></i> Edit judges Form</a>';
+                $btn .= ' <a href="'.route('admin.competition.judge_request.index',$row->id).'" class="edit btn btn-primary mb-2 btn-sm"><i class="fa fa-user"></i> Judges</a>';
+                $btn .= ' <a href="'.route('admin.competition.score_board',$row->id).'" class="edit btn btn-primary mb-2 btn-sm"><i class="fa fa-list"></i> Score</a>';
+                $btn .= ' <button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger mb-2 btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>';
+                return $btn;
             })
             ->rawColumns(['action'])
             ->make();
     }
+    
 }

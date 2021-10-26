@@ -14,6 +14,7 @@
     />
     <link rel="stylesheet" href="{{url('aqo_se/Styles/css/style.css')}}"/>
     <link rel="stylesheet" href="{{url('aqo_se/plugin/owl-carousel/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <!-- Styles -->
 </head>
 <body>
@@ -38,10 +39,13 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 <script src='https://kevinchappell.github.io/formBuilder/assets/js/form-render.min.js'></script>
 
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 
 <script src="{{url('/aqo_se/plugin/owl-carousel/js/owl.carousel.js')}}"></script>
 <script src="{{url('/aqo_se/plugin/owl-carousel/js/jquery.mousewheel.min.js')}}"></script>
 
+@stack('after-scripts')
 
 @stack('footer_script')
 
