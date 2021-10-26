@@ -122,3 +122,19 @@
         </div>
     </div>
 </div>
+
+
+
+@push('after-scripts')
+    <script>
+        $(document).ready(function () {
+        
+            // Avatar Drop Down 
+            document.querySelector('.mini-photo-wrapper').addEventListener('click', function() {
+                document.querySelector('.menu-container').classList.toggle('active');
+            });
+            
+        });
+    </script>
+
+@endpush

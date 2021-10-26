@@ -31,19 +31,16 @@
                         <div class="swiper mySwiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img src="{{url('aqo_se/assets/image/gettyimages-592331286.jpg')}}">
+                                    <img src="{{url('aqo_se/assets/image/slider1.png')}}" class="w-100">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="{{url('aqo_se/assets/image/slider1.jpg')}}">
+                                    <img src="{{url('aqo_se/assets/image/slider2.png')}}" class="w-100">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="{{url('aqo_se/assets/image/slider2.jpg')}}">
+                                    <img src="{{url('aqo_se/assets/image/slider3.png')}}" class="w-100">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="{{url('aqo_se/assets/image/slider3.jpg')}}">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="{{url('aqo_se/assets/image/slider4.webp')}}">
+                                    <img src="{{url('aqo_se/assets/image/slider4.png')}}" class="w-100">
                                 </div>
                             </div>
                             <div class="swiper-button-next"></div>
@@ -308,6 +305,10 @@
           prevEl: ".swiper-button-prev",
         },
         loop: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
       });
     </script>
 
