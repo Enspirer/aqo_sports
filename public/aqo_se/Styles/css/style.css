@@ -221,7 +221,7 @@ header .top .container .row .buttons .inline h6 {
 
 header .top .container .row .buttons .inline .user-menu-wrap {
   position: relative;
-  width: 36px;
+  width: 130px;
   margin: 50px auto;
   display: inline-block;
   margin: auto;
@@ -245,14 +245,14 @@ header .top .container .row .buttons .inline .menu-container.active {
 
 header .top .container .row .buttons .inline .user-menu {
   position: absolute;
-  right: -111px;
+  right: -55px;
   background-color: #ffffff;
   width: 256px;
   border-radius: 2px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   padding-top: 5px;
   padding-bottom: 5px;
-  margin-top: 20px;
+  margin-top: 13px;
   z-index: 99;
 }
 
