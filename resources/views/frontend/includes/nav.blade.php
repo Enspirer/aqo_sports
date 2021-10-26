@@ -22,7 +22,15 @@
                     <div class="inline">
                         <div class="user-menu-wrap">
                             <a class="mini-photo-wrapper" href="#">
-                                <img class="mini-photo" src=" {{ $logged_in_user->picture }}" width="36" height="36" />
+                                <div class="row align-items-center">
+                                    <div class="col-3">
+                                        <img class="mini-photo" src=" {{ $logged_in_user->picture }}" width="36" height="36" />
+                                    </div>
+                                    <div class="col-9">
+                                        <h6 class="d-inline-block">{{auth()->user()->first_name}}</h6>
+                                    </div>
+                                </div>
+                                
                                 <div class="menu-container">
                                     <ul class="user-menu">
                                         <div class="profile-highlight">
@@ -60,7 +68,7 @@
                                 </div>
                             </a>
                         </div>
-                        <h6>{{auth()->user()->first_name}}</h6>
+                        <!-- <h6>{{auth()->user()->first_name}}</h6> -->
                     </div>
                     @else
                     <div class="inline">
