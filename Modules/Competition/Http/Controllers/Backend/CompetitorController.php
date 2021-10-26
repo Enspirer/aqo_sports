@@ -108,7 +108,8 @@ class CompetitorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Competitor::findOrFail($id);
+        $data->delete(); 
     }
 
     public function getTableDetails($id)
@@ -121,9 +122,10 @@ class CompetitorController extends Controller
                 return $userDetails->first_name.' '.$userDetails->last_name;
             })
             ->addColumn('action', function($row){
-                $btn1 = '<a href="'.route('admin.competitior.show',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-eye"></i> View </a>';
-                $btn2 = ' <a href="" class="edit btn btn-primary btn-sm"><i class="fa fa-bars"></i>Performance</a>';
-                return $btn1.$btn2;
+                $btn1 = '<a href="'.route('admin.competitior.show',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fas fa-info-circle"></i> View </a>';
+                $btn2 = ' <a href="" class="edit btn btn-primary btn-sm"><i class="fa fa-bars"></i> Performance</a>';
+                $btn3 = ' <button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>';
+                return $btn1.$btn2.$btn3;
             })
             ->rawColumns(['action'])
             ->make();

@@ -45,8 +45,8 @@
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status">
-                                <option value="1" > Approve</option>
-                                <option value="0"> Deactivate</option>
+                                <option value="1" {{$organizer_details->status == 1 ? "selected" : "" }}> Approve</option>
+                                <option value="0" {{$organizer_details->status == 0 ? "selected" : "" }}> Deactivate</option>
                             </select>
                         </div>
                         <button class="btn btn-primary">Update</button>
