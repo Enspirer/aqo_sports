@@ -1,0 +1,17 @@
+.banner {
+    background: url('../../assets/image/about_us/banner.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position:center center;
+    width: 100%;
+    height: 500px;
+}
+
+.banner h1 {
+    color: white;
+    font-size: 65px;
+}
+
+.custom-shadow {
+    box-shadow: 0 0rem 0.5rem rgb(0 0 0 / 16%);
+}

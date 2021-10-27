@@ -30,9 +30,9 @@ class CompetitionController extends Controller
 
     public function search(Request $request)
     {
-        $requestdetails = $request->search_keyword;
+        $keyword = $request->search_keyword;
 
-        return redirect()->route('frontend.explorer',['all', $requestdetails ,'desc','explorer','all','null','null']);
+        return redirect()->route('frontend.explorer', ['category', $keyword ,'desc', 'country', 'start_date', 'end_date']);
 
     }
 
@@ -67,11 +67,10 @@ class CompetitionController extends Controller
             $end_date = 'end_date';
         }
 
+
         $keyword = 'keyword';
         $sort = 'desc';
         
-
-
 
         return redirect()->route('frontend.explorer', [
             $category_id,
@@ -95,15 +94,11 @@ class CompetitionController extends Controller
             $categoryName = $categoryDetails->category_name;
         }
         else{
-            $categoryName = 'category';
+            $categoryName = 'all competitions';
         }
 
         if($category_id != 'category' ){
             $competitions =  $competitions->where('id', $category_id);
-        }
-
-        if($keyword != 'keyword'){
-            $competitions = $competitions->where('competition_name', 'like', $keyword );
         }
 
         if($sort == 'desc'){
@@ -124,10 +119,14 @@ class CompetitionController extends Controller
             $competitions->where('end_date', '<=', $end_date);
         }
 
-        
+
+        if($keyword != 'keyword'){
+            $competitions->where('competition_name', 'like', '%' .  $keyword . '%');
+        }
 
         $competitions = $competitions->get();
-        
+
+
         return view('competition::frontend.explorer',
             [
                 'categories' => $categories,

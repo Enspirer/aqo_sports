@@ -1,0 +1,12 @@
+.social a i {
+    color: black;
+    font-size: 3rem;
+}
+
+.social a:hover i {
+    color: #007bff;
+}
+
+.social p {
+    margin-bottom: 0;
+}

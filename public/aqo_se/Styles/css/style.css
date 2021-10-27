@@ -133,7 +133,7 @@ header .top .container .row .logo {
 }
 
 header .top .container .row .logo img {
-  height: 29px;
+  height: 50px;
   margin: auto;
   text-align: center;
 }
@@ -650,7 +650,7 @@ header .bottom.sticky {
   opacity: 1;
 }
 
-.loginFormmain .container .loginForm .row p {
+.loginFormmain .container .loginForm .row a {
   text-align: left;
   font: normal normal normal 12px/13px Source Sans Pro;
   letter-spacing: 0.18px;
@@ -1610,7 +1610,7 @@ header .bottom.sticky {
   background: #000 0% 0% no-repeat padding-box;
   opacity: 0.06;
   z-index: -9;
-  margin-left: 157px;
+  margin-left: 141px;
 }
 
 .popular-categories h1 {
@@ -1669,7 +1669,7 @@ header .bottom.sticky {
   height: 865px;
   background: #000 0% 0% no-repeat padding-box;
   opacity: 0.06;
-  margin-left: 787px;
+  margin-left: 771px;
   z-index: -9;
 }
 
@@ -2091,7 +2091,7 @@ header .bottom.sticky {
 
 .our-group {
   margin-top: 129px;
-  margin-bottom: 200px;
+  margin-bottom: 120px;
 }
 
 .our-group .container h1 {

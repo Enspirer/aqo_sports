@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row justify-content-end">
             <div class="logo col col-md-3 col-sm-4 col-xs-3">
-                <img src="{{url('aqo_se/assets/image/logo/aqoselightsm.png')}}" alt="" srcset=""/>
+                <img src="{{url('aqo_se/assets/image/logo_new.png')}}" alt="" srcset=""/>
             </div>
             <div class="name col col-md-6 ">
                 <img src="{{url('aqo_se/assets/image/logo/aqoselightlg.png')}}" alt="" srcset=""/>
@@ -72,10 +72,10 @@
                     </div>
                     @else
                     <div class="inline">
-                        <select class="selectpicker" data-width="fit">
+                        <!-- <select class="selectpicker" data-width="fit">
                             <option>En</option>
                             <option>Es</option>
-                        </select>
+                        </select> -->
                         <a href="{{route('frontend.auth.login')}}" class="buttonSignIn">Sign In</a>
                         <a href="{{route('frontend.auth.register')}}" class="buttonRegister">Register</a>
                     </div>

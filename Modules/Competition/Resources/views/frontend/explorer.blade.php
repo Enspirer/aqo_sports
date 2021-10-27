@@ -50,7 +50,7 @@
                 </p>
             </div>
             <div class="headingTitle">
-                @if($keyword == 'all')
+                @if($keyword == 'keyword')
                     <h1>{{$category_name}}</h1>
                 @else
                     <h2>Search for {{$keyword}}...</h2>
