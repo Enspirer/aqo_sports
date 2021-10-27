@@ -82,7 +82,7 @@
                             @endforeach
                         @endif
                     </div>
-                    <form method="get" action="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}">
+                    <form method="get" action="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}">
                         <div class="discover-more">
                                 <button type="submit">DISCOVER MORE</button>
                         </div>
@@ -109,7 +109,7 @@
                         <div id="owl-example" class="owl-carousel">
                             @foreach($competitionCategory as $competitionCat)
                                 <div>
-                                    <a href="{{route('frontend.explorer',[$competitionCat->id,'all','desc','explorer','all','null','null'])}}">
+                                    <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}">
                                         <div style="background-image: url('{{url('files/'.$competitionCat->feature_image)}}');height: 200px;background-size: cover;background-repeat: no-repeat;background-position: center;" alt="">
 
                                         </div>

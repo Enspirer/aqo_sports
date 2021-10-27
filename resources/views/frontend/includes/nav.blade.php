@@ -105,7 +105,7 @@
                             <a href="{{url('/')}}">Home</a>
                         </li>
                         <li>
-                            <a href="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}">Explore</a>
+                            <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}">Explore</a>
                         </li>
                         <li>
                             <a href="#">Training</a>

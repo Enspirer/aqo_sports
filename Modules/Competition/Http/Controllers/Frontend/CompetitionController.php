@@ -37,44 +37,105 @@ class CompetitionController extends Controller
     }
 
 
-    public function explorer($category_id,$keyword,$sort,$type,$contry,$start_date,$end_date)
+    public function searchFilters(Request $request)
     {
+        if(request('countries') != null) {
+            $country = request('countries');
+        }
+        else {
+            $country = 'country';
+        }
+
+        if(request('categories') != null) {
+            $category_id = request('categories');
+        }
+        else {
+            $category_id = 'category';
+        }
+
+        if(request('start_date') != null) {
+            $start_date = request('start_date');
+        }
+        else {
+            $start_date = 'start_date';
+        }
+
+        if(request('end_date') != null) {
+            $end_date = request('end_date');
+        }
+        else {
+            $end_date = 'end_date';
+        }
+
+        $keyword = 'keyword';
+        $sort = 'desc';
+        
+
+
+
+        return redirect()->route('frontend.explorer', [
+            $category_id,
+            $keyword,
+            $sort,
+            $country,
+            $start_date,
+            $end_date,
+        ]);
+    }
+
+
+    public function explorer($category_id, $keyword, $sort, $country, $start_date, $end_date)
+    {
+
         $categories = CompetitionCategory::all();
         $competitions = Competition::query();
         $categoryDetails = CompetitionCategory::where('id',$category_id)->first();
-        if($categoryDetails)
-        {
+
+        if($categoryDetails){
             $categoryName = $categoryDetails->category_name;
-        }else{
-            $categoryName = 'All';
         }
-        if($category_id != 'all' ){
-            $competitions =  $competitions->where('id',$category_id);
+        else{
+            $categoryName = 'category';
         }
-        if($keyword != 'all')
-        {
+
+        if($category_id != 'category' ){
+            $competitions =  $competitions->where('id', $category_id);
+        }
+
+        if($keyword != 'keyword'){
             $competitions = $competitions->where('competition_name', 'like', $keyword );
         }
-        if($sort == 'desc')
-        {
+
+        if($sort == 'desc'){
             $competitions = $competitions->orderBy('started_date','desc');
-        }elseif ($sort == 'asc')
-        {
+        }
+        elseif ($sort == 'asc'){
             $competitions = $competitions->orderBy('started_date','asc');
         }
-        if($type == 'explorer')
-        {
 
+
+        if($start_date != 'start_date' && $end_date != 'end_date') {
+            $competitions->where('started_date', '>=', $start_date)->where('end_date', '<=', $end_date);
         }
+        elseif($start_date != 'start_date' && $end_date == 'end_date'){
+            $competitions->where('started_date', '>=', $start_date);
+        }
+        elseif($start_date == 'start_date' && $end_date != 'end_date'){
+            $competitions->where('end_date', '<=', $end_date);
+        }
+
+        
+
         $competitions = $competitions->get();
-
-
+        
         return view('competition::frontend.explorer',
             [
                 'categories' => $categories,
                 'competitions' => $competitions,
                 'category_name' => $categoryName,
-                'keyword' => $keyword
+                'keyword' => $keyword,
+                'start_date' => $start_date,
+                'end_date' => $end_date
             ]);
     }
 
