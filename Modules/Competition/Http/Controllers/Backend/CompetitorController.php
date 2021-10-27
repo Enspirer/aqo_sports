@@ -11,6 +11,7 @@ use Modules\Competition\Entities\CompetitionCategory;
 use Modules\Competition\Entities\Competitor;
 use DataTables;
 
+
 class CompetitorController extends Controller
 {
     /**
@@ -59,12 +60,33 @@ class CompetitorController extends Controller
         $userDetails = User::where('id',$competitor->user_id)->first();
         $categoryDetails = CompetitionCategory::where('id',$competionDetails->category_id)->first();
         $requestFormDetails = json_decode($competitor->competition_details);
+
         return view('competition::backend.competitors.show',[
                 'competitorDetails' => $competitor,
                 'competitionDetails' => $competionDetails,
                 'userDetais' => $userDetails,
                 'categoryDetails' => $categoryDetails,
                 'competitionformDetails' =>$requestFormDetails
+            ]);
+    }
+
+    public function performance($id)
+    {
+        $competitiorDetails = Competitor::where('id',$id)->first();
+        $competitionDetails = Competition::where('id',$competitiorDetails->competition_id)
+            ->first();
+        $userDetails = User::where('id',$competitiorDetails->user_id)
+            ->first();
+
+        $roundSection = json_decode($competitionDetails->rounds_section);
+        $marksSection = json_decode($competitionDetails->marks_sections);
+        
+        return view('competition::backend.competitors.performance',[
+                'competitorDetails' => $competitiorDetails,
+                'competitionDetails' => $competitionDetails,
+                'user_details' => $userDetails,
+                'marksSections'=>$marksSection,
+                'roundDetails' => $roundSection
             ]);
     }
 
@@ -76,7 +98,7 @@ class CompetitorController extends Controller
             ]
         );
 
-        return back();
+        return redirect()->route('admin.competitior.index',$request->competition_id)->withFlashSuccess('Updated Successfully');
 
     }
 
@@ -123,7 +145,7 @@ class CompetitorController extends Controller
             })
             ->addColumn('action', function($row){
                 $btn1 = '<a href="'.route('admin.competitior.show',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fas fa-info-circle"></i> View </a>';
-                $btn2 = ' <a href="" class="edit btn btn-primary btn-sm"><i class="fa fa-bars"></i> Performance</a>';
+                $btn2 = ' <a href="'.route('admin.competitior.performance',$row->id).'" class="edit btn btn-success btn-sm"><i class="fa fa-bars"></i> Performance</a>';
                 $btn3 = ' <button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>';
                 return $btn1.$btn2.$btn3;
             })

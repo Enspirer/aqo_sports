@@ -9,6 +9,7 @@
         <div class="dashboard-content">
             <div class="contentExplore">
                 <div class="container">
+                @include('includes.partials.messages')
                     <div class="exploreBody">
                         <div class="card">
                             <div class="container"><br>

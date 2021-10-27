@@ -70,9 +70,12 @@ Breadcrumbs::for('admin.category.edit', function ($trail) {
 Breadcrumbs::for('admin.competitior.index', function ($trail) {
     $trail->push('View Competitor', route('admin.competitior.index',1));
 });
-
 Breadcrumbs::for('admin.competitior.show', function ($trail) {
     $trail->push('Competition Details', route('admin.competitior.show',1));
+});
+
+Breadcrumbs::for('admin.competitior.performance', function ($trail) {
+    $trail->push('View Performance', route('admin.competitior.performance',1));
 });
 
 Breadcrumbs::for('admin.competition.register_judge.edit', function ($trail) {

@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <strong>Competitor List - {{$competitionDetails->competition_name}}</strong>
-                    <a href="{{route('admin.competition.create')}}" class="btn btn-primary" style="float: right">Add Competitors</a>
+                    <!-- <a href="{{route('admin.competition.create')}}" class="btn btn-primary" style="float: right">Add Competitors</a> -->
                 </div><!--card-header-->
 
                 <div class="card-body">

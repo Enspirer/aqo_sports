@@ -91,7 +91,8 @@ class CompetitionController extends Controller
         $jsonOutput = json_encode($outArray);
         $competition->game_rules = $jsonOutput;
         $competition->save();
-        return back();
+
+        return redirect()->route('admin.competition')->withFlashSuccess('Created Successfully');
     }
 
     /**
@@ -187,7 +188,8 @@ class CompetitionController extends Controller
                 'rounds_section' => json_encode($request->rounds_section)
             ]
         );
-        return redirect()->route('admin.competition');
+        
+        return redirect()->route('admin.competition')->withFlashSuccess('Updated Successfully');
     }
 
 

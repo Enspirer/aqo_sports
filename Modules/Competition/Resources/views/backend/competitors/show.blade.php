@@ -27,14 +27,15 @@
                                         </select>
                                     </div>
                                 <input type="hidden" name="competitor_id" value="{{$competitorDetails->id}}">
+                                <input type="hidden" name="competition_id" value="{{$competitionDetails->id}}">
                             </div>
                         </div>
                         <br>
                         <button type="submit" class="btn btn-success">Update</button>
                         <a href="{{route('frontend.competition_page',$competitionDetails->id)}}" class="btn btn-primary">View</a>
-                        .<a href="{{route('admin.competition.edit',$competitionDetails->id)}}" class="btn btn-primary">Edit Competition</a>
+                        <a href="{{route('admin.competition.edit',$competitionDetails->id)}}" class="btn btn-primary">Edit Competition</a>
                         <a href="{{route('admin.competition')}}" class="btn btn-primary">Back Competition</a>
-                        <a href="{{route('admin.competitior.index',$competitionDetails->id)}}" class="btn btn-primary">Cancel</a>
+                        <a href="{{route('admin.competitior.index',$competitionDetails->id)}}" class="btn btn-warning">Cancel</a>
                         </form>
                     </div>
                     <div class="col-md-6">

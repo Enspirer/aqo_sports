@@ -34,6 +34,7 @@ Route::post('competition/organizer/appvoe', 'OrganizerRequestController@update')
 Route::get('competitiors/{competition_id}', 'CompetitorController@index')->name('competitior.index');
 Route::get('competitiors_details/{competition_id}', 'CompetitorController@getTableDetails')->name('competitior.get_table_details');
 Route::get('competitiors_details/view/{id}', 'CompetitorController@show')->name('competitior.show');
+Route::get('competitiors_details/performance/{id}', 'CompetitorController@performance')->name('competitior.performance');
 Route::get('competitiors/delete/{id}', 'CompetitorController@destroy')->name('competitior.destroy');
 Route::post('competitiors_add','CompetitorController@changeStatus')->name('competitior.change_status');
 
