@@ -26,15 +26,16 @@
                                             <option value="2" {{$judgeDetails->status == 2 ? 'selected':''}}>Deactivate</option>
                                         </select>
                                         <input type="hidden" value="{{$judgeDetails->id}}" name="judge_id">
+                                        <input type="hidden" value="{{$competitionDetails->id}}" name="competition_id">
                                     </div>
                                 </div>
                             </div>
                             <br>
                             <button type="submit" class="btn btn-success">Update</button>
                             <a href="{{route('frontend.competition_page',$competitionDetails->id)}}" class="btn btn-primary">View</a>
-                            .<a href="{{route('admin.competition.edit',$competitionDetails->id)}}" class="btn btn-primary">Edit Competition</a>
+                            <a href="{{route('admin.competition.edit',$competitionDetails->id)}}" class="btn btn-primary">Edit Competition</a>
                             <a href="{{route('admin.competition')}}" class="btn btn-primary">Back Competition</a>
-                            <a href="{{route('admin.competition.judge_request.index',$competitionDetails->id)}}" class="btn btn-primary">Cancel</a>
+                            <a href="{{route('admin.competition.judge_request.index',$competitionDetails->id)}}" class="btn btn-warning">Cancel</a>
                         </form>
                     </div>
                     <div class="col-md-6">

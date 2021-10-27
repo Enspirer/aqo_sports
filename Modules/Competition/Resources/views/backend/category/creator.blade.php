@@ -53,8 +53,8 @@
 
                 <div class="text-right mt-3">
                     <button type="submit" class="btn btn-primary">Create Category</button>&nbsp;
-                    <a href="" class="btn btn-default">Cancel</a>
-                    <br>  <br>
+                    <a href="{{ route('admin.category.index') }}" class="btn btn-warning mr-3">Cancel</a>
+                    <br><br>
                 </div>
             </div>
 

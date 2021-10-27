@@ -112,9 +112,7 @@ class JudgeRequestController extends Controller
            'status' => $request->status
         ]);
 
-
-
-        return back();
+        return redirect()->route('admin.competition.judge_request.index',$request->competition_id)->withFlashSuccess('Updated Successfully');
     }
 
     /**
@@ -141,7 +139,8 @@ class JudgeRequestController extends Controller
            'judge_register_form' => $register_form_data_judge
         ]);
 
-        return back();
+        return redirect()->route('admin.competition')->withFlashSuccess('Added Successfully');
+
     }
 
     /**
