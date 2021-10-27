@@ -18,16 +18,15 @@
                         <div class="row">
                             <div class="col">
                                 <div class="card">
-                                    <form action="" method="post"  id="create_formInit">
+                                    <form action="{{route('frontend.user.edit_judge_form_update')}}" method="post"  id="create_formInit">
                                         {{csrf_field()}}
                                         <div class="card-header">Judge Register Form Builder</div>
                                         <div class="card-body">
                                             <div id="build-wrap"></div><br><br>
-                                            <input type="hidden" name="register_form_data" value="" id="output_data" oninvalid="tabInvalied('register_formTabs')" required>
-                                            <input type="hidden" name="id" value="">
+                                            <input type="hidden" name="register_form_data" value="{!! json_encode($judge_register_form) !!}" id="output_data" oninvalid="tabInvalied('register_formTabs')" required>
+                                            <input type="hidden" name="id" value="{{$competitionDetails->id}}">
                                             <button type="submit" class="btn btn-success" name="">Save</button>
                                             <a href="" class="btn btn-primary">View Competition</a>
-                                            <a href="" class="btn btn-primary">Edit Competition</a>
                                             <a href="" class="btn btn-primary">View Judges</a>
                                         </div>
                                     </form>
@@ -48,7 +47,7 @@
                                                 console.log('aaaa');
                                             }
                                         }},
-                                    formData: ''
+                                    formData: '{!! json_encode($judge_register_form) !!}'
                                 };
                                 var final_out = $(fbTemplate).formBuilder(options);
 

@@ -40,6 +40,19 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('create_event/edit_competition_update', [CreateEvenetController::class, 'edit_competition_update'])->name('edit_competition_update');
         Route::get('create_event/destroy_competition/{id}', [CreateEvenetController::class, 'destroy'])->name('destroy_competition');
         Route::get('create_event/edit_judge_form/{id}', [CreateEvenetController::class, 'edit_judge_form'])->name('edit_judge_form');
+        Route::post('create_event/edit_judge_form_update', [CreateEvenetController::class, 'edit_judge_form_update'])->name('edit_judge_form_update');
+
+        Route::get('create_event/judges_list/{competition_id}', [CreateEvenetController::class, 'judges_list'])->name('judges_list');
+        Route::get('create_event/judges_list_Details/{competition_id}', [CreateEvenetController::class, 'judgeRequetDetails'])->name('judgeRequetDetails');
+        Route::get('create_event/judges_list/delete/{id}', [CreateEvenetController::class, 'judge_delete'])->name('judge_delete');
+        Route::get('create_event/judges_list/show/{id}', [CreateEvenetController::class, 'judge_show'])->name('judge_show');
+        Route::post('create_event/judges_list/update', [CreateEvenetController::class, 'judge_status'])->name('judge_status');
+
+        Route::get('create_event/competitors_list/{competition_id}', [CreateEvenetController::class, 'competitors_list'])->name('competitors_list');
+        Route::get('create_event/competitors_list_Details/{competition_id}', [CreateEvenetController::class, 'competitorsRequetDetails'])->name('competitorsRequetDetails');
+        Route::get('create_event/competitors_list/delete/{id}', [CreateEvenetController::class, 'competitor_delete'])->name('competitor_delete');
+        Route::get('create_event/competitors_list/show/{id}', [CreateEvenetController::class, 'competitor_show'])->name('competitor_show');
+        Route::post('create_event/competitors_list/update', [CreateEvenetController::class, 'competitor_status'])->name('competitor_status');
 
         Route::get('my_competition', [MyCompetitionController::class, 'index'])->name('my_competition');
         Route::get('my_competition/details/{id}', [MyCompetitionController::class, 'performance_page'])->name('performance_page');

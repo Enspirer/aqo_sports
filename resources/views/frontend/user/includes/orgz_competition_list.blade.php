@@ -26,8 +26,8 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Score Board</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Judges List</a>
-                            <a class="dropdown-item" href="#">Competitors List</a>
+                            <a class="dropdown-item" href="{{route('frontend.user.judges_list',$competition->id)}}">Judges List</a>
+                            <a class="dropdown-item" href="{{route('frontend.user.competitors_list',$competition->id)}}">Competitors List</a>
                         </div>
                     </div>
                 </div>
