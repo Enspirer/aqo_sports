@@ -39,7 +39,7 @@
                                 <label class="form-check-label" for="exampleCheck1"
                                 >Remember Me</label>
                             </div>
-                            <p class="text-right">Forget Password?</p>
+                            <a href="{{ route('frontend.auth.password.reset') }}" class="text-right">Forget Password?</a>
                         </div>
 
                         <div class="bottumText">

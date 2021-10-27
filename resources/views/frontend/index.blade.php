@@ -2,6 +2,12 @@
 
 @section('title', app_name() . ' | ' . __('navs.general.home'))
 
+
+@push('after-styles')
+    <link rel="stylesheet" href="{{ url('aqo_se/Styles/css/index.css') }}">
+@endpush
+
+
 @section('content')
 
     <div class="main">
@@ -287,6 +293,103 @@
 
                     <div class="card rounded-circle">
                         <img src="{{url('aqo_se/assets/image/logo4.png')}}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container social" style="margin-top: 5rem; margin-bottom: 3rem;">
+            <div class="row justify-content-center align-items-center mb-5">
+                <div class="col-1 text-center">
+                    <a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                </div>
+                <div class="col-1 text-center">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                </div>
+                <div class="col-1 text-center">
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                </div>
+                <div class="col-1 text-center">
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                </div>
+                <div class="col-1 text-center">
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3 fb">
+                    <div class="card" style="height: 25rem;">
+                        <img src="{{url('aqo_se/assets/image/index/social_1.png')}}" class="img-fluid w-100" alt="..." style="object-fit: cover; height: 13rem;">
+                        <div class="card-body p-2">
+                            <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 115px; font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
+                            
+                            <div class="row justify-content-between mt-3 align-items-center">
+                                <div class="col-7">
+                                    <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p>
+                                </div>
+                                <div class="col-5 text-right">
+                                    <img src="{{url('aqo_se/assets/image/index/fb_color.png')}}" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            
+                <div class="col-3 twitter">
+                    <div class="card" style="height: 25rem;">
+                        <img src="{{url('aqo_se/assets/image/index/social_2.png')}}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                        <div class="card-body p-2">
+                            <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 115px; font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
+                            
+                            <div class="row justify-content-between mt-3 align-items-center">
+                                <div class="col-7">
+                                    <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p>
+                                </div>
+                                <div class="col-5 text-right">
+                                    <img src="{{url('aqo_se/assets/image/index/twitter_color.png')}}" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            
+                <div class="col-3">
+                    <div class="card" style="height: 25rem;">
+                        <img src="{{url('aqo_se/assets/image/index/social_3.png')}}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                        <div class="card-body p-2">
+                            <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 115px; font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
+                            
+                            <div class="row justify-content-between mt-3 align-items-center">
+                                <div class="col-7">
+                                    <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p>
+                                </div>
+                                <div class="col-5 text-right">
+                                    <a href="#" style="color: #0F9D58; font-size: 1.1rem;">Blogs</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="card" style="height: 25rem;">
+                        <img src="{{url('aqo_se/assets/image/index/social_4.png')}}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                        <div class="card-body p-2">
+                            <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 115px; font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
+
+                            <div class="row justify-content-between mt-3 align-items-center">
+                                <div class="col-7">
+                                    <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p>
+                                </div>
+                                <div class="col-5 text-right">
+                                    <a href="#" style="color: #FF0000; font-size: 1.1rem;">News</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
