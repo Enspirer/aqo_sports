@@ -111,10 +111,10 @@
                             <a href="#">Training</a>
                         </li>
                         <li>
-                            <a href="#">About Us</a>
+                            <a href="{{ route('frontend.about_us') }}">About Us</a>
                         </li>
                         <li>
-                            <a href="#">Contact Us</a>
+                            <a href="{{ route('frontend.contact') }}">Contact Us</a>
                         </li>
                     </ul>
                 </nav>
