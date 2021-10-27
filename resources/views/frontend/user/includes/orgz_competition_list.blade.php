@@ -10,7 +10,7 @@
     </div>
 
     @foreach($competitions as $competition)
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3">
             <div class="card" style="padding: 10px;height: 200px;">
 
                 <div class="" style="background-image: url('{{url('files/'.$competition->feature_image)}}');height: 200px;background-position: center;background-repeat: no-repeat;background-size: cover">
@@ -19,10 +19,10 @@
                             More
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">View Competition Page</a>
+                            <a class="dropdown-item" href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}">View Competition Page</a>
                             <a class="dropdown-item" href="{{route('frontend.user.orz_edit_competition',$competition->id)}}">Edit Competition</a>
                             <a class="dropdown-item" href="{{route('frontend.user.edit_judge_form',$competition->id)}}">Edit Judge Form</a>
-                            <a class="dropdown-item" href="#">Delete Competition</a>
+                            <a class="dropdown-item" href="{{route('frontend.user.destroy_competition',$competition->id)}}">Delete Competition</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Score Board</a>
                             <div class="dropdown-divider"></div>

@@ -93,7 +93,7 @@ class CreateEvenetController extends Controller
                 'rounds_section' => json_encode($request->rounds_section)
             ]
         );
-        return back();
+        return redirect()->route('frontend.user.register_as_organizer')->withFlashSuccess('Updated Successfully');
     }
 
     public function orz_create_competition_store(Request $request)
@@ -147,7 +147,9 @@ class CreateEvenetController extends Controller
         $jsonOutput = json_encode($outArray);
         $competition->game_rules = $jsonOutput;
         $competition->save();
-        return back();
+
+        return redirect()->route('frontend.user.register_as_organizer')->withFlashSuccess('Created Successfully');
+
     }
 
     public function create_competition()
@@ -242,6 +244,10 @@ class CreateEvenetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Competition::findOrFail($id);
+        $data->delete(); 
+        
+        return redirect()->route('frontend.user.register_as_organizer')->withErrors('Deleted Successfully');
+        
     }
 }
