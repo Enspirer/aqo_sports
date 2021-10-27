@@ -98,7 +98,7 @@ class CompetitorController extends Controller
             ]
         );
 
-        return redirect()->route('admin.judge_request.index',$request->competition_id)->withFlashSuccess('Updated Successfully');
+        return redirect()->route('admin.competitior.index',$request->competition_id)->withFlashSuccess('Updated Successfully');
 
     }
 
@@ -145,7 +145,7 @@ class CompetitorController extends Controller
             })
             ->addColumn('action', function($row){
                 $btn1 = '<a href="'.route('admin.competitior.show',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fas fa-info-circle"></i> View </a>';
-                $btn2 = ' <a href="'.route('admin.competitior.performance',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fa fa-bars"></i> Performance</a>';
+                $btn2 = ' <a href="'.route('admin.competitior.performance',$row->id).'" class="edit btn btn-success btn-sm"><i class="fa fa-bars"></i> Performance</a>';
                 $btn3 = ' <button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>';
                 return $btn1.$btn2.$btn3;
             })
