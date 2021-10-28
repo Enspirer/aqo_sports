@@ -1,0 +1,23 @@
+.footer p, .footer .first-column i {
+    font-size: 0.9rem;
+}
+
+.social i {
+    font-size: 3rem;
+}
+
+.footer .links a {
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+}
+
+.footer .links a:hover {
+    border-bottom: 2px solid white;
+}
+
+.footer hr {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 0;
+    border-top: 1px solid white;
+}

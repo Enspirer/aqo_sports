@@ -10,7 +10,7 @@
                     <div class="container">
 
                         <div class="think-image">
-                            <form method="get" action="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}">
+                            <form method="get" action="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}">
                                 <div style="background: url('{{url('aqo_se/assets/image/notf.svg')}}');height: 100px;background-repeat: no-repeat;background-size: contain;background-position: center;margin-bottom: 10px;"></div>
                                 <h1>This feature is currently not available</h1>
                                 <p>Our team is working on few improvements</p>

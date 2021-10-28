@@ -57,9 +57,9 @@
                 <input type="hidden" value="{{$competition_details->id}}" name="id">
 
                 <div class="text-right mt-3">
-                    <button type="submit" class="btn btn-primary">Edit Competition</button>&nbsp;
-                    <button type="button"  onclick="submitForm()" class="btn btn-default">Cancel</button>
-                    <br>  <br>
+                    <button type="submit" class="btn btn-primary">Update Competition</button>&nbsp;
+                    <a href="{{ route('admin.competition') }}" onclick="submitForm()" class="btn btn-warning mr-3">Cancel</a>
+                    <br><br>
                 </div>
             </div>
 

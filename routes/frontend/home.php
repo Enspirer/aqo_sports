@@ -12,12 +12,15 @@ use Modules\Competition\Http\Controllers\Frontend\CreateEvenetController;
 use Modules\Competition\Http\Controllers\Frontend\MyTeamController;
 use Modules\Competition\Http\Controllers\Frontend\LeaderBoardController;
 use App\Http\Controllers\Frontend\AboutController;
+use App\Http\Controllers\Frontend\TermsController;
+use App\Http\Controllers\Frontend\Auth\RegisterController;
 /*
  * Frontend Controllers
  * All route names are prefixed with 'frontend.'.
  */
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('about-us', [AboutController::class, 'index'])->name('about_us');
+Route::get('terms-and-conditions', [TermsController::class, 'index'])->name('terms_and_conditions');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
 
@@ -38,7 +41,21 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('create_event/edit_competition/{id}', [CreateEvenetController::class, 'orz_edit_competition'])->name('orz_edit_competition');
         Route::post('create_event/edit_competition_update', [CreateEvenetController::class, 'edit_competition_update'])->name('edit_competition_update');
+        Route::get('create_event/destroy_competition/{id}', [CreateEvenetController::class, 'destroy'])->name('destroy_competition');
         Route::get('create_event/edit_judge_form/{id}', [CreateEvenetController::class, 'edit_judge_form'])->name('edit_judge_form');
+        Route::post('create_event/edit_judge_form_update', [CreateEvenetController::class, 'edit_judge_form_update'])->name('edit_judge_form_update');
+
+        Route::get('create_event/judges_list/{competition_id}', [CreateEvenetController::class, 'judges_list'])->name('judges_list');
+        Route::get('create_event/judges_list_Details/{competition_id}', [CreateEvenetController::class, 'judgeRequetDetails'])->name('judgeRequetDetails');
+        Route::get('create_event/judges_list/delete/{id}', [CreateEvenetController::class, 'judge_delete'])->name('judge_delete');
+        Route::get('create_event/judges_list/show/{id}', [CreateEvenetController::class, 'judge_show'])->name('judge_show');
+        Route::post('create_event/judges_list/update', [CreateEvenetController::class, 'judge_status'])->name('judge_status');
+
+        Route::get('create_event/competitors_list/{competition_id}', [CreateEvenetController::class, 'competitors_list'])->name('competitors_list');
+        Route::get('create_event/competitors_list_Details/{competition_id}', [CreateEvenetController::class, 'competitorsRequetDetails'])->name('competitorsRequetDetails');
+        Route::get('create_event/competitors_list/delete/{id}', [CreateEvenetController::class, 'competitor_delete'])->name('competitor_delete');
+        Route::get('create_event/competitors_list/show/{id}', [CreateEvenetController::class, 'competitor_show'])->name('competitor_show');
+        Route::post('create_event/competitors_list/update', [CreateEvenetController::class, 'competitor_status'])->name('competitor_status');
 
         Route::get('my_competition', [MyCompetitionController::class, 'index'])->name('my_competition');
         Route::get('my_competition/details/{id}', [MyCompetitionController::class, 'performance_page'])->name('performance_page');
@@ -52,6 +69,9 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('my_team', [MyTeamController::class, 'index'])->name('my_team');
         Route::get('my_leader_board', [MyTeamController::class, 'index'])->name('my_leader_board');
+        
+        Route::get('user_settings', [RegisterController::class, 'user_settings'])->name('user_settings');
+        Route::post('user_settings/update', [RegisterController::class, 'user_settings_update'])->name('user_settings_update');
 
 
         // User Account Specific

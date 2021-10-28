@@ -11,6 +11,9 @@ use Modules\Competition\Entities\Organizer;
 use Modules\Competition\Entities\CompetitionCategory;
 use Modules\Competition\Entities\JudgeDetails;
 use App\Models\Auth\User;
+use DataTables;
+
+
 class CreateEvenetController extends Controller
 {
     /**
@@ -32,9 +35,26 @@ class CreateEvenetController extends Controller
     public function edit_judge_form($id)
     {
         $competitionDetails = Competition::where('id',$id)->first();
+        $getCompetitionForm = json_decode($competitionDetails->judge_register_form);
+        // dd($getCompetitionForm);
+
         return view('frontend.user.edit_judge_form',[
-            'competitionDetails' => $competitionDetails
+            'competitionDetails' => $competitionDetails,
+            'judge_register_form' => $getCompetitionForm
         ]);
+    }
+
+    public function edit_judge_form_update (Request $request)
+    {
+        $id = $request->id;
+        $register_form_data_judge = $request->register_form_data;
+
+        Competition::where('id',$id)->update([
+           'judge_register_form' => $register_form_data_judge
+        ]);
+
+        return redirect()->route('frontend.user.register_as_organizer')->withFlashSuccess('Judge Form Created Successfully');
+
     }
 
     public function edit_competition_update(Request $request)
@@ -93,7 +113,7 @@ class CreateEvenetController extends Controller
                 'rounds_section' => json_encode($request->rounds_section)
             ]
         );
-        return back();
+        return redirect()->route('frontend.user.register_as_organizer')->withFlashSuccess('Updated Successfully');
     }
 
     public function orz_create_competition_store(Request $request)
@@ -147,7 +167,9 @@ class CreateEvenetController extends Controller
         $jsonOutput = json_encode($outArray);
         $competition->game_rules = $jsonOutput;
         $competition->save();
-        return back();
+
+        return redirect()->route('frontend.user.register_as_organizer')->withFlashSuccess('Created Successfully');
+
     }
 
     public function create_competition()
@@ -242,6 +264,159 @@ class CreateEvenetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Competition::findOrFail($id);
+        $data->delete(); 
+        
+        return redirect()->route('frontend.user.register_as_organizer')->withErrors('Deleted Successfully');
+        
     }
+
+
+    // ***********************************************************************************
+
+
+
+
+    public function judges_list($competition_id)
+    {
+        $competitionDetails = Competition::where('id',$competition_id)->first();
+        $competition = Competition::where('id',$competition_id)->first();
+
+        return view('frontend.user.judges_list',[
+            'competitionDetails' => $competitionDetails
+        ]);
+    }
+    public function judgeRequetDetails($competition_id)
+    {
+
+        $compeition =JudgeDetails::where('competition_id',$competition_id)->get();
+        return Datatables::of($compeition)
+            ->addColumn('action', function($row){
+                $btn = '<a href="'.route('frontend.user.judge_show',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fas fa-info-circle"></i> View </a>';
+                $btn .= ' <button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>';
+                return $btn;
+            })
+            ->addColumn('judge_name', function($row){
+                $userDetails = User::where('id',$row->user_id)->first();
+                return $userDetails->first_name.' '.$userDetails->last_name;
+            })
+            ->rawColumns(['action'])
+            ->make();
+
+    }
+    public function judge_show($id)
+    {
+        $judgeDetails = JudgeDetails::where('id',$id)->first();
+        $userDetails = User::where('id',$judgeDetails->user_id)->first();
+        $competionDetails = Competition::where('id',$judgeDetails->competition_id)->first();
+
+        $requestFormDetails = json_decode($judgeDetails->submit_details);
+
+        // dd($requestFormDetails);
+
+
+        return view('frontend.user.judges_show',[
+            'competitionDetails' => $competionDetails,
+            'userDetais' => $userDetails,
+            'JudgeformDetails' =>$requestFormDetails,
+            'judgeDetails' => $judgeDetails
+        ]);
+
+    }
+    public function judge_status(Request $request)
+    {
+        if($request->status == 0)
+        {
+            $userDetails = User::find(1);
+            $userDetails->revokePermissionTo('view judge function');
+
+
+        }else if($request->status == 1)
+        {
+            $userDetails = User::find(1);
+            $userDetails->givePermissionTo('view judge function');
+
+        }else if($request->status == 2)
+        {
+            $userDetails = User::find(1);
+            $userDetails->revokePermissionTo('view judge function');
+        }
+        JudgeDetails::where('id',$request->judge_id)->update([
+           'status' => $request->status
+        ]);
+
+        return redirect()->route('frontend.user.judges_list',$request->competition_id)->withFlashSuccess('Updated Successfully');
+    }
+    public function judge_delete($id)
+    {
+        $data = JudgeDetails::findOrFail($id);
+        $data->delete(); 
+    }
+
+    public function competitors_list($competition_id)
+    {
+        $CompetitionDetails = Competition::where('id',$competition_id)->first();
+
+        return view('frontend.user.competitors_list',[
+            'competitionDetails' => $CompetitionDetails
+
+        ]);
+    }
+
+    public function competitorsRequetDetails($competition_id)
+    {
+        $competitors = Competitor::where('competition_id',$competition_id)->get();
+
+        return Datatables::of($competitors)
+            ->addColumn('competitor_name', function($row){
+                $userDetails = User::where('id',$row->user_id)->first();
+                return $userDetails->first_name.' '.$userDetails->last_name;
+            })
+            ->addColumn('action', function($row){
+                $btn = '<a href="'.route('frontend.user.competitor_show',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fas fa-info-circle"></i> View </a>';
+                // $btn .= ' <a href="'.route('admin.competitior.performance',$row->id).'" class="edit btn btn-success btn-sm"><i class="fa fa-bars"></i> Performance</a>';
+                $btn .= ' <button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>';
+                return $btn;
+            })
+            ->rawColumns(['action'])
+            ->make();
+    }
+    public function competitor_show($id)
+    {
+
+        $competitor = Competitor::where('id',$id)->first();
+
+        $competionDetails = Competition::where('id',$competitor->competition_id)->first();
+        $userDetails = User::where('id',$competitor->user_id)->first();
+        $categoryDetails = CompetitionCategory::where('id',$competionDetails->category_id)->first();
+        $requestFormDetails = json_decode($competitor->competition_details);
+
+        return view('frontend.user.competitors_show',[
+                'competitorDetails' => $competitor,
+                'competitionDetails' => $competionDetails,
+                'userDetais' => $userDetails,
+                'categoryDetails' => $categoryDetails,
+                'competitionformDetails' =>$requestFormDetails
+            ]);
+    }
+    public function competitor_status(Request $request)
+    {
+        $competitions = Competitor::where('id',$request->competitor_id)->update(
+            [
+                'competitor_status' => $request->accept_status
+            ]
+        );
+
+        return redirect()->route('frontend.user.competitors_list',$request->competition_id)->withFlashSuccess('Updated Successfully');
+
+    }
+    public function competitor_delete($id)
+    {
+        $data = Competitor::findOrFail($id);
+        $data->delete(); 
+    }
+    
+
+
+
 }

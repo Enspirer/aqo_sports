@@ -9,6 +9,7 @@
         <div class="dashboard-content">
             <div class="contentExplore">
                 <div class="container">
+                @include('includes.partials.messages')
                     <div class="exploreBody">
                         <div class="card">
                             <div class="container"><br>
@@ -53,7 +54,7 @@
                                             <p>You will be notified once the account is approved by AQOSE team..
                                             <h5 style="text-align: center">Thank you !</h5><br>
 
-                                            <a href="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}" class="btn btn-primary">Explore Events and Competition</a>
+                                            <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}" class="btn btn-primary">Explore Events and Competition</a>
                                         </div>
                                     @endif
 

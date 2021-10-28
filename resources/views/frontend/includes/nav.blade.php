@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row justify-content-end">
             <div class="logo col col-md-3 col-sm-4 col-xs-3">
-                <img src="{{url('aqo_se/assets/image/logo/aqoselightsm.png')}}" alt="" srcset=""/>
+                <img src="{{url('aqo_se/assets/image/logo_new.png')}}" alt="" srcset=""/>
             </div>
             <div class="name col col-md-6 ">
                 <img src="{{url('aqo_se/assets/image/logo/aqoselightlg.png')}}" alt="" srcset=""/>
@@ -59,10 +59,12 @@
                                             </a>
                                         </li>
                                         <div class="footer">
-                                            <li class="user-menu__item"><a class="user-menu-link" href="{{route('frontend.auth.logout')}}"
-                                                                           style="color: #F44336;">Logout</a></li>
-                                            <li class="user-menu__item"><a class="user-menu-link"
-                                                                           href="#">Settings</a></li>
+                                            <li class="user-menu__item">
+                                                <a class="user-menu-link" href="{{ route('frontend.user.user_settings') }}">User Settings</a>
+                                            </li>
+                                            <li class="user-menu__item">
+                                                <a class="user-menu-link" href="{{route('frontend.auth.logout')}}" style="color: #F44336;">Logout</a>
+                                            </li>                                            
                                         </div>
                                     </ul>
                                 </div>
@@ -72,10 +74,10 @@
                     </div>
                     @else
                     <div class="inline">
-                        <select class="selectpicker" data-width="fit">
+                        <!-- <select class="selectpicker" data-width="fit">
                             <option>En</option>
                             <option>Es</option>
-                        </select>
+                        </select> -->
                         <a href="{{route('frontend.auth.login')}}" class="buttonSignIn">Sign In</a>
                         <a href="{{route('frontend.auth.register')}}" class="buttonRegister">Register</a>
                     </div>
@@ -105,16 +107,16 @@
                             <a href="{{url('/')}}">Home</a>
                         </li>
                         <li>
-                            <a href="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}">Explore</a>
+                            <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}">Explore</a>
                         </li>
                         <li>
                             <a href="#">Training</a>
                         </li>
                         <li>
-                            <a href="#">About Us</a>
+                            <a href="{{ route('frontend.about_us') }}">About Us</a>
                         </li>
                         <li>
-                            <a href="#">Contact Us</a>
+                            <a href="{{ route('frontend.contact') }}">Contact Us</a>
                         </li>
                     </ul>
                 </nav>

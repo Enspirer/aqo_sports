@@ -53,7 +53,7 @@
                     @endif
                     <div class="theameRow">
                         <button type="submit" class="btn btn-primary">Register</button>
-                        <h6>or <a href="">Sign In</a></h6>
+                        <h6>or <a href="{{route('frontend.auth.login')}}">Sign In</a></h6>
                     </div>
                 {{ html()->form()->close() }}
             </div>

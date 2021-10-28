@@ -14,9 +14,9 @@
                         <input type="hidden" name="register_form_data" value="{!! json_encode($judge_register_form) !!}" id="output_data" oninvalid="tabInvalied('register_formTabs')" required>
                         <input type="hidden" name="id" value="{{$competitionDetails->id}}">
                         <button type="submit" class="btn btn-success" name="">Save</button>
-                        <a href="" class="btn btn-primary">View Competition</a>
-                        <a href="" class="btn btn-primary">Edit Competition</a>
-                        <a href="" class="btn btn-primary">View Judges</a>
+                        <a href="{{route('frontend.competition_page',$competitionDetails->id)}}" class="btn btn-primary">View Competition</a>
+                        <a href="{{route('admin.competition.edit',$competitionDetails->id)}}" class="btn btn-primary">Edit Competition</a>
+                        <a href="{{route('admin.competition.judge_request.index',$competitionDetails->id)}}" class="btn btn-primary">View Judges</a>
                     </div>
                 </form>
             </div><!--card-->

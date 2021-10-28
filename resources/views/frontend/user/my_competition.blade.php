@@ -19,7 +19,7 @@
                                     <div class="" style="background-image: url('{{url('aqo_se/assets/image/comp.svg')}}');height: 110px;background-size: contain;background-repeat: no-repeat;background-position: center;margin-bottom: 30px;margin-top: 30px;"></div>
                                     <p>Please select the competition that you would like take a part</p><br>
                                     <div class="think-image" style="text-align: center">
-                                        <a href="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}"  class="btn btn-primary"  style="background-color:gold;font-size: 21px;padding: 10px;padding-left: 20px;padding-right: 20px;color: black;">Find competitions</a>
+                                        <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}"  class="btn btn-primary"  style="background-color:gold;font-size: 21px;padding: 10px;padding-left: 20px;padding-right: 20px;color: black;">Find competitions</a>
                                     </div>
                                 </div>
                             </div>
@@ -29,7 +29,7 @@
                                     <div class="" style="background-image: url('{{url('aqo_se/assets/image/judge.svg')}}');height: 110px;background-size: contain;background-repeat: no-repeat;background-position: center;margin-bottom: 30px;margin-top: 30px;"></div>
                                     <p>Please select the competition that you would like to judge by exploring competitions</p>
                                     <div class="think-image">
-                                        <a href="{{route('frontend.explorer',['all','all','desc','explorer','all','null','null'])}}" class="btn btn-primary" style="background-color:gold;font-size: 21px;padding: 10px;padding-left: 20px;padding-right: 20px;color: black;">Register as Judge</a>
+                                        <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}" class="btn btn-primary" style="background-color:gold;font-size: 21px;padding: 10px;padding-left: 20px;padding-right: 20px;color: black;">Register as Judge</a>
                                     </div>
                                 </div>
                             </div>
@@ -91,4 +91,6 @@
 
 
         </div>
+
+    </div>
 @endsection

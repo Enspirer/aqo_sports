@@ -66,7 +66,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.category.index')->withFlashSuccess('Created Successfully');
 
 
     }
@@ -121,7 +121,7 @@ class CategoryController extends Controller
             'vote_function' => $request->vote_function
         ]);
 
-        return back();
+        return redirect()->route('admin.category.index')->withFlashSuccess('Updated Successfully');
 
     }
 
