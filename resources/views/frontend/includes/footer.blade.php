@@ -54,14 +54,14 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <a href="" class="mr-4"><i class="fa fa-facebook-square text-white"></i></a>
+                        <a href="" class="mr-4"><i class="fab fa-facebook-square text-white"></i></a>
 
-                        <a href="" class="mr-4"><i class="fa fa-instagram text-white"></i></a>
+                        <a href="" class="mr-4"><i class="fab fa-instagram text-white"></i></a>
 
                         <br><br>
-                        <a href="" class="mr-4"><i class="fa fa-linkedin text-white"></i></a>
+                        <a href="" class="mr-4"><i class="fab fa-linkedin text-white"></i></a>
 
-                        <a href="" class="mr-4"><i class="fa fa-youtube-square text-white"></i></a>
+                        <a href="" class="mr-4"><i class="fab fa-youtube-square text-white"></i></a>
 
                     </div>
                 </div>
