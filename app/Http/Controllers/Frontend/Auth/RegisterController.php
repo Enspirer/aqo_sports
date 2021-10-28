@@ -8,6 +8,10 @@ use App\Http\Requests\RegisterRequest;
 use App\Events\Frontend\Auth\UserRegistered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Repositories\Frontend\Auth\UserRepository;
+use App\Models\Auth\User;
+use Illuminate\Http\Request;
+use Auth;
+
 
 /**
  * Class RegisterController.
@@ -84,4 +88,28 @@ class RegisterController extends Controller
 
         return redirect($this->redirectPath());
     }
+
+    public function user_settings()
+    {
+        $user_details = User::where('id',auth()->user()->id)->first();
+
+        return view('frontend.user.user_settings',[
+            'user_details' => $user_details
+        ]);
+
+    }
+
+    public function user_settings_update(Request $request)
+    {
+        $update = Auth::user();;
+        $update->first_name = $request->first_name;
+        $update->last_name = $request->last_name;
+        $update->email = $request->email;
+        $update->password = $request->password;
+        $update->save();
+        return redirect()->route('frontend.user.dashboard')->withFlashSuccess('Updated Successfully'); 
+
+    }
+
+
 }

@@ -13,6 +13,7 @@ use Modules\Competition\Http\Controllers\Frontend\MyTeamController;
 use Modules\Competition\Http\Controllers\Frontend\LeaderBoardController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\TermsController;
+use App\Http\Controllers\Frontend\Auth\RegisterController;
 /*
  * Frontend Controllers
  * All route names are prefixed with 'frontend.'.
@@ -68,6 +69,9 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('my_team', [MyTeamController::class, 'index'])->name('my_team');
         Route::get('my_leader_board', [MyTeamController::class, 'index'])->name('my_leader_board');
+        
+        Route::get('user_settings', [RegisterController::class, 'user_settings'])->name('user_settings');
+        Route::post('user_settings/update', [RegisterController::class, 'user_settings_update'])->name('user_settings_update');
 
 
         // User Account Specific
