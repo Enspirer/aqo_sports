@@ -96,7 +96,7 @@
                                 <div class="swiper-wrapper">
                                     @foreach($competitionCategory as $category)
                                         <div class="swiper-slide position-relative">
-                                            <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}">
+                                            <a href="{{route('frontend.explorer', [$category->id,'keyword','desc','country','start_date','end_date'])}}">
                                                 <img src="{{url('files/'.$category->feature_image)}}" alt="" srcset="" class="w-100" style="height: 18rem; object-fit:cover;"/>
                                             </a>
 
