@@ -16,7 +16,7 @@
             <img src="{{url('aqo_se/assets/image/training/banner.png')}}" alt="" class="w-100" style="object-fit: cover; height: 25rem;">
         </div>
         <div class="col-4">
-            <img src="{{url('aqo_se/assets/image/dialog.png')}}" alt="" class="w-100" style="object-fit: cover; height: 25rem;">
+            <img src="{{url('aqo_se/assets/image/dialog.png')}}" alt="" class="w-100" style="height: 25rem;">
         </div>
     </div>
 </div>

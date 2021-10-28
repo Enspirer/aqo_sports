@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="col-4">
-                        <img src="{{url('aqo_se/assets/image/dialog.png')}}" alt="" class="w-100" style="object-fit: cover; height: 29rem;">
+                        <img src="{{url('aqo_se/assets/image/dialog.png')}}" alt="" class="w-100" style="height: 29rem;">
                     </div>
                 </div>
             </div>

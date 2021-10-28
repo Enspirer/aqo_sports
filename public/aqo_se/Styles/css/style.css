@@ -956,6 +956,20 @@ header .bottom.sticky {
   padding: 11px 0px 14px 0px;
 }
 
+.contentExplore .container .exploreBody .think-image button {
+  background: transparent -webkit-gradient(linear, left top, left bottom, from(#f6d703), to(#fabf02)) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #f6d703 0%, #fabf02 100%) 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  padding: 16px 71px;
+  border: transparent;
+  display: block;
+  margin: auto;
+  margin-top: 40px;
+  font: normal normal 600 22px/34px Source Sans Pro;
+  letter-spacing: 0.41px;
+  color: #002a89;
+}
+
 .contentExplore .container .exploreBody .imageCard .container .nameCard h4 {
   font: normal normal normal 16px/30px Playfair Display;
   font-weight: 700;
