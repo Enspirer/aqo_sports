@@ -76,8 +76,6 @@
             </div>
         </div>
 
-
-
         <section class="trending" style="margin-top: 5rem;">
             <div class="container">
                 <div class="row">
@@ -142,7 +140,7 @@
         </section>
 
 
-        <div class="container social" style="margin-top: 6rem; margin-bottom: 3rem;">
+        <div class="container social" style="margin-top: 7rem; margin-bottom: 3rem;">
             <div class="row justify-content-center align-items-center mb-5">
                 <div class="col-1 text-center">
                     <a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a>

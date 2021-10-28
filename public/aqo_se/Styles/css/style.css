@@ -389,39 +389,50 @@ header .bottom .container .row .leftLogo .logoDark img {
 
 header .bottom nav {
   max-width: 100%;
-  -webkit-mask-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(25%, #ffffff), color-stop(75%, #ffffff), to(rgba(255, 255, 255, 0)));
+  /* -webkit-mask-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(25%, #ffffff), color-stop(75%, #ffffff), to(rgba(255, 255, 255, 0)));
   -webkit-mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
           mask-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(25%, #ffffff), color-stop(75%, #ffffff), to(rgba(255, 255, 255, 0)));
-          mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
+          mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%); */
   margin: 0 auto;
 }
 
 header .bottom nav ul {
   text-align: center;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(25%, rgba(255, 255, 255, 0.2)), color-stop(75%, rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 0)));
+  /* background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(25%, rgba(255, 255, 255, 0.2)), color-stop(75%, rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 0)));
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
   -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
-          box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+          box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6); */
 }
 
 header .bottom nav ul li {
   display: inline-block;
+  padding: 15px;
 }
 
 header .bottom nav ul li a {
-  padding: 15px;
-  font: normal normal normal 18px/22px Playfair Display;
+  /* font: normal normal normal 18px/22px Playfair Display; */
   letter-spacing: 0px;
-  color: #5c5c5c;
+  color: #6D6D6D;
   text-decoration: none;
-  display: block;
+  display: block;font-weight: 600;
+  font-size: 18px;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.2rem;
 }
 
 header .bottom nav ul li a:hover {
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  /* -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1); */
+  color: rgba(0, 35, 122, 0.99);
+}
+
+header .bottom nav ul li a.active {
+  /* -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
   background: rgba(255, 255, 255, 0.1);
-  color: rgba(0, 35, 122, 0.99);
+  color: rgba(0, 35, 122, 0.99); */
+  border-bottom: 2px solid rgba(0, 35, 122, 1)!important;
 }
 
 @media (max-width: 998px) {
@@ -1006,7 +1017,7 @@ header .bottom.sticky {
      object-fit: cover;
 }
 
-.secondNavigation {
+/* .secondNavigation {
   margin-top: 20px;
   width: 100%;
   height: 51px;
@@ -1014,12 +1025,13 @@ header .bottom.sticky {
   -webkit-box-shadow: 0px 5px 10px #00000029;
           box-shadow: 0px 5px 10px #00000029;
   opacity: 0.7;
-}
+} */
 
 .secondNavigation .nav {
   width: 100%;
-  height: 50px;
+  height: 60px;
   background: #fff;
+  justify-content: end;
 }
 
 .secondNavigation .nav .nav-list {
@@ -1030,18 +1042,19 @@ header .bottom.sticky {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   list-style: none;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   overflow: hidden;
+  align-items: center;
 }
 
 .secondNavigation .nav .nav-list .nav-item {
-  padding: 0 20px;
+  
   line-height: 50px;
   cursor: pointer;
   position: relative;
@@ -1049,9 +1062,20 @@ header .bottom.sticky {
 }
 
 .secondNavigation .nav .nav-list .nav-item a {
-  font: normal normal normal 18px/24px Playfair Display;
+  /* font: normal normal normal 18px/24px Playfair Display; */
   letter-spacing: 0px;
-  color: #333333;
+  color: #6D6D6D;
+  border-bottom: 2px solid transparent;
+  padding: 10px 20px;
+}
+
+.secondNavigation .nav .nav-list .nav-item a:hover {
+  border-bottom: 2px solid #002a89;
+}
+
+.secondNavigation .nav .nav-list .nav-item a.active {
+  background-color: #99b0e4;
+  color: white;
 }
 
 .secondNavigation .nav .nav-list .nav-item .border {

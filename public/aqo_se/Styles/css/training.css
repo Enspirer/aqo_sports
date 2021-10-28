@@ -1,0 +1,20 @@
+.time-select .form-label {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.form-label {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.submit-btn {
+    background: #FABF02;
+    color: #00246C;
+    background-image: linear-gradient(180deg, #F6D703 , #FABF02);
+    font-size: 1.1rem;
+}
+
+.training-form ::placeholder {
+    font-size: 0.9rem!important;
+}

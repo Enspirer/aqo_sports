@@ -8,67 +8,64 @@
             <div class="container">
                 <div class="row">
                     <div class="imgaeSection col-md-10">
-                        <div class="" style="background-image: url('{{url('/files/').'/'.$competition_details->feature_image}}');height: 100%;background-size: cover"></div>
+                        <div class="" style="background-image: url('{{url('/files/').'/'.$competition_details->feature_image}}');height: 30rem; background-size: cover"></div>
+
+                        <div class="secondNavigation">
+                            <nav>
+                                <div class="nav">
+                                    <ul class="nav-list nav" id="myTab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="active" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about"
+                                            aria-selected="true">About</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a id="nav-rules-tab" data-toggle="tab" href="#nav-rules" role="tab" aria-controls="nav-rules"
+                                            aria-selected="false">Rules</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a id="nav-organizer-tab" data-toggle="tab" href="#nav-organizer" role="tab" aria-controls="nav-organizer"
+                                            aria-selected="false">Organizer</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a id="nav-payments-tab" data-toggle="tab" href="#nav-payments" role="tab" aria-controls="nav-payments"
+                                            aria-selected="false">Payments</a>
+                                        </li>
+                                        @if($categoryDetails->vote_function == 0)
+
+                                        @else
+                                            <li class="nav-item">
+                                                <a id="nav-voting-tab" data-toggle="tab" href="#nav-voting" role="tab" aria-controls="nav-voting"
+                                                aria-selected="false" style="">Voting</a>
+                                            </li>
+                                        @endif
+
+                                        <li class="nav-item">
+                                            <a id="nav-leaderboard-tab" data-toggle="tab" href="#nav-leaderboard" role="tab" aria-controls="nav-leaderboard"
+                                            aria-selected="false">Leaderboard</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a id="nav-competitors-tab" data-toggle="tab" href="#nav-competitors" role="tab" aria-controls="nav-competitors"
+                                            aria-selected="false">Competitors</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a id="nav-judge-tab" data-toggle="tab" href="#nav-judge" role="tab" aria-controls="nav-judge"
+                                            aria-selected="false" class="">Judge Panel</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <hr class="m-0">
+                                
+                            </nav>
+                        </div>
                     </div>
                     <div class="addSection col-md-2">
-                        <img src="{{url('/img/frontend/verticle.jpg')}}" alt="" srcset="" />
+                        <img src="{{url('img/frontend/vertical.png')}}" alt="" class="w-100" style="height: 30rem; object-fit:cover;"/>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="secondNavigation">
-            <nav>
-                <div class="nav">
-                    <ul class="nav-list nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="active" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about"
-                               aria-selected="true">About</a>
-                            <span class="border"></span>
-                        </li>
-                        <li class="nav-item">
-                            <a id="nav-rules-tab" data-toggle="tab" href="#nav-rules" role="tab" aria-controls="nav-rules"
-                               aria-selected="false">Rules</a>
-                            <span class="border"></span>
-                        </li>
-                        <li class="nav-item">
-                            <a id="nav-organizer-tab" data-toggle="tab" href="#nav-organizer" role="tab" aria-controls="nav-organizer"
-                               aria-selected="false">Organizer</a>
-                            <span class="border"></span>
-                        </li>
-                        <li class="nav-item">
-                            <a id="nav-payments-tab" data-toggle="tab" href="#nav-payments" role="tab" aria-controls="nav-payments"
-                               aria-selected="false">Payments</a>
-                            <span class="border"></span>
-                        </li>
-                        @if($categoryDetails->vote_function == 0)
-
-                        @else
-                            <li class="nav-item" style="background: #c0c4f3;border-radius: 12px 12px 0px 0px;">
-                                <a id="nav-voting-tab" data-toggle="tab" href="#nav-voting" role="tab" aria-controls="nav-voting"
-                                   aria-selected="false" style="">Voting</a>
-                                <span class="border" style="color: white;"></span>
-                            </li>
-                        @endif
-
-                        <li class="nav-item">
-                            <a id="nav-leaderboard-tab" data-toggle="tab" href="#nav-leaderboard" role="tab" aria-controls="nav-leaderboard"
-                               aria-selected="false">Leaderboard</a>
-                            <span class="border"></span>
-                        </li>
-                        <li class="nav-item">
-                            <a id="nav-competitors-tab" data-toggle="tab" href="#nav-competitors" role="tab" aria-controls="nav-competitors"
-                               aria-selected="false">Competitors</a>
-                            <span class="border"></span>
-                        </li>
-                        <li class="nav-item">
-                            <a id="nav-judge-tab" data-toggle="tab" href="#nav-judge" role="tab" aria-controls="nav-judge"
-                               aria-selected="false">Judge Panel</a>
-                            <span class="border"></span>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+        
         <div class="competetionDetails">
             <div class="container">
                 <div class="row">

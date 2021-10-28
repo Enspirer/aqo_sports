@@ -13,6 +13,7 @@ use Modules\Competition\Http\Controllers\Frontend\MyTeamController;
 use Modules\Competition\Http\Controllers\Frontend\LeaderBoardController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\TermsController;
+use App\Http\Controllers\Frontend\TrainingController;
 use App\Http\Controllers\Frontend\Auth\RegisterController;
 /*
  * Frontend Controllers
@@ -21,6 +22,7 @@ use App\Http\Controllers\Frontend\Auth\RegisterController;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('about-us', [AboutController::class, 'index'])->name('about_us');
 Route::get('terms-and-conditions', [TermsController::class, 'index'])->name('terms_and_conditions');
+Route::get('training', [TrainingController::class, 'index'])->name('training');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
 
