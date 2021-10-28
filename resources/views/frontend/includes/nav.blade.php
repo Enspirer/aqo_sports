@@ -59,10 +59,12 @@
                                             </a>
                                         </li>
                                         <div class="footer">
-                                            <li class="user-menu__item"><a class="user-menu-link" href="{{route('frontend.auth.logout')}}"
-                                                                           style="color: #F44336;">Logout</a></li>
-                                            <li class="user-menu__item"><a class="user-menu-link"
-                                                                           href="#">Settings</a></li>
+                                            <li class="user-menu__item">
+                                                <a class="user-menu-link" href="{{ route('frontend.user.user_settings') }}">User Settings</a>
+                                            </li>
+                                            <li class="user-menu__item">
+                                                <a class="user-menu-link" href="{{route('frontend.auth.logout')}}" style="color: #F44336;">Logout</a>
+                                            </li>                                            
                                         </div>
                                     </ul>
                                 </div>

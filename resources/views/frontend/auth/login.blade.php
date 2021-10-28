@@ -43,7 +43,7 @@
                         </div>
 
                         <div class="bottumText">
-                            <p>Not a member yet? <a>Register Now</a></p>
+                            <p>Not a member yet? <a href="{{route('frontend.auth.register')}}">Register Now</a></p>
                         </div>
                         {{ html()->form()->close() }}
                     </div>
