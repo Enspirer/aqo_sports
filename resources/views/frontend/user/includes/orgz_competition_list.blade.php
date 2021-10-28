@@ -19,12 +19,12 @@
                             More
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}">View Competition Page</a>
+                            <a class="dropdown-item" href="{{route('frontend.competition_page',$competition->id)}}">View Competition Page</a>
                             <a class="dropdown-item" href="{{route('frontend.user.orz_edit_competition',$competition->id)}}">Edit Competition</a>
                             <a class="dropdown-item" href="{{route('frontend.user.edit_judge_form',$competition->id)}}">Edit Judge Form</a>
-                            <a class="dropdown-item" href="{{route('frontend.user.destroy_competition',$competition->id)}}">Delete Competition</a>
+                            <button type="button" class="btn dropdown-item" data-toggle="modal" data-target="#deletecompetition">Delete Competition</button>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Score Board</a>
+                            <a class="dropdown-item" href="{{route('frontend.user.score_board',$competition->id)}}">Score Board</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{route('frontend.user.judges_list',$competition->id)}}">Judges List</a>
                             <a class="dropdown-item" href="{{route('frontend.user.competitors_list',$competition->id)}}">Competitors List</a>
@@ -36,8 +36,10 @@
                 </div>
             </div>
         </div>
+
+
+        
     @endforeach
 
 </div>
-
 

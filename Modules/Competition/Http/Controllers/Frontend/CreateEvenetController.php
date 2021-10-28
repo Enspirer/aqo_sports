@@ -271,11 +271,21 @@ class CreateEvenetController extends Controller
         
     }
 
+    public function score_board($competitionID)
+    {
+        $competitionDetails = Competition::where('id',$competitionID)->first();
+        $markSection = json_decode($competitionDetails->marks_sections);
+        $roundSection = json_decode($competitionDetails->rounds_section);
+        $competitorDetails = Competitor::where('competition_id',$competitionID)->get();        
 
-    // ***********************************************************************************
+        $treml = get_competitor_all_score(1);
 
-
-
+        return view('frontend.user.score_board',[
+            'markSection' => $markSection,
+            'roundSection' => $roundSection,
+            'competitor_details' => $competitorDetails,
+        ]);
+    }
 
     public function judges_list($competition_id)
     {

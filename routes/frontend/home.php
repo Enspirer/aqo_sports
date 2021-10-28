@@ -41,9 +41,11 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('create_event/edit_competition/{id}', [CreateEvenetController::class, 'orz_edit_competition'])->name('orz_edit_competition');
         Route::post('create_event/edit_competition_update', [CreateEvenetController::class, 'edit_competition_update'])->name('edit_competition_update');
-        Route::get('create_event/destroy_competition/{id}', [CreateEvenetController::class, 'destroy'])->name('destroy_competition');
+        Route::post('create_event/destroy_competition/{id}', [CreateEvenetController::class, 'destroy'])->name('destroy_competition');
         Route::get('create_event/edit_judge_form/{id}', [CreateEvenetController::class, 'edit_judge_form'])->name('edit_judge_form');
         Route::post('create_event/edit_judge_form_update', [CreateEvenetController::class, 'edit_judge_form_update'])->name('edit_judge_form_update');
+
+        Route::get('create_event/score_board/{competition_id}', [CreateEvenetController::class, 'score_board'])->name('score_board');
 
         Route::get('create_event/judges_list/{competition_id}', [CreateEvenetController::class, 'judges_list'])->name('judges_list');
         Route::get('create_event/judges_list_Details/{competition_id}', [CreateEvenetController::class, 'judgeRequetDetails'])->name('judgeRequetDetails');
