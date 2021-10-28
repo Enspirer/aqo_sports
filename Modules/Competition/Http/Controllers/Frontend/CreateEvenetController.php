@@ -223,7 +223,9 @@ class CreateEvenetController extends Controller
         $organizeer->status = 0;
         $organizeer->user_id = auth()->user()->id;
         $organizeer->save();
-        return back();
+        
+        return redirect()->route('frontend.user.register_as_organizer')->withFlashSuccess('Created Successfully');
+        
     }
 
     /**
@@ -277,8 +279,6 @@ class CreateEvenetController extends Controller
         $markSection = json_decode($competitionDetails->marks_sections);
         $roundSection = json_decode($competitionDetails->rounds_section);
         $competitorDetails = Competitor::where('competition_id',$competitionID)->get();        
-
-        $treml = get_competitor_all_score(1);
 
         return view('frontend.user.score_board',[
             'markSection' => $markSection,
@@ -384,7 +384,6 @@ class CreateEvenetController extends Controller
             })
             ->addColumn('action', function($row){
                 $btn = '<a href="'.route('frontend.user.competitor_show',$row->id).'" class="edit btn btn-primary btn-sm"><i class="fas fa-info-circle"></i> View </a>';
-                // $btn .= ' <a href="'.route('admin.competitior.performance',$row->id).'" class="edit btn btn-success btn-sm"><i class="fa fa-bars"></i> Performance</a>';
                 $btn .= ' <button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</button>';
                 return $btn;
             })
