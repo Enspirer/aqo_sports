@@ -104,7 +104,7 @@
 
                                             <div class="carousel-caption">
                                                 <h5 class="mb-2">{{$category->category_name}}</h5>
-                                                <p style="font-size: 0.9rem;">{{$category->description}}</p>
+                                                <p style="font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;">{{$category->description}}</p>
                                             </div>
                                         </div>
                                     @endforeach
@@ -272,12 +272,12 @@
 
 
       <script>
-          $('.trending .swiper a').hover(function() {
-              $(this).siblings('.carousel-caption').addClass('trans-caption');
-              $(this).siblings('i').addClass('trans-arrow');
+          $('.trending .swiper .swiper-slide').hover(function() {
+              $(this).find('.carousel-caption').addClass('trans-caption');
+              $(this).find('i').addClass('trans-arrow');
           }, function() {
-            $(this).siblings('.carousel-caption').removeClass('trans-caption');
-            $(this).siblings('i').removeClass('trans-arrow');
+            $(this).find('.carousel-caption').removeClass('trans-caption');
+            $(this).find('i').removeClass('trans-arrow');
           });
       </script>
 @endpush
