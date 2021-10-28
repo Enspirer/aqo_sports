@@ -13,55 +13,37 @@
     <div class="main">
         <div class="hero-image">
             <div class="container">
-                <!-- <div class="yellow-background"></div> -->
                 <div class="row">
-                    <div class="col-md-8">
-                        <!-- <div id="slideshow">
-                            <div>
-                                <img src="{{url('aqo_se/assets/image/gettyimages-592331286.jpg')}}">
-                            </div>
-                            <div>
-                                <img src="{{url('aqo_se/assets/image/slider1.jpg')}}">
-                            </div>
-                            <div>
-                                <img src="{{url('aqo_se/assets/image/slider2.jpg')}}">
-                            </div>
-                            <div>
-                                <img src="{{url('aqo_se/assets/image/slider3.jpg')}}">
-                            </div>
-                            <div>
-                                <img src="{{url('aqo_se/assets/image/slider4.webp')}}">
-                            </div>
-                        </div> -->
-
+                    <div class="col-8">
                         <div class="swiper mySwiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img src="{{url('aqo_se/assets/image/slider1.png')}}" class="w-100">
+                                    <img src="{{url('aqo_se/assets/image/slider1.png')}}" class="w-100" style="height: 29rem;">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="{{url('aqo_se/assets/image/slider2.png')}}" class="w-100">
+                                    <img src="{{url('aqo_se/assets/image/slider2.png')}}" class="w-100" style="height: 29rem;">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="{{url('aqo_se/assets/image/slider3.png')}}" class="w-100">
+                                    <img src="{{url('aqo_se/assets/image/slider3.png')}}" class="w-100" style="height: 29rem;">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="{{url('aqo_se/assets/image/slider4.png')}}" class="w-100">
+                                    <img src="{{url('aqo_se/assets/image/slider4.png')}}" class="w-100" style="height: 29rem;">
                                 </div>
                             </div>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <img src="{{url('aqo_se/assets/image/531027_16155704_2924445_facad91f_image.jpg')}}" alt="" srcset="">
+                    <div class="col-4">
+                        <img src="{{url('aqo_se/assets/image/dialog.png')}}" alt="" class="w-100" style="object-fit: cover; height: 29rem;">
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="trending-competitions">
             <div class="container">
-                <h1>Trending Competitions</h1>
+                <h1 class="text-center font-weight-bold">Trending Competitions</h1>
                 <div class="exploreBody">
                     <div class="row">
                         @if(count($trendingCompetition) == 0)
@@ -72,213 +54,74 @@
                             </div>
                         @else
                             @foreach($trendingCompetition as $competition)
-                                <div class="imageCard col-md-3 col-sm-6 col-xs-12">
+                                <div class="imageCard col-3">
                                     <div class="imageSize">
                                         <a href="{{route('frontend.competition_page',$competition->id)}}">
                                             <img src="{{url('files/'.$competition->feature_image)}}" alt="" srcset="" />
                                         </a>
                                     </div>
                                     <div class="container">
-                                        <div class="nameCard">
-                                            <h4>{{$competition->competition_name}}</h4>
-                                            <p>Virtual Tournament</p>
+                                        <div class="nameCard p-2">
+                                            <p class="mb-1" style="color: #F29709; font-size: 0.9rem;">Worldwide</p>
+                                            <h5 class="font-weight-bold mb-1">{{$competition->competition_name}}</h5>
+                                            <p class="mb-1" style="color: #919191; font-size: 0.9rem;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque iure eligendi, ipsa pariatur iusto voluptatum vero ad sunt in provident.</p>
+                                            <p class="font-weight-bold" style="color: #F29709; font-size: 0.9rem;">Oct 9 2021 - Oct 30 2021</p>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
                         @endif
                     </div>
-                    <form method="get" action="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}">
-                        <div class="discover-more">
-                                <button type="submit">DISCOVER MORE</button>
-                        </div>
-                    </form>
                 </div>
             </div>
-
         </div>
-        <div class="popular-categories">
+
+
+
+        <section class="trending" style="margin-top: 5rem;">
             <div class="container">
-                <div class="gray-background"></div>
-                <h1>Popular Categories</h1>
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="text-center font-weight-bold">Trending Competitions</h1>
 
-                @if(count($competitionCategory) == 0)
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div style="border-style: dashed;border-width: 2px;padding: 90px;color: grey;">
-                                <h2 style="text-align: center;color: grey;"> Popular Category Not Found</h2>
+                        @if(count($trendingCompetition) == 0)
+                            <div class="col-md-12 mt-5">
+                                <div style="border-style: dashed;border-width: 2px;padding: 90px;color: grey;">
+                                    <h2 style="text-align: center;color: grey;"> Competition Not Found</h2>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                @else
-                    <section id="categories-slider">
-                        <div id="owl-example" class="owl-carousel">
-                            @foreach($competitionCategory as $competitionCat)
-                                <div>
-                                    <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}">
-                                        <div style="background-image: url('{{url('files/'.$competitionCat->feature_image)}}');height: 200px;background-size: cover;background-repeat: no-repeat;background-position: center;" alt="">
+                        @else
 
+                            <div class="swiper mySwiper2 mt-5">
+                                <div class="swiper-wrapper">
+                                    @foreach($trendingCompetition as $competition)
+                                        <div class="swiper-slide position-relative">
+                                            <a href="{{route('frontend.competition_page',$competition->id)}}">
+                                                <img src="{{url('files/'.$competition->feature_image)}}" alt="" srcset="" class="w-100" style="height: 18rem; object-fit:cover;"/>
+                                            </a>
+
+                                            <i class="fas fa-chevron-up arrow"></i>
+
+                                            <div class="carousel-caption">
+                                                <h5 class="mb-2">{{$competition->competition_name}}</h5>
+                                                <p style="font-size: 0.9rem;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                                            </div>
                                         </div>
-                                    </a>
-
-                                    <h3>{{$competitionCat->category_name}}</h3>
+                                    @endforeach
                                 </div>
-                            @endforeach
-                        </div>
-                    </section>
-                @endif
-
-
-            </div>
-        </div>
-
-
-        <div class="entertaintment">
-            <div class="container">
-                <div class="yellow-background"></div>
-                <h1>Entertainment</h1>
-                <div class="row">
-                    <div class="top-section col-md-4">
-                        <div class="card-white-blur">
-                            <div class="card-white">
-                                <div class="left-silver">
-                                    <div class="white-opacity">
-
-                                    </div>
-                                </div>
-                                <h3>Top Story</h3>
-                                <div class="content">
-                                    <h4>Billie Eilish tenues mode</h4>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                        tempor invidunt ut labore et dolore magna aliquyam erat</p>
-                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
                             </div>
-                        </div>
-                        <div class="top-image">
-                            <div class="imageSize">
-                                <img src="{{url('aqo_se/assets/image/MaskGroup66.png')}}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="normal-section col-md-6">
-                        <div class="row">
-                            <div class="imageCard col-md-6">
-                                <div class="imageSize">
-                                    <img src="{{url('aqo_se/assets/image/MaskGroup65.png')}}" alt="" srcset="" />
-                                </div>
-                                <div class="container">
-                                    <div class="nameCard">
-                                        <h4>Latest album</h4>
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed eirmod...</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="imageCard col-md-6">
-                                <div class="imageSize">
-                                    <img src="{{url('aqo_se/assets/image/MaskGroup64.png')}}" alt="" srcset="" />
-                                </div>
-                                <div class="container">
-                                    <div class="nameCard">
-                                        <h4>Latest album</h4>
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed eirmod...</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="imageCard col-md-6">
-                                <div class="imageSize">
-                                    <img src="{{url('aqo_se/assets/image/MaskGroup64.png')}}" alt="" srcset="" />
-                                </div>
-                                <div class="container">
-                                    <div class="nameCard">
-                                        <h4>Latest album</h4>
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed eirmod...</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="imageCard col-md-6">
-                                <div class="imageSize">
-                                    <img src="{{url('aqo_se/assets/image/MaskGroup65.png')}}" alt="" srcset="" />
-                                </div>
-                                <div class="container">
-                                    <div class="nameCard">
-                                        <h4>Latest album</h4>
-                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed eirmod...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add-section col-md-2" style="margin-top: inherit;">
-                        <img src="{{url('aqo_se/assets/image/MaskGroup68.png')}}" alt="" srcset="">
-                    </div>
-                    <div class="discover-more">
-                        <button>DISCOVER MORE</button>
+                        @endif
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-
-        <div class="whats-new">
+        <section class="our-group" style="margin-top: 5rem;">
             <div class="container">
-                <div class="gray-background"></div>
-                <h1>What's New</h1>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="imageCard">
-                            <div class="imageSize">
-                                <img src="{{url('aqo_se/assets/image/MaskGroup33.png')}}" alt="" srcset="" />
-                            </div>
-                            <div class="container-image">
-                                <div class="nameCard">
-                                    <h4>Latest album</h4>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed eirmod...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="imageCard">
-                            <div class="imageSize">
-                                <img src="{{url('aqo_se/assets/image/MaskGroup34.png')}}" alt="" srcset="" />
-                            </div>
-                            <div class="container-image">
-                                <div class="nameCard">
-                                    <h4>Latest album</h4>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed eirmod...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="video-player col-md-6">
-                        <div class="overlay"></div>
-                        <img src="{{url('aqo_se/assets/image/MaskGroup32.png')}}" alt="">
-                        <!-- <button><i class="fa fa-play-circle-o" aria-hidden="true"></i></button> -->
-                        <h6>Week 12 match highlights</h6>
-                        <div class="video-play-button"></div>
-                    </div>
-
-                    <div class="discover-more">
-                        <button>DISCOVER MORE</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="add-section">
-            <div class="container">
-                <img src="{{url('aqo_se/assets/image/logo1.png')}}" alt="">
-            </div>
-        </div>
-
-        <div class="our-group">
-            <div class="container">
-                <h1>Our Groups</h1>
-                <div class="row">
+                <h1 class="text-center font-weight-bold">Our Groups</h1>
+                <div class="row mt-5">
                     <div class="card rounded-circle">
                         <img src="{{url('aqo_se/assets/image/logo1.png')}}" alt="">
                     </div>
@@ -296,10 +139,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
 
-        <div class="container social" style="margin-top: 5rem; margin-bottom: 3rem;">
+        <div class="container social" style="margin-top: 6rem; margin-bottom: 3rem;">
             <div class="row justify-content-center align-items-center mb-5">
                 <div class="col-1 text-center">
                     <a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a>
@@ -415,4 +258,26 @@
       });
     </script>
 
+
+    <script>
+      var swiper = new Swiper(".mySwiper2", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        slidesPerView: 4,
+        spaceBetween: 30,
+      });
+    </script>
+
+
+      <script>
+          $('.trending .swiper a').hover(function() {
+              $(this).siblings('.carousel-caption').addClass('trans-caption');
+              $(this).siblings('i').addClass('trans-arrow');
+          }, function() {
+            $(this).siblings('.carousel-caption').removeClass('trans-caption');
+            $(this).siblings('i').removeClass('trans-arrow');
+          });
+      </script>
 @endpush
