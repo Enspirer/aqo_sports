@@ -24,11 +24,6 @@ class ScoreController extends Controller
         $roundSection = json_decode($competitionDetails->rounds_section);
         $competitorDetails = Competitor::where('competition_id',$competitionID)->get();
 
-        $treml = get_competitor_all_score(1);
-
-
-
-
         return view('competition::backend.score_board.view_score',[
             'markSection' => $markSection,
             'roundSection' => $roundSection,
