@@ -22,17 +22,17 @@ class ScoreController extends Controller
         $competitionDetails = Competition::where('id',$competitionID)->first();
         $markSection = json_decode($competitionDetails->marks_sections);
         $roundSection = json_decode($competitionDetails->rounds_section);
-        $competitorDetails = Competitor::where('competition_id',$competitionID)->select('user_id')->get();
-        $competitorUserID = [];
-        foreach ($competitorDetails as $competitor){
-            array_push($competitorUserID,$competitor->user_id);
-        }
-        $userDetails = User::whereIn('id',$competitorUserID)->get();
+        $competitorDetails = Competitor::where('competition_id',$competitionID)->get();
+
+        $treml = get_competitor_all_score(1);
+
+
+
+
         return view('competition::backend.score_board.view_score',[
             'markSection' => $markSection,
             'roundSection' => $roundSection,
             'competitor_details' => $competitorDetails,
-            'user_details' => $userDetails
         ]);
     }
 

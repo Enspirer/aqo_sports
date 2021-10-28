@@ -21,6 +21,8 @@ class CompetitorController extends Controller
     {
         $CompetitionDetails = Competition::where('id',$id)->first();
 
+
+
         return view('competition::backend.competitors.index',[
             'competitionDetails' => $CompetitionDetails
         ]);
@@ -59,6 +61,9 @@ class CompetitorController extends Controller
         $userDetails = User::where('id',$competitor->user_id)->first();
         $categoryDetails = CompetitionCategory::where('id',$competionDetails->category_id)->first();
         $requestFormDetails = json_decode($competitor->competition_details);
+
+
+
         return view('competition::backend.competitors.show',[
                 'competitorDetails' => $competitor,
                 'competitionDetails' => $competionDetails,
