@@ -53,7 +53,7 @@
                     </g>
                 </svg>
             </i>
-            My Judgment
+            Become a Judge
         </a>
 
         <a href="{{route('frontend.user.register_as_organizer')}}" style="{{ Request::segment(1) === 'create_event' ? 'background:#fabf02' : null }}" class="btn"><i><svg xmlns="http://www.w3.org/2000/svg" width="22.779" height="26.563" viewBox="0 0 22.779 26.563">

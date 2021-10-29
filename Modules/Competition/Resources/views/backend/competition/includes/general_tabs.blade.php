@@ -7,7 +7,7 @@
     <textarea class="form-control" rows="10" oninvalid="tabInvalied('generalTabs')" name="competition_description" required></textarea>
 </div>
 <div class="form-group">
-    <label class="form-label">Feature</label>
+    <label class="form-label">Feature on Homepage</label>
     <select class="form-control" oninvalid="tabInvalied('generalTabs')" name="is_feature" required>
         <option value="1">Enabled</option>
         <option value="0">Disabled</option>

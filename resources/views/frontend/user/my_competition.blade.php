@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="card" style="padding: 10px">
-                                    <h3 style="text-align: center">Create an Event</h3>
+                                    <h3 style="text-align: center">Organizer</h3>
                                     <div class="" style="background-image: url('{{url('aqo_se/assets/image/event.svg')}}');height: 110px;background-size: contain;background-repeat: no-repeat;background-position: center;margin-bottom: 30px;margin-top: 30px;"></div>
                                     <p>If you would like to join as an organizer</p><br>
                                     <div class="think-image" style="text-align: center">
