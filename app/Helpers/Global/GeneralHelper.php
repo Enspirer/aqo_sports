@@ -304,9 +304,9 @@ if (! function_exists('is_voted')) {
      *
      * @return string
      */
-    function is_voted ($competitor_id)
+    function is_voted ($competitor_id, $competition_id)
     {
-        $votes = CompetitionVotes::where('user_id', auth()->user()->id)->where('competitor_id', $competitor_id)->first();
+        $votes = CompetitionVotes::where('user_id', auth()->user()->id)->where('competitor_id', $competitor_id)->where('competition_id', $competition_id)->first();
         
         if($votes){
             return $votes;
