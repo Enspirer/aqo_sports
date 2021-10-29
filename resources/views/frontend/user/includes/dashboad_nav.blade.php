@@ -18,7 +18,7 @@
 
     <div class="buttons-section">
         <a href="{{route('frontend.user.dashboard')}}" class="btn" style="{{ Request::segment(1) === 'dashboard' ? 'background:#fabf02' : null }}">
-            <i><img src="{{url('aqo_se/assets/image/dashboard.png')}}" width="23" height="24" viewBox="0 0 18.348 25.062" />
+            <i><img src="{{url('aqo_se/assets/image/dashboard.png')}}" width="22" height="22" viewBox="0 0 18.348 25.062" />
            </i> Dashboard</a>
         <a href="{{route('frontend.user.my_competition')}}" class="btn" style="{{ Request::segment(1) === 'my_competition' ? 'background:#fabf02' : null }}">
             <i><svg xmlns="http://www.w3.org/2000/svg" width="18.348" height="25.062" viewBox="0 0 18.348 25.062">
