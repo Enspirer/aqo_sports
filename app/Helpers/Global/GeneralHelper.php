@@ -4,6 +4,7 @@ use Modules\Competition\Entities\Performance;
 use Modules\Competition\Entities\Competitor;
 use Modules\Competition\Entities\JudgmentMarks;
 use App\Models\JudgeRequest;
+use App\Models\CompetitionVotes;
 
 
 if (! function_exists('app_name')) {
@@ -289,6 +290,26 @@ if (! function_exists('is_judge_requested')) {
         
         if($JudgeRequest){
             return $JudgeRequest;
+        }else{
+            return null;
+        }
+    }
+}
+
+
+
+if (! function_exists('is_voted')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_voted ($competitor_id)
+    {
+        $votes = CompetitionVotes::where('user_id', auth()->user()->id)->where('competitor_id', $competitor_id)->first();
+        
+        if($votes){
+            return $votes;
         }else{
             return null;
         }

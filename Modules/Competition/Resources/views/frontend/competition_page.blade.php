@@ -138,7 +138,15 @@
                                                 <td>{{$competiotrDetail['competitor_name']}}</td>
                                                 <td>{{$competiotrDetail['votes']}}</td>
                                                 <td>
-                                                    <button type="submit" class="btn btn-primary">Vote Now</button>
+                                                    @auth
+                                                        @if(is_voted($competiotrDetail['competitor_id']))
+                                                            <button type="submit" class="btn btn-primary" disabled>Vote Now</button>
+                                                        @else
+                                                            <button type="submit" class="btn btn-primary">Vote Now</button>
+                                                        @endif
+                                                    @else
+                                                        <a href="{{ route('frontend.auth.login') }}" type="button" class="btn btn-primary">Vote Now</a>
+                                                    @endauth
                                                 </td>
 
                                                 <input type="hidden" name="competitor_id" value="{{$competiotrDetail['competitor_id']}}">
