@@ -140,7 +140,7 @@
                                                 <td>
                                                     @auth
                                                         @if(is_voted($competiotrDetail['competitor_id'], $competition_details->id))
-                                                            <button type="submit" class="btn btn-primary" disabled>Vote Now</button>
+                                                            <button type="submit" class="btn btn-primary" disabled>Voted</button>
                                                         @else
                                                             <button type="submit" class="btn btn-primary">Vote Now</button>
                                                         @endif
