@@ -15,7 +15,7 @@
                                 <div class="row">
                                     @foreach($getDetails as $getDetail)
                                         <div class="imageCard col-md-3 col-sm-6 col-xs-12">
-                                            <a href="">
+                                            <a href="{{route('frontend.competition_page',$getDetail['competition_id'])}}">
                                                 <div class="imageSize">
                                                     <img src="{{url('files/'.$getDetail['feature_image'])}}" alt="" srcset="">
                                                 </div>

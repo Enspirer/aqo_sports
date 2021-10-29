@@ -26,6 +26,7 @@ class PendingController extends Controller
                     'competition_name' =>$CompetitionDetails->competition_name,
                     'feature_image' =>$CompetitionDetails->feature_image,
                     'competitor_id' =>$getDetail->id,
+                    'competition_id' =>$CompetitionDetails->id, 
                 ];
 
                 array_push($competitionID,$competitionDetailsArray);
