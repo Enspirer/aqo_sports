@@ -371,10 +371,11 @@
                                             Register Competition
                                         </button>
                                     @endif
-
+                                    @if(is_judge(auth()->user()->id) != null)
                                         <button type="button" class="btn-become-judge" data-toggle="modal" data-target="#judgeDialog">
-                                            Become a judge
+                                            My Judge
                                         </button>
+                                    @endif
                                 </div>
                             </div>
 
