@@ -11,6 +11,7 @@ use Modules\Competition\Entities\Competitor;
 use Modules\Competition\Entities\JudgeDetails;
 use DB;
 use Modules\Competition\Entities\JudgmentMarks;
+use App\Models\JudgeRequest;
 
 class MyJudgmentController extends Controller
 {
@@ -165,4 +166,31 @@ class MyJudgmentController extends Controller
     {
         //
     }
+
+    public function judge_form(Request $request)
+    {
+
+       if($request->file('id_card'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->id_card->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->id_card->move(public_path('files/judge_form'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{
+            $image_url = null;
+        } 
+
+        $add = new JudgeRequest;
+
+        $add->judge_name=$request->judge_name; 
+        $add->institute=$request->institute;
+        $add->introduction=$request->introduction;
+        $add->skills=$request->skills;
+        $add->user_id=auth()->user()->id;
+        $add->id_card=$image_url;
+        $add->status='Pending';
+        $add->save();
+
+        return redirect()->route('frontend.user.dashboard')->withFlashSuccess('The request has been sent successfully'); 
+    }
+
 }

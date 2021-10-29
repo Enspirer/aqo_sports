@@ -21,6 +21,7 @@ class CreateJudgeRequestsTable extends Migration
             $table->text('introduction')->nullable();
             $table->text('skills');
             $table->text('id_card')->nullable();
+            $table->text('status')->nullable();
             $table->timestamps();
         });
     }
