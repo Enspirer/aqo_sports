@@ -80,29 +80,31 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h1 class="text-center font-weight-bold">Trending Competitions</h1>
+                        <h1 class="text-center font-weight-bold">Popular Categories</h1>
 
-                        @if(count($trendingCompetition) == 0)
-                            <div class="col-md-12 mt-5">
-                                <div style="border-style: dashed;border-width: 2px;padding: 90px;color: grey;">
-                                    <h2 style="text-align: center;color: grey;"> Competition Not Found</h2>
+                        @if(count($competitionCategory) == 0)
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div style="border-style: dashed;border-width: 2px;padding: 90px;color: grey;">
+                                        <h2 style="text-align: center;color: grey;">Popular Categories Not Found</h2>
+                                    </div>
                                 </div>
                             </div>
                         @else
 
                             <div class="swiper mySwiper2 mt-5">
                                 <div class="swiper-wrapper">
-                                    @foreach($trendingCompetition as $competition)
+                                    @foreach($competitionCategory as $category)
                                         <div class="swiper-slide position-relative">
-                                            <a href="{{route('frontend.competition_page',$competition->id)}}">
-                                                <img src="{{url('files/'.$competition->feature_image)}}" alt="" srcset="" class="w-100" style="height: 18rem; object-fit:cover;"/>
+                                            <a href="{{route('frontend.explorer', [$category->id,'keyword','desc','country','start_date','end_date'])}}">
+                                                <img src="{{url('files/'.$category->feature_image)}}" alt="" srcset="" class="w-100" style="height: 18rem; object-fit:cover;"/>
                                             </a>
 
                                             <i class="fas fa-chevron-up arrow"></i>
 
                                             <div class="carousel-caption">
-                                                <h5 class="mb-2">{{$competition->competition_name}}</h5>
-                                                <p style="font-size: 0.9rem;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                                                <h5 class="mb-2">{{$category->category_name}}</h5>
+                                                <p style="font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;">{{$category->description}}</p>
                                             </div>
                                         </div>
                                     @endforeach
@@ -270,12 +272,12 @@
 
 
       <script>
-          $('.trending .swiper a').hover(function() {
-              $(this).siblings('.carousel-caption').addClass('trans-caption');
-              $(this).siblings('i').addClass('trans-arrow');
+          $('.trending .swiper .swiper-slide').hover(function() {
+              $(this).find('.carousel-caption').addClass('trans-caption');
+              $(this).find('i').addClass('trans-arrow');
           }, function() {
-            $(this).siblings('.carousel-caption').removeClass('trans-caption');
-            $(this).siblings('i').removeClass('trans-arrow');
+            $(this).find('.carousel-caption').removeClass('trans-caption');
+            $(this).find('i').removeClass('trans-arrow');
           });
       </script>
 @endpush
