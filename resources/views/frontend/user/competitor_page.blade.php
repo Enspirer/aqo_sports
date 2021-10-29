@@ -18,11 +18,32 @@
                                     @foreach($roundDetails as $key=>$roundData)
                                         <div class="card">
                                             <div class="card-header" id="headingOne{{$key}}">
-                                                <h5 class="mb-0">
-                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne_{{$key}}" aria-expanded="true" aria-controls="collapseOne">
-                                                        {{$roundData}}
-                                                    </button>
-                                                </h5>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne_{{$key}}" aria-expanded="true" aria-controls="collapseOne">
+                                                                {{$roundData}}
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                        @if(isset(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('judge_id',auth()->user()->id)->where('round_name',$roundData)->first()->score))
+                                                           @if(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('judge_id',auth()->user()->id)->where('round_name',$roundData)->first()->judge_score != null)
+                               
+                                                           <div class="col-6 text-right">
+                                                                        <div class="row">
+                                                                            <div class="col-10 mt-2">                                                                                
+                                                                                <h5>Total Score: {{ \Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('judge_id',auth()->user()->id)->where('round_name',$roundData)->first()->judge_score }}</h5>
+                                                                            </div>
+                                                                            <div class="col-2">
+                                                                                <h2 class="bi bi-check text-success"></h2>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                            @endif
+                                                        @endif
+                                                </div>
+                                                
+                                                
                                             </div>
                                             <div id="collapseOne_{{$key}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                                 <div class="card-body">
@@ -68,8 +89,8 @@
                                                                                                 @foreach($marksSections as $markSection)
                                                                                                     <input type="hidden" class="form-control" name="mark_section[]" value="{{$markSection}}">
                                                                                                     <th scope="row">
-                                                                                                        @if(isset(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('round_name',$roundData)->first()->judge_score_details))
-                                                                                                            @foreach(json_decode(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('round_name',$roundData)->first()->judge_score_details) as $oDetails)
+                                                                                                        @if(isset(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('judge_id',auth()->user()->id)->where('round_name',$roundData)->first()->judge_score_details))
+                                                                                                            @foreach(json_decode(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('judge_id',auth()->user()->id)->where('round_name',$roundData)->first()->judge_score_details) as $oDetails)
                                                                                                                 @if($oDetails->mark_section == $markSection)
                                                                                                                     <input type="number" class="form-control" name="marks[]" value="{{$oDetails->score}}">
                                                                                                                 @else
@@ -78,7 +99,7 @@
 
                                                                                                             @endforeach
                                                                                                         @else
-                                                                                                            <input type="number" class="form-control" name="marks[]" value="">
+                                                                                                            <input type="number" class="form-control" name="marks[]" value="" required>
 
                                                                                                         @endif
                                                                                                     </th>
@@ -92,6 +113,43 @@
                                                                                     </tbody>
                                                                                 </table>
                                                                                 <button class="btn btn-primary">Add Score</button>
+
+
+                                                                                <table class="table table-bordered mt-3">
+                                                                                    <thead>
+                                                                                    <tr>
+                                                                                        @foreach($marksSections as $markSection)
+                                                                                            <th scope="col">{{$markSection}}</th>
+                                                                                        @endforeach
+                                                                                    </tr>
+                                                                                    </thead>
+
+                                                                                    <tbody>
+                                                                                        <tr>
+
+                                                                                                @foreach($marksSections as $markSection)
+                                                                                                    <input type="hidden" class="form-control" value="{{$markSection}}">
+                                                                                                    <th scope="row">
+                                                                                                        @if(isset(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('judge_id','!=',auth()->user()->id)->where('round_name',$roundData)->first()->judge_score_details))
+                                                                                                            @foreach(json_decode(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('judge_id','!=',auth()->user()->id)->where('round_name',$roundData)->first()->judge_score_details) as $oDetails)
+                                                                                                                @if($oDetails->mark_section == $markSection)
+                                                                                                                    <input type="number" class="form-control" value="{{$oDetails->score}}" readonly>
+                                                                                                                @else
+
+                                                                                                                @endif
+
+                                                                                                            @endforeach
+                                                                                                        @else
+                                                                                                            <input type="number" class="form-control" value="" readonly>
+
+                                                                                                        @endif
+                                                                                                    </th>
+                                                                                                @endforeach
+
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                
                                                                             </form>
                                                                         </div>
                                                                     </div>
