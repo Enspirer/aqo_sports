@@ -71,11 +71,13 @@
                 <div class="row">
                     <div class="leftSide col-md-8">
                         <div class="tab-content" id="myTabContent">
+
                             <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="aboutÎ-tab">
                                 <h2>{{$competition_details->competition_name}}</h2>
                                 <h6>{{$userDetails->first_name}} {{$userDetails->last_name}} - {{$start_date}}</h6>
                                 <p>{!! $competition_details->description !!}</p>
                             </div>
+
                             <div class="tab-pane fade" id="nav-rules" role="tabpanel" aria-labelledby="nav-rules-tab">
                                 @foreach($gameRule as $rule)
                                     <div class="card">
@@ -86,6 +88,7 @@
                                     </div><br>
                                 @endforeach
                             </div>
+
                             <div class="tab-pane fade" id="nav-organizer" role="tabpanel" aria-labelledby="nav-organizer-tab">
                                 @if($organizer_details == null)
                                     <div class="" style="border-style:dashed;padding: 10px;border-color: grey;">
@@ -108,6 +111,7 @@
                                     </div>
                                 @endif
                             </div>
+
                             <div class="tab-pane fade" id="nav-payments" role="tabpanel" aria-labelledby="nav-payments-tab">
                                 <div class="" style="border-style:dashed;padding: 10px;border-color: grey;">
                                     <h2 style="color: grey;text-align: center">This feature is currently not available</h2>
@@ -115,6 +119,7 @@
                                 </div>
 
                             </div>
+                            
                             <div class="tab-pane fade" id="nav-voting" role="tabpanel" aria-labelledby="nav-voting-tab">
 
                                 <table class="table table-hover">
@@ -127,20 +132,97 @@
                                     </thead>
                                     <tbody>
                                     @foreach($getCompetitorDetails as $competiotrDetail)
-                                        <tr>
-                                            <td>{{$competiotrDetail['competitor_name']}}</td>
-                                            <td>{{$competiotrDetail['votes']}}</td>
-                                            <td>
-                                                <button class="btn btn-primary">Vote Now</button>
-                                            </td>
-                                        </tr>
+                                        <form action="{{ route('frontend.competition_page_voting') }}" method="post">
+                                            {{ csrf_field() }}
+                                            <tr>
+                                                <td>{{$competiotrDetail['competitor_name']}}</td>
+                                                <td>{{$competiotrDetail['votes']}}</td>
+                                                <td>
+                                                    <button type="submit" class="btn btn-primary">Vote Now</button>
+                                                </td>
+
+                                                <input type="hidden" name="competitor_id" value="{{$competiotrDetail['competitor_id']}}">
+                                                <input type="hidden" name="competition_id" value="{{ $competition_details->id }}">
+                                            </tr>
+                                        </form>
                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>
+
+
                             <div class="tab-pane fade" id="nav-leaderboard" role="tabpanel" aria-labelledby="nav-leaderboard-tab">
-                                @include('competition::frontend.include.leaderboard')
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card" style="padding: 10px;">
+                                            <table id="myTablePrihlasky" class="table table-hover table-bordered table-condensed ">
+                                                <thead>
+                                                    <tr>
+                                                        <th rowspan="2" class="titulka" style="width:30px">Final</th>
+                                                        <th rowspan="2" class="titulka" style="width:50px">Place</th>
+                                                        <th rowspan="2" class="titulka" style="width:70px">Country</th>
+                                                        <th rowspan="2" class="titulka">Name/Club</th>
+                                                        <th rowspan="2" class="titulka" style="width:50px; border-right:1px solid gray">Year</th>
+                                                        @foreach($roundSection as $roundSectioenn)
+                                                            <th colspan="{{count($markSection)}}" style="text-align:center; border-right:1px solid gray">
+                                                                {{$roundSectioenn}}
+                                                            </th>
+                                                        @endforeach
+
+                                                        <th rowspan="2" class="titulka" style="width:50px ; border-right:1px solid gray">Score</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        @foreach($roundSection as $roundSectioenn)
+                                                            @foreach($markSection as $markSectionItem)
+                                                                <th class="titulka" style="width:50px">{{$markSectionItem}}</th>
+                                                            @endforeach
+                                                        @endforeach
+                                                    </tr>
+                                                </thead>
+
+
+                                                <tbody id="tBodyFinale">
+                                                    <tr>
+                                                        <tr>
+                                                            @foreach($competitor_details as $competitor_detail)
+
+                                                                <td rowspan="2">1</td>
+                                                                <td rowspan="2" style="text-align:center;font-size:15px; ">1.</td>
+                                                                <td rowspan="2"><img onerror="$(this).hide()" style="width:20px" src="flags/USA.png">{{\App\Models\Auth\User::where('id',$competitor_detail->user_id)->first()->country}}</td>
+                                                                <td rowspan="2">{{\App\Models\Auth\User::where('id',$competitor_detail->user_id)->first()->first_name}} {{\App\Models\Auth\User::where('id',$competitor_detail->user_id)->first()->last_name}}</td>
+                                                                <td rowspan="2" style="text-align:center; border-right:1px solid gray;">{{ date_format($competitor_detail->created_at,'Y') }}</td>
+
+                                                                @foreach($roundSection as $deround_details)
+                                                                    <td colspan="{{count($markSection)}}" style="text-align:center;font-size:12px; border-right:1px solid gray; ">
+                                                                        <b>{{round_total($competitor_detail->id,$deround_details,$deround_details)}}</b>
+                                                                        <div style="float:right; font-size:10px">{{\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitor_detail->id)->where('competition_id',$competitor_detail->competition_id)->where('round_name',$deround_details)->count()}}</div>
+                                                                    </td>
+                                                                @endforeach
+
+
+                                                                <td rowspan="2" style="text-align:center;font-size:14px; border-right:1px solid gray;">
+                                                                    <b>{{get_competitor_all_score($competitor_detail->id)}}</b>
+                                                                </td>
+                                                                <tr>
+                                                                    @foreach($roundSection as $oulem)
+
+                                                                        @foreach($markSection as $markSectionItem)
+                                                                            <td style="text-align:center;font-size:12px;">{{judge_marks_total($competitor_detail->id,$markSectionItem,$oulem)}}</td>
+                                                                        @endforeach
+                                                                    @endforeach
+                                                                </tr>
+                                                            @endforeach
+                                                        </tr>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
+
                             <div class="tab-pane fade" id="nav-competitors" role="tabpanel" aria-labelledby="nav-competitors-tab">
                                 <table class="table table-hover">
                                     <thead>
@@ -378,6 +460,28 @@
         </div>
     </div>
 
+
+    @if(\Session::has('success'))
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-toggle="modal" data-target="#voteModal"></button>
+
+        <div class="modal fade" id="voteModal" tabindex="-1" aria-labelledby="voteModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding: 3rem 1rem;">
+                        <h4 class="mb-3 text-center">Voted successfully.</h4>
+                        <h5>You voted for {{ App\Models\Auth\User::where('id', session('competitor'))->first()->first_name }} {{ App\Models\Auth\User::where('id', session('competitor'))->first()->last_name }} under this {{ $competition_details->competition_name }} competition.</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
     @push('footer_script')
 
 
@@ -425,6 +529,12 @@
         });
     </script>
 
+    <script>
+        if(document.getElementById("modal-btn")){
+            $('#modal-btn').click();
+        }
+    </script>
+
 
     @endpush
 
@@ -465,6 +575,9 @@
     @else
 
     @endif
+
+
+    
 
 
 @endsection

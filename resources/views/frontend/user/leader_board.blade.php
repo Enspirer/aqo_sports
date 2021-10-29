@@ -9,14 +9,25 @@
             <div class="contentExplore">
                 <div class="container">
 
-                    <div class="think-image">
-                        <form method="get" action="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}">
-                            <div style="background: url('{{url('aqo_se/assets/image/notf.svg')}}');height: 100px;background-repeat: no-repeat;background-size: contain;background-position: center;margin-bottom: 10px;"></div>
-                            <h1>This feature is currently not available</h1>
-                            <p>Our team is working on few improvements</p>
-                            <button>Find competitions</button>
-                        </form>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                            
+                                <div class="card-body">
+                                    <table class="table table-striped table-bordered" id="competitions-table" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Competition Name</th>
+                                                <th scope="col">Options</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -24,3 +35,24 @@
     </div>
 
 @endsection
+
+
+
+@push('after-scripts')
+<script type="text/javascript">
+    $(function () {
+        var table = $('#competitions-table').DataTable({
+            processing: true,
+            ajax: "{{route('frontend.user.my_leader_board.get_competitions')}}",
+            serverSide: true,
+            order: [[0, "desc"]],
+            columns: [
+                {data: 'competition_name', name: 'competition_name'},
+                {data: 'action', name: 'action', orderable: false, searchable: false},
+            ]
+        });
+    });
+
+</script>
+
+@endpush

@@ -3,6 +3,7 @@
 namespace Modules\Competition\Http\Controllers\Frontend;
 
 use App\Models\Auth\User;
+use App\Models\CompetitionVotes;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -192,6 +193,13 @@ class CompetitionController extends Controller
         $categoryDetails = CompetitionCategory::where('id',$competitionDetails->category_id)->first();
         $organizerDetails = Organizer::where('user_id',$competitionDetails->user_id)->first();
 
+        $competitionDetails = Competition::where('id',$id)->first();
+        $markSection = json_decode($competitionDetails->marks_sections);
+        $roundSection = json_decode($competitionDetails->rounds_section);
+        $competitorDetails = Competitor::where('competition_id',$id)->get();
+
+    
+
         if($carbonEndDate < $carbonTody)
         {
             $exp = 'Closed';
@@ -208,7 +216,10 @@ class CompetitionController extends Controller
             'competitorDetails' => $competiorDetails,
             'getCompetitorDetails' => $getCompetitorDetails,
             'categoryDetails' => $categoryDetails,
-            'organizer_details' => $organizerDetails
+            'organizer_details' => $organizerDetails,
+            'markSection' => $markSection,
+            'roundSection' => $roundSection,
+            'competitor_details' => $competitorDetails,
         ]);
     }
 
@@ -300,5 +311,27 @@ class CompetitionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function competitionVoting(Request $request)
+    {    
+        
+        $user_id = auth()->user()->id;
+            
+        $vote = new CompetitionVotes;
+
+        $competitor = Competitor::where('id', $request->competitor_id)->first()->user_id;
+        
+        $vote->user_id = $user_id;
+        $vote->vote = 1;
+        $vote->competitor_id = $request->competitor_id;
+        $vote->competition_id = $request->competition_id;
+
+
+        $vote->save();
+   
+        return back()->with(['success' => 'success', 'competitor' => $competitor]);          
+
     }
 }

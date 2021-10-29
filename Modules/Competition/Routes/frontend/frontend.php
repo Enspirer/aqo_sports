@@ -12,4 +12,7 @@ Route::post('explorer/search_keyword', 'CompetitionController@search')->name('se
 Route::post('search_result', 'CompetitionController@searchFilters')->name('search_filters');
 
 
+Route::post('explorer/competition_page/voting', 'CompetitionController@competitionVoting')->name('competition_page_voting');
+
+
 ?>
