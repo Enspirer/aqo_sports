@@ -24,7 +24,7 @@ Route::get('about-us', [AboutController::class, 'index'])->name('about_us');
 Route::get('terms-and-conditions', [TermsController::class, 'index'])->name('terms_and_conditions');
 Route::get('training', [TrainingController::class, 'index'])->name('training');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
-Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
+Route::post('contact/store', [ContactController::class, 'store'])->name('contact.store');
 
 /*
  * These frontend controllers require the user to be logged in

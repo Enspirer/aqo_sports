@@ -96,11 +96,19 @@ Breadcrumbs::for('admin.competition.judgeRequest.show', function ($trail) {
 });
 
 Breadcrumbs::for('admin.competition.organizer_request.index', function ($trail) {
-    $trail->push('Score Board', route('admin.competition.organizer_request.index'));
+    $trail->push('Judge Request', route('admin.competition.organizer_request.index'));
 });
 
 Breadcrumbs::for('admin.competition.organizer_request.show', function ($trail) {
     $trail->push('Judge Request Show', route('admin.competition.organizer_request.show',1));
+});
+
+Breadcrumbs::for('admin.become_judge.index', function ($trail) {
+    $trail->push('Become Judge', route('admin.become_judge.index'));
+});
+
+Breadcrumbs::for('admin.become_judge.show', function ($trail) {
+    $trail->push('Become Judge Show', route('admin.become_judge.show',1));
 });
 
 

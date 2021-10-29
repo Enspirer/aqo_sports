@@ -48,3 +48,10 @@ Route::get('category/delete/{id}', 'CategoryController@destroy')->name('category
 Route::post('category/update', 'CategoryController@update')->name('category.update');
 
 
+Route::get('become_judge','BecomeJudgeController@index')->name('become_judge.index');
+Route::get('become_judge/get_details', 'BecomeJudgeController@get_details')->name('become_judge.get_details');
+Route::get('become_judge/show/{id}', 'BecomeJudgeController@show')->name('become_judge.show');
+Route::get('become_judge/delete/{id}', 'BecomeJudgeController@destroy')->name('become_judge.destroy');
+Route::post('become_judge/update', 'BecomeJudgeController@update')->name('become_judge.update');
+
+

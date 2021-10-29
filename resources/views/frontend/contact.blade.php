@@ -7,14 +7,28 @@
     <link rel="stylesheet" href="{{ url('aqo_se/Styles/css/contact_us.css') }}">
 @endpush
 
-
-
 @section('content')
+
+@if ( session()->has('message') )
+   
+    <body style="text-align:center; background-color: #E8E8E8">
+
+        <h1 style="margin-top:70px;" class="display-3">Thank You!</h1><br>
+        <p class="lead"><h3>We appreciate you contacting us. One of our member will get back in touch with you soon!<br><br> Have a great day!</h3></p>
+        <hr><br>    
+        <p class="lead" style="margin-bottom:80px;">
+            <a class="btn btn-success btn-md" href="{{url('contact')}}" role="button">Go Back to Contact Us Page</a>
+        </p>
+    </body>
+
+@else 
     <div class="container-fluid py-4" style="background-color: #f9f9f9;">
         <div class="container">
             <div class="row">
                 <div class="col-5">
-                    <form action="" class="pt-4 px-4 pb-3" style="background-color: white">
+                    <form action="{{route('frontend.contact.store')}}" method="post" enctype="multipart/form-data" class="pt-4 px-4 pb-3" style="background-color: white">
+                    {{csrf_field()}}
+                        
                         <div class="mb-2">
                             <div class="row">
                                 <div class="col-6">
@@ -30,7 +44,7 @@
                         </div>
 
                         <div class="mb-2">
-                            <label for="last_name" class="form-label font-weight-bold">EMAIL</label>
+                            <label for="email" class="form-label font-weight-bold">EMAIL</label>
                             <input type="email" class="form-control rounded-0" name="email" id="email" required>
                         </div>
 
@@ -40,7 +54,7 @@
                         </div>
 
                         <div class="mb-2">
-                            <label for="phone" class="form-label font-weight-bold">LEAVE US A MESSAGE...</label>
+                            <label for="message" class="form-label font-weight-bold">LEAVE US A MESSAGE...</label>
                             <textarea class="form-control rounded-0" name="message" rows="4" required></textarea>
                         </div>
 
@@ -146,6 +160,8 @@
         </div>
         
     </div>
+@endif
+
 @endsection
 
 @push('after-scripts')

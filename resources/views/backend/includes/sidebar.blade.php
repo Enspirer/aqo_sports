@@ -17,8 +17,12 @@
                     Organizer Request
                 </a>
             </li>
-
-
+            <li class="nav-item">
+                <a class="nav-link {{active_class(Active::checkUriPattern('admin/become_judge'))}}" href="{{ route('admin.become_judge.index') }}">
+                    <i class="nav-icon fas fa-user"></i>
+                    Become a Judge
+                </a>
+            </li>
 
 
             @if(get_module('Competition'))
@@ -36,6 +40,13 @@
                     </a>
                 </li>
             @endif
+
+            <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/contact_us'))}}" href="{{ route('admin.contact_us.index') }}">
+                    <i class="nav-icon fas fa-comments"></i>
+                    Contact Us
+                </a>
+            </li>
 
 
 
