@@ -2,6 +2,33 @@
 
 @section('title', app_name() . ' | ' . __('navs.general.home'))
 
+
+@push('after-styles')
+
+<style>
+    .scroll {
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+    .scroll ::-webkit-scrollbar {
+        width: 4px;
+        border: 1px solid #00000000;
+    }
+    .scroll ::-webkit-scrollbar-track {
+        border-radius: 0;
+        background: #00000000;
+    }
+    .scroll ::-webkit-scrollbar-thumb {
+        border-radius: 0;
+        background: #35495E;
+    }
+
+</style>
+
+
+@endpush
+
+
 @section('content')
     <div class="main">
         <div class="competetionHero">
@@ -162,7 +189,7 @@
                             <div class="tab-pane fade" id="nav-leaderboard" role="tabpanel" aria-labelledby="nav-leaderboard-tab">
                                 <div class="row">
                                     <div class="col">
-                                        <div class="card" style="padding: 10px;">
+                                        <div class="card scroll" style="padding: 10px;" >
                                             <table id="myTablePrihlasky" class="table table-hover table-bordered table-condensed ">
                                                 <thead>
                                                     <tr>
