@@ -15,6 +15,10 @@ class CreateCompetitionVotesTable extends Migration
     {
         Schema::create('competition_votes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('user_id');
+            $table->text('vote');
+            $table->text('competitor_id');
+            $table->text('competition_id');
             $table->timestamps();
         });
     }

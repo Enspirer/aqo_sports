@@ -74,7 +74,10 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('judge_form_update', [MyJudgmentController::class, 'judge_form_update'])->name('judge_form_update');
 
         Route::get('my_team', [MyTeamController::class, 'index'])->name('my_team');
-        Route::get('my_leader_board', [MyTeamController::class, 'index'])->name('my_leader_board');
+
+        Route::get('my_leader_board', [LeaderBoardController::class, 'index'])->name('my_leader_board');
+        Route::get('my_leader_board/get-competitions', [LeaderBoardController::class, 'getCompetitions'])->name('my_leader_board.get_competitions');
+        Route::get('my_leader_board/get-competition-score/{id}', [LeaderBoardController::class, 'getCompetitionScore'])->name('my_leader_board.get_competition_score');
         
         Route::get('user_settings', [RegisterController::class, 'user_settings'])->name('user_settings');
         Route::post('user_settings/update', [RegisterController::class, 'user_settings_update'])->name('user_settings_update');
