@@ -16,6 +16,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-       return redirect()->route('frontend.user.my_competition');
+        return view('frontend.user.user_dashboard');
     }
 }
