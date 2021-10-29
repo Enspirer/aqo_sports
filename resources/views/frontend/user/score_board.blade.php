@@ -54,9 +54,9 @@
 
                                                         <td rowspan="2">1</td>
                                                         <td rowspan="2" style="text-align:center;font-size:15px; ">1.</td>
-                                                        <td rowspan="2"><img onerror="$(this).hide()" style="width:20px" src="flags/USA.png"> USA</td>
+                                                        <td rowspan="2"><img onerror="$(this).hide()" style="width:20px" src="flags/USA.png">{{\App\Models\Auth\User::where('id',$competitor_detail->user_id)->first()->country}}</td>
                                                         <td rowspan="2">{{\App\Models\Auth\User::where('id',$competitor_detail->user_id)->first()->first_name}} {{\App\Models\Auth\User::where('id',$competitor_detail->user_id)->first()->last_name}}</td>
-                                                        <td rowspan="2" style="text-align:center; border-right:1px solid gray;">2013<br>CB</td>
+                                                        <td rowspan="2" style="text-align:center; border-right:1px solid gray;">{{ date_format($competitor_detail->created_at,'Y') }}</td>
 
                                                         @foreach($roundSection as $deround_details)
                                                             <td colspan="{{count($markSection)}}" style="text-align:center;font-size:12px; border-right:1px solid gray; ">
