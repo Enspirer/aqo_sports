@@ -193,4 +193,32 @@ class MyJudgmentController extends Controller
         return redirect()->route('frontend.user.dashboard')->withFlashSuccess('The request has been sent successfully'); 
     }
 
+    public function judge_form_update(Request $request)
+    {
+
+       if($request->file('id_card'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->id_card->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->id_card->move(public_path('files/judge_form'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{
+            $detail = JudgeRequest::where('id',$request->hidden_id)->first();
+            $image_url = $detail->id_card;
+        } 
+
+        $update = new JudgeRequest;
+
+        $update->judge_name=$request->judge_name; 
+        $update->institute=$request->institute;
+        $update->introduction=$request->introduction;
+        $update->skills=$request->skills;
+        $update->user_id=auth()->user()->id;
+        $update->id_card=$image_url;
+        $update->status='Pending';
+        
+        JudgeRequest::whereId($request->hidden_id)->update($update->toArray());
+
+        return redirect()->route('frontend.user.dashboard')->withFlashSuccess('Updated request has been sent successfully'); 
+    }
+
 }
