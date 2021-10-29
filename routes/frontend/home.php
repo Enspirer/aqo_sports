@@ -71,6 +71,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('viewCompetitor/{id}', [MyJudgmentController::class, 'viewCompetitor'])->name('show_competitor');
         Route::post('add_marks_judge', [MyJudgmentController::class, 'add_marks_judge'])->name('add_marks_judge');
         Route::post('judge_form', [MyJudgmentController::class, 'judge_form'])->name('judge_form');
+        Route::post('judge_form_update', [MyJudgmentController::class, 'judge_form_update'])->name('judge_form_update');
 
         Route::get('my_team', [MyTeamController::class, 'index'])->name('my_team');
 

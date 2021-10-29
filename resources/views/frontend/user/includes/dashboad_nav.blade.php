@@ -44,7 +44,7 @@
         
         @if(is_judge(auth()->user()->id) == null)
             @if(is_judge_requested(auth()->user()->id))
-                <button data-toggle="modal" data-target="#exampleModal" class="btn" style="{{ Request::segment(1) === 'my_judgement' ? 'background:#fabf02' : null }}">
+                <button data-toggle="modal" data-target="#exampleModal2{{ is_judge_requested(auth()->user()->id)->id }}" class="btn" style="{{ Request::segment(1) === 'my_judgement' ? 'background:#fabf02' : null }}">
                     <i>
                         <svg xmlns="http://www.w3.org/2000/svg" width="23.656" height="22.388" viewBox="0 0 23.656 22.388">
                             <g id="Group_137" data-name="Group 137" transform="translate(-1837.408 -896.663)">
@@ -181,7 +181,6 @@
                 <label class="form-label">ID Card <span class="text-danger">*</span></label>
                 <input type="file" name="id_card" class="form-control" required>
             </div>
-
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -192,3 +191,51 @@
   </div>
 </div>
 
+@if(is_judge_requested(auth()->user()->id))
+
+<div class="modal fade" id="exampleModal2{{is_judge_requested(auth()->user()->id)->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Judge Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{route('frontend.user.judge_form_update')}}" method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
+            <div class="form-group">
+                <label class="form-label">Name <span class="text-danger">*</span></label>
+                <input type="text" name="judge_name" class="form-control" value="{{is_judge_requested(auth()->user()->id)->judge_name}}" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Institute <span class="text-danger">*</span></label>
+                <input type="text" name="institute" class="form-control" value="{{is_judge_requested(auth()->user()->id)->institute}}" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Introduction <span class="text-danger">*</span></label>
+                <textarea type="text" name="introduction" class="form-control" rows="3" required>{{is_judge_requested(auth()->user()->id)->introduction}}</textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Skills <span class="text-danger">*</span></label>
+                <textarea type="text" name="skills" class="form-control" rows="3" required>{{is_judge_requested(auth()->user()->id)->skills}}</textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">ID Card <span class="text-danger">*</span></label>
+                <input type="file" name="id_card" class="form-control" >
+                <br>
+                <img src="{{ url('files/judge_form',is_judge_requested(auth()->user()->id)->id_card) }}" width="20%" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <input type="hidden" name="hidden_id" class="form-control" value="{{is_judge_requested(auth()->user()->id)->id}}" >
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Update Request</button>
+        </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+@endif
