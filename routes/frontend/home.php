@@ -70,6 +70,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('my_judgement/open_judgment/{id}', [MyJudgmentController::class, 'show'])->name('show_judgment');
         Route::get('viewCompetitor/{id}', [MyJudgmentController::class, 'viewCompetitor'])->name('show_competitor');
         Route::post('add_marks_judge', [MyJudgmentController::class, 'add_marks_judge'])->name('add_marks_judge');
+        Route::post('judge_form', [MyJudgmentController::class, 'judge_form'])->name('judge_form');
 
         Route::get('my_team', [MyTeamController::class, 'index'])->name('my_team');
         Route::get('my_leader_board', [MyTeamController::class, 'index'])->name('my_leader_board');

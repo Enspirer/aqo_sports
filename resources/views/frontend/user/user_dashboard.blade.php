@@ -11,6 +11,7 @@
 
                 <div class="contentExplore">
                     <div class="container">
+                    @include('includes.partials.messages')
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="card" style="padding: 10px">

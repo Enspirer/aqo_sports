@@ -3,6 +3,8 @@ use Modules\Competition\Entities\Competition;
 use Modules\Competition\Entities\Performance;
 use Modules\Competition\Entities\Competitor;
 use Modules\Competition\Entities\JudgmentMarks;
+use App\Models\JudgeRequest;
+
 
 if (! function_exists('app_name')) {
     /**
@@ -250,6 +252,45 @@ if (! function_exists('getScoreMarkSection')) {
             ];
 
             return $outputArray;
+        }
+    }
+}
+
+
+if (! function_exists('is_judge')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_judge($user_id)
+    {
+        $JudgeRequest = JudgeRequest::where('user_id',$user_id)
+        ->where('status','Approved')
+        ->first();
+        
+        if($JudgeRequest){
+            return $JudgeRequest;
+        }else{
+            return null;
+        }
+    }
+}
+
+if (! function_exists('is_judge_requested')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_judge_requested($user_id)
+    {
+        $JudgeRequest = JudgeRequest::where('user_id',$user_id)->first();
+        
+        if($JudgeRequest){
+            return $JudgeRequest;
+        }else{
+            return null;
         }
     }
 }
