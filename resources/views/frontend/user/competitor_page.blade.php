@@ -7,7 +7,6 @@
         @include('frontend.user.includes.dashboad_nav')
 
 
-
         <div class="dashboard-content">
             <div class="contentExplore">
                 <div class="" style="padding-left: 20px;padding-right:20px;">
@@ -26,6 +25,7 @@
                                                             </button>
                                                         </h5>
                                                     </div>
+                                                    
                                                         @if(isset(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('judge_id',auth()->user()->id)->where('round_name',$roundData)->first()->score))
                                                            @if(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('judge_id',auth()->user()->id)->where('round_name',$roundData)->first()->judge_score != null)
                                
@@ -92,14 +92,14 @@
                                                                                                         @if(isset(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('judge_id',auth()->user()->id)->where('round_name',$roundData)->first()->judge_score_details))
                                                                                                             @foreach(json_decode(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('judge_id',auth()->user()->id)->where('round_name',$roundData)->first()->judge_score_details) as $oDetails)
                                                                                                                 @if($oDetails->mark_section == $markSection)
-                                                                                                                    <input type="number" class="form-control" name="marks[]" value="{{$oDetails->score}}">
+                                                                                                                    <input type="number" class="form-control" name="marks_update[]" value="{{$oDetails->score}}" min="1" max="100">
                                                                                                                 @else
 
                                                                                                                 @endif
 
                                                                                                             @endforeach
                                                                                                         @else
-                                                                                                            <input type="number" class="form-control" name="marks[]" value="" required>
+                                                                                                            <input type="number" class="form-control" name="marks[]" value="" min="1" max="100" required>
 
                                                                                                         @endif
                                                                                                     </th>
@@ -114,8 +114,8 @@
                                                                                 </table>
                                                                                 <button class="btn btn-primary">Add Score</button>
 
-
-                                                                                @if(count(array(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('judge_id','!=',auth()->user()->id)->where('round_name',$roundData)->first()->judge_score_details)) != 0)
+                                                                                
+                                                                                @if( \Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('competition_id',$competitionDetails->id)->where('judge_id','!=',auth()->user()->id)->where('round_name',$roundData)->first() != null )
                                                                                 <table class="table table-bordered mt-3">
                                                                                     <thead>
                                                                                     <tr>

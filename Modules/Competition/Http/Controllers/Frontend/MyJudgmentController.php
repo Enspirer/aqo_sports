@@ -78,35 +78,78 @@ class MyJudgmentController extends Controller
 
     public function add_marks_judge(Request $request)
     {
-        $markSection = $request->mark_section;
-        $marks = $request->marks;
-        $round_name = $request->round_section;
-        $competitor_id = $request->competitor_id;
-        $competition_id = $request->competition_id;
-        $getCompetitorDetails = Competitor::where('id',$competitor_id)->first();
-        $getCompetitionDetails = Competition::where('id',$competition_id)->first();
-        $calulateAllScore = array_sum($marks);
-        self::generateCompetitorAllScore($competitor_id);
-        $finalArrayMarks = [];
-        foreach ($markSection as $key => $marksections)
-        {
-            $arrayout = [
-              'mark_section' => $marksections,
-              'score' => $marks[$key]
-            ];
-            array_push($finalArrayMarks,$arrayout);
+        // dd($request);
+
+        if($request->marks != null){
+            
+            $markSection = $request->mark_section;
+            $marks = $request->marks;
+            $round_name = $request->round_section;
+            $competitor_id = $request->competitor_id;
+            $competition_id = $request->competition_id;
+            $getCompetitorDetails = Competitor::where('id',$competitor_id)->first();
+            $getCompetitionDetails = Competition::where('id',$competition_id)->first();
+            $calulateAllScore = array_sum($marks);
+            self::generateCompetitorAllScore($competitor_id);
+            $finalArrayMarks = [];
+            foreach ($markSection as $key => $marksections)
+            {
+                $arrayout = [
+                'mark_section' => $marksections,
+                'score' => $marks[$key]
+                ];
+                array_push($finalArrayMarks,$arrayout);
+            }
+                $judgeDetails = new JudgmentMarks;
+                $judgeDetails->judge_id = auth()->user()->id;
+                $judgeDetails->competitor_id = $competitor_id;
+                $judgeDetails->competition_id = $competition_id;
+                $judgeDetails->score = $getCompetitorDetails->score;
+                $judgeDetails->judge_score = $calulateAllScore ;
+                $judgeDetails->competitor_all_score = $getCompetitorDetails->score;
+                $judgeDetails->judge_score_details = json_encode($finalArrayMarks);
+                $judgeDetails->competitor_all_score_details = 1;
+                $judgeDetails->round_name = $round_name;
+                $judgeDetails->save();
+
+        }else{
+            
+            $markSection = $request->mark_section;
+            $marks_update = $request->marks_update;
+            $round_name = $request->round_section;
+            $competitor_id = $request->competitor_id;
+            $competition_id = $request->competition_id;
+            $getCompetitorDetails = Competitor::where('id',$competitor_id)->first();
+            $getCompetitionDetails = Competition::where('id',$competition_id)->first();
+            $calulateAllScore = array_sum($marks_update);
+            self::generateCompetitorAllScore($competitor_id);
+            $finalArrayMarks = [];
+            foreach ($markSection as $key => $marksections)
+            {
+                $arrayout = [
+                'mark_section' => $marksections,
+                'score' => $marks_update[$key]
+                ];
+                array_push($finalArrayMarks,$arrayout);
+            }
+                $judgeDetails = new JudgmentMarks;
+                $judgeDetails->judge_id = auth()->user()->id;
+                $judgeDetails->competitor_id = $competitor_id;
+                $judgeDetails->competition_id = $competition_id;
+                $judgeDetails->score = $getCompetitorDetails->score;
+                $judgeDetails->judge_score = $calulateAllScore ;
+                $judgeDetails->competitor_all_score = $getCompetitorDetails->score;
+                $judgeDetails->judge_score_details = json_encode($finalArrayMarks);
+                $judgeDetails->competitor_all_score_details = 1;
+                $judgeDetails->round_name = $round_name;
+
+                JudgmentMarks::where('round_name',$round_name)->where('judge_id',auth()->user()->id)->where('competitor_id',$request->competitor_id)->where('competition_id',$request->competition_id)->update($judgeDetails->toArray());
+
+            
+
         }
-            $judgeDetails = new JudgmentMarks;
-            $judgeDetails->judge_id = auth()->user()->id;
-            $judgeDetails->competitor_id = $competitor_id;
-            $judgeDetails->competition_id = $competition_id;
-            $judgeDetails->score = $getCompetitorDetails->score;
-            $judgeDetails->judge_score = $calulateAllScore ;
-            $judgeDetails->competitor_all_score = $getCompetitorDetails->score;
-            $judgeDetails->judge_score_details = json_encode($finalArrayMarks);
-            $judgeDetails->competitor_all_score_details = 1;
-            $judgeDetails->round_name = $round_name;
-            $judgeDetails->save();
+
+        
 
         return back();
     }
