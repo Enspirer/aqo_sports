@@ -197,8 +197,7 @@ class CompetitionController extends Controller
         $markSection = json_decode($competitionDetails->marks_sections);
         $roundSection = json_decode($competitionDetails->rounds_section);
         $competitorDetails = Competitor::where('competition_id',$id)->get();
-
-    
+        
 
         if($carbonEndDate < $carbonTody)
         {

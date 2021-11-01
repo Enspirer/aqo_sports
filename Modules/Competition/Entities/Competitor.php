@@ -5,6 +5,7 @@ namespace Modules\Competition\Entities;
 use App\Models\Auth\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\CompetitionVotes;
 
 
 class Competitor extends Model
@@ -41,10 +42,12 @@ class Competitor extends Model
         {
             $getUser = User::where('id',$competionDetails->user_id)->first();
 
+            $votes = CompetitionVotes::where('competitor_id', $competionDetails->id)->count();
+
             $outputAppend = [
                 'competitor_name' => $getUser->first_name.' '.$getUser->last_name,
                 'score' => $competionDetails->score,
-                'votes' => $competionDetails->votes,
+                'votes' => $votes,
                 'score_details' => $competionDetails->score,
                 'competitor_id' => $competionDetails->id,
                 'created_at' => $competionDetails->created_at,

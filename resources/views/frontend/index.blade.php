@@ -64,7 +64,7 @@
                                         <div class="nameCard p-2">
                                             <p class="mb-1" style="color: #F29709; font-size: 0.9rem;">Worldwide</p>
                                             <h5 class="font-weight-bold mb-1">{{$competition->competition_name}}</h5>
-                                            <p class="mb-1" style="color: #919191; font-size: 0.9rem;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque iure eligendi, ipsa pariatur iusto voluptatum vero ad sunt in provident.</p>
+                                            <p class="mb-1" style="color: #919191; font-size: 0.9rem;">xx</p>
                                             <p class="font-weight-bold" style="color: #F29709; font-size: 0.9rem;">Oct 9 2021 - Oct 30 2021</p>
                                         </div>
                                     </div>
