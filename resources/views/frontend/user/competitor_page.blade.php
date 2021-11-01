@@ -115,7 +115,7 @@
                                                                                 <button class="btn btn-primary">Add Score</button>
 
 
-                                                                                @if(count(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('judge_id','!=',auth()->user()->id)->where('round_name',$roundData)->first()->judge_score_details) != 0)
+                                                                                @if(count(array(\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('judge_id','!=',auth()->user()->id)->where('round_name',$roundData)->first()->judge_score_details)) != 0)
                                                                                 <table class="table table-bordered mt-3">
                                                                                     <thead>
                                                                                     <tr>
