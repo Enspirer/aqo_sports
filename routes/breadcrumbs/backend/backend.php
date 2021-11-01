@@ -15,3 +15,10 @@ Breadcrumbs::for('admin.contact_us.index', function ($trail) {
 Breadcrumbs::for('admin.contact_us.edit', function ($trail) {
     $trail->push('Edit Contact Us', route('admin.contact_us.edit',1));
 });
+
+Breadcrumbs::for('admin.training.index', function ($trail) {
+    $trail->push('Training', route('admin.training.index'));
+});
+Breadcrumbs::for('admin.training.edit', function ($trail) {
+    $trail->push('Edit Training', route('admin.training.edit',1));
+});

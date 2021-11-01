@@ -42,6 +42,12 @@
             @endif
 
             <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/training'))}}" href="{{ route('admin.training.index') }}">
+                    <i class="nav-icon fas fa-running"></i>
+                    Training
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{active_class(Route::is('admin/contact_us'))}}" href="{{ route('admin.contact_us.index') }}">
                     <i class="nav-icon fas fa-comments"></i>
                     Contact Us

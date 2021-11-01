@@ -27,6 +27,7 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('about-us', [AboutController::class, 'index'])->name('about_us');
 Route::get('terms-and-conditions', [TermsController::class, 'index'])->name('terms_and_conditions');
 Route::get('training', [TrainingController::class, 'index'])->name('training');
+Route::post('training/store', [TrainingController::class, 'store'])->name('training.store');
 Route::get('become-a-partner', [BecomeAPartnerController::class, 'index'])->name('become_a_partner');
 Route::get('cookie-policy', [CookiePolicyController::class, 'index'])->name('cookie_policy');
 Route::get('faq', [FAQController::class, 'index'])->name('faq');

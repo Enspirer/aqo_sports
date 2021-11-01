@@ -10,6 +10,21 @@
 
 @section('content')
 
+
+@if ( session()->has('message') )
+   
+    <body style="text-align:center; background-color: #E8E8E8">
+
+        <h1 style="margin-top:70px;" class="display-3">Thank You!</h1><br>
+        <p class="lead"><h3>We appreciate you contacting us. One of our member will get back in touch with you soon!<br><br> Have a great day!</h3></p>
+        <hr><br>    
+        <p class="lead" style="margin-bottom:80px;">
+            <a class="btn btn-info btn-md" href="{{url('training')}}" role="button">Go Back to Training Page</a>
+        </p>
+    </body>
+
+@else 
+
 <div class="container mt-4">
     <div class="row">
         <div class="col-8">
@@ -38,17 +53,21 @@
             <div class="card border-0 p-5" style="box-shadow: 0 0rem 0.5rem rgb(0 0 0 / 16%);">
                 <h3 class="font-weight-bold mb-3">Register to "Registration Training - English Version"</h3>
 
-                <div class="row time-select" style="margin-bottom: 1.7rem;">
-                    <div class="col-5">
-                        <label for="time" class="form-label mb-2">Please choose only one training to attend</label>
-                        <select name="time" class="form-control mb-2" id="">
-                            <option value="">10-26-2021  06:00 PM (America/New_York)</option>
-                        </select>
-                        <a href="#" class="text-decoration-none font-weight-bold" style="color: #0A83C4">Change time zone</a>
+                <form action="{{route('frontend.training.store')}}" method="post">
+                {{csrf_field()}}
+                    <div class="row time-select" style="margin-bottom: 1.7rem;">
+                        <div class="col-5">
+                            <label for="time" class="form-label mb-2">Please choose only one training to attend</label>
+                            <select class="form-control mb-2" name="time_zone">
+                                <option value="10-26-2021  06:00 PM (America/New_York)">10-26-2021  06:00 PM (America/New_York)</option>
+                                <option value="10-26-2021  06:00 PM (Sri Lanka/Colombo)">10-26-2021  06:00 PM (Sri Lanka/Colombo)</option>
+                                <option value="10-26-2021  06:00 PM (Canada/Ottawa)">10-26-2021  06:00 PM (Canada/Ottawa)</option>
+                            </select>
+                            <a href="#" class="text-decoration-none font-weight-bold" style="color: #0A83C4">Change time zone</a>
+                        </div>
                     </div>
-                </div>
 
-                <form action="" style="background-color: white" class="training-form">
+                <!-- <form action="" style="background-color: white" class="training-form"> -->
                     <div class="mb-3">
                         <div class="row">
                             <div class="col-6">
@@ -335,7 +354,9 @@
                             <div class="col-6">
                                 <label for="state" class="form-label font-weight-bold">State</label>
                                 <select name="state" class="form-control mb-2" id="state" required>
-                                    <option value=""></option>
+                                    <option value="state1">state1</option>
+                                    <option value="state2">state2</option>
+                                    <option value="state3">state3</option>
                                 </select>
                             </div>
                         </div>
@@ -391,6 +412,8 @@
         </div>
     </div>
 </div>
+
+@endif
 @endsection
 
 
