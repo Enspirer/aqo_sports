@@ -43,10 +43,10 @@
 
                             <div class="mt-5 text-right">
                                 <input type="hidden" name="hidden_id" value="{{ $contact_us->id }}"/>
-                                <a href="{{route('admin.contact_us.index')}}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
+                                <a href="{{route('admin.contact_us.index')}}" type="button" class="btn rounded-pill px-4 py-2 me-2 btn-warning">Cancel</a>
                                 @if($contact_us->status == 'Seen')
                                 @else
-                                <input type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success" value="Seen" />
+                                <input type="submit" class="btn rounded-pill text-light px-4 py-2 ml-2 ms-2 btn-success" value="Seen" />
                                 @endif
                             </div>
                         </div>

@@ -111,7 +111,8 @@ class CategoryController extends Controller
             $fullURLs = $request->category_image->move(public_path('files'), $imageName);
             $category_image = $imageName;
         }else{
-            $category_image = 'no_img.jpg';
+            $category = CompetitionCategory::where('id',$request->id)->first();
+            $category_image = $category->feature_image;
         }
 
         $category = CompetitionCategory::where('id',$request->id)->update([

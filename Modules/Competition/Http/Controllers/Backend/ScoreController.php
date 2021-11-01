@@ -22,7 +22,7 @@ class ScoreController extends Controller
         $competitionDetails = Competition::where('id',$competitionID)->first();
         $markSection = json_decode($competitionDetails->marks_sections);
         $roundSection = json_decode($competitionDetails->rounds_section);
-        $competitorDetails = Competitor::where('competition_id',$competitionID)->get();
+        $competitorDetails = Competitor::where('competition_id',$competitionID)->where('competitor_status',1)->get();
 
         return view('competition::backend.score_board.view_score',[
             'markSection' => $markSection,

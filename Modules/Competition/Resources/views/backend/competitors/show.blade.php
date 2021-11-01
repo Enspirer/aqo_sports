@@ -16,9 +16,9 @@
                             {{csrf_field()}}
                         <div class="card" style="">
                             <div class="container"><br>
-                                <span><b>Competition Name:</b>  {{$competitionDetails->competition_name}} </span><br>
-                                <span><b>Competitor:</b>  {{$userDetais->first_name}} {{$userDetais->last_name}}</span> <br>
-                                <span><b>Category:</b> {{$categoryDetails->category_name}}</span><br><br>
+                                <div><b>Competition Name:</b>  {{$competitionDetails->competition_name}} </div><br>
+                                <div><b>Competitor:</b>  {{$userDetais->first_name}} {{$userDetais->last_name}}</div> <br>
+                                <div><b>Category:</b> {{$categoryDetails->category_name}}</div><br><br>
                                     <div class="form-group">
                                         <label>Status</label>
                                         <select name="accept_status" class="form-control">

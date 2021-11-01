@@ -24,7 +24,7 @@
                                 <div class="card-body pb-2">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" class="form-control" name="category_name" value="" required>
+                                        <input type="text" class="form-control" name="category_name" required>
                                     </div>
 
                                     <div class="form-group">

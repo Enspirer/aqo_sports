@@ -15,9 +15,9 @@
                             {{csrf_field()}}
                             <div class="card" style="">
                                 <div class="container"><br>
-                                    <span><b>Competition Name:</b>  {{$competitionDetails->competition_name}} </span><br>
-                                    <span><b>Judge Name:</b>  {{$userDetais->first_name}} {{$userDetais->last_name}}</span> <br>
-                                    <span><b>Email:</b>  {{$userDetais->email}}</span> <br>
+                                    <div><b>Competition Name:</b>  {{$competitionDetails->competition_name}} </div><br>
+                                    <div><b>Judge Name:</b>  {{$userDetais->first_name}} {{$userDetais->last_name}}</div> <br>
+                                    <div><b>Email:</b>  {{$userDetais->email}}</div> <br>
                                     <div class="form-group">
                                         <b><label>Status</label></b>
                                         <select type="text" class="form-control" name="status">
