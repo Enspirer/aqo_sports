@@ -12,6 +12,10 @@ use Modules\Competition\Http\Controllers\Frontend\CreateEvenetController;
 use Modules\Competition\Http\Controllers\Frontend\MyTeamController;
 use Modules\Competition\Http\Controllers\Frontend\LeaderBoardController;
 use App\Http\Controllers\Frontend\AboutController;
+use App\Http\Controllers\Frontend\BecomeAPartnerController;
+use App\Http\Controllers\Frontend\CookiePolicyController;
+use App\Http\Controllers\Frontend\FAQController;
+use App\Http\Controllers\Frontend\PrivacyPolicyController;
 use App\Http\Controllers\Frontend\TermsController;
 use App\Http\Controllers\Frontend\TrainingController;
 use App\Http\Controllers\Frontend\Auth\RegisterController;
@@ -23,6 +27,13 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('about-us', [AboutController::class, 'index'])->name('about_us');
 Route::get('terms-and-conditions', [TermsController::class, 'index'])->name('terms_and_conditions');
 Route::get('training', [TrainingController::class, 'index'])->name('training');
+Route::get('become-a-partner', [BecomeAPartnerController::class, 'index'])->name('become_a_partner');
+Route::get('cookie-policy', [CookiePolicyController::class, 'index'])->name('cookie_policy');
+Route::get('faq', [FAQController::class, 'index'])->name('faq');
+Route::get('privacy-policy', [PrivacyPolicyController::class, 'index'])->name('privacy_policy');
+
+
+
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::post('contact/store', [ContactController::class, 'store'])->name('contact.store');
 

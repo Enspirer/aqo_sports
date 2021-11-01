@@ -274,7 +274,8 @@
                                         @foreach($getCompetitorDetails as $getCompetitor)
                                             <tr>
                                                 <td scope="row">{{$getCompetitor['competitor_name']}}</td>
-                                                <td>{{$getCompetitor['score']}}</td>
+                                                <!-- <td>{{$getCompetitor['score']}}</td> -->
+                                                <td>{{ get_competitor_all_score($getCompetitor['competitor_id']) }}</td>
 
                                             </tr>
                                         @endforeach

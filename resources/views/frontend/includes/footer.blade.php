@@ -44,10 +44,10 @@
             <div class="col-3 links pl-5">
                 <h5 class="text-white fw-bolder mt-3 mb-4">Important</h5>
                 <a href="{{ route('frontend.terms_and_conditions') }}" class="mb-3 text-decoration-none text-white">Terms & Conditions</a> <br>
-                <a href="" class="mb-3 text-decoration-none text-white">Become a Partner</a> <br>
-                <a href="" class="mb-3 text-decoration-none text-white">Cookie Policy</a> <br>
-                <a href="" class="mb-3 text-decoration-none text-white">Privacy Policy</a> <br>
-                <a href="" class="mb-3 text-decoration-none text-white">FAQ</a>
+                <a href="{{ route('frontend.become_a_partner') }}" class="mb-3 text-decoration-none text-white">Become a Partner</a> <br>
+                <a href="{{ route('frontend.cookie_policy') }}" class="mb-3 text-decoration-none text-white">Cookie Policy</a> <br>
+                <a href="{{ route('frontend.privacy_policy') }}" class="mb-3 text-decoration-none text-white">Privacy Policy</a> <br>
+                <a href="{{ route('frontend.faq') }}" class="mb-3 text-decoration-none text-white">FAQ</a>
             </div>
             <div class="col-3 pl-5 social">
                 <h5 class="fw-bolder mt-3 mb-4">Follow Us</h5>
