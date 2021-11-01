@@ -8,7 +8,7 @@
 </div>
 <div class="form-group">
     <label class="form-label">Feature Image</label>
-    <input type="file" name="feature_image" value="" class="form-control">
+    <input type="file" name="feature_image" value="" class="form-control" required>
 </div>
 <div class="form-group">
     <label class="form-label">Status</label>

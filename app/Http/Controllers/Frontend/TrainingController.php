@@ -43,6 +43,7 @@ class TrainingController extends Controller
         $details = [
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
+            'time_zone' => $request->time_zone,
             'phone' => $request->phone,
             'email' => $request->email,
             'country' => $request->country,

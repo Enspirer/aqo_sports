@@ -49,34 +49,48 @@
                   <td style="padding:0;">
                     <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
                       <tr>
-                        <td style="width:30%;padding:0;vertical-align:top;color:#153643;">
-                          <!-- <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://assets.codepen.io/210284/left.gif" alt="" width="260" style="height:auto;display:block;" /></p> -->
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Name:</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Phone Number:</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Email Address:</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Country:</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">State:</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Address:</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">City:</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Postal Code:</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">What Tournament:</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Questions & Comments:</p>
-                          <!-- <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">Blandit ipsum volutpat sed</a></p> -->
-                        </td>
-                        <td style="padding:0;vertical-align:top;color:#153643;">
-                          <!-- <p style="margin:0 0 25px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><img src="https://assets.codepen.io/210284/right.gif" alt="" width="260" style="height:auto;display:block;" /></p> -->
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">{{ $details['first_name'] }} {{ $details['last_name'] }}</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">{{ $details['phone'] }}</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">{{ $details['email'] }}</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">{{ $details['country'] }}</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">{{ $details['state'] }}</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">{{ $details['address'] }}</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">{{ $details['city'] }}</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">{{ $details['postal_code'] }}</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">{{ $details['assist_tournament'] }}</p>
-                          <p style="color: black; margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">{{ $details['questions'] }}</p>
-                          <!-- <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">In tempus felis blandit</a></p> -->
-                        </td>
+                        <td style="width:30%; color: black; padding: 6px;font-size:15px;line-height:24px;font-family:Arial,sans-serif;">Name:</td>
+                        <td style="padding:6px;font-size:15px;vertical-align:top;color:#153643;">{{ $details['first_name'] }} {{ $details['last_name'] }}</td>
+                      </tr>
+                      <tr>
+                        <td style="width:30%; color: black; padding: 6px;font-size:15px;line-height:24px;font-family:Arial,sans-serif;">Phone Number:</td>
+                        <td style="padding:6px;font-size:15px;vertical-align:top;color:#153643;">{{ $details['time_zone'] }}</td>
+                      </tr>
+                      <tr>
+                        <td style="width:30%; color: black; padding: 6px;font-size:15px;line-height:24px;font-family:Arial,sans-serif;">Email Address:</td>
+                        <td style="padding:6px;font-size:15px;vertical-align:top;color:#153643;">{{ $details['phone'] }}</td>
+                      </tr>
+                      <tr>
+                        <td style="width:30%; color: black; padding: 6px;font-size:15px;line-height:24px;font-family:Arial,sans-serif;">Time Zone:</td>
+                        <td style="padding:6px;font-size:15px;vertical-align:top;color:#153643;">{{ $details['email'] }}</td>
+                      </tr>
+                      <tr>
+                        <td style="width:30%; color: black; padding: 6px;font-size:15px;line-height:24px;font-family:Arial,sans-serif;">Country:</td>
+                        <td style="padding:6px;font-size:15px;vertical-align:top;color:#153643;">{{ $details['country'] }}</td>
+                      </tr>
+                      <tr>
+                        <td style="width:30%; color: black; padding: 6px;font-size:15px;line-height:24px;font-family:Arial,sans-serif;">State:</td>
+                        <td style="padding:6px;font-size:15px;vertical-align:top;color:#153643;">{{ $details['state'] }}</td>
+                      </tr>
+                      <tr>
+                        <td style="width:30%; color: black; padding: 6px;font-size:15px;line-height:24px;font-family:Arial,sans-serif;">Address:</td>
+                        <td style="padding:6px;font-size:15px;vertical-align:top;color:#153643;">{{ $details['address'] }}</td>
+                      </tr>
+                      <tr>
+                        <td style="width:30%; color: black; padding: 6px;font-size:15px;line-height:24px;font-family:Arial,sans-serif;">City:</td>
+                        <td style="padding:6px;font-size:15px;vertical-align:top;color:#153643;">{{ $details['city'] }}</td>
+                      </tr>
+                      <tr>
+                        <td style="width:30%; color: black; padding: 6px;font-size:15px;line-height:24px;font-family:Arial,sans-serif;">Postal Code:</td>
+                        <td style="padding:6px;font-size:15px;vertical-align:top;color:#153643;">{{ $details['postal_code'] }}</td>
+                      </tr>
+                      <tr>
+                        <td style="width:30%; color: black; padding: 6px;font-size:15px;line-height:24px;font-family:Arial,sans-serif;">What Tournament:</td>
+                        <td style="padding:6px;font-size:15px;vertical-align:top;color:#153643;">{{ $details['assist_tournament'] }}</td>
+                      </tr>
+                      <tr>
+                        <td style="width:30%; color: black; padding: 6px;font-size:15px;line-height:24px;font-family:Arial,sans-serif;">Questions & Comments:</td>
+                        <td style="padding:6px;font-size:15px;vertical-align:top;color:#153643;">{{ $details['questions'] }}</td>
                       </tr>
                     </table>
                   </td>
