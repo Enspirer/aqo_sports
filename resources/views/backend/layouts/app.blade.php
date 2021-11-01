@@ -13,6 +13,8 @@
     <meta name="author" content="@yield('meta_author', 'Anthony Rappa')">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+
 @yield('meta')
 
     {{-- See https://laravel.com/docs/5.5/blade#stacks for usage --}}
