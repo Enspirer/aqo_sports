@@ -68,7 +68,7 @@ class LeaderBoardController extends Controller
         $competitionDetails = Competition::where('id',$id)->first();
         $markSection = json_decode($competitionDetails->marks_sections);
         $roundSection = json_decode($competitionDetails->rounds_section);
-        $competitorDetails = Competitor::where('competition_id',$id)->get();
+        $competitorDetails = Competitor::where('competition_id',$id)->where('competitor_status',1)->get();
 
         return view('frontend.user.leader_board_score',[
             'markSection' => $markSection,
