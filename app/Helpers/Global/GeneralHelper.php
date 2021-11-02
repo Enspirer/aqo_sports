@@ -5,6 +5,7 @@ use Modules\Competition\Entities\Competitor;
 use Modules\Competition\Entities\JudgmentMarks;
 use App\Models\JudgeRequest;
 use App\Models\CompetitionVotes;
+use Modules\Competition\Entities\JudgeDetails;
 
 
 if (! function_exists('app_name')) {
@@ -310,6 +311,48 @@ if (! function_exists('is_voted')) {
         
         if($votes){
             return $votes;
+        }else{
+            return null;
+        }
+    }
+}
+
+if (! function_exists('is_judge_applied')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_judge_applied($user_id, $competition_id)
+    {
+        $JudgeApplied = JudgeDetails::where('user_id',$user_id)
+        ->where('competition_id', $competition_id)
+        ->first();
+        
+        if($JudgeApplied){
+            return $JudgeApplied;
+        }else{
+            return null;
+        }
+    }
+}
+
+
+if (! function_exists('is_judge_applied_approved')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_judge_applied_approved($user_id, $competition_id)
+    {
+        $JudgeApproved = JudgeDetails::where('user_id',$user_id)
+        ->where('competition_id', $competition_id)
+        ->where('status', 1)
+        ->first();
+        
+        if($JudgeApproved){
+            return $JudgeApproved;
         }else{
             return null;
         }

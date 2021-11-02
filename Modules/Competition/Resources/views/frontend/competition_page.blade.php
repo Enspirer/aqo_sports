@@ -262,7 +262,7 @@
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
-                                        <th scope="col">Competitior Name</th>
+                                        <th scope="col">Competitor Name</th>
                                         <th scope="col">Score</th>
                                     </tr>
                                     </thead>
@@ -288,12 +288,39 @@
                                 @if(count($getCompetitorDetails) == 0)
                                     <div>
                                         <td style="text-align: center">
-                                            <h3 style="padding-top: 5px;color: grey;text-align: center">Competitor not registed</h3>
+                                            <h3 style="padding-top: 5px;color: grey;text-align: center">Competitor not registered</h3>
                                         </td>
                                     </div>
                                 @endif
                             </div>
-                            <div class="tab-pane fade" id="nav-judge" role="tabpanel" aria-labelledby="nav-judge-tab">...</div>
+
+
+                            <div class="tab-pane fade" id="nav-judge" role="tabpanel" aria-labelledby="nav-judge-tab">
+
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Judge Name</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($judges as $judge)
+                                        <tr>
+                                            <td>{{ App\Models\Auth\User::where('id', $judge->user_id)->first()->first_name}} {{ App\Models\Auth\User::where('id', $judge->user_id)->first()->last_name}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+
+                                @if(count($judges) == 0)
+                                    <div>
+                                        <td style="text-align: center">
+                                            <h3 style="padding-top: 5px;color: grey;text-align: center">Judges not registered</h3>
+                                        </td>
+                                    </div>
+                                @endif
+
+                            </div>
                         </div>
                     </div>
                     <div class="rightSide col-md-4">
@@ -365,17 +392,29 @@
                                 <div class="container">
                                     @if($competitorDetails)
                                         <button type="button" class="btn-apply-now" disabled>
-                                            Applied Competition
+                                            Competition Applied
                                         </button>
                                     @else
                                         <button type="button" class="btn-apply-now" data-toggle="modal" data-target="#exampleModal">
                                             Register Competition
                                         </button>
                                     @endif
-                                    @if(is_judge(auth()->user()->id) != null)
-                                        <button type="button" class="btn-become-judge" data-toggle="modal" data-target="#judgeDialog">
-                                            My Judge
-                                        </button>
+                                    @if(is_judge(auth()->user()->id))
+                                        @if(is_judge_applied(auth()->user()->id, $competition_details->id))
+                                            @if(is_judge_applied_approved(auth()->user()->id, $competition_details->id))
+                                                <a href="{{ route('frontend.user.show_judgment', $competition_details->id) }}" type="button" class="btn-become-judge text-center">
+                                                    My Judge
+                                                </a>
+                                            @else
+                                                <button type="button" class="btn-become-judge" disabled>
+                                                    Judge Applied
+                                                </button>
+                                            @endif
+                                        @else
+                                            <button type="button" class="btn-become-judge" data-toggle="modal" data-target="#judgeDialog">
+                                                Become a Judge
+                                            </button>
+                                        @endif
                                     @endif
                                 </div>
                             </div>
@@ -519,6 +558,47 @@
         </div>
     @endif
 
+    @if(\Session::has('competition_applied'))
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary invisible" id="competition-btn" data-toggle="modal" data-target="#CompetitionModal"></button>
+
+        <div class="modal fade" id="CompetitionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding: 5rem 1rem;">
+                        <h4 class="mb-0 text-center">Thank you for your request. We will check and approve as soon as possible.</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+
+    @if(\Session::has('judge_applied'))
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary invisible" id="judge-btn" data-toggle="modal" data-target="#JudgeModal"></button>
+
+        <div class="modal fade" id="JudgeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding: 5rem 1rem;">
+                        <h4 class="mb-0 text-center">Thank you for your request. We will check and approve as soon as possible.</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
     @push('footer_script')
 
 
@@ -569,6 +649,18 @@
     <script>
         if(document.getElementById("modal-btn")){
             $('#modal-btn').click();
+        }
+    </script>
+
+    <script>
+        if(document.getElementById("competition-btn")){
+            $('#competition-btn').click();
+        }
+    </script>
+
+    <script>
+        if(document.getElementById("judge-btn")){
+            $('#judge-btn').click();
         }
     </script>
 

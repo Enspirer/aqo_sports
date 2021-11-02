@@ -197,8 +197,9 @@ class CompetitionController extends Controller
         $markSection = json_decode($competitionDetails->marks_sections);
         $roundSection = json_decode($competitionDetails->rounds_section);
         $competitorDetails = Competitor::where('competition_id',$id)->get();
-        
 
+        $judges = JudgeDetails::where('competition_id',$id)->where('status', 1)->get();
+        
         if($carbonEndDate < $carbonTody)
         {
             $exp = 'Closed';
@@ -219,6 +220,7 @@ class CompetitionController extends Controller
             'markSection' => $markSection,
             'roundSection' => $roundSection,
             'competitor_details' => $competitorDetails,
+            'judges' => $judges
         ]);
     }
 
@@ -248,7 +250,7 @@ class CompetitionController extends Controller
         $competitor->competition_form  = $competitionDetails->register_form;
         $competitor->competition_details  = json_encode($competitior);
         $competitor->save();
-        return back();
+        return back()->with('competition_applied', 'competition_applied');
     }
 
 
@@ -299,7 +301,7 @@ class CompetitionController extends Controller
         $judgeDetails->submit_details = json_encode($OutputDetails);
         $judgeDetails->competition_id = $requestDetail;
         $judgeDetails->save();
-        return back();
+        return back()->with('judge_applied', 'judge_applied');
     }
 
     /**

@@ -29,7 +29,15 @@
                                     <div class="" style="background-image: url('{{url('aqo_se/assets/image/judge.svg')}}');height: 110px;background-size: contain;background-repeat: no-repeat;background-position: center;margin-bottom: 30px;margin-top: 30px;"></div>
                                     <p>Please select the competition that you would like to judge by exploring competitions</p>
                                     <div class="think-image">
-                                        <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}" class="btn btn-primary" style="background-color:gold;font-size: 21px;padding: 10px;padding-left: 20px;padding-right: 20px;color: black;">Register as Judge</a>
+                                        @if(is_judge(auth()->user()->id))
+                                            <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}" class="btn btn-primary w-100" style="background-color:gold;font-size: 21px;padding: 10px;padding-left: 20px;padding-right: 20px;color: black;">Competitions</a>
+
+                                        @elseif(is_judge_requested(auth()->user()->id))
+                                            <a class="btn btn-primary w-100" type="button" data-toggle="modal" data-target="#exampleModal2{{ is_judge_requested(auth()->user()->id)->id }}" style="background-color:gold;font-size: 21px;padding: 10px;padding-left: 20px;padding-right: 20px;color: black;">Edit Judge</a>
+                                        @else
+                                            <a class="btn btn-primary w-100" type="button" data-toggle="modal" data-target="#exampleModal" style="background-color:gold;font-size: 21px;padding: 10px;padding-left: 20px;padding-right: 20px;color: black;">Register as Judge</a>
+                                            
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +57,7 @@
                                     <div class="" style="background-image: url('{{url('aqo_se/assets/image/vote.svg')}}');height: 110px;background-size: contain;background-repeat: no-repeat;background-position: center;margin-bottom: 30px;margin-top: 30px;"></div>
                                     <p>if you would like to vote</p><br><br>
                                     <div class="think-image" style="text-align: center">
-                                        <a href="{{route('frontend.user.register_as_organizer')}}"  class="btn btn-primary"  style="background-color:gold;font-size: 21px;padding: 10px;padding-left: 20px;padding-right: 20px;color: black;">Vote Competition</a>
+                                        <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}" class="btn btn-primary"  style="background-color:gold;font-size: 21px;padding: 10px;padding-left: 20px;padding-right: 20px;color: black;">Vote Competition</a>
                                     </div>
                                 </div>
                             </div>

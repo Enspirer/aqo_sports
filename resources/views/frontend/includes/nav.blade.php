@@ -39,7 +39,7 @@
                                             <div class="details">
                                                 <a href="{{route('frontend.user.dashboard')}}">
                                                     <div id="profile-name">{{auth()->user()->first_name}} {{auth()->user()->last_name}}</div>
-                                                    <div id="profile-footer">Dashboad</div>
+                                                    <div id="profile-footer">Dashboard</div>
                                                 </a>
 
                                             </div>
@@ -51,13 +51,16 @@
                                                 <div>My Competitions</div>
                                             </a>
                                         </li>
-                                        <li class="user-menu__item">
-                                            <a class="user-menu-link" href="{{route('frontend.user.details_judgement')}}">
-                                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/team.png"
-                                                     alt="team_icon" width=20 height=20>
-                                                <div>My Judgements</div>
-                                            </a>
-                                        </li>
+
+                                        @if(is_judge(auth()->user()->id))
+                                            <li class="user-menu__item">
+                                                <a class="user-menu-link" href="{{route('frontend.user.details_judgement')}}">
+                                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/team.png"
+                                                        alt="team_icon" width=20 height=20>
+                                                    <div>My Judgments</div>
+                                                </a>
+                                            </li>
+                                        @endif
                                         <div class="footer">
                                             <li class="user-menu__item">
                                                 <a class="user-menu-link" href="{{ route('frontend.user.user_settings') }}">User Settings</a>
