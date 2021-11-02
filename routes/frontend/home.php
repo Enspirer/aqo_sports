@@ -11,6 +11,7 @@ use Modules\Competition\Http\Controllers\Frontend\MyJudgmentController;
 use Modules\Competition\Http\Controllers\Frontend\CreateEvenetController;
 use Modules\Competition\Http\Controllers\Frontend\MyTeamController;
 use Modules\Competition\Http\Controllers\Frontend\LeaderBoardController;
+use Modules\Competition\Http\Controllers\Frontend\MyScoreController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\BecomeAPartnerController;
 use App\Http\Controllers\Frontend\CookiePolicyController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Frontend\PrivacyPolicyController;
 use App\Http\Controllers\Frontend\TermsController;
 use App\Http\Controllers\Frontend\TrainingController;
 use App\Http\Controllers\Frontend\Auth\RegisterController;
+
 /*
  * Frontend Controllers
  * All route names are prefixed with 'frontend.'.
@@ -90,6 +92,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('my_leader_board', [LeaderBoardController::class, 'index'])->name('my_leader_board');
         Route::get('my_leader_board/get-competitions', [LeaderBoardController::class, 'getCompetitions'])->name('my_leader_board.get_competitions');
         Route::get('my_leader_board/get-competition-score/{id}', [LeaderBoardController::class, 'getCompetitionScore'])->name('my_leader_board.get_competition_score');
+
         
         Route::get('user_settings', [RegisterController::class, 'user_settings'])->name('user_settings');
         Route::post('user_settings/update', [RegisterController::class, 'user_settings_update'])->name('user_settings_update');

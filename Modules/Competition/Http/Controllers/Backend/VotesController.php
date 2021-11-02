@@ -17,32 +17,38 @@ class VotesController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index($id)
     {
-        return view('competition::backend.votes.index');
+        // dd($id);
+        $competition = Competition::where('id',$id)->first();
+
+        return view('competition::backend.votes.index',[
+            'competition' => $competition
+        ]);
     }
 
-    public function get_details()
+    public function get_details($id)
     {
-        $compeition = CompetitionVotes::get();
-        return Datatables::of($compeition)
-           
-            ->addColumn('competition_name', function($row){
-                $competition = Competition::where('id',$row->competition_id)->first();
-                return $competition->competition_name;
-            })
-            ->addColumn('competitor_name', function($row){
-                $competitor = Competitor::where('id',$row->competitor_id)->first();
-                $competitor_user = User::where('id',$competitor->user_id)->first();
+        $competitors = Competitor::where('competition_id',$id)->get();
+        // dd($competitors);
+
+        return Datatables::of($competitors)           
+            
+            ->addColumn('competitor_name', function($row){                      
+                
+                $competitor = CompetitionVotes::where('competitor_id',$row->id)->first();
+                
+                $competitor_user = User::where('id',$row->user_id)->first();
                 
                 return $competitor_user->first_name.' '.$competitor_user->last_name;
             })
+
             ->addColumn('votes', function($row){
-                $votes = CompetitionVotes::where('competitor_id',$row->competitor_id)->where('competition_id',$row->competition_id)->count();
-              
-                return $votes;
+                $votes_count = CompetitionVotes::where('competitor_id',$row->id)->count();
+
+                return $votes_count;
             })
-            ->rawColumns(['competition_name','competitor_name','votes'])
+            ->rawColumns(['competitor_name','votes'])
             ->make();
 
     }

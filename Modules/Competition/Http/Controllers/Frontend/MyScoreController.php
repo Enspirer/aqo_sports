@@ -5,6 +5,10 @@ namespace Modules\Competition\Http\Controllers\Frontend;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Competition\Entities\Competition;
+use Modules\Competition\Entities\CompetitionRule;
+use Modules\Competition\Entities\Competitor;
+use DataTables;
 
 class MyScoreController extends Controller
 {

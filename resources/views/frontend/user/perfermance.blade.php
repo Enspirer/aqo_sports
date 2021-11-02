@@ -145,9 +145,11 @@
                                                                                                 @foreach($judge_details as $judgeDetails)
                                                                                                     <tr>
                                                                                                         <th scope="row">{{$judgeDetails->first_name}}</th>
-                                                                                                        <td>1</td>
-                                                                                                        <td>1</td>
-                                                                                                        <td>1</td>
+                                                                                                        @foreach(\Modules\Competition\Entities\JudgmentMarks::where('round_name',$roundData)->where('judge_id',$judgeDetails->id)->get() as $judge_mark)
+                                                                                                            @foreach( json_decode($judge_mark->judge_score_details) as $one_score )                                                                                                                
+                                                                                                                <td>{{$one_score->score}}</td>
+                                                                                                            @endforeach
+                                                                                                        @endforeach
                                                                                                     </tr>
                                                                                                 @endforeach
                                                                                             @endif

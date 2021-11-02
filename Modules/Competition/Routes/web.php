@@ -112,7 +112,7 @@ Breadcrumbs::for('admin.become_judge.show', function ($trail) {
 });
 
 Breadcrumbs::for('admin.votes.index', function ($trail) {
-    $trail->push('Votes', route('admin.votes.index'));
+    $trail->push('Votes', route('admin.votes.index',1));
 });
 
 
