@@ -42,6 +42,12 @@
             @endif
 
             <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/votes'))}}" href="{{ route('admin.votes.index') }}">
+                    <i class="nav-icon fas fa-thumbs-up"></i>
+                    Votes
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{active_class(Route::is('admin/training'))}}" href="{{ route('admin.training.index') }}">
                     <i class="nav-icon fas fa-running"></i>
                     Training

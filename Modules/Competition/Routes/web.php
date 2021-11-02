@@ -111,6 +111,9 @@ Breadcrumbs::for('admin.become_judge.show', function ($trail) {
     $trail->push('Become Judge Show', route('admin.become_judge.show',1));
 });
 
+Breadcrumbs::for('admin.votes.index', function ($trail) {
+    $trail->push('Votes', route('admin.votes.index'));
+});
 
 
 
