@@ -8,6 +8,8 @@ use Illuminate\Routing\Controller;
 use Modules\Competition\Entities\Competition;
 use Modules\Competition\Entities\CompetitionRule;
 use Modules\Competition\Entities\Competitor;
+use App\Models\CompetitionVotes;
+use App\Models\Auth\User;
 use DataTables;
 
 class LeaderBoardController extends Controller
@@ -31,12 +33,7 @@ class LeaderBoardController extends Controller
 
         $user_id = auth()->user()->id;
 
-        $data = Competitor::where('user_id', $user_id)
-            ->where('competitor_status', 1)
-            ->get();
-
-        
-
+        $data = Competitor::where('user_id', $user_id)->where('competitor_status', 1)->get();      
         
         if($request->ajax())
         {
@@ -44,7 +41,7 @@ class LeaderBoardController extends Controller
 
                 ->addColumn('action', function($data){
                     
-                    $button = '<a href="'.route('frontend.user.my_leader_board.get_competition_score', $data->competition_id).'" name="view" id="'.$data->competition_id.'" class="view btn btn-primary btn-sm ml-3" style="margin-right: 10px">View Score </a>';
+                    $button = '<a href="'.route('frontend.user.my_leader_board.get_competition_score', $data->competition_id).'" name="view" id="'.$data->competition_id.'" class="view btn btn-primary btn-sm ml-3" style="margin-right: 10px">View Leaderboard</a>';
                 
                     return $button;
                 })
@@ -74,9 +71,33 @@ class LeaderBoardController extends Controller
             'markSection' => $markSection,
             'roundSection' => $roundSection,
             'competitor_details' => $competitorDetails,
+            'competitionDetails' => $competitionDetails
         ]);
     }
 
+    public function getscore($id)
+    {
+        $competitors = Competitor::where('competition_id',$id)->get();
+
+        return Datatables::of($competitors)           
+            
+            ->addColumn('competitor_name', function($row){                      
+                
+                $competitor = CompetitionVotes::where('competitor_id',$row->id)->first();
+                
+                $competitor_user = User::where('id',$row->user_id)->first();
+                
+                return $competitor_user->first_name.' '.$competitor_user->last_name;
+            })
+
+            ->addColumn('votes', function($row){
+                $votes_count = CompetitionVotes::where('competitor_id',$row->id)->count();
+
+                return $votes_count;
+            })
+            ->rawColumns(['competitor_name','votes'])
+            ->make();
+    }
     /**
      * Show the form for creating a new resource.
      * @return Renderable

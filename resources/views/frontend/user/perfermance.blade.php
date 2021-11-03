@@ -145,9 +145,15 @@
                                                                                                 @foreach($judge_details as $judgeDetails)
                                                                                                     <tr>
                                                                                                         <th scope="row">{{$judgeDetails->first_name}}</th>
-                                                                                                        <td>1</td>
-                                                                                                        <td>1</td>
-                                                                                                        <td>1</td>
+                                                                                                        @if(\Modules\Competition\Entities\JudgmentMarks::where('round_name',$roundData)->where('judge_id',$judgeDetails->id)->get())
+                                                                                                            @foreach(\Modules\Competition\Entities\JudgmentMarks::where('round_name',$roundData)->where('judge_id',$judgeDetails->id)->get() as $judge_mark)
+                                                                                                                @if(\Modules\Competition\Entities\Competitor::where('id',$judge_mark->competitor_id)->first()->user_id == auth()->user()->id )
+                                                                                                                    @foreach( json_decode($judge_mark->judge_score_details) as $one_score )                                                                                                                
+                                                                                                                        <td>{{$one_score->score}}</td>
+                                                                                                                    @endforeach
+                                                                                                                @endif
+                                                                                                            @endforeach
+                                                                                                        @endif
                                                                                                     </tr>
                                                                                                 @endforeach
                                                                                             @endif

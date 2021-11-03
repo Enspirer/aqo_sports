@@ -216,6 +216,7 @@ class CompetitionController extends Controller
                 $btn .= ' <a href="'.route('admin.competition.register_judge.edit',$row->id).'" class="edit btn btn-primary mb-2 btn-sm"><i class="fa fa-edit"></i> Edit judges Form</a>';
                 $btn .= ' <a href="'.route('admin.competition.judge_request.index',$row->id).'" class="edit btn btn-primary mb-2 btn-sm"><i class="fa fa-user"></i> Judges</a>';
                 $btn .= ' <a href="'.route('admin.competition.score_board',$row->id).'" class="edit btn btn-primary mb-2 btn-sm"><i class="fa fa-list"></i> Score</a>';
+                $btn .= ' <a href="'.route('admin.votes.index',$row->id).'" class="edit btn btn-success mb-2 btn-sm"><i class="fas fa-thumbs-up"></i> Votes</a>';
                 $btn .= ' <button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger mb-2 btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>';
                 return $btn;
             })

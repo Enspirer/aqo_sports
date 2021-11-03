@@ -29,7 +29,8 @@ Route::get('competition/organizer_request/delete/{id}', 'OrganizerRequestControl
 
 Route::post('competition/organizer/appvoe', 'OrganizerRequestController@update')->name('competition.organizer_request.update');
 
-
+Route::get('votes/{id}','VotesController@index')->name('votes.index');
+Route::get('votes/get_details/{id}', 'VotesController@get_details')->name('votes.get_details');
 
 Route::get('competitiors/{competition_id}', 'CompetitorController@index')->name('competitior.index');
 Route::get('competitiors_details/{competition_id}', 'CompetitorController@getTableDetails')->name('competitior.get_table_details');
@@ -54,10 +55,10 @@ Route::get('become_judge/show/{id}', 'BecomeJudgeController@show')->name('become
 Route::get('become_judge/delete/{id}', 'BecomeJudgeController@destroy')->name('become_judge.destroy');
 Route::post('become_judge/update', 'BecomeJudgeController@update')->name('become_judge.update');
 
-Route::get('votes','VotesController@index')->name('votes.index');
-Route::get('votes/get_details', 'VotesController@get_details')->name('votes.get_details');
-Route::get('votes/show/{id}', 'VotesController@show')->name('votes.show');
-Route::get('votes/delete/{id}', 'VotesController@destroy')->name('votes.destroy');
-Route::post('votes/update', 'VotesController@update')->name('votes.update');
+// Route::get('votes','VotesController@index')->name('votes.index');
+// Route::get('votes/get_details', 'VotesController@get_details')->name('votes.get_details');
+// Route::get('votes/show/{id}', 'VotesController@show')->name('votes.show');
+// Route::get('votes/delete/{id}', 'VotesController@destroy')->name('votes.destroy');
+// Route::post('votes/update', 'VotesController@update')->name('votes.update');
 
 
