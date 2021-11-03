@@ -328,7 +328,15 @@
 
     <script>
         function checked() {
-        $('.submit-btn').removeAttr('disabled');
-    };
+            if($("#exampleCheck1").is(':checked')) {
+                $('.submit-btn').removeAttr('disabled');
+            }
+        };
+
+        $('#exampleCheck1').on('click', function() {
+            if(grecaptcha && grecaptcha.getResponse().length > 0){
+                $('.submit-btn').removeAttr('disabled');
+            }
+        })
     </script>
 @endpush

@@ -346,8 +346,8 @@
                         <div class="container" style="text-align: center;">
 
                             <div class="think-image">
-                                <img src="http://localhost:8000/aqo_se/assets/image/think-image-2.png" alt="">
-                                <h1>looks a little bit <br> empty here!</h1>
+                                <img src="{{ url('aqo_se/assets/image/think-image-2.png') }}" alt="">
+                                <h1 style="font: normal normal bold 39px/49px Playfair Display">Looks A Little Bit <br> Empty Here!</h1>
                                 <!-- <p>No competitions found, Do you <br> want to explorer new competitions?</p>
                                 <button>Find competitions</button> -->
                             </div>

@@ -140,7 +140,8 @@
                             </div>
 
                             <div class="tab-pane fade" id="nav-payments" role="tabpanel" aria-labelledby="nav-payments-tab">
-                                <div class="" style="border-style:dashed;padding: 10px;border-color: grey;">
+                                <div class="text-center" style="border-style:dashed;padding: 10px;border-color: grey;">
+                                    <img src="{{ url('aqo_se/assets/image/think-image-2.png') }}" alt="">
                                     <h2 style="color: grey;text-align: center">This feature is currently not available</h2>
                                     <p style="text-align: center;font-size: 21px;color: gray;">Our team is working on few improvements <br> Please check again later.</p>
                                 </div>
@@ -149,40 +150,51 @@
                             
                             <div class="tab-pane fade" id="nav-voting" role="tabpanel" aria-labelledby="nav-voting-tab">
 
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">Competitor Name</th>
-                                        <th scope="col">Vote Count</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($getCompetitorDetails as $competiotrDetail)
-                                        <form action="{{ route('frontend.competition_page_voting') }}" method="post">
-                                            {{ csrf_field() }}
-                                            <tr>
-                                                <td>{{$competiotrDetail['competitor_name']}}</td>
-                                                <td>{{$competiotrDetail['votes']}}</td>
-                                                <td>
-                                                    @auth
-                                                        @if(is_voted($competiotrDetail['competitor_id'], $competition_details->id))
-                                                            <button type="submit" class="btn btn-primary" disabled>Voted</button>
-                                                        @else
-                                                            <button type="submit" class="btn btn-primary">Vote Now</button>
-                                                        @endif
-                                                    @else
-                                                        <a href="{{ route('frontend.auth.login') }}" type="button" class="btn btn-primary">Vote Now</a>
-                                                    @endauth
-                                                </td>
+                                @if(count($getCompetitorDetails) == 0)
 
-                                                <input type="hidden" name="competitor_id" value="{{$competiotrDetail['competitor_id']}}">
-                                                <input type="hidden" name="competition_id" value="{{ $competition_details->id }}">
-                                            </tr>
-                                        </form>
-                                    @endforeach
-                                    </tbody>
-                                </table>
+                                    <div class="think-image text-center" style="border-style:dashed;padding: 10px;border-color: grey;">
+                                        <img src="{{ url('aqo_se/assets/image/think-image-2.png') }}" alt="">
+                                        <h3 style="padding-top: 5px;color: grey;text-align: center">Competitors are not registered</h3>
+                                    </div>
+
+                                @else
+
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Competitor Name</th>
+                                            <th scope="col">Vote Count</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($getCompetitorDetails as $competiotrDetail)
+                                            <form action="{{ route('frontend.competition_page_voting') }}" method="post">
+                                                {{ csrf_field() }}
+                                                <tr>
+                                                    <td>{{$competiotrDetail['competitor_name']}}</td>
+                                                    <td>{{$competiotrDetail['votes']}}</td>
+                                                    <td>
+                                                        @auth
+                                                            @if(is_voted($competiotrDetail['competitor_id'], $competition_details->id))
+                                                                <button type="submit" class="btn btn-primary" disabled>Voted</button>
+                                                            @else
+                                                                <button type="submit" class="btn btn-primary">Vote Now</button>
+                                                            @endif
+                                                        @else
+                                                            <a href="{{ route('frontend.auth.login') }}" type="button" class="btn btn-primary">Vote Now</a>
+                                                        @endauth
+                                                    </td>
+
+                                                    <input type="hidden" name="competitor_id" value="{{$competiotrDetail['competitor_id']}}">
+                                                    <input type="hidden" name="competition_id" value="{{ $competition_details->id }}">
+                                                </tr>
+                                            </form>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+
+                                @endif
                             </div>
 
 
@@ -252,6 +264,15 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
+
+                                            @if(count($competitor_details) == 0)
+
+                                                <div class="think-image text-center">
+                                                    <img src="{{ url('aqo_se/assets/image/think-image-2.png') }}" alt="">
+                                                    <h3 style="padding-top: 5px;color: grey;text-align: center">Competitors are not registered</h3>
+                                                </div>
+
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -259,67 +280,73 @@
 
 
                             <div class="tab-pane fade" id="nav-competitors" role="tabpanel" aria-labelledby="nav-competitors-tab">
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">Competitor Name</th>
-                                        <th scope="col">Score</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @if(count($getCompetitorDetails) == 0)
 
-
-                                    @else
-                                        @foreach($getCompetitorDetails as $getCompetitor)
-                                            <tr>
-                                                <td scope="row">{{$getCompetitor['competitor_name']}}</td>
-                                                <!-- <td>{{$getCompetitor['score']}}</td> -->
-                                                <td>{{ get_competitor_all_score($getCompetitor['competitor_id']) }}</td>
-
-                                            </tr>
-                                        @endforeach
-                                    @endif
-
-
-                                    </tbody>
-
-                                </table>
                                 @if(count($getCompetitorDetails) == 0)
-                                    <div>
-                                        <td style="text-align: center">
-                                            <h3 style="padding-top: 5px;color: grey;text-align: center">Competitor not registered</h3>
-                                        </td>
+
+                                    <div class="think-image text-center" style="border-style:dashed;padding: 10px;border-color: grey;">
+                                        <img src="{{ url('aqo_se/assets/image/think-image-2.png') }}" alt="">
+                                        <h3 style="padding-top: 5px;color: grey;text-align: center">Competitors are not registered</h3>
                                     </div>
+
+                                @else
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Competitor Name</th>
+                                            <th scope="col">Score</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @if(count($getCompetitorDetails) == 0)
+
+
+                                        @else
+                                            @foreach($getCompetitorDetails as $getCompetitor)
+                                                <tr>
+                                                    <td scope="row">{{$getCompetitor['competitor_name']}}</td>
+                                                    <!-- <td>{{$getCompetitor['score']}}</td> -->
+                                                    <td>{{ get_competitor_all_score($getCompetitor['competitor_id']) }}</td>
+
+                                                </tr>
+                                            @endforeach
+                                        @endif
+
+
+                                        </tbody>
+
+                                    </table>
                                 @endif
+                                
                             </div>
 
 
                             <div class="tab-pane fade" id="nav-judge" role="tabpanel" aria-labelledby="nav-judge-tab">
 
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">Judge Name</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($judges as $judge)
-                                        <tr>
-                                            <td>{{ App\Models\Auth\User::where('id', $judge->user_id)->first()->first_name}} {{ App\Models\Auth\User::where('id', $judge->user_id)->first()->last_name}}</td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-
                                 @if(count($judges) == 0)
-                                    <div>
-                                        <td style="text-align: center">
-                                            <h3 style="padding-top: 5px;color: grey;text-align: center">Judges not registered</h3>
-                                        </td>
-                                    </div>
-                                @endif
 
+                                    <div class="think-image text-center" style="border-style:dashed;padding: 10px;border-color: grey;">
+                                        <img src="{{ url('aqo_se/assets/image/think-image-2.png') }}" alt="">
+                                        <h3 style="padding-top: 5px;color: grey;text-align: center">Judges are not registered</h3>
+                                    </div>
+
+                                @else
+
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Judge Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($judges as $judge)
+                                            <tr>
+                                                <td>{{ App\Models\Auth\User::where('id', $judge->user_id)->first()->first_name}} {{ App\Models\Auth\User::where('id', $judge->user_id)->first()->last_name}}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+
+                                @endif
                             </div>
                         </div>
                     </div>

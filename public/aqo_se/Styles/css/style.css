@@ -800,14 +800,14 @@ header .bottom.sticky {
   color: #002a89;
   opacity: 1;
   border: none;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   padding-left: 30px;
   padding-right: 30px;
 }
 
 .registerForm .container .rightSide form .theameRow h6 {
-  margin: 10px 20px 0px 20px;
-  font: normal normal normal 13px/17px Source Sans Pro;
+  margin: auto 20px;
+  font: normal normal normal 15px/17px Source Sans Pro;
   letter-spacing: 0.2px;
   color: #4f4f4f;
 }

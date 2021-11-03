@@ -6,6 +6,7 @@ use Modules\Competition\Entities\JudgmentMarks;
 use App\Models\JudgeRequest;
 use App\Models\CompetitionVotes;
 use Modules\Competition\Entities\JudgeDetails;
+use Modules\Competition\Entities\Organizer;
 
 
 if (! function_exists('app_name')) {
@@ -359,4 +360,42 @@ if (! function_exists('is_judge_applied_approved')) {
     }
 }
 
+
+if (! function_exists('is_organizer')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_organizer($user_id)
+    {
+        $organizer = Organizer::where('user_id',$user_id)
+        ->where('status',1)
+        ->first();
+        
+        if($organizer){
+            return $organizer;
+        }else{
+            return null;
+        }
+    }
+}
+
+if (! function_exists('is_organizer_requested')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_organizer_requested($user_id)
+    {
+        $organizer = Organizer::where('user_id',$user_id)->first();
+        
+        if($organizer){
+            return $organizer;
+        }else{
+            return null;
+        }
+    }
+}
 
