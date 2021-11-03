@@ -44,7 +44,21 @@ class JudgeRequestController extends Controller
                 $userDetails = User::where('id',$row->user_id)->first();
                 return $userDetails->first_name.' '.$userDetails->last_name;
             })
-            ->rawColumns(['action'])
+
+            ->addColumn('status', function($data){
+                if($data->status == 0){
+                    $status = '<span class="badge badge-warning">Pending</span>';
+                }
+                elseif($data->status == 1){
+                    $status = '<span class="badge badge-success">Approved</span>';
+                }
+                else {
+                    $status = '<span class="badge badge-danger">Disapproved</span>';
+                } 
+                return $status;
+            })
+
+            ->rawColumns(['action','status'])
             ->make();
 
     }

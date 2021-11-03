@@ -149,7 +149,18 @@ class CompetitorController extends Controller
                 $btn3 = ' <button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>';
                 return $btn1.$btn2.$btn3;
             })
-            ->rawColumns(['action'])
+
+            ->addColumn('competitor_status', function($data){
+                if($data->competitor_status == 0){
+                    $competitor_status = '<span class="badge badge-warning">Pending</span>';
+                }
+                else{
+                    $competitor_status = '<span class="badge badge-success">Approved</span>';
+                }   
+                return $competitor_status;
+            })
+
+            ->rawColumns(['action','competitor_status'])
             ->make();
     }
 }
