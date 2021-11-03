@@ -39,7 +39,7 @@
                 </svg>
             </i> Pending Competition</a>
 
-        <a href="{{route('frontend.user.my_team')}}" style="{{ Request::segment(1) === 'my_team' ? 'background:#fabf02' : null }}" class="btn"><i class="fa fa-users"></i> My Teams</a>
+        <!-- <a href="{{route('frontend.user.my_team')}}" style="{{ Request::segment(1) === 'my_team' ? 'background:#fabf02' : null }}" class="btn"><i class="fa fa-users"></i> My Teams</a> -->
 
         
         @if(is_judge(auth()->user()->id) == null)

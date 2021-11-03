@@ -92,6 +92,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('my_leader_board', [LeaderBoardController::class, 'index'])->name('my_leader_board');
         Route::get('my_leader_board/get-competitions', [LeaderBoardController::class, 'getCompetitions'])->name('my_leader_board.get_competitions');
         Route::get('my_leader_board/get-competition-score/{id}', [LeaderBoardController::class, 'getCompetitionScore'])->name('my_leader_board.get_competition_score');
+        Route::get('my_leader_board/competition_score/{id}', [LeaderBoardController::class, 'getscore'])->name('competition_score.getscore');
 
         
         Route::get('user_settings', [RegisterController::class, 'user_settings'])->name('user_settings');
