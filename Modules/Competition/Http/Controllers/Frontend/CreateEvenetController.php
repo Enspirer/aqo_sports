@@ -278,12 +278,15 @@ class CreateEvenetController extends Controller
         $competitionDetails = Competition::where('id',$competitionID)->first();
         $markSection = json_decode($competitionDetails->marks_sections);
         $roundSection = json_decode($competitionDetails->rounds_section);
-        $competitorDetails = Competitor::where('competition_id',$competitionID)->get();        
+        $competitorDetails = Competitor::where('competition_id',$competitionID)->where('competitor_status', 1)->get();        
+        $competitorCount = Competitor::where('competition_id',$competitionID)->where('competitor_status', 1)->count();        
 
         return view('frontend.user.score_board',[
             'markSection' => $markSection,
             'roundSection' => $roundSection,
             'competitor_details' => $competitorDetails,
+            'competition_details' => $competitionDetails,
+            'competitorCount' => $competitorCount,
         ]);
     }
 

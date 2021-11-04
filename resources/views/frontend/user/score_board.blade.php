@@ -17,6 +17,12 @@
                 <div class="container">
                 @include('includes.partials.messages')
                     <div class="exploreBody px-4">
+                       <div class="row mb-3">
+                           <div class="col-8">
+                               <h4>{{ $competition_details->competition_name }}</h4>
+                               <h6>Total Competitors: {{ $competitorCount }}</h6>
+                           </div>
+                       </div>
                         <div class="row">
                             <div class="col">
                                 <div class="card" style="padding: 10px; background-color:#F5F5F5">
