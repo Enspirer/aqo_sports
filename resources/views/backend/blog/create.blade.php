@@ -42,7 +42,7 @@
                         </div> 
                                                 
                         <div class="form-group">
-                            <label>Featurered<span style="color:red">*<span></label>
+                            <label>Featured<span style="color:red">*<span></label>
                             <select class="form-control" name="featured" required>
                                 <option value="1">Enable</option>   
                                 <option value="0">Disable</option>                                
