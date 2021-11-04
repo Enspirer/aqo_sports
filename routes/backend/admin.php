@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ContactUsController;
+use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\TrainingController;
 
 // All route names are prefixed with 'admin.'.
@@ -19,5 +20,13 @@ Route::get('training/getdetails', [TrainingController::class, 'getDetails'])->na
 Route::get('training/edit/{id}', [TrainingController::class, 'edit'])->name('training.edit');
 Route::post('training/update', [TrainingController::class, 'update'])->name('training.update');
 Route::get('training/delete/{id}', [TrainingController::class, 'destroy'])->name('training.destroy');
+
+Route::get('blog', [NewsController::class, 'index'])->name('blog.index');
+Route::get('blog/create', [NewsController::class, 'create'])->name('blog.create');
+Route::post('blog/store', [NewsController::class, 'store'])->name('blog.store');
+Route::get('blog/getdetails', [NewsController::class, 'getdetails'])->name('blog.getdetails');
+Route::get('blog/edit/{id}', [NewsController::class, 'edit'])->name('blog.edit');
+Route::post('blog/update', [NewsController::class, 'update'])->name('blog.update');
+Route::get('blog/delete/{id}', [NewsController::class, 'destroy'])->name('blog.destroy');
 
 

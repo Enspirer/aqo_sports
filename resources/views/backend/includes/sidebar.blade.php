@@ -42,6 +42,13 @@
             @endif
             
             <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/blog'))}}" href="{{ route('admin.blog.index') }}">
+                <i class="nav-icon fas fa-newspaper"></i>
+                    Blogs
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link {{active_class(Route::is('admin/training'))}}" href="{{ route('admin.training.index') }}">
                     <i class="nav-icon fas fa-running"></i>
                     Training
