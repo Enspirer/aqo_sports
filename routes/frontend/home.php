@@ -19,6 +19,7 @@ use App\Http\Controllers\Frontend\FAQController;
 use App\Http\Controllers\Frontend\PrivacyPolicyController;
 use App\Http\Controllers\Frontend\TermsController;
 use App\Http\Controllers\Frontend\TrainingController;
+use App\Http\Controllers\Frontend\BlogPostController;
 use App\Http\Controllers\Frontend\Auth\RegisterController;
 
 /*
@@ -34,7 +35,7 @@ Route::get('become-a-partner', [BecomeAPartnerController::class, 'index'])->name
 Route::get('cookie-policy', [CookiePolicyController::class, 'index'])->name('cookie_policy');
 Route::get('faq', [FAQController::class, 'index'])->name('faq');
 Route::get('privacy-policy', [PrivacyPolicyController::class, 'index'])->name('privacy_policy');
-
+Route::get('blog_post/{id}', [BlogPostController::class, 'index'])->name('blog_post');
 
 
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
