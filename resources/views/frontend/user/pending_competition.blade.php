@@ -22,8 +22,15 @@
                                             </a>
                                             <div class="container">
                                                 <div class="nameCard">
-                                                    <h4>{{$getDetail['competition_name']}}</h4>
-                                                    <p>Virtual Tournament</p>
+                                                    <h4>{{$getDetail['competition_name']}}</h4>                                                    
+
+                                                    @if(Modules\Competition\Entities\CompetitionCategory::where('id',$getDetail['category_id'])->first() != null)                                                            
+                                                        <p>
+                                                            {{ Modules\Competition\Entities\CompetitionCategory::where('id',$getDetail['category_id'])->first()->category_name }}
+                                                        </p>
+                                                    @else
+                                                        <p class="text-danger">Category Deleted</p>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
