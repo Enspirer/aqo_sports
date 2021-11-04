@@ -10,9 +10,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>News&nbsp;</strong>
+                    <strong>Blogs&nbsp;</strong>
 
-                    <a href="{{route('admin.news.create')}}" class="btn btn-primary pull-right ml-4">Create New</a>
+                    <a href="{{route('admin.blog.create')}}" class="btn btn-primary pull-right ml-4">Create Blog</a>
                    
                 </div><!--card-header-->
 
@@ -95,7 +95,7 @@
 
             $('#ok_button').click(function(){
             $.ajax({
-            url:"news/delete/"+user_id,
+            url:"blog/delete/"+user_id,
             
             success:function(data)
             {

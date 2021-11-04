@@ -11,7 +11,7 @@
 
 <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
 
-    <form action="{{route('admin.news.store')}}" method="post" enctype="multipart/form-data" >
+    <form action="{{route('admin.blog.store')}}" method="post" enctype="multipart/form-data" >
         {{csrf_field()}}
         <div class="row">
             <div class="col-md-12">
