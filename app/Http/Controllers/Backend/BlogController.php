@@ -20,7 +20,7 @@ class BlogController extends Controller
         return view('backend.blog.create');
     }
 
-    public function getDetails(Request $request)
+    public function getdetails(Request $request)
     {
         if($request->ajax())
         {
@@ -33,14 +33,14 @@ class BlogController extends Controller
                         return $button;
                     })
 
-                    ->addColumn('featured_news', function($data){
-                        if($data->featured_news == '1'){
-                            $featured_news = '<span class="badge badge-success">Enabled</span>';
+                    ->addColumn('featured_blog', function($data){
+                        if($data->featured_blog == 1){
+                            $featured_blog = '<span class="badge badge-success">Enabled</span>';
                         }
                         else{
-                            $featured_news = '<span class="badge badge-danger">Disable</span>';
+                            $featured_blog = '<span class="badge badge-danger">Disable</span>';
                         }   
-                        return $featured_news;
+                        return $featured_blog;
                     })
 
                     ->addColumn('status', function($data){
@@ -53,7 +53,7 @@ class BlogController extends Controller
                         return $status;
                     })
                     
-                    ->rawColumns(['action','status','featured_news'])
+                    ->rawColumns(['action','status','featured_blog'])
                     ->make(true);
         }
         return back();
@@ -67,31 +67,33 @@ class BlogController extends Controller
             return back()->withErrors('Please Fill Description Section');
         }else{
 
-            if($request->image == null){
-                return back()->withErrors('Please Select Feature Image');
+            if($request->featured == 1)
+            {            
+                $featured_blog = DB::table('blogs')->where('featured_blog', '=', 1)->update(array('featured_blog' => 0));           
+            } 
+
+            if($request->file('image'))
+            {            
+                $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+                $fullURLsPreviewFile = $request->image->move(public_path('files/blog'), $preview_fileName);
+                $image_url = $preview_fileName;
             }else{
+                $image_url = null;
+            }                
 
-                if($request->featured_news == 1)
-                {            
-                    $featured_news = DB::table('blogs')->where('featured_news', '=', 1)->update(array('featured_news' => 0));           
-                } 
-               
+            $add = new Blog;
 
-                $add = new Blog;
+            $add->title=$request->title;
+            $add->category=$request->category; 
+            $add->description=$request->description;        
+            $add->feature_image=$image_url;
+            $add->order=$request->order;
+            $add->featured_blog=$request->featured;
+            $add->status=$request->status;
+            $add->order=$request->order;
+            $add->save();
 
-                $add->title=$request->title; 
-                $add->description=$request->description;        
-                $add->feature_image=$request->image;
-                $add->user_id = auth()->user()->id;
-                $add->order=$request->order;
-                $add->featured_news=$request->featured_news;
-                $add->status=$request->status;
-                $add->save();
-
-                return redirect()->route('admin.blog.index')->withFlashSuccess('Added Successfully');  
-
-            }
-
+            return redirect()->route('admin.blog.index')->withFlashSuccess('Added Successfully');  
             
         }
     }
@@ -108,33 +110,42 @@ class BlogController extends Controller
 
     public function update(Request $request)
     {    
+        // dd($request);
 
         if($request->description == null){
             return back()->withErrors('Please Fill Description Section');
         }else{
-            if($request->image == null){
-                return back()->withErrors('Please Select Feature Image');
-            }else{
 
-                if($request->featured_news == 1)
-                {            
-                    $featured_news = DB::table('news')->where('featured_news', '=', 1)->update(array('featured_news' => 0));           
-                } 
+            if($request->featured == 1)
+            {            
+                $featured_blog = DB::table('blogs')->where('featured_blog', '=', 1)->update(array('featured_blog' => 0));           
+            }  
 
-                $update = new Blog;
+            if($request->file('image'))
+            {
+                $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+                $fullURLsPreviewFile = $request->image->move(public_path('files/blog'), $preview_fileName);
+                $image_url = $preview_fileName;
+            }else{            
+                $detail = Blog::where('id',$request->hidden_id)->first();
+                $image_url = $detail->feature_image;            
+            }  
 
-                $update->title=$request->title; 
-                $update->description=$request->description;        
-                $update->feature_image=$request->image;
-                $update->user_id = auth()->user()->id;
-                $update->order=$request->order;
-                $update->featured_news=$request->featured_news;
-                $update->status=$request->status;
+            $update = new Blog;
+
+            $update->title=$request->title; 
+            $update->category=$request->category; 
+            $update->description=$request->description;        
+            $update->feature_image=$image_url;
+            $update->order=$request->order;
+            $update->featured_blog=$request->featured;
+            $update->status=$request->status;
+            $update->order=$request->order;
                 
-                Blog::whereId($request->hidden_id)->update($update->toArray());
+            Blog::whereId($request->hidden_id)->update($update->toArray());
 
-                return redirect()->route('admin.blog.index')->withFlashSuccess('Updated Successfully');  
-            }      
+            return redirect()->route('admin.blog.index')->withFlashSuccess('Updated Successfully');  
+                  
         }                            
 
     }

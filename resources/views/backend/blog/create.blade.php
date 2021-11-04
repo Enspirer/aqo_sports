@@ -20,7 +20,15 @@
                         
                         <div class="form-group">
                             <label>Title <span style="color:red">*</span></label>
-                            <input type="text" id="slug" class="form-control" name="title" required>
+                            <input type="text" class="form-control" name="title" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Category<span style="color:red">*<span></label>
+                            <select class="form-control" name="category" required>
+                                <option value="News">News</option>   
+                                <option value="Blog">Blog</option>                                
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -28,29 +36,14 @@
                             <textarea class="form-control" id="editor" name="description" rows="4"></textarea>
                         </div>
 
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label>Feature Image <span style="color:red">*<span></label>
                             <input type="file" class="form-control" name="image" required>
-                        </div>  -->
-                        
-                        <div class="form-group">
-                            <label>Feature Image
-                                <span class="text-danger">*</span>
-                            </label>
-                            <div class="input-group" data-toggle="aizuploader" data-type="image">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
-                                </div>
-                                <div class="form-control file-amount">Choose File</div>
-                                <input type="hidden" name="image" class="selected-files" >
-                            </div>
-                            <div class="file-preview box sm">
-                            </div>
                         </div> 
-
+                                                
                         <div class="form-group">
-                            <label>Featurered News <span style="color:red">*<span></label>
-                            <select class="form-control" name="featured_news" required>
+                            <label>Featurered<span style="color:red">*<span></label>
+                            <select class="form-control" name="featured" required>
                                 <option value="1">Enable</option>   
                                 <option value="0">Disable</option>                                
                             </select>
@@ -71,7 +64,9 @@
                         
                     </div>
                 </div>
-                <input type="submit" class="btn btn-success pull-right" value="Create New" /><br>
+                <div class="text-right">
+                    <input type="submit" class="btn rounded-pill text-light px-4 py-2 ml-2 ms-2 btn-success" value="Create New" /><br>
+                </div>
             </div><br>       
             
         </div>

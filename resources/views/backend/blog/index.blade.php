@@ -22,7 +22,8 @@
                             <tr>
                                 <th scope="col">#ID</th>
                                 <th scope="col">Title</th>
-                                <th scope="col">Featured News</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Featured</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Order</th>
                                 <th scope="col">Option</th>
@@ -46,8 +47,8 @@
                     {{csrf_field()}}
                     <div class="modal-header">
                         <h3 class="modal-title" id="ModalDeleteLabel">Delete</h3>
-                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
-                            <!-- <span aria-hidden="true">&times;</span> -->
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
@@ -72,13 +73,14 @@
         $(function () {
             var table = $('#villadatatable').DataTable({
                 processing: true,
-                ajax: "{{route('admin.news.getdetails')}}",
+                ajax: "{{route('admin.blog.getdetails')}}",
                 serverSide: true,
                 order: [[0, "desc"]],
                 columns: [
                     {data: 'id', name: 'id'},
                     {data: 'title', name: 'title'},
-                    {data: 'featured_news', name: 'featured_news'},
+                    {data: 'category', name: 'category'},
+                    {data: 'featured_blog', name: 'featured_blog'},
                     {data: 'status', name: 'status'},
                     {data: 'order', name: 'order'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
