@@ -80,7 +80,11 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('my_competition', [MyCompetitionController::class, 'index'])->name('my_competition');
         Route::get('my_competition/details/{id}', [MyCompetitionController::class, 'performance_page'])->name('performance_page');
         Route::post('competition/performance', [MyCompetitionController::class, 'postPerformance'])->name('postPerformance');
+
         Route::get('pending_competition/details_pending', [PendingController::class, 'pending_competition'])->name('details_pending');
+        Route::get('pending_competition/com_reg_form/{id}', [PendingController::class, 'com_reg_form'])->name('com_reg_form');
+        Route::post('pending_competition/register_request_update', [PendingController::class, 'register_request_update'])->name('register_request_update');
+        
         Route::post('competition/save_proformance', [MyCompetitionController::class, 'save_performance'])->name('save_performance');
         Route::get('my_judgement', [MyJudgmentController::class, 'index'])->name('details_judgement');
         Route::get('my_judgement/open_judgment/{id}', [MyJudgmentController::class, 'show'])->name('show_judgment');

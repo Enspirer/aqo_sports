@@ -355,6 +355,7 @@
 @endforeach
 
 
+@if($organizer_details != null)
     <form action="{{route('frontend.user.request_organizer_update')}}" method="post">   
         {{csrf_field()}}
         <div class="modal fade" id="editOrganizerModal" tabindex="-1" aria-labelledby="editOrganizerModalLabel" aria-hidden="true">
@@ -645,7 +646,7 @@
             </div>
         </div>
     </form>
-
+@endif
 
     @if(\Session::has('success'))
 
@@ -671,6 +672,8 @@
 
 
 @push('after-scripts')
+
+@if($organizer_details != null)
     <script>
         $(document).ready(function() {
             let value = <?php echo json_encode ($organizer_details->country) ?>
@@ -682,6 +685,7 @@
             });
         });
     </script>
+@endif    
 
     <script>
         if(document.getElementById("modal-btn")){
