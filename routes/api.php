@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Frontend\HomeController;
 
 use Modules\Competition\Http\Controllers\Frontend\CompetitionController;
 
@@ -19,5 +20,6 @@ use Modules\Competition\Http\Controllers\Frontend\CompetitionController;
     return $request->user();
 });*/
 
-
-Route::get('competitor-performance/{id}', [CompetitionController::class, 'getCompetitorPerformance'])->name('get_competitor_performance');
+Route::get('facebook_news', [HomeController::class, 'facebook_news'])->name('facebook_news');
+Route::get('twitter_news', [HomeController::class, 'twitter_news'])->name('twitter_news');
+Route::get('twitter_news', [HomeController::class, 'twitter_news'])->name('twitter_news');

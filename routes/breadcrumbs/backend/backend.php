@@ -22,3 +22,16 @@ Breadcrumbs::for('admin.training.index', function ($trail) {
 Breadcrumbs::for('admin.training.edit', function ($trail) {
     $trail->push('Edit Training', route('admin.training.edit',1));
 });
+
+Breadcrumbs::for('admin.blog.index', function ($trail) {
+    $trail->push('Blog', route('admin.blog.index'));
+});
+
+Breadcrumbs::for('admin.blog.create', function ($trail) {
+    $trail->push('Create Blog', route('admin.blog.create'));
+});
+
+Breadcrumbs::for('admin.blog.edit', function ($trail) {
+    $trail->push('Edit Blog', route('admin.blog.edit',1));
+});
+

@@ -35,7 +35,13 @@
                                         <div class="container">
                                             <div class="nameCard">
                                                 <h4>{{$my_competition['competition_name']}}</h4>
-                                                <p>Virtual Tournament</p>
+                                                    @if(Modules\Competition\Entities\CompetitionCategory::where('id',$my_competition['category_id'])->first() != null)                                                            
+                                                        <p>
+                                                            {{ Modules\Competition\Entities\CompetitionCategory::where('id',$my_competition['category_id'])->first()->category_name }}
+                                                        </p>
+                                                    @else
+                                                        <p class="text-danger">Category Deleted</p>
+                                                    @endif
                                             </div>
                                         </div>
                                     </div>

@@ -26,21 +26,38 @@
 
 
             @if(get_module('Competition'))
-                <li class="nav-item">
-                    <a class="nav-link {{active_class(Active::checkUriPattern('admin/competition'))}}" href="{{ route('admin.competition') }}">
-                        <i class="nav-icon fas fa-trophy"></i>
-                        Competitions
-                    </a>
-                </li>
 
-                <li class="nav-item">
-                    <a class="nav-link {{active_class(Active::checkUriPattern('admin/create'))}}" href="{{ route('admin.category.index') }}">
-                        <i class="nav-icon fa fa-list"></i>
-                        Category
+            <li class="nav-item nav-dropdown ">
+                    <a class="nav-link nav-dropdown-toggle " href="#">
+                        <i class="nav-icon fas fa-trophy"></i>
+                            Competitions
                     </a>
-                </li>
+
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link {{active_class(Active::checkUriPattern('admin/create'))}}" href="{{ route('admin.category.index') }}">
+                                <!-- <i class="nav-icon fa fa-list"></i> -->
+                                Category
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{active_class(Active::checkUriPattern('admin/competition'))}}" href="{{ route('admin.competition') }}">
+                                <!-- <i class="nav-icon fas fa-trophy"></i> -->
+                                Competitions
+                            </a>
+                        </li>
+                    </ul>
+                </li>               
+                
             @endif
             
+            <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/blog'))}}" href="{{ route('admin.blog.index') }}">
+                <i class="nav-icon fas fa-newspaper"></i>
+                    Blogs
+                </a>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link {{active_class(Route::is('admin/training'))}}" href="{{ route('admin.training.index') }}">
                     <i class="nav-icon fas fa-running"></i>

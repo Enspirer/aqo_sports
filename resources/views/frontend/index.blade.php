@@ -163,6 +163,81 @@
 
             <div class="row">
                 <div class="col-3 fb">
+                    <a href="https://www.facebook.com/AQO-Sports-Entertainment-100887884844064" style="color:black" target="_blank" id="stack_panel">
+                        <div class="card" style="height: 25rem;">
+                            <img id="facebook_src" src="" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                            <div class="card-body">
+
+                                <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; font-size: 1rem;">
+                                    <p class="card-text mb-1" id="description_fb"></p>
+                                </div>
+                                
+                                <div class="row justify-content-between mt-3 align-items-center">
+                                    <div class="col-7">
+                                        <!-- <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p> -->
+                                    </div>
+                                    <div class="col-5 text-right">
+                                        <img src="{{url('aqo_se/assets/image/index/fb_color.png')}}" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>            
+                <div class="col-3 twitter">
+                    <a href="" style="color:black" target="_blank" class="twitter-link">
+                        <div class="card" style="height: 25rem;">
+                            <img src="{{ url('aqo_se/assets/image/twitter_large.png') }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                            <div class="card-body">
+
+                                <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; font-size: 1rem;">
+                                    <p class="card-text mb-1" id="description_twitter"></p>
+                                </div>
+                                
+                                <div class="row justify-content-between mt-3 align-items-center">
+                                    <div class="col-7">
+                                        <!-- <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p> -->
+                                    </div>
+                                    <div class="col-5 text-right">
+                                        <img src="{{url('aqo_se/assets/image/index/twitter_color.png')}}" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                @if(count(App\Models\Blog::where('status','Enabled')->get()) != 0)
+                    @foreach(App\Models\Blog::latest()->take(2)->get() as $key => $blog_posts)  
+                        <div class="col-3">
+                            <a href="{{route('frontend.blog_post',$blog_posts->id)}}" style="color:black">
+                                <div class="card" style="height: 25rem;">
+                                    <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                                    <div class="card-body p-2">
+                                        <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical; font-size: 0.8rem;">
+                                            <p class="card-text mb-1">{!!$blog_posts->description!!}</p>
+                                        </div>
+                                        
+                                        <div class="row justify-content-between mt-3 align-items-center">
+                                            <div class="col-7">
+                                                <!-- <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p> -->
+                                            </div>
+                                            <div class="col-5 text-right">
+                                                @if($blog_posts->category == 'Blog')
+                                                    <a style="color: #0F9D58; font-size: 1.1rem;">{{$blog_posts->category}}</a>
+                                                @else
+                                                    <a style="color: #FF0000; font-size: 1.1rem;">{{$blog_posts->category}}</a>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <a>
+                        </div>
+                    @endforeach
+                @endif
+
+                <!-- <div class="col-3 fb">
                     <div class="card" style="height: 25rem;">
                         <img src="{{url('aqo_se/assets/image/index/social_1.png')}}" class="img-fluid w-100" alt="..." style="object-fit: cover; height: 13rem;">
                         <div class="card-body p-2">
@@ -178,9 +253,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-            
+                </div>            
                 <div class="col-3 twitter">
                     <div class="card" style="height: 25rem;">
                         <img src="{{url('aqo_se/assets/image/index/social_2.png')}}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
@@ -197,10 +270,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-            
-                <div class="col-3">
+                <!-- <div class="col-3">
                     <div class="card" style="height: 25rem;">
                         <img src="{{url('aqo_se/assets/image/index/social_3.png')}}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
                         <div class="card-body p-2">
@@ -234,7 +306,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -242,6 +314,29 @@
 
 
 @push('after-scripts')
+
+<script>
+    $.get("{{route('facebook_news')}}", function(data, status){
+        var backimage_f = JSON.parse(data);
+        $("#facebook_src").attr("src",backimage_f.image);
+        $("#description_fb").html(backimage_f.title);
+        // $("#stack_panel").attr("href",backimage_f.link);
+    }).
+    fail(function(jqXHR, textStatus, errorThrown) {
+        $('.fb').addClass('d-none');
+    });
+
+
+    $.get("{{route('twitter_news')}}", function(data, status){
+        var data = JSON.parse(data);
+        $(".twitter-link").attr("href", data.link);
+        $("#description_twitter").text(data.title);
+    }).
+    fail(function(jqXHR, textStatus, errorThrown) {
+        $('.twitter').addClass('d-none');
+    });
+
+</script>
 
     <!-- Initialize Swiper -->
     <script>

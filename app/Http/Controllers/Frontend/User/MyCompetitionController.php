@@ -24,6 +24,7 @@ class MyCompetitionController extends Controller
             $output = [
                 'id' => $getCompetitionDetails->id,
                 'competition_name' => $getCompetitionDetails->competition_name,
+                'category_id' =>$getCompetitionDetails->category_id,
                 'description' => $getCompetitionDetails->description,
                 'feature_image' => $getCompetitionDetails->feature_image,
             ];
