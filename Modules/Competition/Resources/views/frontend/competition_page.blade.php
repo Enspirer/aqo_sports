@@ -22,6 +22,10 @@
         border-radius: 0;
         background: #35495E;
     }
+    #nav-voting .table td, #nav-voting .table th {
+    vertical-align: middle!important;
+    text-align: center;
+    }
 
 </style>
 
@@ -85,10 +89,13 @@
                                 
                             </nav>
                         </div>
+
                     </div>
+
                     <div class="addSection col-md-2">
                         <img src="{{url('img/frontend/vertical.png')}}" alt="" class="w-100" style="height: 30rem; object-fit:cover;"/>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -161,7 +168,7 @@
 
                                     <table class="table table-hover">
                                         <thead>
-                                        <tr>
+                                        <tr class="align-items-center">
                                             <th scope="col">Competitor Name</th>
                                             <th scope="col">Vote Count</th>
                                             <th scope="col">Performance</th>
@@ -170,40 +177,37 @@
                                         </thead>
                                         <tbody>
                                         @foreach($getCompetitorDetails as $competiotrDetail)
-                                            <form action="{{ route('frontend.competition_page_voting') }}" method="post">
-                                                {{ csrf_field() }}
-                                                <tr>
-                                                    <td>{{$competiotrDetail['competitor_name']}}</td>
-                                                    <td>{{$competiotrDetail['votes']}}</td>
-                                                    <td>
-                                                        @if(is_performed($competiotrDetail['competitor_id'], $competition_details->id))
+                                            @if(is_performed($competiotrDetail['competitor_id'], $competition_details->id))
+                                                <form action="{{ route('frontend.competition_page_voting') }}" method="post">
+                                                    {{ csrf_field() }}
+                                                    <tr>
+                                                        <td>{{$competiotrDetail['competitor_name']}}</td>
+                                                        <td>{{$competiotrDetail['votes']}}</td>
+                                                        <td>
                                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#performanceModal" onclick="view({{$competiotrDetail['competitor_id']}})">View</button></td>
-                                                        @else
-                                                            <button type="button" class="btn btn-primary" disabled>Not Performed</button></td>
-                                                        @endif
-                                                    <td>
-                                                        @auth
-                                                            @if(is_voted($competiotrDetail['competitor_id'], $competition_details->id))
-                                                                <button type="submit" class="btn btn-primary" disabled>Voted</button>
+                                                        <td>
+                                                            @auth
+                                                                @if(is_voted($competiotrDetail['competitor_id'], $competition_details->id))
+                                                                    <button type="submit" class="btn btn-primary" disabled>Voted</button>
+                                                                @else
+                                                                    <button type="submit" class="btn btn-primary">Vote Now</button>
+                                                                @endif
                                                             @else
-                                                                <button type="submit" class="btn btn-primary">Vote Now</button>
-                                                            @endif
-                                                        @else
-                                                            <a href="{{ route('frontend.auth.login') }}" type="button" class="btn btn-primary">Vote Now</a>
-                                                        @endauth
-                                                    </td>
+                                                                <a href="{{ route('frontend.auth.login') }}" type="button" class="btn btn-primary">Vote Now</a>
+                                                            @endauth
+                                                        </td>
 
-                                                    <input type="hidden" name="competitor_id" value="{{$competiotrDetail['competitor_id']}}">
-                                                    <input type="hidden" name="competition_id" value="{{ $competition_details->id }}">
-                                                </tr>
-                                            </form>
+                                                        <input type="hidden" name="competitor_id" value="{{$competiotrDetail['competitor_id']}}">
+                                                        <input type="hidden" name="competition_id" value="{{ $competition_details->id }}">
+                                                    </tr>
+                                                </form>
+                                            @endif
                                         @endforeach
                                         </tbody>
                                     </table>
 
                                 @endif
                             </div>
-
 
                             <div class="tab-pane fade" id="nav-leaderboard" role="tabpanel" aria-labelledby="nav-leaderboard-tab">
                                 <div class="row">
@@ -285,7 +289,6 @@
                                 </div>
                             </div>
 
-
                             <div class="tab-pane fade" id="nav-competitors" role="tabpanel" aria-labelledby="nav-competitors-tab">
 
                                 @if(count($getCompetitorDetails) == 0)
@@ -326,7 +329,6 @@
                                 
                             </div>
 
-
                             <div class="tab-pane fade" id="nav-judge" role="tabpanel" aria-labelledby="nav-judge-tab">
 
                                 @if(count($judges) == 0)
@@ -355,8 +357,10 @@
 
                                 @endif
                             </div>
+
                         </div>
                     </div>
+
                     <div class="rightSide col-md-4">
                         @if($is_closed == 'Open')
                             <div class="dateForm">
@@ -576,6 +580,7 @@
                             @endauth
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
