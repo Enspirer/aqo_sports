@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('create_event/register_as_organizer', [CreateEvenetController::class, 'index'])->name('register_as_organizer');
         Route::post('create_event/register_as_organizer_store', [CreateEvenetController::class, 'store'])->name('reuqst_organizer');
+        Route::post('create_event/organizer_edit', [CreateEvenetController::class, 'updateOrganizer'])->name('request_organizer_update');
         Route::get('create_event/orz_create_competition', [CreateEvenetController::class, 'create_competition'])->name('orz_create_competition');
         Route::post('create_event/create_competition_orz', [CreateEvenetController::class, 'orz_create_competition_store'])->name('orz_create_competition_store');
 

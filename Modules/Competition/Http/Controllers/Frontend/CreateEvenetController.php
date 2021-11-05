@@ -12,6 +12,7 @@ use Modules\Competition\Entities\CompetitionCategory;
 use Modules\Competition\Entities\JudgeDetails;
 use App\Models\Auth\User;
 use DataTables;
+use DB;
 
 
 class CreateEvenetController extends Controller
@@ -31,6 +32,20 @@ class CreateEvenetController extends Controller
         ]);
     }
 
+    public function updateOrganizer(Request $request)
+    {
+        $organizer = DB::table('organizers') ->where('id', request('hidden_id'))->update(
+            [
+                'organization' => $request->organization,
+                'contact_details' => $request->contact_details,
+                'address' => $request->address,
+                'country' => $request->country,
+            ]
+        );
+        
+        return redirect()->route('frontend.user.register_as_organizer')->with('success', 'success');    
+    }
+
 
     public function edit_judge_form($id)
     {
@@ -43,6 +58,7 @@ class CreateEvenetController extends Controller
             'judge_register_form' => $getCompetitionForm
         ]);
     }
+    
 
     public function edit_judge_form_update (Request $request)
     {
@@ -294,9 +310,15 @@ class CreateEvenetController extends Controller
     {
         $competitionDetails = Competition::where('id',$competition_id)->first();
         $competition = Competition::where('id',$competition_id)->first();
+        
+        $approved_judges = JudgeDetails::where('competition_id', $competition_id)->where('status', 1)->count();
+
+        $request_judges = JudgeDetails::where('competition_id', $competition_id)->count();
 
         return view('frontend.user.judges_list',[
-            'competitionDetails' => $competitionDetails
+            'competitionDetails' => $competitionDetails,
+            'approved_judges' => $approved_judges,
+            'request_judges' => $request_judges
         ]);
     }
     public function judgeRequetDetails($competition_id)

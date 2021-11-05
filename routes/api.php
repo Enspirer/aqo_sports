@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 
+use Modules\Competition\Http\Controllers\Frontend\CompetitionController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,3 +18,6 @@ use Illuminate\Http\Request;
 /*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });*/
+
+
+Route::get('competitor-performance/{id}', [CompetitionController::class, 'getCompetitorPerformance'])->name('get_competitor_performance');

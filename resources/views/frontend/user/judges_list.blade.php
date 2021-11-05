@@ -17,6 +17,50 @@
                 <div class="container">
                 @include('includes.partials.messages')
                     <div class="exploreBody">
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div class="card p-2">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <img src="{{url('/files/').'/'.$competitionDetails->feature_image}}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <h4>{{ $competitionDetails-> competition_name}}</h4>
+                                                    <p class="mb-0" style="color: #919191; font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;">{{ $competitionDetails-> description }}</p>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="div col-6">
+                                            <div class="row justify-content-end">
+                                                <div class="col-10">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-6 text-center">
+                                                            <div class="border p-2">
+                                                                <h6>Total Judges</h6>
+                                                                <p class="mb-0 font-weight-bold" style="font-size: 1.1rem; color: #002a89">{{ $approved_judges }}</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-6 text-center">
+                                                            <div class="border p-2">
+                                                                <h6>Total Judge Requests</h6>
+                                                                <p class="mb-0 font-weight-bold" style="font-size: 1.1rem; color: #002a89">{{ $request_judges }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                       </div>
                         <div class="row">
                             <div class="col">
                                 <div class="card">
