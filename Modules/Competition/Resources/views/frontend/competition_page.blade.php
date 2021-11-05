@@ -22,6 +22,10 @@
         border-radius: 0;
         background: #35495E;
     }
+    #nav-voting .table td, #nav-voting .table th {
+    vertical-align: middle!important;
+    text-align: center;
+    }
 
 </style>
 
@@ -85,10 +89,13 @@
                                 
                             </nav>
                         </div>
+
                     </div>
+
                     <div class="addSection col-md-2">
                         <img src="{{url('img/frontend/vertical.png')}}" alt="" class="w-100" style="height: 30rem; object-fit:cover;"/>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -161,42 +168,46 @@
 
                                     <table class="table table-hover">
                                         <thead>
-                                        <tr>
+                                        <tr class="align-items-center">
                                             <th scope="col">Competitor Name</th>
                                             <th scope="col">Vote Count</th>
+                                            <th scope="col">Performance</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($getCompetitorDetails as $competiotrDetail)
-                                            <form action="{{ route('frontend.competition_page_voting') }}" method="post">
-                                                {{ csrf_field() }}
-                                                <tr>
-                                                    <td>{{$competiotrDetail['competitor_name']}}</td>
-                                                    <td>{{$competiotrDetail['votes']}}</td>
-                                                    <td>
-                                                        @auth
-                                                            @if(is_voted($competiotrDetail['competitor_id'], $competition_details->id))
-                                                                <button type="submit" class="btn btn-primary" disabled>Voted</button>
+                                            @if(is_performed($competiotrDetail['competitor_id'], $competition_details->id))
+                                                <form action="{{ route('frontend.competition_page_voting') }}" method="post">
+                                                    {{ csrf_field() }}
+                                                    <tr>
+                                                        <td>{{$competiotrDetail['competitor_name']}}</td>
+                                                        <td>{{$competiotrDetail['votes']}}</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#performanceModal" onclick="view({{$competiotrDetail['competitor_id']}})">View</button></td>
+                                                        <td>
+                                                            @auth
+                                                                @if(is_voted($competiotrDetail['competitor_id'], $competition_details->id))
+                                                                    <button type="submit" class="btn btn-primary" disabled>Voted</button>
+                                                                @else
+                                                                    <button type="submit" class="btn btn-primary">Vote Now</button>
+                                                                @endif
                                                             @else
-                                                                <button type="submit" class="btn btn-primary">Vote Now</button>
-                                                            @endif
-                                                        @else
-                                                            <a href="{{ route('frontend.auth.login') }}" type="button" class="btn btn-primary">Vote Now</a>
-                                                        @endauth
-                                                    </td>
+                                                                <a href="{{ route('frontend.auth.login') }}" type="button" class="btn btn-primary">Vote Now</a>
+                                                            @endauth
+                                                        </td>
 
-                                                    <input type="hidden" name="competitor_id" value="{{$competiotrDetail['competitor_id']}}">
-                                                    <input type="hidden" name="competition_id" value="{{ $competition_details->id }}">
-                                                </tr>
-                                            </form>
+                                                        <input type="hidden" name="competitor_id" value="{{$competiotrDetail['competitor_id']}}">
+                                                        <input type="hidden" name="competition_id" value="{{ $competition_details->id }}">
+                                                    </tr>
+                                                </form>
+                                            @endif
                                         @endforeach
                                         </tbody>
                                     </table>
 
                                 @endif
                             </div>
-
 
                             <div class="tab-pane fade" id="nav-leaderboard" role="tabpanel" aria-labelledby="nav-leaderboard-tab">
                                 <div class="row">
@@ -278,7 +289,6 @@
                                 </div>
                             </div>
 
-
                             <div class="tab-pane fade" id="nav-competitors" role="tabpanel" aria-labelledby="nav-competitors-tab">
 
                                 @if(count($getCompetitorDetails) == 0)
@@ -319,7 +329,6 @@
                                 
                             </div>
 
-
                             <div class="tab-pane fade" id="nav-judge" role="tabpanel" aria-labelledby="nav-judge-tab">
 
                                 @if(count($judges) == 0)
@@ -348,16 +357,18 @@
 
                                 @endif
                             </div>
+
                         </div>
                     </div>
+
                     <div class="rightSide col-md-4">
-                        <div class="dateForm">
-                            <div class="container">
-                                <div class="dateForm">
-                                    <div class="countDown row">
-                                    </div>
-                                    <div class="ocl-timer">
-                                        @if($is_closed == 'Open')
+                        @if($is_closed == 'Open')
+                            <div class="dateForm">
+                                <div class="container">
+                                    <div class="dateForm">
+                                        <div class="countDown row">
+                                        </div>
+                                        <div class="ocl-timer">
                                             <div class="ocl-timer__main-unit-amount">
                                                 <span id="days">22</span>
                                             </div>
@@ -396,24 +407,31 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        @else
-                                            <div class="card">
-                                                <div class="btn btn-danger">Event Closed</div>
-                                            </div>
-                                        @endif
+                                        </div>
 
-                                    </div>
-                                    <hr>
-                                    <h3>Remaining to register</h3>
-                                    <hr>
-                                    <div class="dateRange" style="flex: auto">
-                                        <h3>{{$start_date}}</h3><br>
-                                        <p style="padding-left: 20px;padding-right: 20px;">To</p>
-                                        <h3>{{$end_date}},</h3>
+                                        <hr>
+                                        <h3>Remaining to register</h3>
+                                        <hr>
+                                        <div class="dateRange" style="flex: auto">
+                                            <h3>{{$start_date}}</h3><br>
+                                            <p style="padding-left: 20px;padding-right: 20px;">To</p>
+                                            <h3>{{$end_date}},</h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            @auth()
+                        @else
+                        <div class="container">
+                            <div class="card border-0" style="padding: 40px; box-shadow: 0px 5px 10px #00000029;">
+                                <div class="btn btn-danger" disabled>Event Closed</div>
+                            </div>
+                        </div>
+                            
+                        @endif
+                                        
+                                        
+
+                        @auth()
 
                             <div class="loginFormComp">
                                 <div class="container">
@@ -422,9 +440,11 @@
                                             Competition Applied
                                         </button>
                                     @else
-                                        <button type="button" class="btn-apply-now" data-toggle="modal" data-target="#exampleModal">
-                                            Register Competition
-                                        </button>
+                                        @if($is_closed == 'Open')
+                                            <button type="button" class="btn-apply-now" data-toggle="modal" data-target="#exampleModal">
+                                                Register Competition
+                                            </button>
+                                        @endif
                                     @endif
                                     @if(is_judge(auth()->user()->id))
                                         @if(is_judge_applied(auth()->user()->id, $competition_details->id))
@@ -438,9 +458,11 @@
                                                 </button>
                                             @endif
                                         @else
-                                            <button type="button" class="btn-become-judge" data-toggle="modal" data-target="#judgeDialog">
-                                                Become a Judge
-                                            </button>
+                                            @if($is_closed == 'Open')
+                                                <button type="button" class="btn-become-judge" data-toggle="modal" data-target="#judgeDialog">
+                                                    Become a Judge
+                                                </button>
+                                            @endif
                                         @endif
                                     @endif
                                 </div>
@@ -558,6 +580,7 @@
                             @endauth
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -626,6 +649,30 @@
         </div>
     @endif
 
+
+    <div class="modal fade" id="performanceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Performance</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body performance">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     @push('footer_script')
 
 
@@ -689,6 +736,76 @@
         if(document.getElementById("judge-btn")){
             $('#judge-btn').click();
         }
+    </script>
+
+
+    <script>
+        function view(id) {
+ 
+            var settings = {
+                "url": "{{url('/')}}/api/competitor-performance/" + id,
+                "method": "GET",
+                "timeout": 0,
+                "dataType": "json",
+                };
+
+            $.ajax(settings).done(function (response) {
+                
+
+                let count = 0;
+                
+                response.forEach(res => {
+
+                    let round = res['round_name'];
+                    let video = res['performance_link'].replace('watch?v=', 'embed/');
+                    let description = res['performance_description'];
+
+                    let template = `<div id="accordion">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapse_${count}" aria-expanded="true" aria-controls="collapseOne">
+                                                                ${round}
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="collapse_${count}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            
+                                                            <iframe id="myframe" type="text/html" width="100%" src="${video}" frameborder="0" style="height: 280px;"></iframe>
+                                                            
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <h3>Description</h3> <br>
+                                                            <p>${description}</p>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>`;
+
+                    count++;
+
+                    $('.performance').append(template);
+                });
+
+                
+                // getDetails = response['performance_link'].replace('watch?v=', 'embed/');
+                
+                // document.getElementById("myframe").src = getDetails;
+                
+            });
+        };
+
     </script>
 
 

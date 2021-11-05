@@ -54,7 +54,7 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <a href="" class="mr-4"><i class="fab fa-facebook-square text-white"></i></a>
+                        <a href="https://www.facebook.com/AQO-Sports-Entertainment-100887884844064" class="mr-4" target="_blank"><i class="fab fa-facebook-square text-white"></i></a>
 
                         <a href="" class="mr-4"><i class="fab fa-instagram text-white"></i></a>
 

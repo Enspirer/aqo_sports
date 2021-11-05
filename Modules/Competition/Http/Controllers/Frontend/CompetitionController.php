@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Modules\Competition\Entities\Competitor;
 use Modules\Competition\Entities\JudgeDetails;
 use Modules\Competition\Entities\Organizer;
+use Modules\Competition\Entities\Performance;
 use Modules\Competition\Http\Controllers\Backend\CategoryController;
 
 
@@ -193,19 +194,20 @@ class CompetitionController extends Controller
         $categoryDetails = CompetitionCategory::where('id',$competitionDetails->category_id)->first();
         $organizerDetails = Organizer::where('user_id',$competitionDetails->user_id)->first();
 
-        $competitionDetails = Competition::where('id',$id)->first();
+
         $markSection = json_decode($competitionDetails->marks_sections);
         $roundSection = json_decode($competitionDetails->rounds_section);
         $competitorDetails = Competitor::where('competition_id',$id)->where('competitor_status', 1)->get();
 
         $judges = JudgeDetails::where('competition_id',$id)->where('status', 1)->get();
         
-        if($carbonEndDate < $carbonTody)
+        if($carbonEndDate <= $carbonTody)
         {
             $exp = 'Closed';
         }else{
             $exp = 'Open';
         }
+
         return view('competition::frontend.competition_page',[
             'competition_details' => $competitionDetails,
             'start_date' =>$carbonStartDate->format('M d Y'),
@@ -334,5 +336,16 @@ class CompetitionController extends Controller
    
         return back()->with(['success' => 'success', 'competitor' => $competitor]);          
 
+    }
+
+
+
+    public function getCompetitorPerformance($id) {
+
+        $competitor_performance = Performance::where('competitor_id', $id)->get();
+
+        $performance = json_encode($competitor_performance);
+
+        return $performance;
     }
 }

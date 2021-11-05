@@ -399,3 +399,22 @@ if (! function_exists('is_organizer_requested')) {
     }
 }
 
+
+
+if (! function_exists('is_performed')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_performed($competitor_id, $competition_id)
+    {
+        $performer = Performance::where('competitor_id', $competitor_id)->where('competition_id', $competition_id)->first();
+        
+        if($performer){
+            return $performer;
+        }else{
+            return null;
+        }
+    }
+}
