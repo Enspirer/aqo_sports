@@ -191,6 +191,77 @@
                                     </div>
                                     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
+                                    
+                                        <table id="myTablePrihlasky" class="table table-hover table-bordered table-condensed ">
+                                            <thead>
+                                                <tr>
+                                                    <th rowspan="2" class="titulka" style="width:30px">Final</th>
+                                                    <th rowspan="2" class="titulka" style="width:50px">Place</th>
+                                                    <th rowspan="2" class="titulka" style="width:70px">Country</th>
+                                                    <th rowspan="2" class="titulka">Name/Club</th>
+                                                    <th rowspan="2" class="titulka" style="width:50px; border-right:1px solid gray">Year</th>
+                                                    @foreach($roundDetails as $roundSectioenn)
+                                                        <th colspan="{{count($marksSections)}}" style="text-align:center; border-right:1px solid gray">
+                                                            {{$roundSectioenn}}
+                                                        </th>
+                                                    @endforeach
+
+                                                    <th rowspan="2" class="titulka" style="width:50px ; border-right:1px solid gray">Score</th>
+                                                </tr>
+
+                                                <tr>
+                                                    @foreach($roundDetails as $roundSectioenn)
+                                                        @foreach($marksSections as $markSectionItem)
+                                                            <th class="titulka" style="width:50px">{{$markSectionItem}}</th>
+                                                        @endforeach
+                                                    @endforeach
+                                                </tr>
+                                            </thead>
+
+
+                                            <tbody id="tBodyFinale">
+                                                <tr>
+                                                    <tr>
+                                                       
+                                                            @if( $competitorDetails->user_id == auth()->user()->id )
+
+                                                                <td rowspan="2" style="background-color: bisque">1</td>
+                                                                <td rowspan="2" style="text-align:center;font-size:15px; background-color: bisque">1.</td>
+                                                                <td rowspan="2" style="background-color: bisque"><img onerror="$(this).hide()" style="width:20px" src="flags/USA.png">{{\App\Models\Auth\User::where('id',$competitorDetails->user_id)->first()->country}}</td>
+                                                                <td rowspan="2" style="background-color: bisque">{{\App\Models\Auth\User::where('id',$competitorDetails->user_id)->first()->first_name}} {{\App\Models\Auth\User::where('id',$competitorDetails->user_id)->first()->last_name}}</td>
+                                                                <td rowspan="2" style="text-align:center; border-right:1px solid gray; background-color: bisque">{{ date_format($competitorDetails->created_at,'Y') }}</td>
+
+                                                                @foreach($roundDetails as $deround_details)
+                                                                    <td colspan="{{count($marksSections)}}" style="text-align:center;font-size:12px; border-right:1px solid gray; background-color: bisque">
+                                                                        <b>{{round_total($competitorDetails->id,$deround_details,$deround_details)}}</b>
+                                                                        <div style="float:right; font-size:10px;">{{\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitorDetails->id)->where('competition_id',$competitorDetails->competition_id)->where('round_name',$deround_details)->count()}}</div>
+                                                                    </td>
+                                                                @endforeach
+
+
+                                                                <td rowspan="2" style="text-align:center;font-size:14px; border-right:1px solid gray; background-color: bisque">
+                                                                    <b>{{get_competitor_all_score($competitorDetails->id)}}</b>
+                                                                </td>
+                                                                    <tr>
+                                                                        @foreach($roundDetails as $oulem)
+
+                                                                            @foreach($marksSections as $markSectionItem)
+                                                                                <td style="text-align:center;font-size:12px; background-color: #ffbf72">{{judge_marks_total($competitorDetails->id,$markSectionItem,$oulem)}}</td>
+                                                                            @endforeach
+                                                                        @endforeach
+                                                                    </tr>
+                                                            @endif
+                                                    </tr>
+                                                </tr>
+                                            </tbody>
+
+
+                                            
+                                        </table>
+
+
+
+                                    
                                     </div>
                                 </div>
                             </div>

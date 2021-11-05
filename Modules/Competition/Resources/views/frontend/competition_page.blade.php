@@ -545,11 +545,11 @@
                                                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                                         <label class="form-check-label" for="exampleCheck1">Remember Me</label>
                                                     </div>
-                                                    <p class="text-right">Forget Password?</p>
+                                                    <a href="{{ route('frontend.auth.password.reset') }}" class="text-right"><p>Forget Password?</p></a>
                                                 </div>
 
-                                                <div class="bottumText">
-                                                    <p>Not a member yet? <a href="">Register Now</a></p>
+                                                <div class="bottumText mt-2">
+                                                    <p>Not a member yet? <a href="{{route('frontend.auth.register')}}">Register Now</a></p>
                                                 </div>
                                             </div>
                                         </div>
