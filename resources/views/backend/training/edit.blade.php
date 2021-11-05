@@ -81,7 +81,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td width="20%" style="font-weight: 600;">Time Zone:</td>
-                                                    <td>{{ $training->comments }}</td>
+                                                    <td>{{ $training->time_zone }}</td>
                                                 </tr>
                                             </tbody>                                            
                                         </table>
