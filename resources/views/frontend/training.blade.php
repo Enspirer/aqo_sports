@@ -353,10 +353,7 @@
 
                             <div class="col-6">
                                 <label for="state" class="form-label font-weight-bold">State</label>
-                                <select name="state" class="form-control mb-2" id="state" required>
-                                    <option value="state1">state1</option>
-                                    <option value="state2">state2</option>
-                                    <option value="state3">state3</option>
+                                <select class="form-control mb-2 areas" aria-label="Default select example" name="state" required>
                                 </select>
                             </div>
                         </div>
@@ -419,6 +416,54 @@
 
 
 @push('after-scripts')
+
+
+<script>
+
+    $(document).on('change','#country',function(){
+
+        let country = $('#country').val();
+            // console.log(country);
+
+        let name;
+        let template;
+       
+        if(country.includes('-')){
+            name = country.replace("-", " ");
+        } else {
+            name = country;
+        }
+
+        $.ajax({
+            "type": "POST",
+            "url": "https://countriesnow.space/api/v0.1/countries/cities",
+            "data": {
+                "country": name
+            }
+        }).done(function (d) {
+
+            for(let i = 0; i < d['data'].length; i++) {
+                template+= `
+                    <option value="${d['data'][i]}">${d['data'][i]}</option>
+                `
+            }
+
+            $(".areas").html(template);
+            // console.log(d);
+        });
+
+
+    });
+    
+            
+        
+
+    
+
+
+        
+   
+</script>
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
