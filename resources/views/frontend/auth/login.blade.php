@@ -13,10 +13,10 @@
                         <h3>Welcome to AQOSE,</h3>
                         <p>Please Sign In to continue</p>
                     </div>
-                    <a href="" class="button button--facebook">Continue With Facebook</a>
-                    <a href="" class="button button--google">Continue With Google</a>
+                    <!-- <a href="" class="button button--facebook">Continue With Facebook</a>
+                    <a href="" class="button button--google">Continue With Google</a> -->
                     {!! $socialiteLinks !!}
-                    <div class="separator">or</div>
+                    <!-- <div class="separator">or</div> -->
                     @include('includes.partials.messages')
                     <div>
                         {{ html()->form('POST', route('frontend.auth.login.post'))->open() }}

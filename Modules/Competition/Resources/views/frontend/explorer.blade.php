@@ -2,6 +2,10 @@
 
 @section('title', app_name() . ' | ' . __('navs.general.home'))
 
+@push('after-styles')
+    <link rel="stylesheet" href="{{ url('aqo_se/Styles/css/explorer.css') }}">
+@endpush
+
 @section('content')
     <div class="contentExplore">
         <div class="container">
@@ -61,7 +65,7 @@
             <form action="{{ route('frontend.search_filters') }}" method="post" class="filter-form">
                 {{csrf_field()}}
                 <div class="row mt-4">
-                    <div class="col-3">
+                    <div class="col-12 col-md-3 mb-3 mb-md-0">
                         <select id="countries" class="form-control" name="countries" onchange="this.form.submit()">
                             <option value="" selected>All Countries</option>
                             <option value="Afghanistan">Afghanistan</option>
@@ -313,7 +317,7 @@
                         </select>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-12 col-md-3 mb-3 mb-md-0">
                         <select id="categories" class="form-control" name="categories" onchange="this.form.submit()">
                             <option value="category" {{ $category_name == 'category' ? "selected" : "" }}>All Categories</option>
                             @foreach($categories as $category)
@@ -323,15 +327,15 @@
                         </select>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         <div class="row">
-                            <div class="col-5">
+                            <div class="col-6 col-md-5">
                                 <input type="date" class="form-control" name="start_date" value="" placeholder="Start"/>
                             </div>
-                            <div class="col-5">
+                            <div class="col-6 col-md-5 mb-4 mb-md-0">
                                 <input type="date" class="form-control" name="end_date" value="" placeholder="End Date"/>
                             </div>
-                            <div class="col-2">
+                            <div class="col-12 text-center col-md-2">
                                 <button class="btn bg-primary w-100 text-white search-btn"><i class="bi bi-search"></i></button>
                             </div>
                         </div>

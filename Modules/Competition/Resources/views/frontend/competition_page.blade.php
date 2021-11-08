@@ -2,6 +2,10 @@
 
 @section('title', app_name() . ' | ' . __('navs.general.home'))
 
+@push('after-styles')
+    <link rel="stylesheet" href="{{ url('aqo_se/Styles/css/competition_page.css') }}">
+@endpush
+
 
 @push('after-styles')
 
@@ -39,7 +43,7 @@
             <div class="container">
                 <div class="row">
                     <div class="imgaeSection col-md-10">
-                        <div class="" style="background-image: url('{{url('/files/').'/'.$competition_details->feature_image}}');height: 30rem; background-size: cover"></div>
+                        <div class="main-image" style="background-image: url('{{url('/files/').'/'.$competition_details->feature_image}}');height: 30rem; background-size: cover"></div>
 
                         <div class="secondNavigation">
                             <nav>
@@ -89,7 +93,6 @@
                                 
                             </nav>
                         </div>
-
                     </div>
 
                     <div class="addSection col-md-2">
@@ -101,9 +104,9 @@
         </div>
         
         <div class="competetionDetails">
-            <div class="container">
+            <div class="container px-4 px-md-3">
                 <div class="row">
-                    <div class="leftSide col-md-8">
+                    <div class="leftSide col-12 col-md-8 mb-5 mb-md-0">
                         <div class="tab-content" id="myTabContent">
 
                             <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="aboutÎ-tab">

@@ -14,7 +14,7 @@
         <div class="hero-image">
             <div class="container">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-12 col-md-8 mb-3 mb-md-0">
                         <div class="swiper mySwiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
@@ -34,7 +34,7 @@
                             <div class="swiper-button-prev"></div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12 col-md-4 side-banner">
                         <img src="{{url('aqo_se/assets/image/dialog.png')}}" alt="" class="w-100" style="height: 29rem;">
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                             </div>
                         @else
                             @foreach($trendingCompetition as $competition)
-                                <div class="imageCard col-3">
+                                <div class="imageCard col-12 col-md-3">
                                     <div class="imageSize">
                                         <a href="{{route('frontend.competition_page',$competition->id)}}">
                                             <img src="{{url('files/'.$competition->feature_image)}}" alt="" srcset="" />
@@ -122,47 +122,46 @@
             <div class="container">
                 <h1 class="text-center font-weight-bold">AQO Group</h1>
                 <div class="row mt-5">
-                    <div class="card rounded-circle">
+                    <div class="card rounded-circle mb-4 mb-md-0">
                         <img src="{{url('aqo_se/assets/image/logo1.png')}}" alt="">
                     </div>
 
-                    <div class="card rounded-circle">
+                    <div class="card rounded-circle mb-4 mb-md-0">
                         <img src="{{url('aqo_se/assets/image/logo5.png')}}" alt="">
                     </div>
 
-                    <div class="card rounded-circle">
+                    <div class="card rounded-circle mb-4 mb-md-0">
                         <img src="{{url('aqo_se/assets/image/logo3.png')}}" alt="">
                     </div>
 
-                    <div class="card rounded-circle">
+                    <div class="card rounded-circle mb-4 mb-md-0">
                         <img src="{{url('aqo_se/assets/image/logo4.png')}}" alt="">
                     </div>
                 </div>
             </div>
         </section>
 
-
-        <div class="container social" style="margin-top: 7rem; margin-bottom: 3rem;">
+        <div class="container black-social" style="margin-top: 7rem; margin-bottom: 3rem;">
             <div class="row justify-content-center align-items-center mb-5">
-                <div class="col-1 text-center">
-                    <a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                <div class="col col-md-1 text-center">
+                    <a href="https://www.facebook.com/AQO-Sports-Entertainment-100887884844064" target="_blank"><i class="fa fa-facebook-square"></i></a>
                 </div>
-                <div class="col-1 text-center">
+                <!-- <div class="col col-md-1 text-center">
                     <a href="#"><i class="fa fa-twitter"></i></a>
+                </div> -->
+                <div class="col col-md-1 text-center">
+                    <a href="https://www.youtube.com/channel/UCjfaVwdsnD9-GH0mX_XKC9g" target="_blank"><i class="fa fa-youtube"></i></a>
                 </div>
-                <div class="col-1 text-center">
-                    <a href="#"><i class="fa fa-youtube"></i></a>
+                <div class="col col-md-1 text-center">
+                    <a href="https://www.instagram.com/aqosportsandentertainment/" target="_blank"><i class="fa fa-instagram"></i></a>
                 </div>
-                <div class="col-1 text-center">
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                </div>
-                <div class="col-1 text-center">
+                <!-- <div class="col col-md-1 text-center">
                     <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
+                </div> -->
             </div>
 
             <div class="row">
-                <div class="col-3 fb">
+                <div class="col-12 col-md-3 mb-4 mb-md-0 fb">
                     <a href="https://www.facebook.com/AQO-Sports-Entertainment-100887884844064" style="color:black" target="_blank" id="stack_panel">
                         <div class="card" style="height: 25rem;">
                             <img id="facebook_src" src="" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
@@ -184,7 +183,7 @@
                         </div>
                     </a>
                 </div>            
-                <div class="col-3 twitter">
+                <div class="col-12 col-md-3 mb-4 mb-md-0 twitter">
                     <a href="" style="color:black" target="_blank" class="twitter-link">
                         <div class="card" style="height: 25rem;">
                             <img src="{{ url('aqo_se/assets/image/twitter_large.png') }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
@@ -209,7 +208,7 @@
 
                 @if(count(App\Models\Blog::where('status','Enabled')->get()) != 0)
                     @foreach(App\Models\Blog::latest()->take(2)->get() as $key => $blog_posts)  
-                        <div class="col-3">
+                        <div class="col-12 col-md-3 mb-4 mb-md-0">
                             <a href="{{route('frontend.blog_post',$blog_posts->id)}}" style="color:black">
                                 <div class="card" style="height: 25rem;">
                                     <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
@@ -355,14 +354,27 @@
 
 
     <script>
-      var swiper = new Swiper(".mySwiper2", {
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        slidesPerView: 4,
-        spaceBetween: 30,
-      });
+        var swiper = new Swiper(".mySwiper2", {
+            navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+            },
+            slidesPerView: 4,
+            spaceBetween: 30,
+            breakpoints: {
+
+                0: {
+                    slidesPerView: 1,
+                },
+
+                576: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 4,
+                }
+            },
+        });
     </script>
 
 

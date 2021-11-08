@@ -100,7 +100,7 @@ class CompetitionController extends Controller
         }
 
         if($category_id != 'category' ){
-            $competitions =  $competitions->where('id', $category_id);
+            $competitions =  $competitions->where('category_id', $category_id);
         }
 
         if($sort == 'desc'){
