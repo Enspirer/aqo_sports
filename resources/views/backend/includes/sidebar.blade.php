@@ -64,6 +64,14 @@
                     Training
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/homepage_ad'))}}" href="{{ route('admin.homepage_ad.index') }}">
+                    <i class="nav-icon fas fa-running"></i>
+                    Home Page Advertisement
+                </a>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link {{active_class(Route::is('admin/contact_us'))}}" href="{{ route('admin.contact_us.index') }}">
                     <i class="nav-icon fas fa-comments"></i>

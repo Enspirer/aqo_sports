@@ -4,10 +4,18 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ContactUsController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\TrainingController;
+use App\Http\Controllers\Backend\HomepageAdController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::get('homepage_ad', [HomepageAdController::class, 'index'])->name('homepage_ad.index');
+Route::get('homepage_ad/getdetails', [HomepageAdController::class, 'getDetails'])->name('homepage_ad.getDetails');
+Route::get('homepage_ad/edit/{id}', [HomepageAdController::class, 'edit'])->name('homepage_ad.edit');
+Route::post('homepage_ad/update', [HomepageAdController::class, 'update'])->name('homepage_ad.update');
+Route::get('homepage_ad/destroy/{id}', [HomepageAdController::class, 'destroy'])->name('homepage_ad.destroy');
+
 
 Route::get('contact_us', [ContactUsController::class, 'index'])->name('contact_us.index');
 Route::get('contact_us/getdetails', [ContactUsController::class, 'getDetails'])->name('contact_us.getDetails');
