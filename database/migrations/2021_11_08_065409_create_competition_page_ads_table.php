@@ -15,6 +15,11 @@ class CreateCompetitionPageAdsTable extends Migration
     {
         Schema::create('competition_page_ads', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('name')->nullable();
+            $table->text('description')->nullable();
+            $table->text('link')->nullable();
+            $table->text('image')->nullable();
+            $table->text('status')->nullable();  
             $table->timestamps();
         });
     }

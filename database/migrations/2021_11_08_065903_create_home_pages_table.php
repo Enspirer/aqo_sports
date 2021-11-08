@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTrainingPageAdsTable extends Migration
+class CreateHomePagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateTrainingPageAdsTable extends Migration
      */
     public function up()
     {
-        Schema::create('training_page_ads', function (Blueprint $table) {
+        Schema::create('home_pages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('name')->nullable();
-            $table->text('description')->nullable();
-            $table->text('link')->nullable();
-            $table->text('image')->nullable();
-            $table->text('status')->nullable();  
+            $table->text('image');
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateTrainingPageAdsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('training_page_ads');
+        Schema::dropIfExists('home_pages');
     }
 }
