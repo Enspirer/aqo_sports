@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Modules\Competition\Entities\CompetitionCategory;
 use Modules\Competition\Entities\Competition;
+use App\Models\HomePage;
+use App\Models\HomepageAd;
 
 /**
  * Class HomeController.
@@ -18,9 +20,14 @@ class HomeController extends Controller
     {
         $competitionCategory = CompetitionCategory::all();
         $trendingCompetition = Competition::where('is_feature', 1)->get();
+        $sliders = HomePage::orderBy('order','ASC')->get();
+        $homepage_ad = HomepageAd::first();
+
         return view('frontend.index',[
             'competitionCategory' => $competitionCategory,
-            'trendingCompetition' => $trendingCompetition
+            'trendingCompetition' => $trendingCompetition,
+            'sliders' => $sliders,
+            'homepage_ad' => $homepage_ad
         ]);
 
     }
