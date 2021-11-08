@@ -97,7 +97,9 @@
 
                     <div class="addSection col-md-2">
                         @if($competitionpagead != null)
+                        <a href="{{$competitionpagead->link}}" target="_blank" >
                             <img src="{{url('files/advertisement',$competitionpagead->image)}}" alt="" class="w-100" style="height: 30rem; object-fit: cover">
+                        </a>
                         @else
                             <img src="{{url('img/no-image.jpg')}}" alt="" class="w-100" style="height: 30rem; object-fit: cover">
                         @endif

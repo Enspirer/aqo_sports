@@ -34,7 +34,9 @@
                     </div>
                     <div class="col-12 col-md-4 side-banner">
                         @if($homepage_ad != null)
+                        <a href="{{$homepage_ad->link}}" target="_blank" >
                             <img src="{{url('files/advertisement',$homepage_ad->image)}}" alt="" class="w-100" style="height: 29rem; object-fit: cover">
+                        </a>
                         @else
                             <img src="{{url('img/no-image.jpg')}}" alt="" class="w-100" style="height: 29rem; object-fit: cover">
                         @endif
