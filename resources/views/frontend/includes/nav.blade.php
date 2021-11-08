@@ -152,11 +152,11 @@
         </li>
 
         <li class="log-reg d-none">
-            <a href="{{route('frontend.auth.login')}}" class="buttonSignIn">Sign In</a>
+            <a href="{{route('frontend.auth.login')}}" class="buttonSignIn {{ Request::segment(1) == 'login' ? 'active' : null }}">Sign In</a>
         </li>
 
         <li class="log-reg d-none">
-            <a href="{{route('frontend.auth.register')}}" class="buttonRegister">Register</a>
+            <a href="{{route('frontend.auth.register')}}" class="buttonRegister {{ Request::segment(1) == 'register' ? 'active' : null }}">Register</a>
         </li>
             
     </ul>

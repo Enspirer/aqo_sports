@@ -29,6 +29,7 @@
     .banner h2 {
         display: block!important;
         color: white;
+        font-size: 1.7rem;
     }
     .banner .col-12 {
         padding-top: 6rem!important;

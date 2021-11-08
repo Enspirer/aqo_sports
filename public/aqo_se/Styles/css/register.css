@@ -1,0 +1,26 @@
+@media screen and (max-width: 576px) {
+    .registerForm {
+        background-color: #fff;
+        padding: 25px;
+    }
+    .registerForm .container {
+        width: 100%!important;
+        background-color: white!important;
+        -webkit-box-shadow: none!important;
+        box-shadow: none!important;
+    }
+    .registerForm .container .leftSide {
+        width: 100%!important;
+    }
+    .wide-form {
+        display: none!important;
+    }
+    .small-form {
+        display: block!important;
+    }
+    .registerForm .container .rightSide {
+        padding-top: 0px!important;
+        padding-bottom: 0px!important;
+        width: 100%!important;
+    }
+}

@@ -2,12 +2,18 @@
 
 @section('title', app_name() . ' | ' . __('labels.frontend.auth.login_box_title'))
 
+
+@push('after-styles')
+    <link rel="stylesheet" href="{{ url('aqo_se/Styles/css/login.css') }}">
+@endpush
+
+
 @section('content')
 
 
     <div class="loginFormmain">
         <div class="container">
-            <div class="container">
+            <div class="container login">
                 <div class="loginForm">
                     <div class="title">
                         <h3>Welcome to AQOSE,</h3>

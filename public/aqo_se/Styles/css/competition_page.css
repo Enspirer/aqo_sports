@@ -13,6 +13,9 @@
     .addSection {
         display: none;
     }
+    .secondNavigation .nav {
+        height: 65px!important;
+    }
     .secondNavigation .nav .nav-list {
         display: -webkit-box!important;
         display: -webkit-box!important;
