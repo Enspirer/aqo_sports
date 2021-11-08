@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\TrainingPageAd;
 use App\Models\Training;
 use Mail;  
 use \App\Mail\TrainingMail;
@@ -12,7 +13,11 @@ class TrainingController extends Controller
 {
     public function index()
     {
-        return view('frontend.training');
+        $training_ad = TrainingPageAd::first();
+
+        return view('frontend.training',[
+            'training_ad' => $training_ad
+        ]);
     }
 
     public function store(Request $request)

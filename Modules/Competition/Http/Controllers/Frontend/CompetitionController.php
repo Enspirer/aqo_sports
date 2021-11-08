@@ -16,6 +16,7 @@ use Modules\Competition\Entities\JudgeDetails;
 use Modules\Competition\Entities\Organizer;
 use Modules\Competition\Entities\Performance;
 use Modules\Competition\Http\Controllers\Backend\CategoryController;
+use App\Models\CompetitionPageAd;
 
 
 class CompetitionController extends Controller
@@ -200,6 +201,8 @@ class CompetitionController extends Controller
         $competitorDetails = Competitor::where('competition_id',$id)->where('competitor_status', 1)->get();
 
         $judges = JudgeDetails::where('competition_id',$id)->where('status', 1)->get();
+
+        $competitionpagead =  CompetitionPageAd::first();
         
         if($carbonEndDate <= $carbonTody)
         {
@@ -222,7 +225,8 @@ class CompetitionController extends Controller
             'markSection' => $markSection,
             'roundSection' => $roundSection,
             'competitor_details' => $competitorDetails,
-            'judges' => $judges
+            'judges' => $judges,
+            'competitionpagead' => $competitionpagead
         ]);
     }
 

@@ -96,7 +96,11 @@
                     </div>
 
                     <div class="addSection col-md-2">
-                        <img src="{{url('img/frontend/vertical.png')}}" alt="" class="w-100" style="height: 30rem; object-fit:cover;"/>
+                        @if($competitionpagead != null)
+                            <img src="{{url('files/advertisement',$competitionpagead->image)}}" alt="" class="w-100" style="height: 30rem; object-fit: cover">
+                        @else
+                            <img src="{{url('img/no-image.jpg')}}" alt="" class="w-100" style="height: 30rem; object-fit: cover">
+                        @endif
                     </div>
 
                 </div>

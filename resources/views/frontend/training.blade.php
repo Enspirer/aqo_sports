@@ -31,7 +31,11 @@
             <img src="{{url('aqo_se/assets/image/training/banner.png')}}" alt="" class="w-100" style="object-fit: cover; height: 25rem;">
         </div>
         <div class="col-12 col-md-4">
-            <img src="{{url('aqo_se/assets/image/dialog.png')}}" alt="" class="w-100" style="height: 25rem;">
+            @if($training_ad != null)
+                <img src="{{url('files/advertisement',$training_ad->image)}}" alt="" class="w-100" style="height: 25rem; object-fit: cover">
+            @else
+                <img src="{{url('img/no-image.jpg')}}" alt="" class="w-100" style="height: 25rem; object-fit: cover">
+            @endif
         </div>
     </div>
 </div>
