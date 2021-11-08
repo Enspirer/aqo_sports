@@ -4,18 +4,21 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\ContactUsController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\TrainingController;
+use App\Http\Controllers\Backend\HomePageController;
 use App\Http\Controllers\Backend\HomepageAdController;
+use App\Http\Controllers\Backend\TrainingPageAdController;
+use App\Http\Controllers\Backend\CompetitionPageAdController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('homepage_ad', [HomepageAdController::class, 'index'])->name('homepage_ad.index');
-Route::get('homepage_ad/getdetails', [HomepageAdController::class, 'getDetails'])->name('homepage_ad.getDetails');
-Route::get('homepage_ad/edit/{id}', [HomepageAdController::class, 'edit'])->name('homepage_ad.edit');
-Route::post('homepage_ad/update', [HomepageAdController::class, 'update'])->name('homepage_ad.update');
-Route::get('homepage_ad/destroy/{id}', [HomepageAdController::class, 'destroy'])->name('homepage_ad.destroy');
-
+Route::get('homepage', [HomePageController::class, 'index'])->name('homepage.index');
+Route::post('homepage/store', [HomePageController::class, 'store'])->name('homepage.store');
+Route::get('homepage/getdetails', [HomePageController::class, 'getdetails'])->name('homepage.getdetails');
+Route::get('homepage/edit/{id}', [HomePageController::class, 'edit'])->name('homepage.edit');
+Route::post('homepage/update', [HomePageController::class, 'update'])->name('homepage.update');
+Route::get('homepage/delete/{id}', [HomePageController::class, 'destroy'])->name('homepage.destroy');
 
 Route::get('contact_us', [ContactUsController::class, 'index'])->name('contact_us.index');
 Route::get('contact_us/getdetails', [ContactUsController::class, 'getDetails'])->name('contact_us.getDetails');
@@ -37,4 +40,20 @@ Route::get('blog/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit')
 Route::post('blog/update', [BlogController::class, 'update'])->name('blog.update');
 Route::get('blog/delete/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
 
+
+
+Route::get('advertisement', [HomepageAdController::class, 'index'])->name('advertisement.index');
+
+Route::post('homepage_ad/store', [HomepageAdController::class, 'store_home'])->name('homepage_ad.store');
+Route::post('homepage_ad/update', [HomepageAdController::class, 'update_home'])->name('homepage_ad.update');
+Route::get('homepage_ad/delete/{id}', [HomepageAdController::class, 'delete_home'])->name('homepage_ad.delete');
+
+Route::post('training_ad/store', [TrainingPageAdController::class, 'store_training'])->name('training_ad.store');
+Route::post('training_ad/update', [TrainingPageAdController::class, 'update_training'])->name('training_ad.update');
+Route::get('training_ad/delete/{id}', [TrainingPageAdController::class, 'delete_training'])->name('training_ad.delete');
+
+
+Route::post('competition_ad/store', [CompetitionPageAdController::class, 'store_competition'])->name('competition_ad.store');
+Route::post('competition_ad/update', [CompetitionPageAdController::class, 'update_competition'])->name('competition_ad.update');
+Route::get('competition_ad/delete/{id}', [CompetitionPageAdController::class, 'delete_competition'])->name('competition_ad.delete');
 

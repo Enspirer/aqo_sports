@@ -15,11 +15,9 @@ class CreateTrainingPageAdsTable extends Migration
     {
         Schema::create('training_page_ads', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('name')->nullable();
             $table->text('description')->nullable();
             $table->text('link')->nullable();
-            $table->text('image')->nullable();
-            $table->text('status')->nullable();  
+            $table->text('image')->nullable(); 
             $table->timestamps();
         });
     }

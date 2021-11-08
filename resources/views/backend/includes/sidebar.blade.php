@@ -27,7 +27,7 @@
 
             @if(get_module('Competition'))
 
-            <li class="nav-item nav-dropdown ">
+                <li class="nav-item nav-dropdown ">
                     <a class="nav-link nav-dropdown-toggle " href="#">
                         <i class="nav-icon fas fa-trophy"></i>
                             Competitions
@@ -64,11 +64,18 @@
                     Training
                 </a>
             </li>
+                       
+            <li class="nav-item">
+                <a class="nav-link {{active_class(Route::is('admin/advertisement'))}}" href="{{ route('admin.advertisement.index') }}">
+                    <i class="nav-icon fab fa-adversal"></i>
+                        Advertisements
+                </a>
+            </li>
 
             <li class="nav-item">
-                <a class="nav-link {{active_class(Route::is('admin/homepage_ad'))}}" href="{{ route('admin.homepage_ad.index') }}">
-                    <i class="nav-icon fas fa-running"></i>
-                    Home Page Advertisement
+                <a class="nav-link {{active_class(Route::is('admin/homepage'))}}" href="{{ route('admin.homepage.index') }}">
+                    <i class="nav-icon far fa-images"></i>
+                    Home Page Slider
                 </a>
             </li>
 

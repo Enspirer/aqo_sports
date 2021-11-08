@@ -4,10 +4,15 @@ Breadcrumbs::for('admin.dashboard', function ($trail) {
     $trail->push(__('strings.backend.dashboard.title'), route('admin.dashboard'));
 });
 
-
-
 require __DIR__.'/auth.php';
 require __DIR__.'/log-viewer.php';
+
+Breadcrumbs::for('admin.homepage.index', function ($trail) {
+    $trail->push('Home Page Slider', route('admin.homepage.index'));
+});
+Breadcrumbs::for('admin.homepage.edit', function ($trail) {
+    $trail->push('Edit Home Page Slider', route('admin.homepage.edit',1));
+});
 
 Breadcrumbs::for('admin.contact_us.index', function ($trail) {
     $trail->push('Contact Us', route('admin.contact_us.index'));
@@ -35,3 +40,6 @@ Breadcrumbs::for('admin.blog.edit', function ($trail) {
     $trail->push('Edit Blog', route('admin.blog.edit',1));
 });
 
+Breadcrumbs::for('admin.advertisement.index', function ($trail) {
+    $trail->push('Advertisements', route('admin.advertisement.index'));
+});
