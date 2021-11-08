@@ -17,25 +17,27 @@
                     <div class="col-12 col-md-8 mb-3 mb-md-0">
                         <div class="swiper mySwiper">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="{{url('aqo_se/assets/image/slider1.png')}}" class="w-100" style="height: 29rem;">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="{{url('aqo_se/assets/image/slider2.png')}}" class="w-100" style="height: 29rem;">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="{{url('aqo_se/assets/image/slider3.png')}}" class="w-100" style="height: 29rem;">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="{{url('aqo_se/assets/image/slider4.png')}}" class="w-100" style="height: 29rem;">
-                                </div>
+                                @if(count($sliders) != 0)
+                                    @foreach($sliders as $key => $slider)
+                                        <div class="swiper-slide">
+                                            <img src="{{url('files/homepage',$slider->image)}}" class="w-100" style="height: 29rem; object-fit: cover">
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <img src="{{url('img/no-image.jpg')}}" class="w-100" style="height: 29rem;">
+                                @endif
+                                
                             </div>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
                         </div>
                     </div>
                     <div class="col-12 col-md-4 side-banner">
-                        <img src="{{url('aqo_se/assets/image/dialog.png')}}" alt="" class="w-100" style="height: 29rem;">
+                        @if($homepage_ad != null)
+                            <img src="{{url('aqo_se/assets/image/dialog.png')}}" alt="" class="w-100" style="height: 29rem; object-fit: cover">
+                        @else
+                            <img src="{{url('img/no-image.jpg')}}" alt="" class="w-100" style="height: 29rem; object-fit: cover">
+                        @endif
                     </div>
                 </div>
             </div>
