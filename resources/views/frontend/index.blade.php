@@ -166,27 +166,9 @@
 
             <div class="row">
                 <div class="col-12 col-md-3 mb-4 mb-md-0 fb">
-                    <a href="https://www.facebook.com/AQO-Sports-Entertainment-100887884844064" style="color:black" target="_blank" id="stack_panel">
-                        <div class="card" style="height: 25rem;">
-                            <img id="facebook_src" src="" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
-                            <div class="card-body">
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAQO-Sports-Entertainment-100887884844064&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=901780930716877" style="border:none;overflow:hidden; width: 100%; height: 25rem;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>
 
-                                <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; font-size: 1rem;">
-                                    <p class="card-text mb-1" id="description_fb"></p>
-                                </div>
-                                
-                                <div class="row justify-content-between mt-3 align-items-center">
-                                    <div class="col-7">
-                                        <!-- <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p> -->
-                                    </div>
-                                    <div class="col-5 text-right">
-                                        <img src="{{url('aqo_se/assets/image/index/fb_color.png')}}" alt="" class="img-fluid">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>            
                 <div class="col-12 col-md-3 mb-4 mb-md-0 twitter">
                     <a href="" style="color:black" target="_blank" class="twitter-link">
                         <div class="card" style="height: 25rem;">
