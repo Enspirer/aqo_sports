@@ -90,7 +90,6 @@ class BlogController extends Controller
             $add->order=$request->order;
             $add->featured_blog=$request->featured;
             $add->status=$request->status;
-            $add->order=$request->order;
             $add->save();
 
             return redirect()->route('admin.blog.index')->withFlashSuccess('Added Successfully');  
@@ -140,7 +139,6 @@ class BlogController extends Controller
             $update->order=$request->order;
             $update->featured_blog=$request->featured;
             $update->status=$request->status;
-            $update->order=$request->order;
                 
             Blog::whereId($request->hidden_id)->update($update->toArray());
 
