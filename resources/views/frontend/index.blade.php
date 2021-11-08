@@ -165,11 +165,11 @@
             </div>
 
             <div class="row">
-                <div class="col-12 col-md-3 mb-4 mb-md-0 fb">
+                <div class="col-12 col-md-4 mb-4 mb-md-0 fb">
                     <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAQO-Sports-Entertainment-100887884844064&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=901780930716877" style="border:none;overflow:hidden; width: 100%; height: 25rem;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                 </div>
 
-                <div class="col-12 col-md-3 mb-4 mb-md-0 twitter">
+                <!-- <div class="col-12 col-md-3 mb-4 mb-md-0 twitter">
                     <a href="" style="color:black" target="_blank" class="twitter-link">
                         <div class="card" style="height: 25rem;">
                             <img src="{{ url('aqo_se/assets/image/twitter_large.png') }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
@@ -181,7 +181,7 @@
                                 
                                 <div class="row justify-content-between mt-3 align-items-center">
                                     <div class="col-7">
-                                        <!-- <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p> -->
+                                        
                                     </div>
                                     <div class="col-5 text-right">
                                         <img src="{{url('aqo_se/assets/image/index/twitter_color.png')}}" alt="" class="img-fluid">
@@ -190,11 +190,11 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> -->
 
                 @if(count(App\Models\Blog::where('status','Enabled')->get()) != 0)
                     @foreach(App\Models\Blog::latest()->take(2)->get() as $key => $blog_posts)  
-                        <div class="col-12 col-md-3 mb-4 mb-md-0">
+                        <div class="col-12 col-md-4 mb-4 mb-md-0">
                             <a href="{{route('frontend.blog_post',$blog_posts->id)}}" style="color:black">
                                 <div class="card" style="height: 25rem;">
                                     <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
