@@ -1,11 +1,11 @@
 
-<div id="mySidenav" class="sidenav">
+<!-- <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="#">About</a>
     <a href="#">Services</a>
     <a href="#">Clients</a>
     <a href="#">Contact</a>
-</div>
+</div> -->
 
 <div class="top">
     <div class="container">
@@ -88,13 +88,13 @@
 
             </div>
 
-            <div class="menu col col-sm-4 col-xs-3 text-right float-right justify-content-end">
+            <!-- <div class="menu col col-sm-4 col-xs-3 text-right float-right justify-content-end">
                 <a href="javascript:void(0)" onclick="openNav()"><i class="fa fa-bars"></i></a>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
-<div class="bottom">
+<!-- <div class="bottom">
     <div class="container">
         <div class="row">
             <div class="leftLogo col-md-2">
@@ -126,7 +126,33 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light main-nav" style="box-shadow: 0 10px 10px -10px rgb(0 0 0 / 35%); height: 51px;">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto">
+        <li>
+            <a href="{{url('/')}}" class="{{ Request::segment(1) == '' ? 'active' : null }}">Home</a>
+        </li>
+        <li>
+            <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}" class="{{ Request::segment(1) == 'competition' ? 'active' : null }}">Explore</a>
+        </li>
+        <li>
+            <a href="{{ route('frontend.training') }}" class="{{ Request::segment(1) == 'training' ? 'active' : null }}">Training</a>
+        </li>
+        <li>
+            <a href="{{ route('frontend.about_us') }}" class="{{ Request::segment(1) == 'about-us' ? 'active' : null }}">About Us</a>
+        </li>
+        <li>
+            <a href="{{ route('frontend.contact') }}" class="{{ Request::segment(1) == 'contact' ? 'active' : null }}">Contact Us</a>
+        </li>
+    </ul>
+  </div>
+</nav>
 
 
 

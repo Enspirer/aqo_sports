@@ -10,3 +10,29 @@
 .main-office p {
     font-weight: 500;
 }
+
+
+
+
+
+
+
+
+@media screen and (max-width: 576px) {
+    .footer .social br {
+        display: none;
+    }
+    .navbar-collapse {
+        z-index: 1;
+        background: white;
+    }
+    .navbar {
+        padding: 0.5rem 0.5rem!important;
+    }
+    .links {
+        padding-left: 15px!important;
+    }
+    .copyright-footer p {
+        font-size: 0.8rem;
+    }
+}

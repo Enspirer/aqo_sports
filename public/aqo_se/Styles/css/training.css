@@ -18,3 +18,20 @@
 .training-form ::placeholder {
     font-size: 0.9rem!important;
 }
+
+
+
+
+
+
+@media screen and (max-width: 576px) {
+    .banner .col-md-8 img {
+        height: 15rem!important;
+    }
+    .banner .col-md-4 img {
+        height: 20rem!important;
+    }
+    .form h3 {
+        font-size: 1.3rem;
+    }
+}

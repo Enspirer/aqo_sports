@@ -25,9 +25,9 @@
     <div class="container-fluid py-4" style="background-color: #f9f9f9;">
         <div class="container">
             <div class="row">
-                <div class="col-5">
-                    <form action="{{route('frontend.contact.store')}}" method="post" enctype="multipart/form-data" class="pt-4 px-4 pb-3" style="background-color: white">
-                    {{csrf_field()}}
+                <div class="col-12 col-md-5 mb-5 mb-md-0">
+                    <form action="{{route('frontend.contact.store')}}" method="post" enctype="multipart/form-data" class="pt-md-4 px-md-4 pb-md-3" style="background-color: white">
+                        {{csrf_field()}}
                         
                         <div class="mb-2">
                             <div class="row">
@@ -60,7 +60,7 @@
 
                         
                         <div class="row justify-content-center mt-3">
-                            <div class="col-10 text-center">
+                            <div class="col-12 col-md-10 text-center">
                                 <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR" style="display: inline-block;"></div>
                             </div>
                         </div>
@@ -71,8 +71,8 @@
                     </form>
                 </div>
 
-                <div class="col-7 pt-4">
-                    <h4 class="mb-4" style="color: #0090FF">Contact Information</h4>
+                <div class="col-12 col-md-7 pt-md-4">
+                    <h4 class="mb-2 mb-md-4" style="color: #0090FF">Contact Information</h4>
 
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, ut fuga! At ut impedit consequuntur iusto necessitatibus! Earum iste aperiam distinctio voluptate ut aliquam ab. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
 
@@ -81,7 +81,7 @@
                             <h6 class="font-weight-bold">Main Central Office</h6>
                         </div>
                     
-                        <div class="col-6 main-office">
+                        <div class="col-12 col-md-6 main-office mb-3 mb-md-0">
                             <div class="row">
                                 <div class="col-1 pr-0">
                                     <i class="bi bi-telephone-fill"></i>
@@ -110,7 +110,7 @@
                             </div>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <h6 class="font-weight-bolder">AQO Sports & Entertainment</h6>
                             <p style="font-weight: 500; line-height: 1.4rem;">45/a 1st Avenue, <br> London, <br> USA</p>
                         </div>
@@ -121,7 +121,7 @@
                             <h6 class="font-weight-bold">Regional Office </h6>
                         </div>
                     
-                        <div class="col-6 main-office">
+                        <div class="col-12 col-md-6 main-office mb-3 mb-md-0">
                             <div class="row">
                                 <div class="col-1 pr-0">
                                     <i class="bi bi-telephone-fill"></i>
@@ -150,7 +150,7 @@
                             </div>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <h6 class="font-weight-bolder">AQO Sports & Entertainment</h6>
                             <p style="font-weight: 500; line-height: 1.4rem;">490/1B, Lionel Michel Mawatha,, <br> Eriyawetiya, Kiribathgoda, Kelaniya, <br> Sri Lanka.</p>
                         </div>

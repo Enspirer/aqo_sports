@@ -1,3 +1,22 @@
+.main-nav ul li {
+    display: inline-block;
+    padding: 15px;
+}
+.main-nav ul li a {
+    letter-spacing: 0px;
+    color: #6D6D6D;
+    text-decoration: none;
+    display: block;font-weight: 600;
+    font-size: 18px;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.2rem;
+}
+.main-nav ul li a:hover {
+    color: rgba(0, 35, 122, 0.99);
+}
+.main-nav ul li a.active {
+    border-bottom: 2px solid rgba(0, 35, 122, 1)!important;
+}
 .footer p, .footer .first-column i {
     font-size: 0.9rem;
 }
@@ -20,4 +39,27 @@
     margin-bottom: 1.5rem;
     border: 0;
     border-top: 1px solid white;
+}
+
+
+
+
+
+@media screen and (max-width: 576px) {
+    .footer .social br {
+        display: none;
+    }
+    .navbar-collapse {
+        z-index: 1;
+        background: white;
+    }
+    .navbar {
+        padding: 0.5rem 0.5rem!important;
+    }
+    .links {
+        padding-left: 15px!important;
+    }
+    .copyright-footer p {
+        font-size: 0.8rem;
+    }
 }

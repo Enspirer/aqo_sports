@@ -25,21 +25,21 @@
 
 @else 
 
-<div class="container mt-4">
+<div class="container mt-4 banner mb-md-0">
     <div class="row">
-        <div class="col-8">
+        <div class="col-12 col-md-8 mb-3 mb-md-0">
             <img src="{{url('aqo_se/assets/image/training/banner.png')}}" alt="" class="w-100" style="object-fit: cover; height: 25rem;">
         </div>
-        <div class="col-4">
+        <div class="col-12 col-md-4">
             <img src="{{url('aqo_se/assets/image/dialog.png')}}" alt="" class="w-100" style="height: 25rem;">
         </div>
     </div>
 </div>
 
 
-<div class="container mt-4">
+<div class="container mt-5 mt-md-4">
     <div class="row justify-content-center">
-        <div class="col-8 text-center">
+        <div class="col-12 col-md-8 text-center">
             <h1 class="font-weight-bold">Get trained with the experts</h1>
 
             <p style="font-size: 0.9rem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, totam. Fuga eum voluptatem rerum placeat repellendus, illum quidem provident ullam impedit eligendi quae assumenda suscipit blanditiis corrupti deserunt quisquam alias laudantium sunt commodi consequuntur! Nulla harum tenetur autem ipsam error ab eligendi? Sunt sint quis est similique, vero distinctio.</p>
@@ -47,16 +47,16 @@
     </div>
 </div>
 
-<div class="container mt-4" style="margin-bottom: 4rem;">
+<div class="container mt-5 mt-md-4 form" style="margin-bottom: 4rem;">
     <div class="row">
         <div class="col-12">
-            <div class="card border-0 p-5" style="box-shadow: 0 0rem 0.5rem rgb(0 0 0 / 16%);">
+            <div class="card border-0 p-3 p-md-5" style="box-shadow: 0 0rem 0.5rem rgb(0 0 0 / 16%);">
                 <h3 class="font-weight-bold mb-3">Register to "Registration Training - English Version"</h3>
 
                 <form action="{{route('frontend.training.store')}}" method="post">
                 {{csrf_field()}}
                     <div class="row time-select" style="margin-bottom: 1.7rem;">
-                        <div class="col-5">
+                        <div class="col-12 col-md-5">
                             <label for="time" class="form-label mb-2">Please choose only one training to attend</label>
                             <select class="form-control mb-2" name="time_zone">
                                 <option value="10-26-2021  06:00 PM (America/New_York)">10-26-2021  06:00 PM (America/New_York)</option>
@@ -70,12 +70,12 @@
                 <!-- <form action="" style="background-color: white" class="training-form"> -->
                     <div class="mb-3">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6 mb-3 mb-md-0">
                                 <label for="first_name" class="form-label font-weight-bold">First Name</label>
                                 <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" required>
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <label for="last_name" class="form-label font-weight-bold">Last Name</label>
                                 <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" required>
                             </div>
@@ -84,12 +84,12 @@
 
                     <div class="mb-3">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6 mb-3 mb-md-0">
                                 <label for="last_name" class="form-label font-weight-bold">Email</label>
                                 <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <label for="phone" class="form-label font-weight-bold">Phone Number</label>
                                 <input type="text" class="form-control" name="phone" id="phone" placeholder="Please write 10 digit number" required>
                             </div>
@@ -98,7 +98,7 @@
 
                     <div class="mb-3">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6 mb-3 mb-md-0">
                                 <label for="country" class="form-label font-weight-bold">Country</label>
                                 <select id="country" class="form-control" name="country" required>
                                     <option value="" selected disabled hidden>Choose Country</option>
@@ -351,7 +351,7 @@
                                 </select>
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <label for="state" class="form-label font-weight-bold">State</label>
                                 <select name="state" class="form-control mb-2" id="state" required>
                                     <option value="state1">state1</option>
@@ -374,12 +374,12 @@
 
                     <div class="mb-3">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6 mb-3 mb-md-0">
                                 <label for="city" class="form-label font-weight-bold">City</label>
                                 <input type="text" class="form-control" name="city" id="city" placeholder="City" required>
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <label for="postal_code" class="form-label font-weight-bold">Postal Code</label>
                                 <input type="text" class="form-control" name="postal_code" id="postal_code" placeholder="Postal Code" required>
                             </div>
@@ -399,7 +399,7 @@
 
                     
                     <div class="row justify-content-center mb-4">
-                        <div class="col-10 text-center">
+                        <div class="col-12 col-md-10 text-center">
                             <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR" style="display: inline-block;"></div>
                         </div>
                     </div>

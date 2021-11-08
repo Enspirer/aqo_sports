@@ -15,3 +15,62 @@
 .custom-shadow {
     box-shadow: 0 0rem 0.5rem rgb(0 0 0 / 16%);
 }
+
+
+
+
+@media screen and (max-width: 576px) {
+    .banner {
+        height: 15rem!important;
+    }
+    .banner h1 {
+        display: none;
+    }
+    .banner h2 {
+        display: block!important;
+        color: white;
+    }
+    .banner .col-12 {
+        padding-top: 6rem!important;
+    }
+    .vision-mission {
+        margin-top: 5rem!important;
+    }
+    .vision {
+        margin-bottom: 6rem;
+    }
+    .vision .large-title {
+        left: 0%!important;
+        font-size: 6rem!important;
+    }
+    .vision h1 {
+        font-size: 4.5rem!important;
+        left: 12.5%!important;
+    }
+
+    .mission .large-title {
+        left: -6.5%!important;
+        font-size: 5.5rem!important;
+    }
+    .mission h1 {
+        font-size: 4.5rem!important;
+        left: 3.5%!important;
+    }
+    .why-us {
+        margin-top: 4rem!important;
+    }
+    .why-us .large-title {
+        font-size: 4rem!important;
+    }
+    .why-us h1 {
+        font-size: 3rem!important;
+    }
+    .why-us .side-image {
+        margin-bottom: 15rem;
+    }
+    .why-us .side-image img {
+        top: -1rem!important;
+        right: 0rem!important;
+        height: 20rem;
+    }
+}

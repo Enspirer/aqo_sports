@@ -1,7 +1,7 @@
-<section class="container-fluid pt-5 pb-3 text-white footer" style="background: transparent linear-gradient(180deg, #002a89 0%, #002855 100%) 0% 0% no-repeat padding-box">
+<section class="container-fluid pt-4 pt-md-5 pb-3 text-white footer" style="background: transparent linear-gradient(180deg, #002a89 0%, #002855 100%) 0% 0% no-repeat padding-box">
     <div class="container">
         <div class="row">
-            <div class="col-3 first-column">
+            <div class="col-12 col-md-3 first-column">
                 <a href="{{ route('frontend.index') }}"><img src="{{url('aqo_se/assets/image/logo_new.png')}}" style="height: 5rem; width: 13rem;"></a>
 
                 <p class="text-white mt-3 mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -34,14 +34,14 @@
                 </div>
                
             </div>
-            <div class="col-3 links" style="padding-left: 6rem;">
+            <div class="col-12 col-md-3 links" style="padding-left: 6rem;">
                 <h5 class="fw-bolder mt-3 mb-4">Quick Links</h5>
                 <a href="{{ route('frontend.index') }}" class="mb-3 text-decoration-none text-white">Home</a> <br>
                 <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}" class="mb-3 text-decoration-none text-white">Explore</a> <br>
                 <a href="{{ route('frontend.training') }}" class="mb-3 text-decoration-none text-white">Training</a> <br>
                 <a href="{{ route('frontend.about_us') }}" class="mb-3 text-decoration-none text-white">About Us</a>
             </div>
-            <div class="col-3 links pl-5">
+            <div class="col-12 col-md-3 links pl-3 pl-md-5">
                 <h5 class="text-white fw-bolder mt-3 mb-4">Important</h5>
                 <a href="{{ route('frontend.terms_and_conditions') }}" class="mb-3 text-decoration-none text-white">Terms & Conditions</a> <br>
                 <a href="{{ route('frontend.become_a_partner') }}" class="mb-3 text-decoration-none text-white">Become a Partner</a> <br>
@@ -49,7 +49,7 @@
                 <a href="{{ route('frontend.privacy_policy') }}" class="mb-3 text-decoration-none text-white">Privacy Policy</a> <br>
                 <a href="{{ route('frontend.faq') }}" class="mb-3 text-decoration-none text-white">FAQ</a>
             </div>
-            <div class="col-3 pl-5 social">
+            <div class="col-12 col-md-3 pl-3 pl-md-5 social">
                 <h5 class="fw-bolder mt-3 mb-4">Follow Us</h5>
 
                 <div class="row">
@@ -70,13 +70,13 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container copyright-footer">
         <hr>
-        <div class="row align-items-center mb-3">
-            <div class="col-6">
+        <div class="row align-items-center">
+            <div class="col-12 text-center col-md-6 text-md-left">
                 <p class="text-white mb-0">COPYRIGHT &copy;2021 ALL RIGHTS RESERVED</p>
             </div>
-            <div class="col-6 text-right">
+            <div class="col-12 text-center col-md-6 text-md-right">
                 <p class="text-white mb-0">POWERED BY <a href="https://www.enspirer.com" class="text-white text-decoration-none" target="_blank">ENSPIRER</a></p>
             </div>
         </div>
