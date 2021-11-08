@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-12 col-md-4 side-banner">
                         @if($homepage_ad != null)
-                            <img src="{{url('aqo_se/assets/image/dialog.png')}}" alt="" class="w-100" style="height: 29rem; object-fit: cover">
+                            <img src="{{url('files/advertisement',$homepage_ad->image)}}" alt="" class="w-100" style="height: 29rem; object-fit: cover">
                         @else
                             <img src="{{url('img/no-image.jpg')}}" alt="" class="w-100" style="height: 29rem; object-fit: cover">
                         @endif
