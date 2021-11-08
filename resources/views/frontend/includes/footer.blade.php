@@ -56,12 +56,12 @@
                     <div class="col-12">
                         <a href="https://www.facebook.com/AQO-Sports-Entertainment-100887884844064" class="mr-4" target="_blank"><i class="fab fa-facebook-square text-white"></i></a>
 
-                        <a href="" class="mr-4"><i class="fab fa-instagram text-white"></i></a>
+                        <a href="https://www.instagram.com/aqosportsandentertainment/" target="_blank" class="mr-4"><i class="fab fa-instagram text-white"></i></a>
 
                         <br><br>
-                        <a href="" class="mr-4"><i class="fab fa-linkedin text-white"></i></a>
+                        <!-- <a href="" class="mr-4"><i class="fab fa-linkedin text-white"></i></a> -->
 
-                        <a href="" class="mr-4"><i class="fab fa-youtube-square text-white"></i></a>
+                        <a href="https://www.youtube.com/channel/UCjfaVwdsnD9-GH0mX_XKC9g" target="_blank" class="mr-4"><i class="fab fa-youtube-square text-white"></i></a>
 
                     </div>
                 </div>

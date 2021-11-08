@@ -13,8 +13,9 @@
 <div class="container-fluid p-0 banner">
     <div class="container">
         <div class="row">
-            <div class="col-8" style="padding-top: 11rem">
+            <div class="col-12 col-md-8" style="padding-top: 11rem">
                 <h1 style="font-size: 70px;">Become a Partner</h1>
+                <h2 class="d-none">Become a Partner</h2>
             </div>
         </div>
     </div>

@@ -1,0 +1,17 @@
+@media screen and (max-width: 576px) {
+    .srarchBar {
+        width: 100%!important;
+    }
+    .contentExplore .container .headingTitle h1 {
+        font-size: 40px!important;
+    }
+    .search-btn {
+        width: 50%!important;
+    }
+    .contentExplore .container .exploreBody .imageCard .imageSize {
+        height: 230px!important;
+    }
+    .contentExplore .container {
+        margin-bottom: 30px!important;
+    }
+}

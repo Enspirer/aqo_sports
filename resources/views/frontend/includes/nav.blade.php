@@ -150,6 +150,15 @@
         <li>
             <a href="{{ route('frontend.contact') }}" class="{{ Request::segment(1) == 'contact' ? 'active' : null }}">Contact Us</a>
         </li>
+
+        <li class="log-reg d-none">
+            <a href="{{route('frontend.auth.login')}}" class="buttonSignIn">Sign In</a>
+        </li>
+
+        <li class="log-reg d-none">
+            <a href="{{route('frontend.auth.register')}}" class="buttonRegister">Register</a>
+        </li>
+            
     </ul>
   </div>
 </nav>

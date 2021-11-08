@@ -144,20 +144,20 @@
         <div class="container black-social" style="margin-top: 7rem; margin-bottom: 3rem;">
             <div class="row justify-content-center align-items-center mb-5">
                 <div class="col col-md-1 text-center">
-                    <a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                    <a href="https://www.facebook.com/AQO-Sports-Entertainment-100887884844064" target="_blank"><i class="fa fa-facebook-square"></i></a>
                 </div>
-                <div class="col col-md-1 text-center">
+                <!-- <div class="col col-md-1 text-center">
                     <a href="#"><i class="fa fa-twitter"></i></a>
+                </div> -->
+                <div class="col col-md-1 text-center">
+                    <a href="https://www.youtube.com/channel/UCjfaVwdsnD9-GH0mX_XKC9g" target="_blank"><i class="fa fa-youtube"></i></a>
                 </div>
                 <div class="col col-md-1 text-center">
-                    <a href="#"><i class="fa fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/aqosportsandentertainment/" target="_blank"><i class="fa fa-instagram"></i></a>
                 </div>
-                <div class="col col-md-1 text-center">
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                </div>
-                <div class="col col-md-1 text-center">
+                <!-- <div class="col col-md-1 text-center">
                     <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div>
+                </div> -->
             </div>
 
             <div class="row">

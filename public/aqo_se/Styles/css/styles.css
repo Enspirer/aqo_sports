@@ -6,7 +6,8 @@
     letter-spacing: 0px;
     color: #6D6D6D;
     text-decoration: none;
-    display: block;font-weight: 600;
+    display: block;
+    font-weight: 600;
     font-size: 18px;
     border-bottom: 2px solid transparent;
     padding-bottom: 0.2rem;
@@ -53,13 +54,29 @@
         z-index: 1;
         background: white;
     }
-    .navbar {
+    .main-nav {
         padding: 0.5rem 0.5rem!important;
+        justify-content: end;
+    }
+    .main-nav .navbar-nav {
+        text-align: center;
+    }
+    .navbar-toggler {
+        margin-right: 10px;
+    }
+    .main-nav ul li {
+        padding: 10px;
+    }
+    .main-nav ul li a {
+        display: inline-block!important;
     }
     .links {
         padding-left: 15px!important;
     }
     .copyright-footer p {
         font-size: 0.8rem;
+    }
+    .log-reg {
+        display: block!important;
     }
 }

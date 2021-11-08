@@ -1,0 +1,30 @@
+
+@media screen and (max-width: 576px) {
+    .main-image {
+        height: 15rem!important;
+    }
+    .competetionHero {
+        padding: 10px;
+        height: auto!important;
+    }
+    .competetionHero .imgaeSection {
+        height: auto!important;
+    }
+    .addSection {
+        display: none;
+    }
+    .secondNavigation .nav .nav-list {
+        display: -webkit-box!important;
+        display: -webkit-box!important;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        overflow-x: scroll;
+        flex-wrap: nowrap;
+    }
+    .competetionDetails {
+        padding-top: 35px!important;
+    }
+    .competetionDetails .container .row .rightSide .loginFormComp .container .loginFormComp {
+        width: 100%!important;
+    }
+}
