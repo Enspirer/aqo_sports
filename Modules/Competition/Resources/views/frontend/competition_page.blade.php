@@ -552,10 +552,10 @@
                                                 <h3>Welcome to AQOSE,</h3>
                                                 <p>Please Sign In to continue</p>
                                             </div>
-                                            <a href="" class="button button--facebook">Continue With Facebook</a>
-                                            <a href="" class="button button--google">Continue With Google</a>
+                                            <!-- <a href="" class="button button--facebook">Continue With Facebook</a>
+                                            <a href="" class="button button--google">Continue With Google</a> -->
 
-                                            <div class="separator">or</div>
+                                            <!-- <div class="separator">or</div> -->
 
                                             <div>
                                                 <form action="{{route('frontend.auth.login.post')}}" method="post">
