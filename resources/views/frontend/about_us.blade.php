@@ -10,12 +10,12 @@
 
 @section('content')
 
-<div class="container-fluid p-0 banner">
+<div class="container-fluid p-0 banner about-banner">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6" style="padding-top: 8rem">
-                <h1 style="font-size: 70px;">About</h1>
-                <h1 style="font-size: 85px;">AQOSE</h1>
+                <h1 class="title" style="font-size: 70px;">About</h1>
+                <h1 style="font-size: 85px; color: white">AQOSE</h1>
 
                 <h2 class="d-none">About AQOSE</h2>
             </div>

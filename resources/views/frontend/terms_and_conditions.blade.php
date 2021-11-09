@@ -10,13 +10,13 @@
 
 @section('content')
 
-<div class="container-fluid p-0 banner">
+<div class="container-fluid p-0 banner terms-banner">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-8" style="padding-top: 11rem">
-                <h1 style="font-size: 70px;">Terms and Conditions</h1>
+                <h1 class="title" style="font-size: 70px;">Terms & Conditions</h1>
 
-                <h2 class="d-none">Terms and Conditions</h2>
+                <h2 class="d-none">Terms & Conditions</h2>
             </div>
         </div>
     </div>

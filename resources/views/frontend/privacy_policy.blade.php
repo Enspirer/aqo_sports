@@ -10,11 +10,11 @@
 
 @section('content')
 
-<div class="container-fluid p-0 banner">
+<div class="container-fluid p-0 banner privacy-banner">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-8" style="padding-top: 11rem">
-                <h1 style="font-size: 70px;">Privacy Policy</h1>
+                <h1 class="title" style="font-size: 70px;">Privacy Policy</h1>
                 <h2 class="d-none">Privacy Policy</h2>
             </div>
         </div>
