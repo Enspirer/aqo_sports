@@ -10,11 +10,11 @@
 <div class="top">
     <div class="container">
         <div class="row justify-content-end">
-            <div class="logo col col-md-3 col-sm-4 col-xs-3">
-                <img src="{{url('aqo_se/assets/image/logo_new.png')}}" alt="" srcset=""/>
+            <div class="logo col col-md-3 col-sm-4 col-xs-3 justify-content-center align-items-center">
+                <a href="{{ route('frontend.index') }}" class="text-decoration-none"><img src="{{url('aqo_se/assets/image/logo_new.png')}}" alt="" srcset=""/></a>
             </div>
-            <div class="name col col-md-6 ">
-                <img src="{{url('aqo_se/assets/image/logo/aqoselightlg.png')}}" alt="" srcset=""/>
+            <div class="name col col-md-6 justify-content-center align-items-center">
+                <a href="{{ route('frontend.index') }}" class="text-decoration-none"><img src="{{url('aqo_se/assets/image/logo/aqoselightlg.png')}}" alt="" srcset=""/></a>
             </div>
             <div class="buttons col col-md-3">
 

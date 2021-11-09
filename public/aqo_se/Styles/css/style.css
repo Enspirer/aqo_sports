@@ -132,14 +132,14 @@ header .top .container .row .logo {
   display: flex;
 }
 
-header .top .container .row .logo img {
+header .top .container .row .logo a img {
   height: 50px;
   margin: auto;
   text-align: center;
 }
 
 @media (max-width: 1120px) {
-  header .top .container .row .logo img {
+  header .top .container .row .logo a img {
     height: 25px;
   }
 }
@@ -151,14 +151,14 @@ header .top .container .row .name {
   display: flex;
 }
 
-header .top .container .row .name img {
+header .top .container .row .name a img {
   height: 29px;
   margin: auto;
   text-align: center;
 }
 
 @media (max-width: 1120px) {
-  header .top .container .row .name img {
+  header .top .container .row .name a img {
     height: 29px;
   }
 }
