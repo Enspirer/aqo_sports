@@ -15,22 +15,26 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-8 mb-3 mb-md-0">
-                        <div class="swiper mySwiper">
-                            <div class="swiper-wrapper">
-                                @if(count($sliders) != 0)
-                                    @foreach($sliders as $key => $slider)
-                                        <div class="swiper-slide">
-                                            <img src="{{url('files/homepage',$slider->image)}}" class="w-100" style="height: 29rem; object-fit: cover">
-                                        </div>
-                                    @endforeach
-                                @else
-                                    <img src="{{url('img/no-image.jpg')}}" class="w-100" style="height: 29rem;">
-                                @endif
-                                
+                        @if(count($sliders) != 0)
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    @if(count($sliders) != 0)
+                                        @foreach($sliders as $key => $slider)
+                                            <div class="swiper-slide">
+                                                <img src="{{url('files/homepage',$slider->image)}}" class="w-100" style="height: 29rem; object-fit: cover">
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <img src="{{url('img/no-image.jpg')}}" class="w-100" style="height: 29rem;">
+                                    @endif
+                                    
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
                             </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
+                        @else
+                            <img src="{{url('img/no-image.jpg')}}" class="w-100" style="height: 29rem;">
+                        @endif
                     </div>
                     <div class="col-12 col-md-4 side-banner">
                         @if($homepage_ad != null)
@@ -45,7 +49,7 @@
             </div>
         </div>
 
-        <div class="trending-competitions">
+        <!-- <div class="trending-competitions">
             <div class="container">
                 <h1 class="text-center font-weight-bold">Trending Competitions</h1>
                 <div class="exploreBody">
@@ -78,7 +82,49 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+        @if(count(App\Models\Blog::where('status','Enabled')->get()) != 0)
+            <div class="container news" style="margin-top: 5rem;">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="swiper mySwiper3">
+                            <div class="swiper-wrapper">
+                                
+                                    @foreach(App\Models\Blog::where('status', 'Enabled')->get() as $key => $blog_posts)  
+                                        <div class="swiper-slide">
+                                            <a href="{{route('frontend.blog_post',$blog_posts->id)}}" style="color:black">
+                                                <div class="card" style="height: 20rem;">
+                                                    <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                                                    <div class="card-body p-2">
+                                                        <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">
+                                                            {!!$blog_posts->description!!}
+                                                        </div>
+                                                        
+                                                        <div class="row justify-content-end my-2 align-items-center">
+                                                            
+                                                            <div class="col-5 text-right">
+                                                                @if($blog_posts->category == 'Blog')
+                                                                    <a style="color: #0F9D58; font-size: 1.1rem;">{{$blog_posts->category}}</a>
+                                                                @else
+                                                                    <a style="color: #FF0000; font-size: 1.1rem;">{{$blog_posts->category}}</a>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <a>
+                                        </div>
+                                    @endforeach
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        @endif
 
         <section class="trending" style="margin-top: 5rem;">
             <div class="container">
@@ -192,7 +238,7 @@
                     </a>
                 </div> -->
 
-                @if(count(App\Models\Blog::where('status','Enabled')->get()) != 0)
+                <!-- @if(count(App\Models\Blog::where('status','Enabled')->get()) != 0)
                     @foreach(App\Models\Blog::latest()->take(2)->get() as $key => $blog_posts)  
                         <div class="col-12 col-md-4 mb-4 mb-md-0">
                             <a href="{{route('frontend.blog_post',$blog_posts->id)}}" style="color:black">
@@ -205,7 +251,7 @@
                                         
                                         <div class="row justify-content-between mt-3 align-items-center">
                                             <div class="col-7">
-                                                <!-- <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p> -->
+                                                
                                             </div>
                                             <div class="col-5 text-right">
                                                 @if($blog_posts->category == 'Blog')
@@ -220,7 +266,7 @@
                             <a>
                         </div>
                     @endforeach
-                @endif
+                @endif -->
 
                 <!-- <div class="col-3 fb">
                     <div class="card" style="height: 25rem;">
@@ -349,6 +395,31 @@
                     slidesPerView: 4,
                 }
             },
+        });
+    </script>
+
+    <script>
+        var swiper = new Swiper(".mySwiper3", {
+            navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+            },
+            slidesPerView: 3,
+            spaceBetween: 30,
+            breakpoints: {
+
+                0: {
+                    slidesPerView: 1,
+                },
+
+                576: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 3,
+                }
+            },
+            loop: true,
         });
     </script>
 
