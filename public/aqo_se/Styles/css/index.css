@@ -53,6 +53,57 @@
     margin-bottom: 0!important;
 }
 
+.mySwiper3 .read {
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.swiper-button-next, .swiper-rtl .swiper-button-prev {
+    right: 15px;
+}
+.mySwiper3 .swiper-button-next:after, .mySwiper3 .swiper-rtl .swiper-button-prev:after {
+    content: 'next';
+    font-size: 1.2rem;
+    color: white;
+    background: rgb(0, 0, 0, 0.7);
+    border-radius: 30px;
+    padding: 0.9rem 1.2rem;
+}
+
+.swiper-button-prev, .swiper-rtl .swiper-button-next {
+    left: 15px;
+}
+
+.mySwiper3 .swiper-button-prev:after, .mySwiper3 .swiper-rtl .swiper-button-next:after {
+    font-size: 1.2rem;
+    color: white;
+    background: rgb(0, 0, 0, 0.7);
+    border-radius: 30px;
+    padding: 0.9rem 1.2rem;
+}
+
+.mySwiper .read {
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.mySwiper .swiper-button-next:after, .mySwiper .swiper-rtl .swiper-button-prev:after {
+    content: 'next';
+    font-size: 1.2rem;
+    color: white;
+    background: rgb(0, 0, 0, 0.7);
+    border-radius: 30px;
+    padding: 0.9rem 1.2rem;
+}
+
+.mySwiper .swiper-button-prev:after, .mySwiper .swiper-rtl .swiper-button-next:after {
+    font-size: 1.2rem;
+    color: white;
+    background: rgb(0, 0, 0, 0.7);
+    border-radius: 30px;
+    padding: 0.9rem 1.2rem;
+}
+
 
 
 

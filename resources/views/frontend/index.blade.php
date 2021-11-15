@@ -88,29 +88,25 @@
             <div class="container news" style="margin-top: 5rem;">
                 <div class="row">
                     <div class="col-12">
+                        <h1 class="text-center font-weight-bold mb-3">Trending News</h1>
                         <div class="swiper mySwiper3">
                             <div class="swiper-wrapper">
                                 
                                     @foreach(App\Models\Blog::where('status', 'Enabled')->get() as $key => $blog_posts)  
-                                        <div class="swiper-slide">
+                                        <div class="swiper-slide position-relative">
                                             <a href="{{route('frontend.blog_post',$blog_posts->id)}}" style="color:black">
-                                                <div class="card" style="height: 20rem;">
+                                                <div class="card" style="height: 26rem;">
                                                     <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
-                                                    <div class="card-body p-2">
-                                                        <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">
+                                                    <div class="card-body">
+                                                        <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $blog_posts->title }}</h6>
+                                                        <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; font-size: 0.8rem;">
                                                             {!!$blog_posts->description!!}
                                                         </div>
                                                         
-                                                        <div class="row justify-content-end my-2 align-items-center">
-                                                            
-                                                            <div class="col-5 text-right">
-                                                                @if($blog_posts->category == 'Blog')
-                                                                    <a style="color: #0F9D58; font-size: 1.1rem;">{{$blog_posts->category}}</a>
-                                                                @else
-                                                                    <a style="color: #FF0000; font-size: 1.1rem;">{{$blog_posts->category}}</a>
-                                                                @endif
-                                                            </div>
+                                                        <div class="position-absolute read">
+                                                            <p style="color: #FF0000; font-size: 0.8rem;">Read More<i class="fas fa-arrow-right ml-2"></i></p>
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             <a>
