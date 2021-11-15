@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row justify-content-end">
             <div class="logo col col-md-3 col-sm-4 col-xs-3 justify-content-center align-items-center">
-                <a href="{{ route('frontend.index') }}" class="text-decoration-none"><img src="{{url('aqo_se/assets/image/logo_new.png')}}" alt="" srcset=""/></a>
+                <a href="{{ route('frontend.index') }}" class="text-decoration-none"><img src="{{url('aqo_se/assets/image/logo/logo_new.png')}}" alt="" srcset="" class="img-fluid"/></a>
             </div>
             <div class="name col col-md-6 justify-content-center align-items-center">
                 <a href="{{ route('frontend.index') }}" class="text-decoration-none"><img src="{{url('aqo_se/assets/image/logo/aqoselightlg.png')}}" alt="" srcset=""/></a>
@@ -147,6 +147,11 @@
         <li>
             <a href="{{ route('frontend.about_us') }}" class="{{ Request::segment(1) == 'about-us' ? 'active' : null }}">About Us</a>
         </li>
+
+        <li>
+            <a href="{{ route('frontend.posts', 'news') }}" class="{{ Request::segment(1) == 'posts' ? 'active' : null }}">News</a>
+        </li>
+
         <li>
             <a href="{{ route('frontend.contact') }}" class="{{ Request::segment(1) == 'contact' ? 'active' : null }}">Contact Us</a>
         </li>

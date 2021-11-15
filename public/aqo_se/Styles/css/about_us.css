@@ -104,9 +104,11 @@
     }
     .why-us {
         margin-top: 4rem!important;
+        margin-bottom: 8rem!important;
     }
     .why-us .large-title {
         font-size: 4rem!important;
+        top: 0rem!important;
     }
     .why-us h1 {
         font-size: 3rem!important;

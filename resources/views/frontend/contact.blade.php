@@ -74,9 +74,7 @@
                 <div class="col-12 col-md-7 pt-md-4">
                     <h4 class="mb-2 mb-md-4" style="color: #0090FF">Contact Information</h4>
 
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, ut fuga! At ut impedit consequuntur iusto necessitatibus! Earum iste aperiam distinctio voluptate ut aliquam ab. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-
-                    <div class="row mt-5">
+                    <div class="row">
                         <div class="col-12 mb-3">
                             <h6 class="font-weight-bold">Main Central Office</h6>
                         </div>
@@ -87,7 +85,7 @@
                                     <i class="bi bi-telephone-fill"></i>
                                 </div>
                                 <div class="col-11">
-                                    <p class="mb-3">0094 11 2942952 / 11 5022832</p>
+                                    <p class="mb-3">+1 647-773-4909</p>
                                 </div>
                             </div>
 
@@ -105,18 +103,18 @@
                                     <i class="bi bi-envelope-fill"></i>
                                 </div>
                                 <div class="col-11">
-                                    <p class="mb-3">info@sport.com</p>
+                                    <p class="mb-3">info@aqose.com</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-12 col-md-6">
                             <h6 class="font-weight-bolder">AQO Sports & Entertainment</h6>
-                            <p style="font-weight: 500; line-height: 1.4rem;">45/a 1st Avenue, <br> London, <br> USA</p>
+                            <p style="font-weight: 500; line-height: 1.4rem;">55 Harbour Square, <br>Downtown Toronto, Ontario, <br>M5J 2L1,<br> Canada</p>
                         </div>
                     </div>
 
-                    <div class="row mt-5">
+                    <!-- <div class="row mt-5">
                         <div class="col-12 mb-3">
                             <h6 class="font-weight-bold">Regional Office </h6>
                         </div>
@@ -154,7 +152,7 @@
                             <h6 class="font-weight-bolder">AQO Sports & Entertainment</h6>
                             <p style="font-weight: 500; line-height: 1.4rem;">490/1B, Lionel Michel Mawatha,, <br> Eriyawetiya, Kiribathgoda, Kelaniya, <br> Sri Lanka.</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

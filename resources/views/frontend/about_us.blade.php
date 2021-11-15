@@ -60,15 +60,15 @@
 </div>
 
 
-<div class="container-fluid why-us" style="background-color: #f9f9f9; margin-top: 6rem; margin-bottom: 5rem;">
+<div class="container-fluid why-us" style="background-color: #f9f9f9; margin-top: 6rem; margin-bottom: 10rem;">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-7">
                 <div class="card border-0" style="background-color: #f9f9f9;">
                     <div class="card-body position-relative">
-                        <p class="position-absolute large-title" style="opacity: 0.05; top: 0rem; font-size: 7rem; font-weight: 350; line-height: 1.2;">Why Us?</p>
-                        <h1 class="card-title mt-2 mt-md-4 mb-2" style="font-size: 70px;">Why Us?</h1>
-                        <p class="card-text" style="line-height: 1.6rem; color: #76777a">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat obcaecati minima ut itaque nesciunt, vero velit eligendi accusamus voluptatum amet debitis? Ducimus illum voluptate delectus nesciunt accusantium dolorem, ipsam officiis provident omnis doloremque officia, rem molestias. Facilis porro minima quidem assumenda nesciunt nemo nihil reprehenderit alias voluptas eos veritatis ea, ducimus illum voluptatum nisi. Accusantium obcaecati possimus, rem sequi necessitatibus accusamus dolorem eius, fugit sunt aliquam saepe ducimus ab omnis asperiores quae illum sapiente ipsa? Quidem cum non libero tempore dolor, error ratione fugit quaerat molestias? Voluptatum, quae sint! Excepturi distinctio qui fuga quas id reprehenderit corporis suscipit laboriosam vitae?</p>
+                        <p class="position-absolute large-title" style="opacity: 0.05; top: 1rem; font-size: 5rem; font-weight: 350; line-height: 1.2;">Why AQOSE?</p>
+                        <h1 class="card-title mt-2 mt-md-4 mb-2" style="font-size: 70px;">Why AQOSE?</h1>
+                        <p class="card-text" style="line-height: 1.6rem; color: #76777a">At AQOSE we represent talent and skill, going above and beyond, committing ourselves to propel sporting prowess and creativity to new heights, never settling for offering anything less than the very best. We work towards offering a full range of services for those who come to us to ensure that they enhance their talents and skills to greater stratas and are given the opportunity to showcase themselves at the best competitions held worldwide to reap the best benefits.</p>
                     </div>
                 </div>
             </div>

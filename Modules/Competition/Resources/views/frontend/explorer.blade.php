@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="contentExplore">
+    <!-- <div class="contentExplore">
         <div class="container">
             <div class="srarchBar">
                 <form action="{{route('frontend.search_keyword')}}" method="post">
@@ -352,8 +352,6 @@
                             <div class="think-image">
                                 <img src="{{ url('aqo_se/assets/image/think-image-2.png') }}" alt="">
                                 <h1 style="font: normal normal bold 39px/49px Playfair Display">Looks A Little Bit <br> Empty Here!</h1>
-                                <!-- <p>No competitions found, Do you <br> want to explorer new competitions?</p>
-                                <button>Find competitions</button> -->
                             </div>
                         </div>
                     @else
@@ -376,41 +374,19 @@
                         @endforeach
                     @endif
                 </div>
-
-                {{--<div class="pagination">--}}
-                    {{--<nav aria-label="Page navigation example">--}}
-                        {{--<ul class="pagination justify-content-center">--}}
-                            {{--<li class="page-item">--}}
-                                {{--<a class="page-link" href="#"--}}
-                                {{--><i class="fa fa-angle-left" aria-hidden="true"></i--}}
-                                    {{--></a>--}}
-                            {{--</li>--}}
-                            {{--<li class="page-item">--}}
-                                {{--<a class="page-link" href="#">1</a>--}}
-                            {{--</li>--}}
-                            {{--<li class="page-item">--}}
-                                {{--<a class="page-link" href="#">2</a>--}}
-                            {{--</li>--}}
-                            {{--<li class="page-item">--}}
-                                {{--<a class="page-link" href="#">3</a>--}}
-                            {{--</li>--}}
-                            {{--<li class="page-item">--}}
-                                {{--<a class="page-link" href="#"--}}
-                                {{--><i class="fa fa-angle-right" aria-hidden="true"></i--}}
-                                    {{--></a>--}}
-                            {{--</li>--}}
-                        {{--</ul>--}}
-                    {{--</nav>--}}
-                {{--</div>--}}
             </div>
             <div class="addSectionHorizantle">
                 <div class="container">
-                    <img
-                            src="assets/image/5e67b03c59a90_thumb900.jpg"
-                            alt=""
-                            srcset=""
-                    />
+                    <img src="assets/image/5e67b03c59a90_thumb900.jpg" alt="" srcset=""/>
                 </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container" style="margin-top: 10rem; margin-bottom: 10rem;">
+        <div class="row text-center">
+            <div class="col-12">
+                <h1 style="font-size: 4rem; color: #6D6D6D">COMING SOON</h1>
             </div>
         </div>
     </div>

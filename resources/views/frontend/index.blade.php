@@ -177,37 +177,37 @@
                         <div class="swiper mySwiper4 py-2">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide position-relative">
-                                    <div class="card" style="height: 7rem;">
+                                    <div class="card p-1">
                                         <img src="{{url('aqo_se/assets/image/index/logo_1.jpg')}}" alt="" class="img-fluid">
                                     </div>
                                 </div>
 
                                 <div class="swiper-slide position-relative">
-                                    <div class="card" style="height: 7rem;">
+                                    <div class="card p-1">
                                         <img src="{{url('aqo_se/assets/image/index/logo_2.jpg')}}" alt="" class="img-fluid">
                                     </div>
                                 </div>
 
                                 <div class="swiper-slide position-relative">
-                                    <div class="card" style="height: 7rem;">
+                                    <div class="card p-1">
                                         <img src="{{url('aqo_se/assets/image/index/logo_3.jpg')}}" alt="" class="img-fluid">
                                     </div>
                                 </div>
 
                                 <div class="swiper-slide position-relative">
-                                    <div class="card" style="height: 7rem;">
+                                    <div class="card p-1">
                                         <img src="{{url('aqo_se/assets/image/index/logo_4.jpg')}}" alt="" class="img-fluid">
                                     </div>
                                 </div>
 
                                 <div class="swiper-slide position-relative">
-                                    <div class="card" style="height: 7rem;">
+                                    <div class="card p-1">
                                         <img src="{{url('aqo_se/assets/image/index/logo_5.jpg')}}" alt="" class="img-fluid">
                                     </div>
                                 </div>
 
                                 <div class="swiper-slide position-relative">
-                                    <div class="card" style="height: 7rem;">
+                                    <div class="card p-1">
                                         <img src="{{url('aqo_se/assets/image/index/logo_6.jpg')}}" alt="" class="img-fluid">
                                     </div>
                                 </div>
@@ -231,13 +231,13 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-12 col-md-4 mb-4 mb-md-0 fb">
                     <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAQO-Sports-Entertainment-100887884844064&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=901780930716877" style="border:none;overflow:hidden; width: 100%; height: 26rem;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                 </div>
 
                 @if(count(App\Models\Blog::where('status','Enabled')->get()) != 0)
-                    @foreach(App\Models\Blog::where('category', 'Blog')->latest()->take(2)->get() as $key => $blog_posts)  
+                    @foreach(App\Models\Blog::where('category', 'Blog')->latest()->take(1)->get() as $key => $blog_posts)  
                         <div class="col-12 col-md-4 mb-4 mb-md-0 position-relative">
                             <a href="{{route('frontend.posts', 'blogs')}}" style="color:black">
                                 <div class="card" style="height: 26rem;">

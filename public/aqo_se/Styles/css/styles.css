@@ -19,11 +19,13 @@
     border-bottom: 2px solid rgba(0, 35, 122, 1)!important;
 }
 .footer p, .footer .first-column i {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .social i {
-    font-size: 3rem;
+    font-size: 2rem;
+    background-color: #8a6e4b;
+    padding: 0.5rem 0.7rem;
 }
 
 .footer .links a {
