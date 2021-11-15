@@ -27,7 +27,7 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-12 text-md-center">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, totam. Fuga eum voluptatem rerum placeat repellendus, illum quidem provident ullam impedit eligendi quae assumenda suscipit blanditiis corrupti deserunt quisquam alias laudantium sunt commodi consequuntur! Nulla harum tenetur autem ipsam error ab eligendi? Sunt sint quis est similique, vero distinctio. Nesciunt quae neque eos ea culpa eveniet enim consectetur, saepe provident quasi dolor labore fugit, accusantium deserunt nobis nulla quis esse est fugiat, recusandae optio similique. Ducimus ipsum error vitae, eveniet aperiam labore ab dolorum officiis fugit dolorem corporis animi necessitatibus cupiditate voluptate odit sed reprehenderit deserunt iure explicabo hic id doloremque. Sed rerum nulla, eligendi quos aliquam, error laudantium officiis corrupti, eos dicta quia voluptatem officia animi ut repellat.</p>
+            <p class="mb-1">AQO Sports and Entertainment is a purpose driven online platform that brings together a wide variety of talent and creativity from the Sporting and Creativity arenas along with passionate individuals from each specific genre to support and uplift the younger generations by harnessing and enhancing their skills, capabilities and talents. <br>AQOSE is a part of the AQO Foundation which has been established by Anna Marie Ondaatje to give back to the society by supporting individuals, matching their diverse needs with available resources, uplifting their lives and improving their livelihood.</p>
         </div>
     </div>
 </div>
@@ -37,21 +37,21 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 vision">
-                <div class="card border-0 custom-shadow" style="background-color: #f9f9f9;">
+                <div class="card border-0 custom-shadow" style="background-color: #f9f9f9; height: 13rem;">
                     <div class="card-body py-5 px-4 position-relative text-center">
                         <p class="position-absolute large-title" style="opacity: 0.05; top: -5rem; left: 16%; font-size: 7rem;font-weight: 600; line-height: 1.2; z-index: -1;">VISION</p>
                         <h1 class="card-title mb-2 position-absolute" style="font-size: 80px; top: -2.8rem; left: 25%;">VISION</h1>
-                        <p class="card-text" style="line-height: 1.6rem; color: #76777a">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem ipsum pariatur natus architecto ullam odio doloremque perferendis dolore incidunt tempora cupiditate temporibus numquam quisquam nesciunt, sed unde consequatur officia voluptatum necessitatibus asperiores, neque ipsa minus? Molestias enim perferendis quisquam mollitia alias at molestiae necessitatibus, voluptas in repudiandae! Dolores culpa veritatis quibusdam voluptate voluptas</p>
+                        <p class="card-text" style="line-height: 1.6rem; color: #76777a">To be a leading Sports & Entertainment platform that will allow to showcase skill and talent within an equal opportunity framework through proper development and delivery of a wide variety of sporting and entertainment opportunities.</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-12 col-md-6 mission">
-                <div class="card border-0 custom-shadow" style="background-color: #f9f9f9;">
+                <div class="card border-0 custom-shadow" style="background-color: #f9f9f9; height: 13rem;">
                     <div class="card-body py-5 px-4 position-relative text-center">
                         <p class="position-absolute large-title" style="opacity: 0.05; top: -5rem; left: 8%; font-size: 7rem;font-weight: 600; line-height: 1.2; z-index: -1;">MISSION</p>
                         <h1 class="card-title mb-2 position-absolute" style="font-size: 80px; top: -2.8rem; left: 21%;">MISSION</h1>
-                        <p class="card-text" style="line-height: 1.6rem; color: #76777a">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem ipsum pariatur natus architecto ullam odio doloremque perferendis dolore incidunt tempora cupiditate temporibus numquam quisquam nesciunt, sed unde consequatur officia voluptatum necessitatibus asperiores, neque ipsa minus? Molestias enim perferendis quisquam mollitia alias at molestiae necessitatibus, voluptas in repudiandae! Dolores culpa veritatis quibusdam voluptate voluptas</p>
+                        <p class="card-text" style="line-height: 1.6rem; color: #76777a">AQO Sports and Entertainment is committed to providing world class sports and entertainment opportunities and activities for multiple audiences. AQOSE will celebrate the best in sport and entertainment, respecting diversity and humanity whilst working with the community to improve the lives of those involved.</p>
                     </div>
                 </div>
             </div>

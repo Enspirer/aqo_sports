@@ -301,15 +301,15 @@
 @push('after-scripts')
 
 <script>
-    $.get("{{route('facebook_news')}}", function(data, status){
-        var backimage_f = JSON.parse(data);
-        $("#facebook_src").attr("src",backimage_f.image);
-        $("#description_fb").html(backimage_f.title);
-        // $("#stack_panel").attr("href",backimage_f.link);
-    }).
-    fail(function(jqXHR, textStatus, errorThrown) {
-        $('.fb').addClass('d-none');
-    });
+    // $.get("{{route('facebook_news')}}", function(data, status){
+    //     var backimage_f = JSON.parse(data);
+    //     $("#facebook_src").attr("src",backimage_f.image);
+    //     $("#description_fb").html(backimage_f.title);
+    //     // $("#stack_panel").attr("href",backimage_f.link);
+    // }).
+    // fail(function(jqXHR, textStatus, errorThrown) {
+    //     $('.fb').addClass('d-none');
+    // });
 
 
     $.get("{{route('twitter_news')}}", function(data, status){

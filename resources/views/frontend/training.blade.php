@@ -48,7 +48,7 @@
         <div class="col-12 col-md-8 text-center">
             <h1 class="font-weight-bold">Get trained with the experts</h1>
 
-            <p style="font-size: 0.9rem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, totam. Fuga eum voluptatem rerum placeat repellendus, illum quidem provident ullam impedit eligendi quae assumenda suscipit blanditiis corrupti deserunt quisquam alias laudantium sunt commodi consequuntur! Nulla harum tenetur autem ipsam error ab eligendi? Sunt sint quis est similique, vero distinctio.</p>
+            <p style="font-size: 0.9rem">Train with world renowned professionals and experts to elevate your talents and skills and open the doorways to endless opportunities through international forums and arenas.</p>
         </div>
     </div>
 </div>
