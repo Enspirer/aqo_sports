@@ -14,21 +14,21 @@
     <div class="container">
         <div class="row">
             <div class="col-12" style="padding-top: 3rem">
-                <h1 style="font-size: 70px;">Latest {{$blog->category}} Details</h1>
+                <h1 class="fw-bolder text-center" style="font-size: 50px;">Latest {{$blog->category}} Details</h1>
             </div>
         </div>
     </div>
 </div>
 
 
-<div class="container blog">
+<div class="container blog" style="margin-bottom: 5rem;">
     <div class="row">
         <div class="col-12">
             <h3>{{$blog->title}}</h3>
             <p class="mb-0" style="font-size:14px">Category: {{$blog->category}}  &nbsp;&nbsp;&nbsp; Created Date: {{ $blog->created_at->format('d M Y') }} </p>
         </div>
     </div>
-    <div class="row mt-4" style="margin-bottom: 5rem;">
+    <div class="row mt-4">
         <div class="col-12 col-md-6">
             <img src="{{url('files/blog',$blog->feature_image)}}" class="img-fluid"/>
         </div>

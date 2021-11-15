@@ -1591,15 +1591,14 @@ header .bottom.sticky {
   -webkit-box-shadow: 0px 2px 15px #0000004d;
           box-shadow: 0px 2px 15px #0000004d;
   border: none;
-  border-radius: 50%;
+  /* border-radius: 50%;
   width: 200px;
   height: 200px;
-  margin: auto;
+  margin: auto; */
 }
 
 .our-group .container .row .card img {
-  width: 150px;
-  margin: auto;
+  height: 100%;
 }
 
 .dashboard-body {

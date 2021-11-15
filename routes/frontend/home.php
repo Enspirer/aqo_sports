@@ -35,7 +35,8 @@ Route::get('become-a-partner', [BecomeAPartnerController::class, 'index'])->name
 Route::get('cookie-policy', [CookiePolicyController::class, 'index'])->name('cookie_policy');
 Route::get('faq', [FAQController::class, 'index'])->name('faq');
 Route::get('privacy-policy', [PrivacyPolicyController::class, 'index'])->name('privacy_policy');
-Route::get('blog_post/{id}', [BlogPostController::class, 'index'])->name('blog_post');
+Route::get('posts/{category}', [BlogPostController::class, 'allPosts'])->name('posts');
+Route::get('blog-posts/{id}', [BlogPostController::class, 'index'])->name('blog_post');
 
 
 Route::get('contact', [ContactController::class, 'index'])->name('contact');

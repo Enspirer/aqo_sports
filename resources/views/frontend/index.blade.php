@@ -92,29 +92,33 @@
                         <div class="swiper mySwiper3">
                             <div class="swiper-wrapper">
                                 
-                                    @foreach(App\Models\Blog::where('status', 'Enabled')->get() as $key => $blog_posts)  
-                                        <div class="swiper-slide position-relative">
-                                            <a href="{{route('frontend.blog_post',$blog_posts->id)}}" style="color:black">
-                                                <div class="card" style="height: 26rem;">
-                                                    <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
-                                                    <div class="card-body">
-                                                        <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $blog_posts->title }}</h6>
-                                                        <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; font-size: 0.8rem;">
-                                                            {!!$blog_posts->description!!}
-                                                        </div>
-                                                        
-                                                        <div class="position-absolute read">
-                                                            <p style="color: #FF0000; font-size: 0.8rem;">Read More<i class="fas fa-arrow-right ml-2"></i></p>
-                                                        </div>
-
+                                @foreach(App\Models\Blog::where('status', 'Enabled')->get() as $key => $blog_posts)  
+                                    <div class="swiper-slide position-relative">
+                                        <a href="{{route('frontend.blog_post',$blog_posts->id)}}" style="color:black">
+                                            <div class="card" style="height: 26rem;">
+                                                <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                                                <div class="card-body">
+                                                    <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $blog_posts->title }}</h6>
+                                                    <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; font-size: 0.8rem;">
+                                                        {!!$blog_posts->description!!}
                                                     </div>
+                                                    
+                                                    <div class="position-absolute read">
+                                                        <p style="color: #FF0000; font-size: 0.8rem;">Read More<i class="fas fa-arrow-right ml-2"></i></p>
+                                                    </div>
+
                                                 </div>
-                                            <a>
-                                        </div>
-                                    @endforeach
+                                            </div>
+                                        <a>
+                                    </div>
+                                @endforeach
                             </div>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="{{ route('frontend.posts', 'news') }}" type="button" class="btn text-white px-5 py-2 view" style="background-color: #002979; font-size: 1.1rem;">View all news</a>
                         </div>
                     </div>
                 </div>
@@ -164,176 +168,96 @@
             </div>
         </section>
 
+
         <section class="our-group" style="margin-top: 5rem;">
             <div class="container">
                 <h1 class="text-center font-weight-bold">AQO Group</h1>
                 <div class="row mt-5">
-                    <div class="card rounded-circle mb-4 mb-md-0">
-                        <img src="{{url('aqo_se/assets/image/logo1.png')}}" alt="">
-                    </div>
+                    <div class="col-12">
+                        <div class="swiper mySwiper4 py-2">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide position-relative">
+                                    <div class="card" style="height: 7rem;">
+                                        <img src="{{url('aqo_se/assets/image/index/logo_1.jpg')}}" alt="" class="img-fluid">
+                                    </div>
+                                </div>
 
-                    <div class="card rounded-circle mb-4 mb-md-0">
-                        <img src="{{url('aqo_se/assets/image/logo5.png')}}" alt="">
-                    </div>
+                                <div class="swiper-slide position-relative">
+                                    <div class="card" style="height: 7rem;">
+                                        <img src="{{url('aqo_se/assets/image/index/logo_2.jpg')}}" alt="" class="img-fluid">
+                                    </div>
+                                </div>
 
-                    <div class="card rounded-circle mb-4 mb-md-0">
-                        <img src="{{url('aqo_se/assets/image/logo3.png')}}" alt="">
-                    </div>
+                                <div class="swiper-slide position-relative">
+                                    <div class="card" style="height: 7rem;">
+                                        <img src="{{url('aqo_se/assets/image/index/logo_3.jpg')}}" alt="" class="img-fluid">
+                                    </div>
+                                </div>
 
-                    <div class="card rounded-circle mb-4 mb-md-0">
-                        <img src="{{url('aqo_se/assets/image/logo4.png')}}" alt="">
+                                <div class="swiper-slide position-relative">
+                                    <div class="card" style="height: 7rem;">
+                                        <img src="{{url('aqo_se/assets/image/index/logo_4.jpg')}}" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide position-relative">
+                                    <div class="card" style="height: 7rem;">
+                                        <img src="{{url('aqo_se/assets/image/index/logo_5.jpg')}}" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide position-relative">
+                                    <div class="card" style="height: 7rem;">
+                                        <img src="{{url('aqo_se/assets/image/index/logo_6.jpg')}}" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <div class="container black-social" style="margin-top: 7rem; margin-bottom: 3rem;">
-            <div class="row justify-content-center align-items-center mb-5">
+            <div class="row justify-content-center align-items-center mb-5 icons">
                 <div class="col col-md-1 text-center">
                     <a href="https://www.facebook.com/AQO-Sports-Entertainment-100887884844064" target="_blank"><i class="fa fa-facebook-square"></i></a>
                 </div>
-                <!-- <div class="col col-md-1 text-center">
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                </div> -->
                 <div class="col col-md-1 text-center">
                     <a href="https://www.youtube.com/channel/UCjfaVwdsnD9-GH0mX_XKC9g" target="_blank"><i class="fa fa-youtube"></i></a>
                 </div>
                 <div class="col col-md-1 text-center">
                     <a href="https://www.instagram.com/aqosportsandentertainment/" target="_blank"><i class="fa fa-instagram"></i></a>
                 </div>
-                <!-- <div class="col col-md-1 text-center">
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                </div> -->
             </div>
 
             <div class="row">
                 <div class="col-12 col-md-4 mb-4 mb-md-0 fb">
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAQO-Sports-Entertainment-100887884844064&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=901780930716877" style="border:none;overflow:hidden; width: 100%; height: 25rem;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAQO-Sports-Entertainment-100887884844064&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=901780930716877" style="border:none;overflow:hidden; width: 100%; height: 26rem;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                 </div>
 
-                <!-- <div class="col-12 col-md-3 mb-4 mb-md-0 twitter">
-                    <a href="" style="color:black" target="_blank" class="twitter-link">
-                        <div class="card" style="height: 25rem;">
-                            <img src="{{ url('aqo_se/assets/image/twitter_large.png') }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
-                            <div class="card-body">
-
-                                <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; font-size: 1rem;">
-                                    <p class="card-text mb-1" id="description_twitter"></p>
-                                </div>
-                                
-                                <div class="row justify-content-between mt-3 align-items-center">
-                                    <div class="col-7">
-                                        
-                                    </div>
-                                    <div class="col-5 text-right">
-                                        <img src="{{url('aqo_se/assets/image/index/twitter_color.png')}}" alt="" class="img-fluid">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div> -->
-
-                <!-- @if(count(App\Models\Blog::where('status','Enabled')->get()) != 0)
-                    @foreach(App\Models\Blog::latest()->take(2)->get() as $key => $blog_posts)  
-                        <div class="col-12 col-md-4 mb-4 mb-md-0">
-                            <a href="{{route('frontend.blog_post',$blog_posts->id)}}" style="color:black">
-                                <div class="card" style="height: 25rem;">
+                @if(count(App\Models\Blog::where('status','Enabled')->get()) != 0)
+                    @foreach(App\Models\Blog::where('category', 'Blog')->latest()->take(2)->get() as $key => $blog_posts)  
+                        <div class="col-12 col-md-4 mb-4 mb-md-0 position-relative">
+                            <a href="{{route('frontend.posts', 'blogs')}}" style="color:black">
+                                <div class="card" style="height: 26rem;">
                                     <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
-                                    <div class="card-body p-2">
-                                        <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical; font-size: 0.8rem;">
-                                            <p class="card-text mb-1">{!!$blog_posts->description!!}</p>
+                                    <div class="card-body">
+                                        <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $blog_posts->title }}</h6>
+                                        <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; font-size: 0.8rem;">
+                                            {!!$blog_posts->description!!}
                                         </div>
                                         
-                                        <div class="row justify-content-between mt-3 align-items-center">
-                                            <div class="col-7">
-                                                
-                                            </div>
-                                            <div class="col-5 text-right">
-                                                @if($blog_posts->category == 'Blog')
-                                                    <a style="color: #0F9D58; font-size: 1.1rem;">{{$blog_posts->category}}</a>
-                                                @else
-                                                    <a style="color: #FF0000; font-size: 1.1rem;">{{$blog_posts->category}}</a>
-                                                @endif
-                                            </div>
+                                        <div class="position-absolute read">
+                                            <p style="color: #FF0000; font-size: 0.8rem;">Read More<i class="fas fa-arrow-right ml-2"></i></p>
                                         </div>
+
                                     </div>
                                 </div>
                             <a>
                         </div>
                     @endforeach
-                @endif -->
-
-                <!-- <div class="col-3 fb">
-                    <div class="card" style="height: 25rem;">
-                        <img src="{{url('aqo_se/assets/image/index/social_1.png')}}" class="img-fluid w-100" alt="..." style="object-fit: cover; height: 13rem;">
-                        <div class="card-body p-2">
-                            <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 115px; font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
-                            
-                            <div class="row justify-content-between mt-3 align-items-center">
-                                <div class="col-7">
-                                    <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p>
-                                </div>
-                                <div class="col-5 text-right">
-                                    <img src="{{url('aqo_se/assets/image/index/fb_color.png')}}" alt="" class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>            
-                <div class="col-3 twitter">
-                    <div class="card" style="height: 25rem;">
-                        <img src="{{url('aqo_se/assets/image/index/social_2.png')}}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
-                        <div class="card-body p-2">
-                            <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 115px; font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
-                            
-                            <div class="row justify-content-between mt-3 align-items-center">
-                                <div class="col-7">
-                                    <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p>
-                                </div>
-                                <div class="col-5 text-right">
-                                    <img src="{{url('aqo_se/assets/image/index/twitter_color.png')}}" alt="" class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- <div class="col-3">
-                    <div class="card" style="height: 25rem;">
-                        <img src="{{url('aqo_se/assets/image/index/social_3.png')}}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
-                        <div class="card-body p-2">
-                            <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 115px; font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
-                            
-                            <div class="row justify-content-between mt-3 align-items-center">
-                                <div class="col-7">
-                                    <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p>
-                                </div>
-                                <div class="col-5 text-right">
-                                    <a href="#" style="color: #0F9D58; font-size: 1.1rem;">Blogs</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="card" style="height: 25rem;">
-                        <img src="{{url('aqo_se/assets/image/index/social_4.png')}}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
-                        <div class="card-body p-2">
-                            <p class="card-text mb-1" style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5; /* number of lines to show */-webkit-box-orient: vertical;height: 115px; font-size: 0.8rem;">We're giving away 100,000,000 $Shib to 5 random people (20,000,000 each)Money bag RocketFollow Me! Gem stoneRetweet and Like. Open handsComment #SHIBARMY  ⚠followers only giveaway⚠ #BTC  #ETH #Giveaway #ADA</p>
-
-                            <div class="row justify-content-between mt-3 align-items-center">
-                                <div class="col-7">
-                                    <p style="color: #55ACEE; font-size: 0.8rem">7 minutes ago</p>
-                                </div>
-                                <div class="col-5 text-right">
-                                    <a href="#" style="color: #FF0000; font-size: 1.1rem;">News</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+                @endif
             </div>
         </div>
     </div>
@@ -342,7 +266,7 @@
 
 @push('after-scripts')
 
-<script>
+<!-- <script>
     $.get("{{route('twitter_news')}}", function(data, status){
         var data = JSON.parse(data);
         $(".twitter-link").attr("href", data.link);
@@ -352,7 +276,7 @@
         $('.twitter').addClass('d-none');
     });
 
-</script>
+</script> -->
 
     <!-- Initialize Swiper -->
     <script>
@@ -417,6 +341,20 @@
             },
             loop: true,
         });
+    </script>
+
+    <script>
+      var swiper = new Swiper(".mySwiper4", {
+        loop: true,
+        spaceBetween: 20,
+        slidesPerView: 6,
+        freeMode: true,
+        watchSlidesProgress: true,
+        autoplay: {
+          delay: 1000,
+          disableOnInteraction: false,
+        },
+      });
     </script>
 
 

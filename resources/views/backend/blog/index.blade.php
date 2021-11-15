@@ -10,9 +10,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Blogs&nbsp;</strong>
+                    <strong>Posts&nbsp;</strong>
 
-                    <a href="{{route('admin.blog.create')}}" class="btn btn-primary pull-right ml-4">Create Blog</a>
+                    <a href="{{route('admin.blog.create')}}" class="btn btn-primary pull-right ml-4">Create Post</a>
                    
                 </div><!--card-header-->
 

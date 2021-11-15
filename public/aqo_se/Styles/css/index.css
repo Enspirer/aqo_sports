@@ -1,14 +1,10 @@
-.black-social a i {
+.black-social .icons a i {
     color: black;
     font-size: 3rem;
 }
 
-.black-social a:hover i {
+.black-social .icons a:hover i {
     color: #007bff;
-}
-
-.black-social p {
-    margin-bottom: 0;
 }
 
 .carousel-caption {
@@ -82,11 +78,6 @@
     padding: 0.9rem 1.2rem;
 }
 
-.mySwiper .read {
-    right: 1rem;
-    bottom: 1rem;
-}
-
 .mySwiper .swiper-button-next:after, .mySwiper .swiper-rtl .swiper-button-prev:after {
     content: 'next';
     font-size: 1.2rem;
@@ -104,7 +95,19 @@
     padding: 0.9rem 1.2rem;
 }
 
+.view:hover {
+    background-color: blue!important;
+}
 
+
+.black-social p {
+    margin-bottom: 0!important;
+}
+
+.black-social .read {
+    right: 1rem;
+    bottom: 1rem;
+}
 
 
 @media screen and (max-width: 576px) {
