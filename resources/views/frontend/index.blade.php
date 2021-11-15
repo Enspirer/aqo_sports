@@ -124,7 +124,7 @@
 
         <section class="our-group" style="margin-top: 5rem;">
             <div class="container">
-                <h1 class="text-center font-weight-bold">AQO  Group</h1>
+                <h1 class="text-center font-weight-bold">AQO Group</h1>
                 <div class="row mt-5">
                     <div class="card rounded-circle mb-4 mb-md-0">
                         <img src="{{url('aqo_se/assets/image/logo1.png')}}" alt="">
