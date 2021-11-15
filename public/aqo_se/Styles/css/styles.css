@@ -18,8 +18,12 @@
 .main-nav ul li a.active {
     border-bottom: 2px solid rgba(0, 35, 122, 1)!important;
 }
-.footer p, .footer .first-column i {
+.footer .first-column i {
     font-size: 1rem;
+}
+
+.footer p {
+    font-size: 0.9rem;
 }
 
 .social i {
