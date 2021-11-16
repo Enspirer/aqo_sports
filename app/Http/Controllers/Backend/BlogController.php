@@ -88,6 +88,7 @@ class BlogController extends Controller
             $add->description=$request->description;        
             $add->feature_image=$image_url;
             $add->order=$request->order;
+            $add->external_link=$request->external_link;
             $add->featured_blog=$request->featured;
             $add->status=$request->status;
             $add->save();
@@ -136,6 +137,7 @@ class BlogController extends Controller
             $update->category=$request->category; 
             $update->description=$request->description;        
             $update->feature_image=$image_url;
+            $update->external_link=$request->external_link;
             $update->order=$request->order;
             $update->featured_blog=$request->featured;
             $update->status=$request->status;
