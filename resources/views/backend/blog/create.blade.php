@@ -50,6 +50,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label>External_link</label>
+                            <input type="text" class="form-control" name="external_link">
+                        </div>
+
+                        <div class="form-group">
                             <label>Status <span style="color:red">*<span></label>
                             <select class="form-control" name="status" required>
                                 <option value="Enabled">Enable</option>   
