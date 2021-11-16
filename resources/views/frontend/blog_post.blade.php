@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12" style="padding-top: 3rem">
-                <h1 class="fw-bolder text-center" style="font-size: 50px;">Latest {{$blog->category}} Details</h1>
+                <h1 class="fw-bolder text-center" style="font-size: 50px;">Trending {{$blog->category}}</h1>
             </div>
         </div>
     </div>

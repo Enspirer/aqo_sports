@@ -71,12 +71,13 @@
                     </form>
                 </div>
 
-                <div class="col-12 col-md-7 pt-md-4">
+                <div class="col-12 col-md-7 pt-md-4 pl-3 pl-md-5">
                     <h4 class="mb-2 mb-md-4" style="color: #0090FF">Contact Information</h4>
 
                     <div class="row">
                         <div class="col-12 mb-3">
-                            <h6 class="font-weight-bold">Main Central Office</h6>
+                            <h6 class="font-weight-bolder">AQO Sports & Entertainment</h6>
+                            <p style="font-weight: 500; line-height: 1.4rem;">55 Harbour Square, <br>Downtown Toronto, Ontario, <br>M5J 2L1,<br> Canada</p>
                         </div>
                     
                         <div class="col-12 col-md-6 main-office mb-3 mb-md-0">
@@ -108,10 +109,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6">
-                            <h6 class="font-weight-bolder">AQO Sports & Entertainment</h6>
-                            <p style="font-weight: 500; line-height: 1.4rem;">55 Harbour Square, <br>Downtown Toronto, Ontario, <br>M5J 2L1,<br> Canada</p>
-                        </div>
+                        
                     </div>
 
                     <!-- <div class="row mt-5">

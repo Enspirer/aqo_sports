@@ -38,9 +38,13 @@
                     </div>
                     <div class="col-12 col-md-4 side-banner">
                         @if($homepage_ad != null)
-                        <a href="{{$homepage_ad->link}}" target="_blank" >
-                            <img src="{{url('files/advertisement',$homepage_ad->image)}}" alt="" class="w-100" style="height: 29rem;">
-                        </a>
+                            @if($homepage_ad->link != null)
+                                <a href="{{$homepage_ad->link}}" target="_blank" >
+                                    <img src="{{url('files/advertisement',$homepage_ad->image)}}" alt="" class="w-100" style="height: 29rem;">
+                                </a>
+                            @else
+                                <img src="{{url('files/advertisement',$homepage_ad->image)}}" alt="" class="w-100" style="height: 29rem;">
+                            @endif
                         @else
                             <img src="{{url('img/no-image.jpg')}}" alt="" class="w-100" style="height: 29rem; object-fit: cover">
                         @endif
@@ -227,28 +231,30 @@
 
             <div class="row justify-content-center">
                 <div class="col-12 col-md-4 mb-4 mb-md-0 fb">
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAQO-Sports-Entertainment-100887884844064&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=901780930716877" style="border:none;overflow:hidden; width: 100%; height: 26rem;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAQO-Sports-Entertainment-100887884844064&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=901780930716877" style="border:none;overflow:hidden; width: 100%; height: 29rem;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                 </div>
 
                 @if(count(App\Models\Blog::where('status','Enabled')->get()) != 0)
                     @foreach(App\Models\Blog::where('category', 'Blog')->latest()->take(1)->get() as $key => $blog_posts)  
                         <div class="col-12 col-md-4 mb-4 mb-md-0 position-relative">
-                            <a href="{{route('frontend.posts', 'blogs')}}" style="color:black">
-                                <div class="card" style="height: 29rem;">
-                                    <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="height: 17rem; object-fit: cover;">
-                                    <div class="card-body">
-                                        <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $blog_posts->title }}</h6>
-                                        <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; font-size: 0.8rem;">
-                                            {!!$blog_posts->description!!}
-                                        </div>
-                                        
-                                        <div class="position-absolute read">
-                                            <p style="color: #FF0000; font-size: 0.8rem;">Read More<i class="fas fa-arrow-right ml-2"></i></p>
-                                        </div>
-
+                            <div class="card" style="height: 29rem;">
+                                <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="height: 17rem; object-fit: cover;">
+                                <div class="card-body">
+                                    <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $blog_posts->title }}</h6>
+                                    <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; font-size: 0.8rem;">
+                                        {!!$blog_posts->description!!}
                                     </div>
+
+                                    <div class="position-absolute article">
+                                        <a type="button" class="btn">View Article</a>
+                                    </div>
+                                    
+                                    <div class="position-absolute read">
+                                        <a href="{{route('frontend.posts', 'blogs')}}" style="color: #FF0000; font-size: 0.8rem;">Read More<i class="fas fa-arrow-right ml-2"></i></a>
+                                    </div>
+
                                 </div>
-                            <a>
+                            </div>
                         </div>
                     @endforeach
                 @endif
