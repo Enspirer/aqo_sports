@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-3 first-column">
-                <a href="{{ route('frontend.index') }}"><img src="{{url('aqo_se/assets/image/logo/logo_new.png')}}" class="img-fluid"></a>
+                <a href="{{ route('frontend.index') }}"><img src="{{url('aqo_se/assets/image/logo/logo_new.png')}}" class="img-fluid" style="image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */"></a>
 
                 <!-- <p class="text-white mt-3 mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> -->
 
