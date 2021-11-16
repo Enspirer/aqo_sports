@@ -173,37 +173,37 @@
             <div class="container">
                 <h1 class="text-center font-weight-bold">AQO Group</h1>
                 <div class="row mt-5">
-                    <div class="col">
+                    <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
                             <img src="{{url('aqo_se/assets/image/index/logo_1.jpg')}}" alt="" class="img-fluid">
                         </div>
                     </div>
 
-                    <div class="col">
+                    <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
                             <img src="{{url('aqo_se/assets/image/index/logo_2.jpg')}}" alt="" class="img-fluid">
                         </div>
                     </div>
 
-                    <div class="col">
+                    <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
                             <img src="{{url('aqo_se/assets/image/index/logo_3.jpg')}}" alt="" class="img-fluid">
                         </div>
                     </div>
 
-                    <div class="col">
+                    <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
                             <img src="{{url('aqo_se/assets/image/index/logo_4.jpg')}}" alt="" class="img-fluid">
                         </div>
                     </div>
 
-                    <div class="col">
+                    <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
                             <img src="{{url('aqo_se/assets/image/index/logo_5.jpg')}}" alt="" class="img-fluid">
                         </div>
                     </div>
 
-                    <div class="col">
+                    <div class="col-4 col-md">
                         <div class="card p-1">
                             <img src="{{url('aqo_se/assets/image/index/logo_6.jpg')}}" alt="" class="img-fluid">
                         </div>
