@@ -27,7 +27,7 @@
             <div class="col-12 col-md-4 mb-4 position-relative">
                 <a href="{{route('frontend.blog_post', $post->id)}}" style="color:black">
                     <div class="card" style="height: 26rem;">
-                        <img src="{{ url('files/blog', $post->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                        <img src="{{ url('files/blog', $post->feature_image) }}" class="card-img-top" alt="..." style="height: 13rem;">
                         <div class="card-body">
                             <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $post->title }}</h6>
                             <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; font-size: 0.8rem;">
