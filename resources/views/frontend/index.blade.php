@@ -234,11 +234,11 @@
                     @foreach(App\Models\Blog::where('category', 'Blog')->latest()->take(1)->get() as $key => $blog_posts)  
                         <div class="col-12 col-md-4 mb-4 mb-md-0 position-relative">
                             <a href="{{route('frontend.posts', 'blogs')}}" style="color:black">
-                                <div class="card" style="height: 26rem;">
-                                    <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="height: 13rem;">
+                                <div class="card" style="height: 29rem;">
+                                    <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="height: 17rem; object-fit: cover;">
                                     <div class="card-body">
                                         <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $blog_posts->title }}</h6>
-                                        <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; font-size: 0.8rem;">
+                                        <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; font-size: 0.8rem;">
                                             {!!$blog_posts->description!!}
                                         </div>
                                         
