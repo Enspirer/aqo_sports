@@ -187,13 +187,13 @@
 
                     <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
-                            <img src="{{url('aqo_se/assets/image/index/logo_3.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{url('aqo_se/assets/image/index/logo_3.png')}}" alt="" class="img-fluid">
                         </div>
                     </div>
 
                     <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
-                            <img src="{{url('aqo_se/assets/image/index/logo_4.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{url('aqo_se/assets/image/index/logo_4.png')}}" alt="" class="img-fluid">
                         </div>
                     </div>
 
@@ -213,7 +213,7 @@
         </section>
 
         <div class="container black-social" style="margin-top: 7rem; margin-bottom: 3rem;">
-            <div class="row justify-content-center align-items-center mb-5 icons">
+            <!-- <div class="row justify-content-center align-items-center mb-5 icons">
                 <div class="col col-md-1 text-center">
                     <a href="https://www.facebook.com/AQO-Sports-Entertainment-100887884844064" target="_blank"><i class="fa fa-facebook-square"></i></a>
                 </div>
@@ -223,7 +223,7 @@
                 <div class="col col-md-1 text-center">
                     <a href="https://www.instagram.com/aqosportsandentertainment/" target="_blank"><i class="fa fa-instagram"></i></a>
                 </div>
-            </div>
+            </div> -->
 
             <div class="row justify-content-center">
                 <div class="col-12 col-md-4 mb-4 mb-md-0 fb">
