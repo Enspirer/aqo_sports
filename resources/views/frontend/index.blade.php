@@ -39,7 +39,7 @@
                     <div class="col-12 col-md-4 side-banner">
                         @if($homepage_ad != null)
                         <a href="{{$homepage_ad->link}}" target="_blank" >
-                            <img src="{{url('files/advertisement',$homepage_ad->image)}}" alt="" class="w-100" style="height: 29rem; object-fit: cover">
+                            <img src="{{url('files/advertisement',$homepage_ad->image)}}" alt="" class="w-100" style="height: 29rem; object-fit: contain">
                         </a>
                         @else
                             <img src="{{url('img/no-image.jpg')}}" alt="" class="w-100" style="height: 29rem; object-fit: cover">
@@ -92,11 +92,11 @@
                         <div class="swiper mySwiper3">
                             <div class="swiper-wrapper">
                                 
-                                @foreach(App\Models\Blog::where('status', 'Enabled')->get() as $key => $blog_posts)  
+                                @foreach(App\Models\Blog::where('category', 'News')->where('status', 'Enabled')->get() as $key => $blog_posts)  
                                     <div class="swiper-slide position-relative">
                                         <a href="{{route('frontend.blog_post',$blog_posts->id)}}" style="color:black">
                                             <div class="card" style="height: 26rem;">
-                                                <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="object-fit: cover; height: 13rem;">
+                                                <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="object-fit: contain; height: 13rem;">
                                                 <div class="card-body">
                                                     <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $blog_posts->title }}</h6>
                                                     <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; font-size: 0.8rem;">
@@ -173,45 +173,39 @@
             <div class="container">
                 <h1 class="text-center font-weight-bold">AQO Group</h1>
                 <div class="row mt-5">
-                    <div class="col-12">
-                        <div class="swiper mySwiper4 py-2">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide position-relative">
-                                    <div class="card p-1">
-                                        <img src="{{url('aqo_se/assets/image/index/logo_1.jpg')}}" alt="" class="img-fluid">
-                                    </div>
-                                </div>
+                    <div class="col">
+                        <div class="card p-1">
+                            <img src="{{url('aqo_se/assets/image/index/logo_1.jpg')}}" alt="" class="img-fluid">
+                        </div>
+                    </div>
 
-                                <div class="swiper-slide position-relative">
-                                    <div class="card p-1">
-                                        <img src="{{url('aqo_se/assets/image/index/logo_2.jpg')}}" alt="" class="img-fluid">
-                                    </div>
-                                </div>
+                    <div class="col">
+                        <div class="card p-1">
+                            <img src="{{url('aqo_se/assets/image/index/logo_2.jpg')}}" alt="" class="img-fluid">
+                        </div>
+                    </div>
 
-                                <div class="swiper-slide position-relative">
-                                    <div class="card p-1">
-                                        <img src="{{url('aqo_se/assets/image/index/logo_3.jpg')}}" alt="" class="img-fluid">
-                                    </div>
-                                </div>
+                    <div class="col">
+                        <div class="card p-1">
+                            <img src="{{url('aqo_se/assets/image/index/logo_3.jpg')}}" alt="" class="img-fluid">
+                        </div>
+                    </div>
 
-                                <div class="swiper-slide position-relative">
-                                    <div class="card p-1">
-                                        <img src="{{url('aqo_se/assets/image/index/logo_4.jpg')}}" alt="" class="img-fluid">
-                                    </div>
-                                </div>
+                    <div class="col">
+                        <div class="card p-1">
+                            <img src="{{url('aqo_se/assets/image/index/logo_4.jpg')}}" alt="" class="img-fluid">
+                        </div>
+                    </div>
 
-                                <div class="swiper-slide position-relative">
-                                    <div class="card p-1">
-                                        <img src="{{url('aqo_se/assets/image/index/logo_5.jpg')}}" alt="" class="img-fluid">
-                                    </div>
-                                </div>
+                    <div class="col">
+                        <div class="card p-1">
+                            <img src="{{url('aqo_se/assets/image/index/logo_5.jpg')}}" alt="" class="img-fluid">
+                        </div>
+                    </div>
 
-                                <div class="swiper-slide position-relative">
-                                    <div class="card p-1">
-                                        <img src="{{url('aqo_se/assets/image/index/logo_6.jpg')}}" alt="" class="img-fluid">
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="col">
+                        <div class="card p-1">
+                            <img src="{{url('aqo_se/assets/image/index/logo_6.jpg')}}" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -343,7 +337,7 @@
         });
     </script>
 
-    <script>
+    <!-- <script>
       var swiper = new Swiper(".mySwiper4", {
         loop: true,
         spaceBetween: 20,
@@ -355,7 +349,7 @@
           disableOnInteraction: false,
         },
       });
-    </script>
+    </script> -->
 
 
       <script>
