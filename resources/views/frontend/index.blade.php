@@ -245,9 +245,11 @@
                                         {!!$blog_posts->description!!}
                                     </div>
 
-                                    <div class="position-absolute article">
-                                        <a type="button" class="btn">View Article</a>
-                                    </div>
+                                    @if($blog_posts->external_link != null)
+                                        <div class="position-absolute article">
+                                            <a href="{{ $blog_posts->external_link }}" type="button" class="btn" target="_blank">View Article</a>
+                                        </div>
+                                    @endif
                                     
                                     <div class="position-absolute read">
                                         <a href="{{route('frontend.posts', 'blogs')}}" style="color: #FF0000; font-size: 0.8rem;">Read More<i class="fas fa-arrow-right ml-2"></i></a>

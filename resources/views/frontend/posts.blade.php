@@ -25,22 +25,26 @@
     <div class="row">
         @foreach($posts as $post)
             <div class="col-12 col-md-4 mb-4 position-relative">
-                <a href="{{route('frontend.blog_post', $post->id)}}" style="color:black">
-                    <div class="card" style="height: 29rem;">
-                        <img src="{{ url('files/blog', $post->feature_image) }}" class="card-img-top" alt="..." style="height: 17rem; object-fit: cover;">
-                        <div class="card-body">
-                            <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $post->title }}</h6>
-                            <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; font-size: 0.8rem;">
-                                {!!$post->description!!}
-                            </div>
-                            
-                            <div class="position-absolute read">
-                                <p style="color: #FF0000; font-size: 0.8rem;">Read More<i class="fas fa-arrow-right ml-2"></i></p>
-                            </div>
-
+                <div class="card" style="height: 29rem;">
+                    <img src="{{ url('files/blog', $post->feature_image) }}" class="card-img-top" alt="..." style="height: 17rem; object-fit: cover;">
+                    <div class="card-body">
+                        <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $post->title }}</h6>
+                        <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; font-size: 0.8rem;">
+                            {!!$post->description!!}
                         </div>
+
+                        @if($post->external_link != null)
+                            <div class="position-absolute article">
+                                <a href="{{ $post->external_link }}" type="button" class="btn" target="_blank">View Article</a>
+                            </div>
+                        @endif
+                        
+                        <div class="position-absolute read">
+                            <a href="{{route('frontend.blog_post', $post->id)}}" type="button" style="color: #FF0000; font-size: 0.8rem;">Read More<i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+
                     </div>
-                <a>
+                </div>
             </div>
         @endforeach
     </div>
