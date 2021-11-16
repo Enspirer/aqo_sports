@@ -28,15 +28,15 @@
 <div class="container mt-4 banner mb-md-0">
     <div class="row">
         <div class="col-12 col-md-8 mb-3 mb-md-0">
-            <img src="{{url('aqo_se/assets/image/training/banner.png')}}" alt="" class="w-100" style="object-fit: cover; height: 25rem;">
+            <img src="{{url('aqo_se/assets/image/training/banner.png')}}" alt="" class="w-100" style="object-fit: cover; height: 29rem;">
         </div>
         <div class="col-12 col-md-4">
             @if($training_ad != null)
             <a href="{{$training_ad->link}}" target="_blank" >
-                <img src="{{url('files/advertisement',$training_ad->image)}}" alt="" class="w-100" style="height: 25rem;">
+                <img src="{{url('files/advertisement',$training_ad->image)}}" alt="" class="w-100" style="height: 29rem;">
             </a>
             @else
-                <img src="{{url('img/no-image.jpg')}}" alt="" class="w-100" style="height: 25rem; object-fit: cover">
+                <img src="{{url('img/no-image.jpg')}}" alt="" class="w-100" style="height: 29rem; object-fit: cover">
             @endif
         </div>
     </div>
