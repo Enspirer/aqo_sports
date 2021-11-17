@@ -10,7 +10,7 @@
 .carousel-caption {
     position: absolute;
     right: 0%;
-    bottom: -102px!important;
+    bottom: -82px!important;
     left: 0%;
     z-index: 15;
     padding-top: 12px;
@@ -40,7 +40,7 @@
 }
 
 .trans-arrow {
-    bottom: 8.7rem!important;
+    bottom: 7.6rem!important;
     transform: rotate(180deg);
 }
 
