@@ -124,6 +124,24 @@
 }
 
 
+.mySwiper2 .swiper-button-next:after, .mySwiper .swiper-rtl .swiper-button-prev:after {
+    content: 'next';
+    font-size: 1.2rem;
+    color: white;
+    background: rgb(0, 0, 0, 0.7);
+    border-radius: 30px;
+    padding: 0.9rem 1.2rem;
+}
+
+.mySwiper2 .swiper-button-prev:after, .mySwiper .swiper-rtl .swiper-button-next:after {
+    font-size: 1.2rem;
+    color: white;
+    background: rgb(0, 0, 0, 0.7);
+    border-radius: 30px;
+    padding: 0.9rem 1.2rem;
+}
+
+
 @media screen and (max-width: 576px) {
     .swiper {
         z-index: 0!important;
@@ -138,13 +156,13 @@
         height: 17rem!important;
     }
     .hero-image .side-banner img {
-        height: 22rem!important;
+        height: 28rem!important;
     }
     .trending-competitions .exploreBody .imageCard .imageSize {
         height: 230px;
     }
     .trending .swiper img {
-        height: 15rem!important;
+        height: 25rem!important;
     }
     /* .our-group .container .row .card {
         width: 140px;
@@ -170,6 +188,16 @@
     }
     
     .mySwiper .swiper-button-prev:after, .mySwiper .swiper-rtl .swiper-button-next:after {
+        font-size: 1rem!important;
+        padding: 0.8rem 1.1rem;
+    }
+
+    .mySwiper2 .swiper-button-next:after, .mySwiper .swiper-rtl .swiper-button-prev:after {
+        font-size: 1rem!important;
+        padding: 0.8rem 1.1rem;
+    }
+    
+    .mySwiper2 .swiper-button-prev:after, .mySwiper .swiper-rtl .swiper-button-next:after {
         font-size: 1rem!important;
         padding: 0.8rem 1.1rem;
     }
