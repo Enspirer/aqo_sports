@@ -73,43 +73,67 @@
 <div class="container blogs" style="margin-bottom: 4rem;">
     <div class="row">
         @foreach($posts as $post)
-            <div class="col-12 col-md-4 mb-4 position-relative">
-                <div class="card" style="height: 31rem;">
-                    <img src="{{ url('files/blog', $post->feature_image) }}" class="card-img-top" alt="..." style="height: 17rem; object-fit: cover;">
-                    <div class="card-body">
-                        <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $post->title }}</h6>
-                        <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; font-size: 0.8rem;">
-                            {!!$post->description!!}
-                        </div>
-
-                        @if($post->external_link != null)
-                            <div class="position-absolute article">
-                                <a href="{{ $post->external_link }}" type="button" class="btn" target="_blank">View Article</a>
+            @if($title == 'All Trending News')
+                <div class="col-12 col-md-4 mb-4 position-relative">
+                    <div class="card" style="height: 31rem;">
+                        <img src="{{ url('files/blog', $post->feature_image) }}" class="card-img-top" alt="..." style="height: 17rem; object-fit: cover;">
+                        <div class="card-body">
+                            <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $post->title }}</h6>
+                            <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; font-size: 0.8rem;">
+                                {!!$post->description!!}
                             </div>
-                        @endif
-                        
-                        <div class="position-absolute read">
-                            <a href="{{route('frontend.blog_post', $post->id)}}" type="button" style="color: #FF0000; font-size: 0.8rem;">Read More<i class="fas fa-arrow-right ml-2"></i></a>
-                        </div>
 
-                        <div class="row position-absolute card-social">
-                            <div class="col-12">
-                                <a><i class="fab fa-facebook-square text-white"></i></a>
-
-                                <a><i class="fab fa-instagram text-white"></i></a>
-
-                                <a><i class="fab fa-youtube-square text-white"></i></a>
-
-                                <a><i class="fab fa-twitter text-white"></i></a>
-
-                                <a><i class="fab fa-tiktok text-white"></i></a>
-
+                            @if($post->external_link != null)
+                                <div class="position-absolute article">
+                                    <a href="{{ $post->external_link }}" type="button" class="btn" target="_blank">View Article</a>
+                                </div>
+                            @endif
+                            
+                            <div class="position-absolute read">
+                                <a href="{{route('frontend.blog_post', $post->id)}}" type="button" style="color: #FF0000; font-size: 0.8rem;">Read More<i class="fas fa-arrow-right ml-2"></i></a>
                             </div>
-                        </div>
 
+                            <div class="row position-absolute card-social">
+                                <div class="col-12">
+                                    <a><i class="fab fa-facebook-square text-white"></i></a>
+
+                                    <a><i class="fab fa-instagram text-white"></i></a>
+
+                                    <a><i class="fab fa-youtube-square text-white"></i></a>
+
+                                    <a><i class="fab fa-twitter text-white"></i></a>
+
+                                    <a><i class="fab fa-tiktok text-white"></i></a>
+
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-            </div>
+            @else
+            <div class="col-12 col-md-4 mb-4 position-relative">
+                    <div class="card" style="height: 27rem;">
+                        <img src="{{ url('files/blog', $post->feature_image) }}" class="card-img-top" alt="..." style="height: 17rem; object-fit: cover;">
+                        <div class="card-body">
+                            <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $post->title }}</h6>
+                            <div style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; font-size: 0.8rem;">
+                                {!!$post->description!!}
+                            </div>
+
+                            @if($post->external_link != null)
+                                <div class="position-absolute article">
+                                    <a href="{{ $post->external_link }}" type="button" class="btn" target="_blank">View Article</a>
+                                </div>
+                            @endif
+                            
+                            <div class="position-absolute read" style="bottom: 1.5rem;">
+                                <a href="{{route('frontend.blog_post', $post->id)}}" type="button" style="color: #FF0000; font-size: 0.8rem;">Read More<i class="fas fa-arrow-right ml-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
         @endforeach
     </div>
 </div>
