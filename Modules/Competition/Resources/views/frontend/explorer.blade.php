@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
-                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100" style="height: 20rem; object-fit: cover;">
+                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 banner-top" style="height: 20rem; object-fit: cover;">
                 </div>
             </div>
             <div class="srarchBar">
@@ -388,7 +388,7 @@
 
             <div class="row mb-5">
                 <div class="col-12">
-                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100" style="height: 20rem; object-fit: cover;">
+                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 banner-bottom" style="height: 20rem; object-fit: cover;">
                 </div>
             </div>
         </div>

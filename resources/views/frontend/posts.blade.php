@@ -10,13 +10,33 @@
 
 @section('content')
 
-<div class="container-fluid p-0 banner mb-3">
+<div class="container-fluid">
     <div class="container">
-        <div class="row mb-5" style="margin-top: 30px;">
-                <div class="col-12">
-                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100" style="height: 20rem; object-fit: cover;">
+        <div class="row advert" style="margin-top: 30px;">
+            <div class="col-12 col-md-6 text-center mb-3 mb-md-0">
+                <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 left" style="height: 20rem; object-fit: cover;">
+            </div>
+            <div class="col-12 col-md-6 pl-3 pl-md-0">
+                <div class="row">
+                    <div class="col-12 col-md-8 pr-3 pr-md-0 mb-3 mb-md-0">
+                        <div class="row">
+                            <div class="col-12">
+                                <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 middle-top" style="height: 9.7rem; margin-bottom: 0.6rem; object-fit: cover; ">
+                            </div>
+                            <div class="col-12">
+                                <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 middle-bottom" style="height: 9.7rem; object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 pl-3 pl-md-0>
+                        <div class="col-12">
+                            <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 right" style="height: 20rem; object-fit: cover;">
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+
         <div class="row">
             <div class="col-12" style="padding-top: 3rem">
                 <h1 class="fw-bolder text-center" style="font-size: 50px;">{{ $title }}</h1>
@@ -26,11 +46,11 @@
 </div>
 
 
-<div class="container blogs" style="margin-bottom: 5rem;">
+<div class="container blogs" style="margin-bottom: 4rem;">
     <div class="row">
         @foreach($posts as $post)
             <div class="col-12 col-md-4 mb-4 position-relative">
-                <div class="card" style="height: 29rem;">
+                <div class="card" style="height: 31rem;">
                     <img src="{{ url('files/blog', $post->feature_image) }}" class="card-img-top" alt="..." style="height: 17rem; object-fit: cover;">
                     <div class="card-body">
                         <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $post->title }}</h6>
@@ -46,6 +66,21 @@
                         
                         <div class="position-absolute read">
                             <a href="{{route('frontend.blog_post', $post->id)}}" type="button" style="color: #FF0000; font-size: 0.8rem;">Read More<i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+
+                        <div class="row position-absolute card-social">
+                            <div class="col-12">
+                                <a><i class="fab fa-facebook-square text-white"></i></a>
+
+                                <a><i class="fab fa-instagram text-white"></i></a>
+
+                                <a><i class="fab fa-youtube-square text-white"></i></a>
+
+                                <a><i class="fab fa-twitter text-white"></i></a>
+
+                                <a><i class="fab fa-tiktok text-white"></i></a>
+
+                            </div>
                         </div>
 
                     </div>

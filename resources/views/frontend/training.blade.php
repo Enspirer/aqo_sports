@@ -33,10 +33,10 @@
         <div class="col-12 col-md-4">
             @if($training_ad != null)
             <a href="{{$training_ad->link}}" target="_blank" >
-                <img src="{{url('files/advertisement',$training_ad->image)}}" alt="" class="w-100" style="height: 29rem;">
+                <img src="{{url('files/advertisement',$training_ad->image)}}" alt="" class="w-100 side-banner" style="height: 29rem;">
             </a>
             @else
-                <img src="{{url('img/no-image.jpg')}}" alt="" class="w-100" style="height: 29rem; object-fit: cover">
+                <img src="{{url('img/no-image.jpg')}}" alt="" class="w-100 side-banner" style="height: 29rem; object-fit: cover">
             @endif
         </div>
     </div>

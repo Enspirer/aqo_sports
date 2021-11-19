@@ -20,8 +20,12 @@
                                 <div class="swiper-wrapper">
                                     @if(count($sliders) != 0)
                                         @foreach($sliders as $key => $slider)
-                                            <div class="swiper-slide">
-                                                <img src="{{url('files/homepage',$slider->image)}}" class="w-100" style="height: 29rem; object-fit: cover">
+                                            <div class="swiper-slide position-relative">
+                                                @if($slider->link != null)
+                                                    <a href="{{ $slider->link }}" target="_blank"><img src="{{url('files/homepage',$slider->image)}}" class="w-100" style="height: 29rem; object-fit: cover"></a>
+                                                @else
+                                                    <img src="{{url('files/homepage',$slider->image)}}" class="w-100" style="height: 29rem; object-fit: cover">
+                                                @endif
                                             </div>
                                         @endforeach
                                     @else
@@ -88,18 +92,27 @@
             </div>
         </div> -->
 
-        <div class="container" style="margin-top: 5rem;">
+        <div class="container advert" style="margin-top: 5rem;">
             <div class="row">
-                <div class="col-6 text-center">
-                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100" style="height: 20rem; object-fit: cover;">
+                <div class="col-12 col-md-6 text-center mb-3 mb-md-0">
+                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 left" style="height: 20rem; object-fit: cover;">
                 </div>
-                <div class="col-6 pl-1">
+                <div class="col-12 col-md-6 pl-3 pl-md-0">
                     <div class="row">
-                        <div class="col-12">
-                            <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100" style="height: 9.7rem; margin-bottom: 0.6rem; object-fit: cover; ">
+                        <div class="col-12 col-md-8 pr-3 pr-md-0 mb-3 mb-md-0">
+                            <div class="row">
+                                <div class="col-12">
+                                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 middle-top" style="height: 9.7rem; margin-bottom: 0.6rem; object-fit: cover; ">
+                                </div>
+                                <div class="col-12">
+                                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 middle-bottom" style="height: 9.7rem; object-fit: cover;">
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-12">
-                            <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100" style="height: 9.7rem; object-fit: cover;">
+                        <div class="col-12 col-md-4 pl-3 pl-md-0>
+                            <div class="col-12">
+                                <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 right" style="height: 20rem; object-fit: cover;">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -321,7 +334,7 @@
         },
         loop: true,
         autoplay: {
-          delay: 2500,
+          delay: 4000,
           disableOnInteraction: false,
         },
       });

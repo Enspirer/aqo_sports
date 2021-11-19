@@ -21,6 +21,16 @@
     color: white;
 }
 
+.card-social i {
+    font-size: 1.9rem;
+    background-color: #8a6e4b;
+    padding: 0.2rem 0.4rem;
+}
+
+.card-social {
+    bottom: 1.5rem;
+}
+
 @media screen and (max-width: 576px) {
     .banner h1 {
         font-size: 35px!important;
@@ -28,5 +38,24 @@
     }
     .blog h3 {
         font-size: 20px;
+    }
+
+    .mySwiper3 .read {
+        bottom: 1.8rem;
+    }
+    .card-social i {
+        font-size: 1.5rem;
+    }
+    .read {
+        bottom: 1.8rem;
+    }
+    .advert .left {
+        height: 11rem!important;
+    }
+    .advert .middle-top, .advert .middle-bottom {
+        height: 8rem!important;
+    }
+    .advert .right {
+        height: 8rem!important;
     }
 }

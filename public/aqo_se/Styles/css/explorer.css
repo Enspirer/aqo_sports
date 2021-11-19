@@ -14,4 +14,8 @@
     .contentExplore .container {
         margin-bottom: 30px!important;
     }
+
+    .banner-top, .banner-bottom {
+        height: 11rem!important;
+    }
 }

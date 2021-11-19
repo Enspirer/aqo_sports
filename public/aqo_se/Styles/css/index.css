@@ -211,4 +211,20 @@
         font-size: 1rem!important;
         padding: 0.8rem 1.1rem;
     }
+
+    .mySwiper3 .read {
+        bottom: 1.8rem;
+    }
+    .card-social i {
+        font-size: 1.5rem;
+    }
+    .advert .left {
+        height: 11rem!important;
+    }
+    .advert .middle-top, .advert .middle-bottom {
+        height: 8rem!important;
+    }
+    .advert .right {
+        height: 8rem!important;
+    }
 }
