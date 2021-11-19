@@ -15,6 +15,11 @@ class CreateHomepageMultipleAdsTable extends Migration
     {
         Schema::create('homepage_multiple_ads', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('name')->nullable();
+            $table->text('description')->nullable();
+            $table->text('link')->nullable();
+            $table->text('image')->nullable();
+            $table->text('position')->nullable();
             $table->timestamps();
         });
     }

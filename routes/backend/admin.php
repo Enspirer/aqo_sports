@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\HomePageController;
 use App\Http\Controllers\Backend\HomepageAdController;
 use App\Http\Controllers\Backend\TrainingPageAdController;
 use App\Http\Controllers\Backend\CompetitionPageAdController;
+use App\Http\Controllers\Backend\MultipleAdController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -57,3 +58,23 @@ Route::post('competition_ad/store', [CompetitionPageAdController::class, 'store_
 Route::post('competition_ad/update', [CompetitionPageAdController::class, 'update_competition'])->name('competition_ad.update');
 Route::get('competition_ad/delete/{id}', [CompetitionPageAdController::class, 'delete_competition'])->name('competition_ad.delete');
 
+
+
+
+
+
+Route::post('multiple_left/store', [MultipleAdController::class, 'multiple_left_store'])->name('multiple_left.store');
+Route::post('multiple_left/update', [MultipleAdController::class, 'multiple_left_update'])->name('multiple_left.update');
+Route::get('multiple_left/delete/{id}', [MultipleAdController::class, 'multiple_left_delete'])->name('multiple_left.delete');
+
+Route::post('multiple_right/store', [MultipleAdController::class, 'multiple_right_store'])->name('multiple_right.store');
+Route::post('multiple_right/update', [MultipleAdController::class, 'multiple_right_update'])->name('multiple_right.update');
+Route::get('multiple_right/delete/{id}', [MultipleAdController::class, 'multiple_right_delete'])->name('multiple_right.delete');
+
+Route::post('multiple_middle_top/store', [MultipleAdController::class, 'multiple_middle_top_store'])->name('multiple_middle_top.store');
+Route::post('multiple_middle_top/update', [MultipleAdController::class, 'multiple_middle_top_update'])->name('multiple_middle_top.update');
+Route::get('multiple_middle_top/delete/{id}', [MultipleAdController::class, 'multiple_middle_top_delete'])->name('multiple_middle_top.delete');
+
+Route::post('multiple_middle_bottom/store', [MultipleAdController::class, 'multiple_middle_bottom_store'])->name('multiple_middle_bottom.store');
+Route::post('multiple_middle_bottom/update', [MultipleAdController::class, 'multiple_middle_bottom_update'])->name('multiple_middle_bottom.update');
+Route::get('multiple_middle_bottom/delete/{id}', [MultipleAdController::class, 'multiple_middle_bottom_delete'])->name('multiple_middle_bottom.delete');

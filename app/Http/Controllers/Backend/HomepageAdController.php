@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\HomepageAd;
 use App\Models\TrainingPageAd;
 use App\Models\CompetitionPageAd;
+use App\Models\HomepageMultipleAd;
 
 class HomepageAdController extends Controller
 {
@@ -15,11 +16,19 @@ class HomepageAdController extends Controller
         $homepagead = HomepageAd::first();
         $competitionpagead = CompetitionPageAd::first();
         $trainingpagead = TrainingPageAd::first();
+        $left = HomepageMultipleAd::where('position','left')->first();
+        $right = HomepageMultipleAd::where('position','right')->first();
+        $middle_top = HomepageMultipleAd::where('position','middle_top')->first();
+        $middle_bottom = HomepageMultipleAd::where('position','middle_bottom')->first();
 
         return view('backend.advertisement.index',[
             'homepagead' => $homepagead,
             'competitionpagead' => $competitionpagead,
-            'trainingpagead' => $trainingpagead
+            'trainingpagead' => $trainingpagead,
+            'left' => $left,
+            'right' => $right,
+            'middle_top' => $middle_top,
+            'middle_bottom' => $middle_bottom            
         ]);
     }
 
