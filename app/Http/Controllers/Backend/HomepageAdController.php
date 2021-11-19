@@ -8,6 +8,8 @@ use App\Models\HomepageAd;
 use App\Models\TrainingPageAd;
 use App\Models\CompetitionPageAd;
 use App\Models\HomepageMultipleAd;
+use App\Models\NewspageMultipleAd;
+use App\Models\CompetitionpageMultipleAd;
 
 class HomepageAdController extends Controller
 {
@@ -16,10 +18,16 @@ class HomepageAdController extends Controller
         $homepagead = HomepageAd::first();
         $competitionpagead = CompetitionPageAd::first();
         $trainingpagead = TrainingPageAd::first();
+
         $left = HomepageMultipleAd::where('position','left')->first();
         $right = HomepageMultipleAd::where('position','right')->first();
         $middle_top = HomepageMultipleAd::where('position','middle_top')->first();
         $middle_bottom = HomepageMultipleAd::where('position','middle_bottom')->first();
+
+        $nleft = NewspageMultipleAd::where('position','nleft')->first();
+        $nright = NewspageMultipleAd::where('position','nright')->first();
+        $nmiddle_top = NewspageMultipleAd::where('position','nmiddle_top')->first();
+        $nmiddle_bottom = NewspageMultipleAd::where('position','nmiddle_bottom')->first();
 
         return view('backend.advertisement.index',[
             'homepagead' => $homepagead,
@@ -28,7 +36,11 @@ class HomepageAdController extends Controller
             'left' => $left,
             'right' => $right,
             'middle_top' => $middle_top,
-            'middle_bottom' => $middle_bottom            
+            'middle_bottom' => $middle_bottom,
+            'nleft' => $nleft,
+            'nright' => $nright,
+            'nmiddle_top' => $nmiddle_top,
+            'nmiddle_bottom' => $nmiddle_bottom             
         ]);
     }
 
