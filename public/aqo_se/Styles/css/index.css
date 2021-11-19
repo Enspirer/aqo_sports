@@ -231,4 +231,7 @@
     .advert .right {
         height: 8rem!important;
     }
+    #modal-ad-img {
+        height: 8rem!important;
+    }
 }
