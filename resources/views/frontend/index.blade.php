@@ -158,7 +158,7 @@
 
                                             <div class="carousel-caption">
                                                 <h5 class="mb-2">{{$category->category_name}}</h5>
-                                                <p style="font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;">{{$category->description}}</p>
+                                                <p style="font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{$category->description}}</p>
                                             </div>
                                         </div>
                                     @endforeach
@@ -304,6 +304,7 @@
             },
             slidesPerView: 4,
             spaceBetween: 30,
+            loop: true,
             breakpoints: {
 
                 0: {
