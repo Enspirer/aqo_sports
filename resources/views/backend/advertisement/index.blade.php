@@ -103,6 +103,7 @@
             <a class="list-group-item list-group-item-action" data-toggle="list" href="#training_ad">Training Page Ad</a>
             <a class="list-group-item list-group-item-action" data-toggle="list" href="#home_multiple_ad">Home Page Multiple Ads</a>
             <a class="list-group-item list-group-item-action" data-toggle="list" href="#news_multiple_ad">News Page Multiple Ads</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#explore_multiple_ad">Explore Page Multiple Ads</a>
         </div>
         </div>
         <div class="col-md-9">
@@ -762,6 +763,262 @@
                 </div>
                 
             </div>       
+
+
+            
+            <!-- ************************************************************************ -->
+
+            <div class="tab-pane fade" id="explore_multiple_ad">
+
+                <div class="row">
+                    <div class="col-6">
+                        @if($eleft == null)
+                            <div class="card-body">
+                                <div style="border-style: dashed;border-width: 1px;padding: 20px;"> 
+                                    <h5>Left Advertisement</h5>
+                                    <form action="{{route('admin.explore_multiple_left.store')}}" method="post" enctype="multipart/form-data">                    
+                                        {{csrf_field()}}
+                                            
+                                            <div class="form-group">
+                                                <label>Image</label>
+                                                <input type="file" class="form-control" name="image" required>
+                                            </div> 
+                                            <div class="form-group">
+                                                <label>Link</label>
+                                                <input type="text" class="form-control" name="link" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea class="form-control" name="description" rows="4"></textarea>
+                                            </div>
+                                            <div class="mt-4" align="right">
+                                                <input type="hidden" name="eleft" value="eleft" />
+                                                <input type="submit" class="btn rounded-pill px-4 py-2 ml-2 ms-2 btn-success" value="Submit">
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @else
+                            <div class="card-body">
+                                <div style="border-style: dashed;border-width: 1px;padding: 20px;"> 
+                                <h5>Left Advertisement</h5>
+                                    <form action="{{route('admin.explore_multiple_left.update')}}" method="post" enctype="multipart/form-data">                    
+                                        {{csrf_field()}}
+                                            
+                                            <div class="form-group">
+                                                <label>Image</label>
+                                                <input type="file" class="form-control" name="image">
+                                                <br>
+                                                <img src="{{ url('files/advertisement',$eleft->image) }}" style="width: 40%">
+                                            </div> 
+                                            <div class="form-group">
+                                                <label>Link</label>
+                                                <input type="text" class="form-control" value="{{ $eleft->link }}" name="link" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea class="form-control" name="description" rows="4">{{ $eleft->description }}</textarea>
+                                            </div>
+                                            <div class="mt-4" align="right">
+                                                <input type="hidden" name="eleft" value="eleft" />
+                                                <input type="hidden" class="form-control" value="{{ $eleft->id }}" name="hidden_id" />
+                                                <button type="button" class="btn rounded-pill px-4 py-2 me-2 btn-danger" data-toggle="modal" data-target="#eleft_delete">Delete</button>
+                                                <input type="submit" class="btn rounded-pill px-4 py-2 ml-2 ms-2 btn-success" value="Update">
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="col-6">
+                        @if($eright == null)
+                            <div class="card-body">
+                                <div style="border-style: dashed;border-width: 1px;padding: 20px;"> 
+                                    <h5>Right Advertisement</h5>
+                                    <form action="{{route('admin.explore_multiple_right.store')}}" method="post" enctype="multipart/form-data">                    
+                                        {{csrf_field()}}
+                                            
+                                            <div class="form-group">
+                                                <label>Image</label>
+                                                <input type="file" class="form-control" name="image" required>
+                                            </div> 
+                                            <div class="form-group">
+                                                <label>Link</label>
+                                                <input type="text" class="form-control" name="link" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea class="form-control" name="description" rows="4"></textarea>
+                                            </div>
+                                            <div class="mt-4" align="right">
+                                                <input type="hidden" name="eright" value="eright" />
+                                                <input type="submit" class="btn rounded-pill px-4 py-2 ml-2 ms-2 btn-success" value="Submit">
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @else
+                            <div class="card-body">
+                                <div style="border-style: dashed;border-width: 1px;padding: 20px;"> 
+                                <h5>Right Advertisement</h5>
+                                    <form action="{{route('admin.explore_multiple_right.update')}}" method="post" enctype="multipart/form-data">                    
+                                        {{csrf_field()}}
+                                            
+                                            <div class="form-group">
+                                                <label>Image</label>
+                                                <input type="file" class="form-control" name="image">
+                                                <br>
+                                                <img src="{{ url('files/advertisement',$eright->image) }}" style="width: 20%">
+                                            </div> 
+                                            <div class="form-group">
+                                                <label>Link</label>
+                                                <input type="text" class="form-control" value="{{ $eright->link }}" name="link" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea class="form-control" name="description" rows="4">{{ $eright->description }}</textarea>
+                                            </div>
+                                            <div class="mt-4" align="right">
+                                                <input type="hidden" name="eright" value="eright" />
+                                                <input type="hidden" class="form-control" value="{{ $eright->id }}" name="hidden_id" />
+                                                <button type="button" class="btn rounded-pill px-4 py-2 me-2 btn-danger" data-toggle="modal" data-target="#eright_delete">Delete</button>
+                                                <input type="submit" class="btn rounded-pill px-4 py-2 ml-2 ms-2 btn-success" value="Update">
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
+                <hr class="border">
+
+                <div class="row">
+                    <div class="col-6">
+                        @if($emiddle_top == null)
+                            <div class="card-body">
+                                <div style="border-style: dashed;border-width: 1px;padding: 20px;"> 
+                                    <h5>Middel Top Advertisement</h5>
+                                    <form action="{{route('admin.explore_multiple_middle_top.store')}}" method="post" enctype="multipart/form-data">                    
+                                        {{csrf_field()}}
+                                            
+                                            <div class="form-group">
+                                                <label>Image</label>
+                                                <input type="file" class="form-control" name="image" required>
+                                            </div> 
+                                            <div class="form-group">
+                                                <label>Link</label>
+                                                <input type="text" class="form-control" name="link" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea class="form-control" name="description" rows="4"></textarea>
+                                            </div>
+                                            <div class="mt-4" align="right">
+                                                <input type="hidden" name="emiddle_top" value="emiddle_top" />
+                                                <input type="submit" class="btn rounded-pill px-4 py-2 ml-2 ms-2 btn-success" value="Submit">
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @else
+                            <div class="card-body">
+                                <div style="border-style: dashed;border-width: 1px;padding: 20px;"> 
+                                <h5>Middle Top Advertisement</h5>
+                                    <form action="{{route('admin.explore_multiple_middle_top.update')}}" method="post" enctype="multipart/form-data">                    
+                                        {{csrf_field()}}
+                                            
+                                            <div class="form-group">
+                                                <label>Image</label>
+                                                <input type="file" class="form-control" name="image">
+                                                <br>
+                                                <img src="{{ url('files/advertisement',$emiddle_top->image) }}" style="width: 40%">
+                                            </div> 
+                                            <div class="form-group">
+                                                <label>Link</label>
+                                                <input type="text" class="form-control" value="{{ $emiddle_top->link }}" name="link" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea class="form-control" name="description" rows="4">{{ $emiddle_top->description }}</textarea>
+                                            </div>
+                                            <div class="mt-4" align="right">
+                                                <input type="hidden" name="emiddle_top" value="emiddle_top" />
+                                                <input type="hidden" class="form-control" value="{{ $emiddle_top->id }}" name="hidden_id" />
+                                                <button type="button" class="btn rounded-pill px-4 py-2 me-2 btn-danger" data-toggle="modal" data-target="#emiddle_top_delete">Delete</button>
+                                                <input type="submit" class="btn rounded-pill px-4 py-2 ml-2 ms-2 btn-success" value="Update">
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="col-6">
+                        @if($emiddle_bottom == null)
+                            <div class="card-body">
+                                <div style="border-style: dashed;border-width: 1px;padding: 20px;"> 
+                                    <h5>Middle Bottom Advertisement</h5>
+                                    <form action="{{route('admin.explore_multiple_middle_bottom.store')}}" method="post" enctype="multipart/form-data">                    
+                                        {{csrf_field()}}
+                                            
+                                            <div class="form-group">
+                                                <label>Image</label>
+                                                <input type="file" class="form-control" name="image" required>
+                                            </div> 
+                                            <div class="form-group">
+                                                <label>Link</label>
+                                                <input type="text" class="form-control" name="link" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea class="form-control" name="description" rows="4"></textarea>
+                                            </div>
+                                            <div class="mt-4" align="right">
+                                                <input type="hidden" name="emiddle_bottom" value="emiddle_bottom" />
+                                                <input type="submit" class="btn rounded-pill px-4 py-2 ml-2 ms-2 btn-success" value="Submit">
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @else
+                            <div class="card-body">
+                                <div style="border-style: dashed;border-width: 1px;padding: 20px;"> 
+                                <h5>Middle Bottom Advertisement</h5>
+                                    <form action="{{route('admin.explore_multiple_middle_bottom.update')}}" method="post" enctype="multipart/form-data">                    
+                                        {{csrf_field()}}
+                                            
+                                            <div class="form-group">
+                                                <label>Image</label>
+                                                <input type="file" class="form-control" name="image">
+                                                <br>
+                                                <img src="{{ url('files/advertisement',$emiddle_bottom->image) }}" style="width: 40%">
+                                            </div> 
+                                            <div class="form-group">
+                                                <label>Link</label>
+                                                <input type="text" class="form-control" value="{{ $emiddle_bottom->link }}" name="link" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <textarea class="form-control" name="description" rows="4">{{ $emiddle_bottom->description }}</textarea>
+                                            </div>
+                                            <div class="mt-4" align="right">
+                                                <input type="hidden" name="emiddle_bottom" value="emiddle_bottom" />
+                                                <input type="hidden" class="form-control" value="{{ $emiddle_bottom->id }}" name="hidden_id" />
+                                                <button type="button" class="btn rounded-pill px-4 py-2 me-2 btn-danger" data-toggle="modal" data-target="#emiddle_bottom_delete">Delete</button>
+                                                <input type="submit" class="btn rounded-pill px-4 py-2 ml-2 ms-2 btn-success" value="Update">
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                
+            </div> 
+
+
+
+
             
           </div>
         </div>
@@ -1016,6 +1273,93 @@
         </div>
     </div>
  @endif
+
+
+ @if($eleft != null)
+    <div class="modal fade" id="eleft_delete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h5>Are you sure you want to remove this?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="{{route('admin.explore_multiple_left.delete',$eleft->id)}}" type="button" class="btn btn-danger">Delete</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+ @endif
+ @if($eright != null)
+    <div class="modal fade" id="eright_delete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h5>Are you sure you want to remove this?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="{{route('admin.explore_multiple_right.delete',$eright->id)}}" type="button" class="btn btn-danger">Delete</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+ @endif
+ @if($emiddle_top != null)
+    <div class="modal fade" id="emiddle_top_delete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h5>Are you sure you want to remove this?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="{{route('admin.explore_multiple_middle_top.delete',$emiddle_top->id)}}" type="button" class="btn btn-danger">Delete</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+ @endif
+ @if($emiddle_bottom != null)
+    <div class="modal fade" id="emiddle_bottom_delete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h5>Are you sure you want to remove this?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="{{route('admin.explore_multiple_middle_bottom.delete',$emiddle_bottom->id)}}" type="button" class="btn btn-danger">Delete</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+ @endif
+
 
 
  <div class="modal fade" id="overlay">

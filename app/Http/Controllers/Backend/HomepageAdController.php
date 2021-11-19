@@ -29,6 +29,11 @@ class HomepageAdController extends Controller
         $nmiddle_top = NewspageMultipleAd::where('position','nmiddle_top')->first();
         $nmiddle_bottom = NewspageMultipleAd::where('position','nmiddle_bottom')->first();
 
+        $eleft = CompetitionpageMultipleAd::where('position','eleft')->first();
+        $eright = CompetitionpageMultipleAd::where('position','eright')->first();
+        $emiddle_top = CompetitionpageMultipleAd::where('position','emiddle_top')->first();
+        $emiddle_bottom = CompetitionpageMultipleAd::where('position','emiddle_bottom')->first();
+
         return view('backend.advertisement.index',[
             'homepagead' => $homepagead,
             'competitionpagead' => $competitionpagead,
@@ -40,7 +45,11 @@ class HomepageAdController extends Controller
             'nleft' => $nleft,
             'nright' => $nright,
             'nmiddle_top' => $nmiddle_top,
-            'nmiddle_bottom' => $nmiddle_bottom             
+            'nmiddle_bottom' => $nmiddle_bottom,
+            'eleft' => $eleft,
+            'eright' => $eright,
+            'emiddle_top' => $emiddle_top,
+            'emiddle_bottom' => $emiddle_bottom              
         ]);
     }
 

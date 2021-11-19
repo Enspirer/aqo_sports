@@ -14,23 +14,47 @@
     <div class="container">
         <div class="row advert" style="margin-top: 30px;">
             <div class="col-12 col-md-6 text-center mb-3 mb-md-0">
-                <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 left" style="height: 20rem; object-fit: cover;">
+                @if($nleft != null)
+                <a href="{{$nleft->link}}" target="_blank">
+                    <img src="{{ url('files/advertisement',$nleft->image) }}" alt="..." class="img-fluid w-100 left" style="height: 20rem; object-fit: cover;">
+                </a>
+                @else
+                    <img src="{{ url('img/no-image.jpg') }}" alt="..." class="img-fluid w-100 left" style="height: 20rem; object-fit: cover;">
+                @endif
             </div>
             <div class="col-12 col-md-6 pl-3 pl-md-0">
                 <div class="row">
                     <div class="col-12 col-md-8 pr-3 pr-md-0 mb-3 mb-md-0">
                         <div class="row">
                             <div class="col-12">
-                                <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 middle-top" style="height: 9.7rem; margin-bottom: 0.6rem; object-fit: cover; ">
+                                @if($nmiddle_top != null)
+                                    <a href="{{$nmiddle_top->link}}" target="_blank">
+                                        <img src="{{ url('files/advertisement',$nmiddle_top->image) }}" alt="..." class="img-fluid w-100 middle-top" style="height: 9.7rem; margin-bottom: 0.6rem; object-fit: cover;">
+                                    </a>
+                                @else
+                                    <img src="{{ url('img/no-image.jpg') }}" alt="..." class="img-fluid w-100 middle-top" style="height: 9.7rem; margin-bottom: 0.6rem; object-fit: cover;">
+                                @endif
                             </div>
                             <div class="col-12">
-                                <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 middle-bottom" style="height: 9.7rem; object-fit: cover;">
+                                @if($nmiddle_bottom != null)
+                                    <a href="{{$nmiddle_bottom->link}}" target="_blank">
+                                        <img src="{{ url('files/advertisement',$nmiddle_bottom->image) }}" alt="..." class="img-fluid w-100 middle-bottom" style="height: 9.7rem; object-fit: cover;">
+                                    </a>
+                                @else
+                                    <img src="{{ url('img/no-image.jpg') }}" alt="..." class="img-fluid w-100 middle-bottom" style="height: 9.7rem; object-fit: cover;">
+                                @endif
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-4 pl-3 pl-md-0>
+                    <div class="col-12 col-md-4 pl-3 pl-md-0">
                         <div class="col-12">
-                            <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 right" style="height: 20rem; object-fit: cover;">
+                            @if($nright != null)
+                                <a href="{{$nright->link}}" target="_blank">
+                                    <img src="{{ url('files/advertisement',$nright->image) }}" alt="..." class="img-fluid w-100 right" style="height: 20rem; object-fit: cover;">
+                                </a>
+                            @else
+                                <img src="{{ url('img/no-image.jpg') }}" alt="..." class="img-fluid w-100 right" style="height: 20rem; object-fit: cover;">
+                            @endif
                         </div>
                     </div>
                 </div>

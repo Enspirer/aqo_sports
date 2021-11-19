@@ -389,23 +389,47 @@
             
             <div class="row advert">
                 <div class="col-12 col-md-6 text-center mb-3 mb-md-0">
-                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 left" style="height: 20rem; object-fit: cover;">
+                    @if($eleft != null)
+                    <a href="{{$eleft->link}}" target="_blank">
+                        <img src="{{ url('files/advertisement',$eleft->image) }}" alt="..." class="img-fluid w-100 left" style="height: 20rem; object-fit: cover;">
+                    </a>
+                    @else
+                        <img src="{{ url('img/no-image.jpg') }}" alt="..." class="img-fluid w-100 left" style="height: 20rem; object-fit: cover;">
+                    @endif
                 </div>
                 <div class="col-12 col-md-6 pl-3 pl-md-0">
                     <div class="row">
                         <div class="col-12 col-md-8 pr-3 pr-md-0 mb-3 mb-md-0">
                             <div class="row">
                                 <div class="col-12">
-                                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 middle-top" style="height: 9.7rem; margin-bottom: 0.6rem; object-fit: cover; ">
+                                    @if($emiddle_top != null)
+                                        <a href="{{$emiddle_top->link}}" target="_blank">
+                                            <img src="{{ url('files/advertisement',$emiddle_top->image) }}" alt="..." class="img-fluid w-100 middle-top" style="height: 9.7rem; margin-bottom: 0.6rem; object-fit: cover;">
+                                        </a>
+                                    @else
+                                        <img src="{{ url('img/no-image.jpg') }}" alt="..." class="img-fluid w-100 middle-top" style="height: 9.7rem; margin-bottom: 0.6rem; object-fit: cover;">
+                                    @endif
                                 </div>
                                 <div class="col-12">
-                                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 middle-bottom" style="height: 9.7rem; object-fit: cover;">
+                                    @if($emiddle_bottom != null)
+                                        <a href="{{$emiddle_bottom->link}}" target="_blank">
+                                            <img src="{{ url('files/advertisement',$emiddle_bottom->image) }}" alt="..." class="img-fluid w-100 middle-bottom" style="height: 9.7rem; object-fit: cover;">
+                                        </a>
+                                    @else
+                                        <img src="{{ url('img/no-image.jpg') }}" alt="..." class="img-fluid w-100 middle-bottom" style="height: 9.7rem; object-fit: cover;">
+                                    @endif
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-4 pl-3 pl-md-0>
+                        <div class="col-12 col-md-4 pl-3 pl-md-0">
                             <div class="col-12">
-                                <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 right" style="height: 20rem; object-fit: cover;">
+                                @if($eright != null)
+                                    <a href="{{$eright->link}}" target="_blank">
+                                        <img src="{{ url('files/advertisement',$eright->image) }}" alt="..." class="img-fluid w-100 right" style="height: 20rem; object-fit: cover;">
+                                    </a>
+                                @else
+                                    <img src="{{ url('img/no-image.jpg') }}" alt="..." class="img-fluid w-100 right" style="height: 20rem; object-fit: cover;">
+                                @endif
                             </div>
                         </div>
                     </div>

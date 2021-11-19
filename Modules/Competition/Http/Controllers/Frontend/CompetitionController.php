@@ -17,6 +17,8 @@ use Modules\Competition\Entities\Organizer;
 use Modules\Competition\Entities\Performance;
 use Modules\Competition\Http\Controllers\Backend\CategoryController;
 use App\Models\CompetitionPageAd;
+use App\Models\CompetitionpageMultipleAd;
+
 
 
 class CompetitionController extends Controller
@@ -128,7 +130,12 @@ class CompetitionController extends Controller
         }
 
         $competitions = $competitions->get();
+        
 
+        $eleft = CompetitionpageMultipleAd::where('position','eleft')->first();
+        $eright = CompetitionpageMultipleAd::where('position','eright')->first();
+        $emiddle_top = CompetitionpageMultipleAd::where('position','emiddle_top')->first();
+        $emiddle_bottom = CompetitionpageMultipleAd::where('position','emiddle_bottom')->first();
 
         return view('competition::frontend.explorer',
             [
@@ -137,7 +144,11 @@ class CompetitionController extends Controller
                 'category_name' => $categoryName,
                 'keyword' => $keyword,
                 'start_date' => $start_date,
-                'end_date' => $end_date
+                'end_date' => $end_date,
+                'eleft' => $eleft,
+                'eright' => $eright,
+                'emiddle_top' => $emiddle_top,
+                'emiddle_bottom' => $emiddle_bottom
             ]);
     }
 

@@ -96,3 +96,22 @@ Route::get('news_multiple_middle_top/delete/{id}', [MultipleAdController::class,
 Route::post('news_multiple_middle_bottom/store', [MultipleAdController::class, 'news_multiple_middle_bottom_store'])->name('news_multiple_middle_bottom.store');
 Route::post('news_multiple_middle_bottom/update', [MultipleAdController::class, 'news_multiple_middle_bottom_update'])->name('news_multiple_middle_bottom.update');
 Route::get('news_multiple_middle_bottom/delete/{id}', [MultipleAdController::class, 'news_multiple_middle_bottom_delete'])->name('news_multiple_middle_bottom.delete');
+
+
+
+
+Route::post('explore_multiple_left/store', [MultipleAdController::class, 'explore_multiple_left_store'])->name('explore_multiple_left.store');
+Route::post('explore_multiple_left/update', [MultipleAdController::class, 'explore_multiple_left_update'])->name('explore_multiple_left.update');
+Route::get('explore_multiple_left/delete/{id}', [MultipleAdController::class, 'explore_multiple_left_delete'])->name('explore_multiple_left.delete');
+
+Route::post('explore_multiple_right/store', [MultipleAdController::class, 'explore_multiple_right_store'])->name('explore_multiple_right.store');
+Route::post('explore_multiple_right/update', [MultipleAdController::class, 'explore_multiple_right_update'])->name('explore_multiple_right.update');
+Route::get('explore_multiple_right/delete/{id}', [MultipleAdController::class, 'explore_multiple_right_delete'])->name('explore_multiple_right.delete');
+
+Route::post('explore_multiple_middle_top/store', [MultipleAdController::class, 'explore_multiple_middle_top_store'])->name('explore_multiple_middle_top.store');
+Route::post('explore_multiple_middle_top/update', [MultipleAdController::class, 'explore_multiple_middle_top_update'])->name('explore_multiple_middle_top.update');
+Route::get('explore_multiple_middle_top/delete/{id}', [MultipleAdController::class, 'explore_multiple_middle_top_delete'])->name('explore_multiple_middle_top.delete');
+
+Route::post('explore_multiple_middle_bottom/store', [MultipleAdController::class, 'explore_multiple_middle_bottom_store'])->name('explore_multiple_middle_bottom.store');
+Route::post('explore_multiple_middle_bottom/update', [MultipleAdController::class, 'explore_multiple_middle_bottom_update'])->name('explore_multiple_middle_bottom.update');
+Route::get('explore_multiple_middle_bottom/delete/{id}', [MultipleAdController::class, 'explore_multiple_middle_bottom_delete'])->name('explore_multiple_middle_bottom.delete');

@@ -581,4 +581,289 @@ class MultipleAdController extends Controller
 
     
 
+    // ******************************************************************************
+
+
+
+
+
+
+    public function explore_multiple_left_store(Request $request)
+    {        
+        // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=540,height=320'
+        ]);
+    
+        if($request->file('image'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->image->move(public_path('files/advertisement'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{
+            $image_url = null;
+        } 
+
+        $add = new CompetitionpageMultipleAd;
+        
+        $add->link=$request->link;
+        $add->description=$request->description;
+        $add->position=$request->eleft;
+        $add->image=$image_url;
+        $add->save();
+
+        return back()->withFlashSuccess('Added Successfully');                      
+
+    }
+
+    public function explore_multiple_left_update(Request $request)
+    {        
+        // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=540,height=320'
+        ]);
+    
+        if($request->file('image'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->image->move(public_path('files/advertisement'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{            
+            $detail = CompetitionpageMultipleAd::where('id',$request->hidden_id)->first();
+            $image_url = $detail->image;            
+        }  
+
+        $update = new CompetitionpageMultipleAd;
+        
+        $update->link=$request->link;
+        $update->description=$request->description;
+        $update->position=$request->eleft;
+        $update->image=$image_url;
+
+        CompetitionpageMultipleAd::whereId($request->hidden_id)->update($update->toArray());
+
+        return back()->withFlashSuccess('Updated Successfully');                      
+
+    }
+
+    public function explore_multiple_left_delete($id)
+    {        
+        $data = CompetitionpageMultipleAd::findOrFail($id);
+        $data->delete();   
+
+        return back()->withFlashSuccess('Deleted Successfully');  
+    }
+
+    public function explore_multiple_right_store(Request $request)
+    {        
+        // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=164,height=320'
+        ]);
+    
+        if($request->file('image'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->image->move(public_path('files/advertisement'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{
+            $image_url = null;
+        } 
+
+        $add = new CompetitionpageMultipleAd;
+        
+        $add->link=$request->link;
+        $add->description=$request->description;
+        $add->position=$request->eright;
+        $add->image=$image_url;
+        $add->save();
+
+        return back()->withFlashSuccess('Added Successfully');                      
+
+    }
+
+    public function explore_multiple_right_update(Request $request)
+    {        
+        // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=164,height=320'
+        ]);
+    
+        if($request->file('image'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->image->move(public_path('files/advertisement'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{            
+            $detail = CompetitionpageMultipleAd::where('id',$request->hidden_id)->first();
+            $image_url = $detail->image;            
+        }  
+
+        $update = new CompetitionpageMultipleAd;
+        
+        $update->link=$request->link;
+        $update->description=$request->description;
+        $update->position=$request->eright;
+        $update->image=$image_url;
+
+        CompetitionpageMultipleAd::whereId($request->hidden_id)->update($update->toArray());
+
+        return back()->withFlashSuccess('Updated Successfully');                      
+
+    }
+
+    public function explore_multiple_right_delete($id)
+    {        
+        $data = CompetitionpageMultipleAd::findOrFail($id);
+        $data->delete();   
+
+        return back()->withFlashSuccess('Deleted Successfully');  
+    }
+
+    public function explore_multiple_middle_top_store(Request $request)
+    {        
+        // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=375,height=155'
+        ]);
+    
+        if($request->file('image'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->image->move(public_path('files/advertisement'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{
+            $image_url = null;
+        } 
+
+        $add = new CompetitionpageMultipleAd;
+        
+        $add->link=$request->link;
+        $add->description=$request->description;
+        $add->position=$request->emiddle_top;
+        $add->image=$image_url;
+        $add->save();
+
+        return back()->withFlashSuccess('Added Successfully');                      
+
+    }
+
+    public function explore_multiple_middle_top_update(Request $request)
+    {        
+        // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=375,height=155'
+        ]);
+    
+        if($request->file('image'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->image->move(public_path('files/advertisement'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{            
+            $detail = CompetitionpageMultipleAd::where('id',$request->hidden_id)->first();
+            $image_url = $detail->image;            
+        }  
+
+        $update = new CompetitionpageMultipleAd;
+        
+        $update->link=$request->link;
+        $update->description=$request->description;
+        $update->position=$request->emiddle_top;
+        $update->image=$image_url;
+
+        CompetitionpageMultipleAd::whereId($request->hidden_id)->update($update->toArray());
+
+        return back()->withFlashSuccess('Updated Successfully');                      
+
+    }
+
+    public function explore_multiple_middle_top_delete($id)
+    {        
+        $data = CompetitionpageMultipleAd::findOrFail($id);
+        $data->delete();   
+
+        return back()->withFlashSuccess('Deleted Successfully');  
+    }
+
+    public function explore_multiple_middle_bottom_store(Request $request)
+    {        
+        // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=375,height=155'
+        ]);
+    
+        if($request->file('image'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->image->move(public_path('files/advertisement'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{
+            $image_url = null;
+        } 
+
+        $add = new CompetitionpageMultipleAd;
+        
+        $add->link=$request->link;
+        $add->description=$request->description;
+        $add->position=$request->emiddle_bottom;
+        $add->image=$image_url;
+        $add->save();
+
+        return back()->withFlashSuccess('Added Successfully');                      
+
+    }
+
+    public function explore_multiple_middle_bottom_update(Request $request)
+    {        
+        // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=375,height=155'
+        ]);
+    
+        if($request->file('image'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->image->move(public_path('files/advertisement'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{            
+            $detail = CompetitionpageMultipleAd::where('id',$request->hidden_id)->first();
+            $image_url = $detail->image;            
+        }  
+
+        $update = new CompetitionpageMultipleAd;
+        
+        $update->link=$request->link;
+        $update->description=$request->description;
+        $update->position=$request->emiddle_bottom;
+        $update->image=$image_url;
+
+        CompetitionpageMultipleAd::whereId($request->hidden_id)->update($update->toArray());
+
+        return back()->withFlashSuccess('Updated Successfully');                      
+
+    }
+
+    public function explore_multiple_middle_bottom_delete($id)
+    {        
+        $data = CompetitionpageMultipleAd::findOrFail($id);
+        $data->delete();   
+
+        return back()->withFlashSuccess('Deleted Successfully');  
+    }
+
+
+
+
+
+
+
 }
