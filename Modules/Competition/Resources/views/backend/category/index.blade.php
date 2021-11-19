@@ -17,6 +17,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Category Name</th>
+                            <th scope="col">Featured</th>
                             <th scope="col">Created at</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -71,6 +72,7 @@
                 columns: [
                     {data: 'id', name: 'id'},
                     {data: 'category_name', name: 'category_name'},
+                    {data: 'featured', name: 'featured'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]

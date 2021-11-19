@@ -40,6 +40,14 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label>Featured <span style="color:red">*<span></label>
+                                        <select class="form-control" name="featured" required>
+                                            <option value="1" {{ $category->featured == '1' ? "selected" : "" }}>Enable</option>   
+                                            <option value="0" {{ $category->featured == '0' ? "selected" : "" }}>Disable</option>                                
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label>Vote Function</label>
                                         <select class="form-control" name="vote_function">
                                             <option value="1" {{$category->vote_function == 1 ? 'selected':''}}>Enabled</option>

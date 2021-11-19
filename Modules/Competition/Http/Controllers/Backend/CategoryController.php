@@ -8,7 +8,7 @@ use Illuminate\Routing\Controller;
 use DataTables;
 use Modules\Competition\Entities\CompetitionCategory;
 use File;
-
+use DB;
 
 class CategoryController extends Controller
 {
@@ -30,7 +30,16 @@ class CategoryController extends Controller
                 $btn2 = ' <button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>';
                 return $btn1.$btn2;
             })
-            ->rawColumns(['action'])
+            ->addColumn('featured', function($data){
+                if($data->featured == '1'){
+                    $featured = '<span class="badge badge-success">Enabled</span>';
+                }
+                else{
+                    $featured = '<span class="badge badge-danger">Disable</span>';
+                }   
+                return $featured;
+            })
+            ->rawColumns(['action','featured'])
             ->make();
     }
 
@@ -50,10 +59,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->featured == 1)
+        {            
+            $featured = DB::table('competition_categories')->where('featured', '=', 1)->update(array('featured' => 0));           
+        }
+
         $category = new CompetitionCategory;
         $category->category_name = $request->category_name;
         $category->description = $request->description;
         $category->vote_function = $request->vote_function;
+        $category->featured = $request->featured;
         if($request->file('category_image'))
         {
             //Feature Images
@@ -104,6 +119,11 @@ class CategoryController extends Controller
     public function update(Request $request)
     {
 
+        if($request->featured == 1)
+        {            
+            $featured = DB::table('competition_categories')->where('featured', '=', 1)->update(array('featured' => 0));           
+        }
+
         if($request->file('category_image'))
         {
             //Feature Images
@@ -119,6 +139,7 @@ class CategoryController extends Controller
             'category_name' => $request->category_name,
             'description' => $request->description,
             'feature_image' => $category_image,
+            'featured' => $featured,
             'vote_function' => $request->vote_function
         ]);
 

@@ -26,6 +26,10 @@ class HomepageAdController extends Controller
     public function store_home(Request $request)
     {        
         // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=350,height=464'
+        ]);
     
         if($request->file('image'))
         {            
@@ -50,6 +54,10 @@ class HomepageAdController extends Controller
     public function update_home(Request $request)
     {        
         // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=350,height=464'
+        ]);
     
         if($request->file('image'))
         {            
