@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <!-- <div class="contentExplore">
+    <div class="contentExplore">
         <div class="container">
             <div class="srarchBar">
                 <form action="{{route('frontend.search_keyword')}}" method="post">
@@ -381,15 +381,15 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
-    <div class="container" style="margin-top: 10rem; margin-bottom: 10rem;">
+    <!-- <div class="container" style="margin-top: 10rem; margin-bottom: 10rem;">
         <div class="row text-center">
             <div class="col-12">
                 <h1 style="font-size: 4rem; color: #6D6D6D">COMING SOON</h1>
             </div>
         </div>
-    </div>
+    </div> -->
 @endsection
 
 
