@@ -55,7 +55,12 @@
                         <div class="form-group">
                             <label>Image</label>
                             <input type="file" class="form-control" name="image" required>
-                        </div>                          
+                        </div>   
+                        
+                        <div class="form-group">
+                            <label>Link</label>
+                            <input type="text" class="form-control" name="link">
+                        </div>  
 
                         <div class="form-group">
                             <label>Order</label>

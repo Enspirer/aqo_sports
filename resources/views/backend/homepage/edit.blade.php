@@ -18,6 +18,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label>Link</label>
+                            <input type="text" class="form-control" value="{{ $home->link }}" name="link">
+                        </div> 
+
+                        <div class="form-group">
                             <label>Order</label>
                             <input type="number" class="form-control" name="order" value="{{ $home->order }}" required>
                         </div>

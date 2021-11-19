@@ -32,6 +32,7 @@ class HomePageController extends Controller
         $add = new HomePage;
         
         $add->order=$request->order;
+        $add->link=$request->link;
         $add->image=$image_url;
         $add->save();
 
@@ -90,6 +91,7 @@ class HomePageController extends Controller
         $update = new HomePage;
 
         $update->order=$request->order;
+        $update->link=$request->link;
         $update->image=$image_url;
 
         HomePage::whereId($request->hidden_id)->update($update->toArray());
