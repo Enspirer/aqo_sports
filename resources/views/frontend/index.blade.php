@@ -224,37 +224,49 @@
                 <div class="row mt-5">
                     <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
-                            <img src="{{url('aqo_se/assets/image/index/logo_1.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{url('aqo_se/assets/image/index/logo_1.jpg')}}" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
+                            <input type="hidden" value="https://www.vedha.com" class="ad-link">
+                            <input type="hidden" value="AQO h2" class="ad-description">
                         </div>
                     </div>
 
                     <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
-                            <img src="{{url('aqo_se/assets/image/index/logo_2.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{url('aqo_se/assets/image/index/logo_2.jpg')}}" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
+                            <input type="hidden" value="https://www.vedha.com" class="ad-link">
+                            <input type="hidden" value="AQ) Leatherware" class="ad-description">
                         </div>
                     </div>
 
                     <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
-                            <img src="{{url('aqo_se/assets/image/index/logo_3.png')}}" alt="" class="img-fluid">
+                            <img src="{{url('aqo_se/assets/image/index/logo_3.png')}}" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
+                            <input type="hidden" value="https://www.vedha.com" class="ad-link">
+                            <input type="hidden" value="Cafe OnnaQuinto" class="ad-description">
                         </div>
                     </div>
 
                     <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
-                            <img src="{{url('aqo_se/assets/image/index/logo_4.png')}}" alt="" class="img-fluid">
+                            <img src="{{url('aqo_se/assets/image/index/logo_4.png')}}" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
+                            <input type="hidden" value="https://www.vedha.com" class="ad-link">
+                            <input type="hidden" value="Coffee" class="ad-description">
                         </div>
                     </div>
 
                     <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
-                            <img src="{{url('aqo_se/assets/image/index/logo_5.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{url('aqo_se/assets/image/index/logo_5.jpg')}}" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
+                            <input type="hidden" value="https://www.vedha.com" class="ad-link">
+                            <input type="hidden" value="Tropical Property Realtor" class="ad-description">
                         </div>
                     </div>
 
                     <div class="col-4 col-md">
                         <div class="card p-1">
-                            <img src="{{url('aqo_se/assets/image/index/logo_6.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{url('aqo_se/assets/image/index/logo_6.jpg')}}" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
+                            <input type="hidden" value="https://www.vedha.com" class="ad-link">
+                            <input type="hidden" value="A Quint Ondaatje" class="ad-description">
                         </div>
                     </div>
                 </div>
@@ -305,6 +317,35 @@
                         </div>
                     @endforeach
                 @endif
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Ad Modal -->
+    <div class="modal fade" id="ad-modal" tabindex="-1" aria-labelledby="adModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <img src="" alt="" id="modal-ad-img" class="img-fluid w-100" style="object-fit: cover; height: 20rem">
+                            <p class="mt-3" id="modal-ad-description" style="text-align: justify;"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="" type="button" class="btn btn-primary" id="modal-ad-link" target="_blank">More Details</a>
+                </div>
             </div>
         </div>
     </div>
@@ -415,4 +456,19 @@
             $(this).find('i').removeClass('trans-arrow');
           });
       </script>
+
+
+    <script>
+        $('.our-group .card').on('click', function() {
+            let img = $(this).find('img').attr('src');
+            let link = $(this).find('.ad-link').val();
+            let description = $(this).find('.ad-description').val();
+
+            $('#modal-ad-img').attr('src', img);
+            $('#modal-ad-link').attr('href', link);
+            $('#modal-ad-description').text(description);
+
+            
+        });
+    </script>
 @endpush

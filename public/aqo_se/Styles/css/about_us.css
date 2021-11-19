@@ -95,8 +95,8 @@
     }
 
     .mission .large-title {
-        left: -6.5%!important;
-        font-size: 5.5rem!important;
+        left: -4%!important;
+        font-size: 5rem!important;
     }
     .mission h1 {
         font-size: 4.5rem!important;
@@ -117,8 +117,14 @@
         margin-bottom: 15rem;
     }
     .why-us .side-image img {
-        top: -1rem!important;
+        top: 0rem!important;
         right: 0rem!important;
         height: 20rem;
+    }
+    .vision .card {
+        height: 17rem!important;
+    }
+    .mission .card {
+        height: 20rem!important;
     }
 }
