@@ -108,6 +108,43 @@
         </div>
     </div>
     
+    <div class="modal fade" id="overlay">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+            <div class="modal-header">
+            <h4 class="modal-title pull-left">Instructions for Validations</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                
+            </div>
+            <div class="modal-body">
+
+                <h5 class="mb-3">Home Page Slider</h5>
+                <p>Image ( dimensions = width: 730px * height: 464px )</p>
+                <p>Image ( Size = Maximum size should be 25MB )</p>
+                <p>Image ( Type = jpeg,png,jpg )</p>
+                
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+            </div>
+
+            </div>
+        </div>
+        </div>
+
+
+    <script type="text/javascript">
+
+        $(window).on('load', function() {
+                $('#overlay').modal('show');
+            });
+        $("#close-btn").click(function () {
+            $('#overlay').modal('hide');
+        });
+
+    </script> 
+
 
     <script type="text/javascript">
         $(function () {

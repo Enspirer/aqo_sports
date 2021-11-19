@@ -18,6 +18,10 @@ class HomePageController extends Controller
     public function store(Request $request)
     {        
         // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
+        ]);
     
         if($request->file('image'))
         {            
@@ -77,6 +81,10 @@ class HomePageController extends Controller
     public function update(Request $request)
     {        
         // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
+        ]);
         
         if($request->file('image'))
         {

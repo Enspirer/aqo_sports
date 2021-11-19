@@ -7,6 +7,8 @@ use Modules\Competition\Entities\CompetitionCategory;
 use Modules\Competition\Entities\Competition;
 use App\Models\HomePage;
 use App\Models\HomepageAd;
+use App\Models\HomepageMultipleAd;
+
 
 /**
  * Class HomeController.
@@ -23,11 +25,20 @@ class HomeController extends Controller
         $sliders = HomePage::orderBy('order','ASC')->get();
         $homepage_ad = HomepageAd::first();
 
+        $left = HomepageMultipleAd::where('position','left')->first();
+        $right = HomepageMultipleAd::where('position','right')->first();
+        $middle_top = HomepageMultipleAd::where('position','middle_top')->first();
+        $middle_bottom = HomepageMultipleAd::where('position','middle_bottom')->first();
+
         return view('frontend.index',[
             'competitionCategory' => $competitionCategory,
             'trendingCompetition' => $trendingCompetition,
             'sliders' => $sliders,
-            'homepage_ad' => $homepage_ad
+            'homepage_ad' => $homepage_ad,
+            'left' => $left,
+            'right' => $right,
+            'middle_top' => $middle_top,
+            'middle_bottom' => $middle_bottom
         ]);
 
     }

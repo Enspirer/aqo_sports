@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHomepageMultipleAdsTable extends Migration
+class CreateNewspageMultipleAdsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateHomepageMultipleAdsTable extends Migration
      */
     public function up()
     {
-        Schema::create('homepage_multiple_ads', function (Blueprint $table) {
+        Schema::create('newspage_multiple_ads', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('name')->nullable();
             $table->text('description')->nullable();
@@ -31,6 +31,6 @@ class CreateHomepageMultipleAdsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('homepage_multiple_ads');
+        Schema::dropIfExists('newspage_multiple_ads');
     }
 }
