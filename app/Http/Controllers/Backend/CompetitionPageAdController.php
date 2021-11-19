@@ -11,6 +11,10 @@ class CompetitionPageAdController extends Controller
     public function store_competition(Request $request)
     {        
         // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=160,height=480'
+        ]);
     
         if($request->file('image'))
         {            
@@ -35,6 +39,10 @@ class CompetitionPageAdController extends Controller
     public function update_competition(Request $request)
     {        
         // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=160,height=480'
+        ]);
     
         if($request->file('image'))
         {            
