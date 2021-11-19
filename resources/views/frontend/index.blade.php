@@ -88,6 +88,24 @@
             </div>
         </div> -->
 
+        <div class="container" style="margin-top: 5rem;">
+            <div class="row">
+                <div class="col-6 text-center">
+                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100" style="height: 20rem; object-fit: cover;">
+                </div>
+                <div class="col-6 pl-1">
+                    <div class="row">
+                        <div class="col-12">
+                            <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100" style="height: 9.7rem; margin-bottom: 0.6rem; object-fit: cover; ">
+                        </div>
+                        <div class="col-12">
+                            <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100" style="height: 9.7rem; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         @if(count(App\Models\Blog::where('status','Enabled')->get()) != 0)
             <div class="container news" style="margin-top: 5rem;">
                 <div class="row">
@@ -99,7 +117,7 @@
                                 @foreach(App\Models\Blog::where('category', 'News')->where('status', 'Enabled')->get() as $key => $blog_posts)  
                                     <div class="swiper-slide position-relative">
                                         <a href="{{route('frontend.blog_post',$blog_posts->id)}}" style="color:black">
-                                            <div class="card" style="height: 29rem;">
+                                            <div class="card" style="height: 31rem;">
                                                 <img src="{{ url('files/blog',$blog_posts->feature_image) }}" class="card-img-top" alt="..." style="height: 17rem; object-fit: cover;">
                                                 <div class="card-body">
                                                     <h6 class="fw-bold" style="font-size: 0.9rem;">{{ $blog_posts->title }}</h6>
@@ -111,6 +129,20 @@
                                                         <p style="color: #FF0000; font-size: 0.8rem;">Read More<i class="fas fa-arrow-right ml-2"></i></p>
                                                     </div>
 
+                                                    <div class="row position-absolute card-social">
+                                                        <div class="col-12">
+                                                            <a><i class="fab fa-facebook-square text-white"></i></a>
+
+                                                            <a><i class="fab fa-instagram text-white"></i></a>
+
+                                                            <a><i class="fab fa-youtube-square text-white"></i></a>
+
+                                                            <a><i class="fab fa-twitter text-white"></i></a>
+
+                                                            <a><i class="fab fa-tiktok text-white"></i></a>
+
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         <a>

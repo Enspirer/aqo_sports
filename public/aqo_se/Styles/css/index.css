@@ -51,7 +51,7 @@
 
 .mySwiper3 .read {
     right: 1rem;
-    bottom: 1rem;
+    bottom: 2rem;
 }
 
 .swiper-button-next, .swiper-rtl .swiper-button-prev {
@@ -139,6 +139,16 @@
     background: rgb(0, 0, 0, 0.7);
     border-radius: 30px;
     padding: 0.9rem 1.2rem;
+}
+
+.card-social i {
+    font-size: 1.9rem;
+    background-color: #8a6e4b;
+    padding: 0.2rem 0.4rem;
+}
+
+.card-social {
+    bottom: 1.5rem;
 }
 
 

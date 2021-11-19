@@ -12,6 +12,11 @@
 
 <div class="container-fluid p-0 banner mb-3">
     <div class="container">
+        <div class="row mb-5" style="margin-top: 30px;">
+                <div class="col-12">
+                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100" style="height: 20rem; object-fit: cover;">
+                </div>
+            </div>
         <div class="row">
             <div class="col-12" style="padding-top: 3rem">
                 <h1 class="fw-bolder text-center" style="font-size: 50px;">{{ $title }}</h1>

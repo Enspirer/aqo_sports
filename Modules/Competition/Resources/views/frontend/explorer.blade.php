@@ -9,6 +9,11 @@
 @section('content')
     <div class="contentExplore">
         <div class="container">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100" style="height: 20rem; object-fit: cover;">
+                </div>
+            </div>
             <div class="srarchBar">
                 <form action="{{route('frontend.search_keyword')}}" method="post">
                     {{csrf_field()}}
@@ -378,6 +383,12 @@
             <div class="addSectionHorizantle">
                 <div class="container">
                     <img src="assets/image/5e67b03c59a90_thumb900.jpg" alt="" srcset=""/>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-12">
+                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100" style="height: 20rem; object-fit: cover;">
                 </div>
             </div>
         </div>

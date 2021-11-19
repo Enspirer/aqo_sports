@@ -62,6 +62,8 @@
 
                         <a href="#" target="_blank" class=""><i class="fab fa-twitter text-white"></i></a>
 
+                        <a href="#" target="_blank" class=""><i class="fab fa-tiktok text-white"></i></a>
+
                     </div>
                 </div>
 
