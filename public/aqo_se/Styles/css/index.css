@@ -151,6 +151,10 @@
     bottom: 1.5rem;
 }
 
+.our-group .card {
+    cursor: pointer;
+}
+
 
 @media screen and (max-width: 576px) {
     .swiper {

@@ -16,6 +16,16 @@
     }
 
     .banner-top, .banner-bottom {
+        height: 4rem!important;
+    }
+
+    .advert .left {
         height: 11rem!important;
+    }
+    .advert .middle-top, .advert .middle-bottom {
+        height: 8rem!important;
+    }
+    .advert .right {
+        height: 8rem!important;
     }
 }

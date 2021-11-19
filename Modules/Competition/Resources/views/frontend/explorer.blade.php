@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
-                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 banner-top" style="height: 20rem; object-fit: cover;">
+                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 banner-top" style="height: 8rem; object-fit: cover;">
                 </div>
             </div>
             <div class="srarchBar">
@@ -386,9 +386,29 @@
                 </div>
             </div>
 
-            <div class="row mb-5">
-                <div class="col-12">
-                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 banner-bottom" style="height: 20rem; object-fit: cover;">
+            
+            <div class="row advert">
+                <div class="col-12 col-md-6 text-center mb-3 mb-md-0">
+                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 left" style="height: 20rem; object-fit: cover;">
+                </div>
+                <div class="col-12 col-md-6 pl-3 pl-md-0">
+                    <div class="row">
+                        <div class="col-12 col-md-8 pr-3 pr-md-0 mb-3 mb-md-0">
+                            <div class="row">
+                                <div class="col-12">
+                                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 middle-top" style="height: 9.7rem; margin-bottom: 0.6rem; object-fit: cover; ">
+                                </div>
+                                <div class="col-12">
+                                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 middle-bottom" style="height: 9.7rem; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 pl-3 pl-md-0>
+                            <div class="col-12">
+                                <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 right" style="height: 20rem; object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
