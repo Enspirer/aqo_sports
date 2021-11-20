@@ -771,6 +771,22 @@
             <div class="tab-pane fade" id="explore_multiple_ad">
 
                 <div class="row">
+                    <div class="col-12">
+                        <div class="card-body">
+                            <h5>Page Top Banner</h5>
+                            <div style="border-style: dashed;border-width: 1px;padding: 20px;">
+
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    <input type="file" class="form-control" name="image" required>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-6">
                         @if($eleft == null)
                             <div class="card-body">

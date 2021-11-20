@@ -860,6 +860,34 @@ class MultipleAdController extends Controller
         return back()->withFlashSuccess('Deleted Successfully');  
     }
 
+    public function explore_top_advertiments_bar(Request $request)
+    {
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=375,height=155'
+        ]);
+
+        if($request->file('image'))
+        {
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->image->move(public_path('files/advertisement'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{
+            $detail = CompetitionpageMultipleAd::where('id',$request->hidden_id)->first();
+            $image_url = $detail->image;
+        }
+
+        $update = new CompetitionpageMultipleAd;
+
+        $update->link=$request->link;
+        $update->description=$request->description;
+        $update->position=$request->emiddle_bottom;
+        $update->image=$image_url;
+
+        CompetitionpageMultipleAd::whereId($request->hidden_id)->update($update->toArray());
+
+        return back()->withFlashSuccess('Updated Successfully');
+    }
+
 
 
 
