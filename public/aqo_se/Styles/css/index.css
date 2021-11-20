@@ -200,7 +200,7 @@
         font-size: 1rem!important;
         padding: 0.8rem 1.1rem;
     }
-    
+
     .mySwiper .swiper-button-prev:after, .mySwiper .swiper-rtl .swiper-button-next:after {
         font-size: 1rem!important;
         padding: 0.8rem 1.1rem;
@@ -210,7 +210,7 @@
         font-size: 1rem!important;
         padding: 0.8rem 1.1rem;
     }
-    
+
     .mySwiper2 .swiper-button-prev:after, .mySwiper .swiper-rtl .swiper-button-next:after {
         font-size: 1rem!important;
         padding: 0.8rem 1.1rem;
@@ -229,7 +229,7 @@
         height: 8rem!important;
     }
     .advert .right {
-        height: 8rem!important;
+        height: auto!important;
     }
     #modal-ad-img {
         height: 8rem!important;
