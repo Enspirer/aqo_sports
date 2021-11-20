@@ -99,7 +99,6 @@ Route::get('news_multiple_middle_bottom/delete/{id}', [MultipleAdController::cla
 
 
 
-
 Route::post('explore_multiple_left/store', [MultipleAdController::class, 'explore_multiple_left_store'])->name('explore_multiple_left.store');
 Route::post('explore_multiple_left/update', [MultipleAdController::class, 'explore_multiple_left_update'])->name('explore_multiple_left.update');
 Route::get('explore_multiple_left/delete/{id}', [MultipleAdController::class, 'explore_multiple_left_delete'])->name('explore_multiple_left.delete');
@@ -118,8 +117,28 @@ Route::get('explore_multiple_middle_bottom/delete/{id}', [MultipleAdController::
 
 
 
-
-
 Route::post('explore_banner/store', [MultipleAdController::class, 'explore_banner_store'])->name('explore_banner.store');
 Route::post('explore_banner/update', [MultipleAdController::class, 'explore_banner_update'])->name('explore_banner.update');
 Route::get('explore_banner/delete/{id}', [MultipleAdController::class, 'explore_banner_delete'])->name('explore_banner.delete');
+
+
+Route::post('training_banner/store', [MultipleAdController::class, 'training_banner_store'])->name('training_banner.store');
+Route::post('training_banner/update', [MultipleAdController::class, 'training_banner_update'])->name('training_banner.update');
+Route::get('training_banner/delete/{id}', [MultipleAdController::class, 'training_banner_delete'])->name('training_banner.delete');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

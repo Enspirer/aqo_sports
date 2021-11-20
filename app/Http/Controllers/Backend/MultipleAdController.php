@@ -869,7 +869,7 @@ class MultipleAdController extends Controller
 
 
 
-public function explore_banner_store(Request $request)
+    public function explore_banner_store(Request $request)
     {        
         // dd($request);
 
@@ -928,6 +928,75 @@ public function explore_banner_store(Request $request)
     }
 
     public function explore_banner_delete($id)
+    {        
+        $data = TopBanners::findOrFail($id);
+        $data->delete();   
+
+        return back()->withFlashSuccess('Deleted Successfully');  
+    }
+
+
+    // **********************************************************************************
+
+    public function training_banner_store(Request $request)
+    {        
+        // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
+        ]);
+    
+        if($request->file('image'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->image->move(public_path('files/training_main'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{
+            $image_url = null;
+        } 
+
+        $add = new TopBanners;
+        
+        $add->link=$request->link;
+        $add->position=$request->main_image;
+        $add->image=$image_url;
+        $add->save();
+
+        return back()->withFlashSuccess('Added Successfully');                      
+
+    }
+
+    public function training_banner_update(Request $request)
+    {        
+        // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
+        ]);
+    
+        if($request->file('image'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->image->move(public_path('files/training_main'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{            
+            $detail = TopBanners::where('id',$request->hidden_id)->first();
+            $image_url = $detail->image;            
+        }  
+
+        $update = new TopBanners;
+        
+        $update->link=$request->link;
+        $update->position=$request->main_image;
+        $update->image=$image_url;
+
+        TopBanners::whereId($request->hidden_id)->update($update->toArray());
+
+        return back()->withFlashSuccess('Updated Successfully');                      
+
+    }
+
+    public function training_banner_delete($id)
     {        
         $data = TopBanners::findOrFail($id);
         $data->delete();   
