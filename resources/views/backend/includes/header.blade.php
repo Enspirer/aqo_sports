@@ -3,7 +3,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="{{ url('aqo_se/assets/image/logo/AQOES-logo.png') }}" alt="CoreUI Logo" style="height: 40px; width: 125px;">
+        <img class="navbar-brand-full" src="{{ url('aqo_se/assets/image/logo/AQOES-logo.png') }}" alt="CoreUI Logo" style="height: 30px; width: 125px;">
         <!-- <img class="navbar-brand-minimized" src="{{ url('aqo_se/assets/image/logo_new.png') }}" alt="CoreUI Logo" style="height: 30px; width: 30px;"> -->
     </a>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
