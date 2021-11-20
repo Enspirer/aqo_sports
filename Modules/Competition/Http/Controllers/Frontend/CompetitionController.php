@@ -18,6 +18,7 @@ use Modules\Competition\Entities\Performance;
 use Modules\Competition\Http\Controllers\Backend\CategoryController;
 use App\Models\CompetitionPageAd;
 use App\Models\CompetitionpageMultipleAd;
+use App\Models\TopBanners;
 
 
 
@@ -136,6 +137,8 @@ class CompetitionController extends Controller
         $eright = CompetitionpageMultipleAd::where('position','eright')->first();
         $emiddle_top = CompetitionpageMultipleAd::where('position','emiddle_top')->first();
         $emiddle_bottom = CompetitionpageMultipleAd::where('position','emiddle_bottom')->first();
+        $top_banner = TopBanners::where('position','top_banner')->first();
+        
 
         return view('competition::frontend.explorer',
             [
@@ -148,7 +151,8 @@ class CompetitionController extends Controller
                 'eleft' => $eleft,
                 'eright' => $eright,
                 'emiddle_top' => $emiddle_top,
-                'emiddle_bottom' => $emiddle_bottom
+                'emiddle_bottom' => $emiddle_bottom,
+                'top_banner' => $top_banner
             ]);
     }
 

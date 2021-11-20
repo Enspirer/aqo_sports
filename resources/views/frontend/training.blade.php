@@ -28,7 +28,13 @@
 <div class="container mt-4 banner mb-md-0">
     <div class="row">
         <div class="col-12 col-md-8 mb-3 mb-md-0">
-            <img src="{{url('aqo_se/assets/image/training/banner.png')}}" alt="" class="w-100" style="object-fit: cover; height: 29rem;">
+            @if($main_image != null)
+                <a href="{{$main_image->link}}" target="_blank">
+                    <img src="{{ url('files/training_main',$main_image->image) }}" alt="..." class="w-100" style="object-fit: cover; height: 29rem;">
+                </a>
+            @else
+                <img src="{{ url('img/no-image.jpg') }}" alt="..." class="w-100" style="object-fit: cover; height: 29rem;">
+            @endif
         </div>
         <div class="col-12 col-md-4">
             @if($training_ad != null)

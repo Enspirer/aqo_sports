@@ -11,7 +11,13 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12">
-                    <img src="{{ url('aqo_se/assets/image/hello.jpg') }}" alt="..." class="img-fluid w-100 banner-top" style="height: 8rem; object-fit: cover;">
+                    @if($top_banner != null)
+                        <a href="{{$top_banner->link}}" target="_blank">
+                            <img src="{{ url('files/advertisement',$top_banner->image) }}" alt="..." class="img-fluid w-100 banner-top" style="height: 8rem; object-fit: cover;">
+                        </a>
+                    @else
+                        <img src="{{ url('img/no-image.jpg') }}" alt="..." class="img-fluid w-100 banner-top" style="height: 8rem; object-fit: cover;">
+                    @endif
                 </div>
             </div>
             <div class="srarchBar">

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\TrainingPageAd;
 use App\Models\Training;
+use App\Models\TopBanners;
 use Mail;  
 use \App\Mail\TrainingMail;
 
@@ -14,9 +15,11 @@ class TrainingController extends Controller
     public function index()
     {
         $training_ad = TrainingPageAd::first();
+        $main_image = TopBanners::where('position','main_image')->first();
 
         return view('frontend.training',[
-            'training_ad' => $training_ad
+            'training_ad' => $training_ad,
+            'main_image' => $main_image
         ]);
     }
 
