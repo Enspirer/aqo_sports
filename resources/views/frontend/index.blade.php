@@ -248,7 +248,7 @@
                 <div class="row mt-5">
                     <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
-                            <img src="{{url('aqo_se/assets/image/index/logo_1.jpg')}}" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
+                            <img src="{{url('aqo_se/assets/image/index/logo_1.jpg')}}" style="object-fit: contain;" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
                             <input type="hidden" value="https://www.vedha.com" class="ad-link">
                             <input type="hidden" value="AQO h2" class="ad-description">
                         </div>
@@ -256,7 +256,7 @@
 
                     <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
-                            <img src="{{url('aqo_se/assets/image/index/logo_2.jpg')}}" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
+                            <img src="{{url('aqo_se/assets/image/index/logo_2.jpg')}}" style="object-fit: contain;" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
                             <input type="hidden" value="https://www.vedha.com" class="ad-link">
                             <input type="hidden" value="AQ) Leatherware" class="ad-description">
                         </div>
@@ -264,7 +264,7 @@
 
                     <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
-                            <img src="{{url('aqo_se/assets/image/index/logo_3.png')}}" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
+                            <img src="{{url('aqo_se/assets/image/index/logo_3.png')}}" style="object-fit: contain;" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
                             <input type="hidden" value="https://www.vedha.com" class="ad-link">
                             <input type="hidden" value="Cafe OnnaQuinto" class="ad-description">
                         </div>
@@ -272,7 +272,7 @@
 
                     <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
-                            <img src="{{url('aqo_se/assets/image/index/logo_4.png')}}" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
+                            <img src="{{url('aqo_se/assets/image/index/logo_4.png')}}" style="object-fit: contain;" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
                             <input type="hidden" value="https://www.vedha.com" class="ad-link">
                             <input type="hidden" value="Coffee" class="ad-description">
                         </div>
@@ -280,7 +280,7 @@
 
                     <div class="col-4 col-md mb-3 mb-md-0">
                         <div class="card p-1">
-                            <img src="{{url('aqo_se/assets/image/index/logo_5.jpg')}}" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
+                            <img src="{{url('aqo_se/assets/image/index/logo_5.jpg')}}" style="object-fit: contain;" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
                             <input type="hidden" value="https://www.vedha.com" class="ad-link">
                             <input type="hidden" value="Tropical Property Realtor" class="ad-description">
                         </div>
@@ -288,7 +288,7 @@
 
                     <div class="col-4 col-md">
                         <div class="card p-1">
-                            <img src="{{url('aqo_se/assets/image/index/logo_6.jpg')}}" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
+                            <img src="{{url('aqo_se/assets/image/index/logo_6.jpg')}}" style="object-fit: contain;" alt="" class="img-fluid" data-toggle="modal" data-target="#ad-modal">
                             <input type="hidden" value="https://www.vedha.com" class="ad-link">
                             <input type="hidden" value="A Quint Ondaatje" class="ad-description">
                         </div>
