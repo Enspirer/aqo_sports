@@ -230,6 +230,7 @@
     }
     .advert .right {
         height: 15rem !important;
+        object-fit: contain !important;
     }
     #modal-ad-img {
         height: 8rem!important;
