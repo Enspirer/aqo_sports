@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\HomepageMultipleAd;
 use App\Models\NewspageMultipleAd;
 use App\Models\CompetitionpageMultipleAd;
+use App\Models\TopBanners;
 
 class MultipleAdController extends Controller
 {
@@ -860,38 +861,80 @@ class MultipleAdController extends Controller
         return back()->withFlashSuccess('Deleted Successfully');  
     }
 
-    public function explore_top_advertiments_bar(Request $request)
-    {
-        $this->validate($request, [
-            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=375,height=155'
-        ]);
+    
 
+
+    // ************************************************************************************
+
+
+
+
+public function explore_banner_store(Request $request)
+    {        
+        // dd($request);
+
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=1110,height=128'
+        ]);
+    
         if($request->file('image'))
-        {
+        {            
             $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
             $fullURLsPreviewFile = $request->image->move(public_path('files/advertisement'), $preview_fileName);
             $image_url = $preview_fileName;
         }else{
-            $detail = CompetitionpageMultipleAd::where('id',$request->hidden_id)->first();
-            $image_url = $detail->image;
-        }
+            $image_url = null;
+        } 
 
-        $update = new CompetitionpageMultipleAd;
+        $add = new TopBanners;
+        
+        $add->link=$request->link;
+        $add->position=$request->top_banner;
+        $add->image=$image_url;
+        $add->save();
 
-        $update->link=$request->link;
-        $update->description=$request->description;
-        $update->position=$request->emiddle_bottom;
-        $update->image=$image_url;
+        return back()->withFlashSuccess('Added Successfully');                      
 
-        CompetitionpageMultipleAd::whereId($request->hidden_id)->update($update->toArray());
-
-        return back()->withFlashSuccess('Updated Successfully');
     }
 
+    public function explore_banner_update(Request $request)
+    {        
+        // dd($request);
 
+        $this->validate($request, [
+            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=1110,height=128'
+        ]);
+    
+        if($request->file('image'))
+        {            
+            $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
+            $fullURLsPreviewFile = $request->image->move(public_path('files/advertisement'), $preview_fileName);
+            $image_url = $preview_fileName;
+        }else{            
+            $detail = TopBanners::where('id',$request->hidden_id)->first();
+            $image_url = $detail->image;            
+        }  
 
+        $update = new TopBanners;
+        
+        $update->link=$request->link;
+        $update->position=$request->top_banner;
+        $update->image=$image_url;
 
+        TopBanners::whereId($request->hidden_id)->update($update->toArray());
 
+        return back()->withFlashSuccess('Updated Successfully');                      
 
+    }
+
+    public function explore_banner_delete($id)
+    {        
+        $data = TopBanners::findOrFail($id);
+        $data->delete();   
+
+        return back()->withFlashSuccess('Deleted Successfully');  
+    }
+
+    
 
 }

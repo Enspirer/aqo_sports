@@ -115,3 +115,11 @@ Route::get('explore_multiple_middle_top/delete/{id}', [MultipleAdController::cla
 Route::post('explore_multiple_middle_bottom/store', [MultipleAdController::class, 'explore_multiple_middle_bottom_store'])->name('explore_multiple_middle_bottom.store');
 Route::post('explore_multiple_middle_bottom/update', [MultipleAdController::class, 'explore_multiple_middle_bottom_update'])->name('explore_multiple_middle_bottom.update');
 Route::get('explore_multiple_middle_bottom/delete/{id}', [MultipleAdController::class, 'explore_multiple_middle_bottom_delete'])->name('explore_multiple_middle_bottom.delete');
+
+
+
+
+
+Route::post('explore_banner/store', [MultipleAdController::class, 'explore_banner_store'])->name('explore_banner.store');
+Route::post('explore_banner/update', [MultipleAdController::class, 'explore_banner_update'])->name('explore_banner.update');
+Route::get('explore_banner/delete/{id}', [MultipleAdController::class, 'explore_banner_delete'])->name('explore_banner.delete');
