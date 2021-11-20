@@ -10,6 +10,7 @@ use App\Models\CompetitionPageAd;
 use App\Models\HomepageMultipleAd;
 use App\Models\NewspageMultipleAd;
 use App\Models\CompetitionpageMultipleAd;
+use App\Models\TopBanners;
 
 class HomepageAdController extends Controller
 {
@@ -34,6 +35,9 @@ class HomepageAdController extends Controller
         $emiddle_top = CompetitionpageMultipleAd::where('position','emiddle_top')->first();
         $emiddle_bottom = CompetitionpageMultipleAd::where('position','emiddle_bottom')->first();
 
+        $top = TopBanners::where('position','top_banner')->first();
+        // $emiddle_bottom = CompetitionpageMultipleAd::where('position','emiddle_bottom')->first();
+
         return view('backend.advertisement.index',[
             'homepagead' => $homepagead,
             'competitionpagead' => $competitionpagead,
@@ -49,7 +53,8 @@ class HomepageAdController extends Controller
             'eleft' => $eleft,
             'eright' => $eright,
             'emiddle_top' => $emiddle_top,
-            'emiddle_bottom' => $emiddle_bottom              
+            'emiddle_bottom' => $emiddle_bottom,
+            'top' => $top              
         ]);
     }
 
