@@ -26,6 +26,7 @@
         height: 8rem!important;
     }
     .advert .right {
-        height: 8rem!important;
+        height: 15rem!important;
+        object-fit: contain !important;
     }
 }
