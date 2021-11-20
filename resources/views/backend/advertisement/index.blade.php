@@ -196,7 +196,7 @@
                                     <label>Image</label>
                                     <input type="file" class="form-control" name="image">
                                     <br>
-                                    <img src="{{ url('files/advertisement',$competitionpagead->image) }}" style="width: 40%">
+                                    <img src="{{ url('files/advertisement',$competitionpagead->image) }}" style="width: 25%">
                                 </div> 
                                 <div class="form-group">
                                     <label>Link</label>
@@ -1543,7 +1543,7 @@
         <h5 class="mb-3">Main Image in Training Page</h5>
         <p>Image ( dimensions = width: 730px * height: 464px )</p>
         <p>Image ( Size = Maximum size should be 25MB )</p>
-        <p>Image ( Type = jpeg,png,jpg )</p>
+        <p>Image ( Type = jpeg,png,jpg,gif )</p>
 
         <hr>
         <h5 class="mb-3">Training Page Ad</h5>
@@ -1632,7 +1632,7 @@ $("#close-btn").click(function () {
         <h5 class="mb-3">Main Image in Training Page</h5>
         <p>Image ( dimensions = width: 730px * height: 464px )</p>
         <p>Image ( Size = Maximum size should be 25MB )</p>
-        <p>Image ( Type = jpeg,png,jpg )</p>
+        <p>Image ( Type = jpeg,png,jpg,gif )</p>
 
         <hr>
         <h5 class="mb-3">Training Page Ad</h5>

@@ -943,7 +943,7 @@ class MultipleAdController extends Controller
         // dd($request);
 
         $this->validate($request, [
-            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
+            'image'  => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
         ]);
     
         if($request->file('image'))
@@ -971,7 +971,7 @@ class MultipleAdController extends Controller
         // dd($request);
 
         $this->validate($request, [
-            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
+            'image'  => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
         ]);
     
         if($request->file('image'))
