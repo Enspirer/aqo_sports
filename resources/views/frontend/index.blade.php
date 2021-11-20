@@ -50,7 +50,7 @@
                                 <img src="{{url('files/advertisement',$homepage_ad->image)}}" alt="" class="w-100" style="height: 29rem;">
                             @endif
                         @else
-                            <img src="{{url('img/no-image.jpg')}}" alt="" class="w-100" style="height: 29rem; object-fit: cover">
+                            <img src="{{url('img/no-image.jpg')}}" alt="" class="w-100" style="height: 29rem; object-fit: contain">
                         @endif
                     </div>
                 </div>
