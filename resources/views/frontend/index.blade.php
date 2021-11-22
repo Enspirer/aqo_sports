@@ -22,9 +22,28 @@
                                         @foreach($sliders as $key => $slider)
                                             <div class="swiper-slide position-relative">
                                                 @if($slider->link != null)
-                                                    <a href="{{ $slider->link }}" target="_blank"><img src="{{url('files/homepage',$slider->image)}}" class="w-100" style="height: 29rem; object-fit: cover"></a>
+                                                    <a href="{{ $slider->link }}" target="_blank">
+
+                                                        @if($slider->extension == 'mp4')
+                                                            <video width="100%" height="100%" style="height: 29rem;" autoplay muted>
+                                                                <source src="{{url('files/homepage',$slider->image)}}" type="video/mp4">
+                                                                Your browser does not support the video tag.
+                                                            </video>
+                                                        @else
+                                                            <img src="{{url('files/homepage',$slider->image)}}" class="w-100" style="height: 29rem; object-fit: cover">
+                                                        @endif
+
+                                                    </a>
                                                 @else
-                                                    <img src="{{url('files/homepage',$slider->image)}}" class="w-100" style="height: 29rem; object-fit: cover">
+
+                                                    @if($slider->extension == 'mp4')
+                                                        <video width="100%" height="100%" style="height: 29rem;" autoplay muted>
+                                                            <source src="{{url('files/homepage',$slider->image)}}" type="video/mp4">
+                                                            Your browser does not support the video tag.
+                                                        </video>
+                                                    @else
+                                                        <img src="{{url('files/homepage',$slider->image)}}" class="w-100" style="height: 29rem; object-fit: cover">
+                                                    @endif
                                                 @endif
                                             </div>
                                         @endforeach

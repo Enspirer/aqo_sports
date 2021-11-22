@@ -16,28 +16,51 @@ class HomePageController extends Controller
     }
 
     public function store(Request $request)
-    {        
-        // dd($request);
+    {
+        if($request->file('image'))
+        {
+            if($request->image->getClientOriginalExtension() == 'jpg')
+            {
+                $this->validate($request, [
+                    'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
+                ]);
+            }elseif ($request->image->getClientOriginalExtension() == 'jpeg'){
+                $this->validate($request, [
+                    'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
+                ]);
+            }else if ($request->image->getClientOriginalExtension() == 'png')
+            {
+                $this->validate($request, [
+                    'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
+                ]);
+            }else if ($request->image->getClientOriginalExtension() == 'mp4'){
 
-        $this->validate($request, [
-            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
-        ]);
+            }else{
+                $this->validate($request, [
+                    'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
+                ]);
+            }
+
+
+        }
     
         if($request->file('image'))
         {            
             $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
             $fullURLsPreviewFile = $request->image->move(public_path('files/homepage'), $preview_fileName);
             $image_url = $preview_fileName;
+            $exentionR = $request->image->getClientOriginalExtension();
         }else{
             $image_url = null;
+            $exentionR = null;
         } 
-        // dd($image_url);
 
         $add = new HomePage;
         
         $add->order=$request->order;
         $add->link=$request->link;
         $add->image=$image_url;
+        $add->extension = $exentionR;
         $add->save();
 
         return back()->withFlashSuccess('Added Successfully');                      
@@ -57,8 +80,11 @@ class HomePageController extends Controller
                         return $button;
                     })
                     ->addColumn('image', function($data){
-                        $img = '<img src="'.url('files/homepage',$data->image).'" style="width: 50%">';
-                     
+                        if($data->extension == 'mp4'){
+                            $img = '<i class="fa fa-video"></i> Video Content';
+                        }else{
+                            $img = '<img src="'.url('files/homepage',$data->image).'" style="width: 50%">';
+                        }
                         return $img;
                     })
                     ->rawColumns(['action','image'])
