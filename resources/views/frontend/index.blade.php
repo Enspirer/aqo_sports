@@ -25,7 +25,7 @@
                                                     <a href="{{ $slider->link }}" target="_blank">
 
                                                         @if($slider->extension == 'mp4')
-                                                            <video width="100%" height="100%" style="height: 29rem;" autoplay muted>
+                                                            <video width="100%" style="height: 29rem; object-fit: cover" autoplay muted>
                                                                 <source src="{{url('files/homepage',$slider->image)}}" type="video/mp4">
                                                                 Your browser does not support the video tag.
                                                             </video>
@@ -37,7 +37,7 @@
                                                 @else
 
                                                     @if($slider->extension == 'mp4')
-                                                        <video width="100%" height="100%" style="height: 29rem;" autoplay muted>
+                                                        <video width="100%" style="height: 29rem; object-fit: cover" autoplay muted>
                                                             <source src="{{url('files/homepage',$slider->image)}}" type="video/mp4">
                                                             Your browser does not support the video tag.
                                                         </video>

@@ -28,12 +28,12 @@ class HomePageController extends Controller
                 $this->validate($request, [
                     'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
                 ]);
-            }else if ($request->image->getClientOriginalExtension() == 'png')
+            }elseif ($request->image->getClientOriginalExtension() == 'png')
             {
                 $this->validate($request, [
                     'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
                 ]);
-            }else if ($request->image->getClientOriginalExtension() == 'mp4'){
+            }elseif ($request->image->getClientOriginalExtension() == 'mp4'){
 
             }else{
                 $this->validate($request, [
@@ -120,12 +120,12 @@ class HomePageController extends Controller
                 $this->validate($request, [
                     'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
                 ]);
-            }else if ($request->image->getClientOriginalExtension() == 'png')
+            }elseif ($request->image->getClientOriginalExtension() == 'png')
             {
                 $this->validate($request, [
                     'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
                 ]);
-            }else if ($request->image->getClientOriginalExtension() == 'mp4'){
+            }elseif ($request->image->getClientOriginalExtension() == 'mp4'){
 
             }else{
                 $this->validate($request, [
@@ -136,7 +136,6 @@ class HomePageController extends Controller
 
         }
 
-
         
         if($request->file('image'))
         {
@@ -144,8 +143,6 @@ class HomePageController extends Controller
             $fullURLsPreviewFile = $request->image->move(public_path('files/homepage'), $preview_fileName);
             $image_url = $preview_fileName;
             $exentionR = $request->image->getClientOriginalExtension();
-
-
 
         }else{            
             $detail = HomePage::where('id',$request->hidden_id)->first();
@@ -160,15 +157,9 @@ class HomePageController extends Controller
             $update->extension = $exentionR;
         }
 
-
-
-
-
-
         $update->order=$request->order;
         $update->link=$request->link;
         $update->image=$image_url;
-
 
         HomePage::whereId($request->hidden_id)->update($update->toArray());
    

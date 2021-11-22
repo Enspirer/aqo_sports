@@ -29,9 +29,16 @@
     <div class="row">
         <div class="col-12 col-md-8 mb-3 mb-md-0">
             @if($main_image != null)
-                <a href="{{$main_image->link}}" target="_blank">
-                    <img src="{{ url('files/training_main',$main_image->image) }}" alt="..." class="w-100" style="object-fit: cover; height: 29rem;">
-                </a>
+                @if($main_image->extension == 'mp4')
+                    <video width="100%" style="height: 29rem; object-fit: cover" autoplay muted>
+                        <source src="{{url('files/training_main',$main_image->image)}}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                @else
+                    <a href="{{$main_image->link}}" target="_blank">
+                        <img src="{{ url('files/training_main',$main_image->image) }}" alt="..." class="w-100" style="object-fit: cover; height: 29rem;">
+                    </a>
+                @endif                    
             @else
                 <img src="{{ url('img/no-image.jpg') }}" alt="..." class="w-100" style="object-fit: cover; height: 29rem;">
             @endif

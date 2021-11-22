@@ -11,11 +11,11 @@
                     <div class="card-body">  
                         
                         <div class="form-group">
-                            <label>Image/Videos (.jpg,.jpeg,.mp4,.png)</label>
+                            <label>Image/Videos (jpg,jpeg,png,mp4)</label>
                             <input type="file" class="form-control-file" name="image">
                             <br>
                             @if($home->extension == "mp4")
-                                <video controls muted>
+                                <video controls muted style="width: 60%">
                                     <source src="{{url('files/homepage',$home->image)}}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
