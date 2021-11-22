@@ -10,12 +10,12 @@
                         <div class="card">
                             <div class="card-body">
                                 <div style="border-style: dashed;border-width: 1px;padding: 20px;"> 
-                                    <h5>Main Image/Video</h5>
+                                    <h5>Main Image</h5>
                                     <form action="{{route('admin.training_banner.store')}}" method="post" enctype="multipart/form-data">                    
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image/Video (Maximum size should be 1MB)</label>
+                                                <label>Image/Video/Gif (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -34,12 +34,12 @@
                         <div class="card">
                             <div class="card-body">
                                 <div style="border-style: dashed;border-width: 1px;padding: 20px;"> 
-                                <h5>Main Image/Video</h5>
+                                <h5>Main Image</h5>
                                     <form action="{{route('admin.training_banner.update')}}" method="post" enctype="multipart/form-data">                    
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image/Video (Maximum size should be 1MB)</label>
+                                                <label>Image/Video/Gif (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 @if($main_image->extension == "mp4")
@@ -108,7 +108,7 @@
       </div>
       <div class="modal-body">
 
-        <h5 class="mb-3">Main Image/Video in Training Page</h5>
+        <h5 class="mb-3">Main Image/Video/Gif in Training Page</h5>
         <p>Image ( dimensions = width: 730px * height: 464px )</p>
         <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image/Video ( Type = jpeg,png,jpg,gif,mp4 )</p>
