@@ -227,7 +227,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image/Video/Gif</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -249,7 +249,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image/Video/GIF</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 @if($main_image->extension == "mp4")
