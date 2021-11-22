@@ -11,7 +11,7 @@
                     <div class="card-body">  
                         
                         <div class="form-group">
-                            <label>Image/Videos (jpg,jpeg,png,mp4) (Maximum size should be 1MB)</label>
+                            <label>Image/Videos (jpg,jpeg,png,mp4)</label>
                             <input type="file" class="form-control-file" name="image">
                             <br>
                             @if($home->extension == "mp4")

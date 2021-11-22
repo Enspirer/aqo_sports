@@ -15,7 +15,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image/Video/Gif (Maximum size should be 1MB)</label>
+                                                <label>Image/Video/Gif</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -39,7 +39,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image/Video/Gif (Maximum size should be 1MB)</label>
+                                                <label>Image/Video/Gif</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 @if($main_image->extension == "mp4")
@@ -110,7 +110,8 @@
 
         <h5 class="mb-3">Main Image/Video/Gif in Training Page</h5>
         <p>Image ( dimensions = width: 730px * height: 464px )</p>
-        <p>Image ( Size = Maximum size should be 1MB )</p>
+        <p>Image/Gif ( Size = Maximum size should be 1MB )</p>
+        <p>Video ( Size = Maximum size should be 25MB )</p>
         <p>Image/Video ( Type = jpeg,png,jpg,gif,mp4 )</p>
                               
       </div>
