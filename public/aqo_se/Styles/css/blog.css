@@ -31,7 +31,19 @@
     bottom: 1.5rem;
 }
 
-@media screen and (max-width: 576px) {
+
+
+
+
+@media screen and (max-width: 650px) {
+    .blogs .card img {
+        height: 18rem!important;
+        object-fit: contain!important;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
     .banner h1 {
         font-size: 35px!important;
         text-align: center;
@@ -58,5 +70,9 @@
     .advert .right {
         height: 14rem!important;
         object-fit: contain !important;
+    }
+    .blogs .card img {
+        height: 17rem!important;
+        object-fit: cover!important;
     }
 }

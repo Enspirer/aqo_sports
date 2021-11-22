@@ -22,9 +22,14 @@
 
 
 
+@media screen and (max-width: 650px) {
+    .side-banner {
+        height: 35rem!important
+    }
+}
 
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 400px) {
     .banner .col-md-8 img {
         height: 15rem!important;
     }
