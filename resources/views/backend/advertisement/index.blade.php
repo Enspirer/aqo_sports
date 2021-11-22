@@ -252,8 +252,19 @@
                                                 <label>Image</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
-                                                <img src="{{ url('files/training_main',$main_image->image) }}" style="width: 40%">
-                                            </div> 
+                                                @if($main_image->extension == "mp4")
+
+                                                    <video controls muted>
+                                                        <source src="{{ url('files/training_main',$main_image->image) }}" type="video/mp4">
+                                                        Your browser does not support the video tag.
+                                                    </video>
+
+                                                @else
+
+                                                    <img src="{{ url('files/training_main',$main_image->image) }}" style="width: 40%">
+
+                                                @endif
+                                            </div>
                                             <div class="form-group">
                                                 <label>Link</label>
                                                 <input type="text" class="form-control" value="{{ $main_image->link }}" name="link" />

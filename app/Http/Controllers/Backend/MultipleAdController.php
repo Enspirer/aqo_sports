@@ -942,21 +942,49 @@ class MultipleAdController extends Controller
     {        
         // dd($request);
 
-        $this->validate($request, [
-            'image'  => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
-        ]);
+
+
+
+        if($request->file('image'))
+        {
+            if($request->image->getClientOriginalExtension() == 'jpg')
+            {
+                $this->validate($request, [
+                    'image'  => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
+                ]);
+            }elseif ($request->image->getClientOriginalExtension() == 'jpeg'){
+                $this->validate($request, [
+                    'image'  => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
+                ]);
+            }else if ($request->image->getClientOriginalExtension() == 'png')
+            {
+                $this->validate($request, [
+                    'image'  => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
+                ]);
+            }else if ($request->image->getClientOriginalExtension() == 'mp4'){
+
+            }else{
+                $this->validate($request, [
+                    'image'  => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
+                ]);
+            }
+        }
+
+
     
         if($request->file('image'))
-        {            
+        {
+            $extensionR = $request->image->getClientOriginalExtension();
             $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
             $fullURLsPreviewFile = $request->image->move(public_path('files/training_main'), $preview_fileName);
             $image_url = $preview_fileName;
         }else{
             $image_url = null;
+            $extensionR = null;
         } 
 
         $add = new TopBanners;
-        
+        $add->extension =  $extensionR;
         $add->link=$request->link;
         $add->position=$request->main_image;
         $add->image=$image_url;
@@ -969,23 +997,51 @@ class MultipleAdController extends Controller
     public function training_banner_update(Request $request)
     {        
         // dd($request);
+        if($request->file('image')) {
+            if ($request->image->getClientOriginalExtension() == 'jpg') {
+                $this->validate($request, [
+                    'image' => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
+                ]);
+            } elseif ($request->image->getClientOriginalExtension() == 'jpeg') {
+                $this->validate($request, [
+                    'image' => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
+                ]);
+            } else if ($request->image->getClientOriginalExtension() == 'png') {
+                $this->validate($request, [
+                    'image' => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
+                ]);
+            } else if ($request->image->getClientOriginalExtension() == 'mp4') {
 
-        $this->validate($request, [
-            'image'  => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
-        ]);
+            } else {
+                $this->validate($request, [
+                    'image' => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
+                ]);
+            }
+        }
+
     
         if($request->file('image'))
         {            
             $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
             $fullURLsPreviewFile = $request->image->move(public_path('files/training_main'), $preview_fileName);
             $image_url = $preview_fileName;
+            $extensionR = $request->image->getClientOriginalExtension();
+
         }else{            
             $detail = TopBanners::where('id',$request->hidden_id)->first();
-            $image_url = $detail->image;            
-        }  
+            $image_url = $detail->image;
+            $extensionR = null;
 
+        }
         $update = new TopBanners;
-        
+
+
+        if($request->file('image'))
+        {
+            $update->extension = $extensionR;
+        }
+
+
         $update->link=$request->link;
         $update->position=$request->main_image;
         $update->image=$image_url;
