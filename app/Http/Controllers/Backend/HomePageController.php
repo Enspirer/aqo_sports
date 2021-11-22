@@ -108,25 +108,67 @@ class HomePageController extends Controller
     {        
         // dd($request);
 
-        $this->validate($request, [
-            'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
-        ]);
+
+        if($request->file('image'))
+        {
+            if($request->image->getClientOriginalExtension() == 'jpg')
+            {
+                $this->validate($request, [
+                    'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
+                ]);
+            }elseif ($request->image->getClientOriginalExtension() == 'jpeg'){
+                $this->validate($request, [
+                    'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
+                ]);
+            }else if ($request->image->getClientOriginalExtension() == 'png')
+            {
+                $this->validate($request, [
+                    'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
+                ]);
+            }else if ($request->image->getClientOriginalExtension() == 'mp4'){
+
+            }else{
+                $this->validate($request, [
+                    'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
+                ]);
+            }
+
+
+        }
+
+
         
         if($request->file('image'))
         {
             $preview_fileName = time().'_'.rand(1000,10000).'.'.$request->image->getClientOriginalExtension();
             $fullURLsPreviewFile = $request->image->move(public_path('files/homepage'), $preview_fileName);
             $image_url = $preview_fileName;
+            $exentionR = $request->image->getClientOriginalExtension();
+
+
+
         }else{            
             $detail = HomePage::where('id',$request->hidden_id)->first();
-            $image_url = $detail->image;            
-        }    
-        
+            $image_url = $detail->image;
+            $exentionR = null;
+
+        }
         $update = new HomePage;
+
+        if($request->file('image'))
+        {
+            $update->extension = $exentionR;
+        }
+
+
+
+
+
 
         $update->order=$request->order;
         $update->link=$request->link;
         $update->image=$image_url;
+
 
         HomePage::whereId($request->hidden_id)->update($update->toArray());
    
