@@ -383,4 +383,9 @@
         height: 17rem!important;
         object-fit: cover!important;
     }
+
+    .news img {
+        height: 17rem!important;
+        object-fit: cover!important;
+    }
 }
