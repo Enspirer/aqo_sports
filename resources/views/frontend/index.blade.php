@@ -329,7 +329,7 @@
                 </div>
             </div> -->
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center blogs">
                 <div class="col-12 col-md-4 mb-4 mb-md-0 fb">
                     <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAQO-Sports-Entertainment-100887884844064&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=901780930716877" style="border:none;overflow:hidden; width: 100%; height: 29rem;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                 </div>
@@ -406,6 +406,8 @@
     fail(function(jqXHR, textStatus, errorThrown) {
         $('.twitter').addClass('d-none');
     });
+
+    $('._2p3a').css('width', '500px');
 
 </script> -->
 
