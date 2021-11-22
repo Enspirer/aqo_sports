@@ -36,8 +36,7 @@ class HomepageAdController extends Controller
         $emiddle_bottom = CompetitionpageMultipleAd::where('position','emiddle_bottom')->first();
 
         $top = TopBanners::where('position','top_banner')->first();
-        $main_image = TopBanners::where('position','main_image')->first();
-
+        
         return view('backend.advertisement.index',[
             'homepagead' => $homepagead,
             'competitionpagead' => $competitionpagead,
@@ -54,8 +53,7 @@ class HomepageAdController extends Controller
             'eright' => $eright,
             'emiddle_top' => $emiddle_top,
             'emiddle_bottom' => $emiddle_bottom,
-            'top' => $top,
-            'main_image' => $main_image              
+            'top' => $top             
         ]);
     }
 

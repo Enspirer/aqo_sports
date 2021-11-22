@@ -959,7 +959,9 @@ class MultipleAdController extends Controller
                     'image'  => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
                 ]);
             }elseif ($request->image->getClientOriginalExtension() == 'mp4'){
-
+                $this->validate($request, [
+                    'image'  => 'mimes:mp4|max:25000'
+                ]);
             }else{
                 $this->validate($request, [
                     'image'  => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
@@ -1006,8 +1008,10 @@ class MultipleAdController extends Controller
                 $this->validate($request, [
                     'image' => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'
                 ]);
-            } else if ($request->image->getClientOriginalExtension() == 'mp4') {
-
+            }elseif ($request->image->getClientOriginalExtension() == 'mp4'){
+                $this->validate($request, [
+                    'image'  => 'mimes:mp4|max:25000'
+                ]);
             } else {
                 $this->validate($request, [
                     'image' => 'mimes:jpeg,png,jpg,gif|max:25000|dimensions:width=730,height=464'

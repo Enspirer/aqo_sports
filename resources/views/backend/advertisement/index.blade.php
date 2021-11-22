@@ -120,7 +120,7 @@
                             {{csrf_field()}}
                                 
                                 <div class="form-group">
-                                    <label>Image</label>
+                                    <label>Image (Maximum size should be 1MB)</label>
                                     <input type="file" class="form-control" name="image" required>
                                 </div> 
                                 <div class="form-group">
@@ -142,7 +142,7 @@
                             {{csrf_field()}}
                                 
                                 <div class="form-group">
-                                    <label>Image</label>
+                                    <label>Image (Maximum size should be 1MB)</label>
                                     <input type="file" class="form-control" name="image">
                                     <br>
                                     <img src="{{ url('files/advertisement',$homepagead->image) }}" style="width: 40%">
@@ -171,7 +171,7 @@
                             {{csrf_field()}}
                                 
                                 <div class="form-group">
-                                    <label>Image</label>
+                                    <label>Image (Maximum size should be 1MB)</label>
                                     <input type="file" class="form-control" name="image" required>
                                 </div> 
                                 <div class="form-group">
@@ -193,7 +193,7 @@
                             {{csrf_field()}}
                                 
                                 <div class="form-group">
-                                    <label>Image</label>
+                                    <label>Image (Maximum size should be 1MB)</label>
                                     <input type="file" class="form-control" name="image">
                                     <br>
                                     <img src="{{ url('files/advertisement',$competitionpagead->image) }}" style="width: 25%">
@@ -217,79 +217,13 @@
             </div>
             <div class="tab-pane fade" id="training_ad">
 
-                <div class="row">
-                    <div class="col-12">
-                        @if($main_image == null)
-                            <div class="card-body">
-                                <div style="border-style: dashed;border-width: 1px;padding: 20px;"> 
-                                    <h5>Main Image</h5>
-                                    <form action="{{route('admin.training_banner.store')}}" method="post" enctype="multipart/form-data">                    
-                                        {{csrf_field()}}
-                                            
-                                            <div class="form-group">
-                                                <label>Image</label>
-                                                <input type="file" class="form-control" name="image" required>
-                                            </div> 
-                                            <div class="form-group">
-                                                <label>Link</label>
-                                                <input type="text" class="form-control" name="link" />
-                                            </div>
-                                            <div class="mt-4" align="right">
-                                                <input type="hidden" name="main_image" value="main_image"/>
-                                                <input type="submit" class="btn rounded-pill px-4 py-2 ml-2 ms-2 btn-success" value="Submit">
-                                            </div>
-                                    </form>
-                                </div>
-                            </div>
-                        @else
-                            <div class="card-body">
-                                <div style="border-style: dashed;border-width: 1px;padding: 20px;"> 
-                                <h5>Main Image</h5>
-                                    <form action="{{route('admin.training_banner.update')}}" method="post" enctype="multipart/form-data">                    
-                                        {{csrf_field()}}
-                                            
-                                            <div class="form-group">
-                                                <label>Image</label>
-                                                <input type="file" class="form-control" name="image">
-                                                <br>
-                                                @if($main_image->extension == "mp4")
-
-                                                    <video controls muted style="width: 80%">
-                                                        <source src="{{ url('files/training_main',$main_image->image) }}" type="video/mp4">
-                                                        Your browser does not support the video tag.
-                                                    </video>
-
-                                                @else
-
-                                                    <img src="{{ url('files/training_main',$main_image->image) }}" style="width: 40%">
-
-                                                @endif
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Link</label>
-                                                <input type="text" class="form-control" value="{{ $main_image->link }}" name="link" />
-                                            </div>
-                                            <div class="mt-4" align="right">
-                                                <input type="hidden" name="main_image" value="main_image"/>
-                                                <input type="hidden" class="form-control" value="{{ $main_image->id }}" name="hidden_id" />
-                                                <button type="button" class="btn rounded-pill px-4 py-2 me-2 btn-danger" data-toggle="modal" data-target="#main_imagedelete">Delete</button>
-                                                <input type="submit" class="btn rounded-pill px-4 py-2 ml-2 ms-2 btn-success" value="Update">
-                                            </div>
-                                    </form>
-                                </div>
-                            </div>
-                        @endif
-                    </div>
-                </div>
-
-
                 @if($trainingpagead == null)
                     <div class="card-body">
                         <form action="{{route('admin.training_ad.store')}}" method="post" enctype="multipart/form-data">                    
                             {{csrf_field()}}
                                 
                                 <div class="form-group">
-                                    <label>Image</label>
+                                    <label>Image (Maximum size should be 1MB)</label>
                                     <input type="file" class="form-control" name="image" required>
                                 </div> 
                                 <div class="form-group">
@@ -311,7 +245,7 @@
                             {{csrf_field()}}
                                 
                                 <div class="form-group">
-                                    <label>Image</label>
+                                    <label>Image (Maximum size should be 1MB)</label>
                                     <input type="file" class="form-control" name="image">
                                     <br>
                                     <img src="{{ url('files/advertisement',$trainingpagead->image) }}" style="width: 40%">
@@ -348,7 +282,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -374,7 +308,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 <img src="{{ url('files/advertisement',$left->image) }}" style="width: 40%">
@@ -407,7 +341,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -433,7 +367,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 <img src="{{ url('files/advertisement',$right->image) }}" style="width: 20%">
@@ -471,7 +405,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -497,7 +431,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 <img src="{{ url('files/advertisement',$middle_top->image) }}" style="width: 40%">
@@ -530,7 +464,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -556,7 +490,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 <img src="{{ url('files/advertisement',$middle_bottom->image) }}" style="width: 40%">
@@ -599,7 +533,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -625,7 +559,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 <img src="{{ url('files/advertisement',$nleft->image) }}" style="width: 40%">
@@ -658,7 +592,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -684,7 +618,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 <img src="{{ url('files/advertisement',$nright->image) }}" style="width: 20%">
@@ -722,7 +656,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -748,7 +682,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 <img src="{{ url('files/advertisement',$nmiddle_top->image) }}" style="width: 40%">
@@ -781,7 +715,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -807,7 +741,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 <img src="{{ url('files/advertisement',$nmiddle_bottom->image) }}" style="width: 40%">
@@ -851,7 +785,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -873,7 +807,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 <img src="{{ url('files/advertisement',$top->image) }}" style="width: 50%">
@@ -905,7 +839,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -931,7 +865,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 <img src="{{ url('files/advertisement',$eleft->image) }}" style="width: 40%">
@@ -964,7 +898,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -990,7 +924,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 <img src="{{ url('files/advertisement',$eright->image) }}" style="width: 20%">
@@ -1028,7 +962,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -1054,7 +988,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 <img src="{{ url('files/advertisement',$emiddle_top->image) }}" style="width: 40%">
@@ -1087,7 +1021,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image" required>
                                             </div> 
                                             <div class="form-group">
@@ -1113,7 +1047,7 @@
                                         {{csrf_field()}}
                                             
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Maximum size should be 1MB)</label>
                                                 <input type="file" class="form-control" name="image">
                                                 <br>
                                                 <img src="{{ url('files/advertisement',$emiddle_bottom->image) }}" style="width: 40%">
@@ -1501,28 +1435,7 @@
     </div>
  @endif
 
- @if($main_image != null)
-    <div class="modal fade" id="main_imagedelete">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h4 class="modal-title">Delete</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <h5>Are you sure you want to remove this?</h5>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="{{route('admin.training_banner.delete',$main_image->id)}}" type="button" class="btn btn-danger">Delete</a>
-                </div>
-
-            </div>
-        </div>
-    </div>
- @endif
-
+ 
  
  <div class="modal fade" id="overlay">
   <div class="modal-dialog modal-dialog-scrollable">
@@ -1536,24 +1449,18 @@
 
         <h5 class="mb-3">Home Page Ad</h5>
         <p>Image ( dimensions = width: 350px * height: 464px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
+        <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image ( Type = jpeg,png,jpg )</p>
         <hr>
         <h5 class="mb-3">Competition Page Ad</h5>
         <p>Image ( dimensions = width: 160px * height: 480px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
+        <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image ( Type = jpeg,png,jpg )</p>
-
-        <hr>
-        <h5 class="mb-3">Main Image in Training Page</h5>
-        <p>Image ( dimensions = width: 730px * height: 464px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
-        <p>Image/Video ( Type = jpeg,png,jpg,gif,mp4 )</p>
-
+      
         <hr>
         <h5 class="mb-3">Training Page Ad</h5>
         <p>Image ( dimensions = width: 350px * height: 464px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
+        <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image ( Type = jpeg,png,jpg )</p>
 
         <hr>
@@ -1562,7 +1469,7 @@
         <p>Image Right ( dimensions = width: 375px * height: 155px )</p>
         <p>Image Middle Top ( dimensions = width: 375px * height: 155px )</p>
         <p>Image Middle Right ( dimensions = width: 164px * height: 320px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
+        <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image ( Type = jpeg,png,jpg )</p>
 
         <hr>
@@ -1571,13 +1478,13 @@
         <p>Image Right ( dimensions = width: 375px * height: 155px )</p>
         <p>Image Middle Top ( dimensions = width: 375px * height: 155px )</p>
         <p>Image Middle Right ( dimensions = width: 164px * height: 320px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
+        <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image ( Type = jpeg,png,jpg )</p>
 
         <hr>
         <h5 class="mb-3">Top Banner Ad in Explore Page</h5>
         <p>Image ( dimensions = width: 1110px * height: 128px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
+        <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image ( Type = jpeg,png,jpg )</p>
 
         <hr>
@@ -1586,7 +1493,7 @@
         <p>Image Right ( dimensions = width: 375px * height: 155px )</p>
         <p>Image Middle Top ( dimensions = width: 375px * height: 155px )</p>
         <p>Image Middle Right ( dimensions = width: 164px * height: 320px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
+        <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image ( Type = jpeg,png,jpg )</p>    
         
                               
@@ -1623,27 +1530,21 @@ $("#close-btn").click(function () {
       </div>
       <div class="modal-body">
 
-        <h5 class="mb-3">Home Page Ad</h5>
+      <h5 class="mb-3">Home Page Ad</h5>
         <p>Image ( dimensions = width: 350px * height: 464px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
+        <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image ( Type = jpeg,png,jpg )</p>
         <hr>
         <h5 class="mb-3">Competition Page Ad</h5>
         <p>Image ( dimensions = width: 160px * height: 480px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
+        <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image ( Type = jpeg,png,jpg )</p>
-
-        <hr>
-        <h5 class="mb-3">Main Image in Training Page</h5>
-        <p>Image ( dimensions = width: 730px * height: 464px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
-        <p>Image ( Type = jpeg,png,jpg,gif )</p>
-
+      
         <hr>
         <h5 class="mb-3">Training Page Ad</h5>
         <p>Image ( dimensions = width: 350px * height: 464px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
-        <p>Image/Video ( Type = jpeg,png,jpg,gif,mp4 )</p>
+        <p>Image ( Size = Maximum size should be 1MB )</p>
+        <p>Image ( Type = jpeg,png,jpg )</p>
 
         <hr>
         <h5 class="mb-3">Home Page Multiple Ads</h5>
@@ -1651,7 +1552,7 @@ $("#close-btn").click(function () {
         <p>Image Right ( dimensions = width: 375px * height: 155px )</p>
         <p>Image Middle Top ( dimensions = width: 375px * height: 155px )</p>
         <p>Image Middle Right ( dimensions = width: 164px * height: 320px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
+        <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image ( Type = jpeg,png,jpg )</p>
 
         <hr>
@@ -1660,13 +1561,13 @@ $("#close-btn").click(function () {
         <p>Image Right ( dimensions = width: 375px * height: 155px )</p>
         <p>Image Middle Top ( dimensions = width: 375px * height: 155px )</p>
         <p>Image Middle Right ( dimensions = width: 164px * height: 320px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
+        <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image ( Type = jpeg,png,jpg )</p>
 
         <hr>
         <h5 class="mb-3">Top Banner Ad in Explore Page</h5>
         <p>Image ( dimensions = width: 1110px * height: 128px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
+        <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image ( Type = jpeg,png,jpg )</p>
 
         <hr>
@@ -1675,8 +1576,8 @@ $("#close-btn").click(function () {
         <p>Image Right ( dimensions = width: 375px * height: 155px )</p>
         <p>Image Middle Top ( dimensions = width: 375px * height: 155px )</p>
         <p>Image Middle Right ( dimensions = width: 164px * height: 320px )</p>
-        <p>Image ( Size = Maximum size should be 25MB )</p>
-        <p>Image ( Type = jpeg,png,jpg )</p>    
+        <p>Image ( Size = Maximum size should be 1MB )</p>
+        <p>Image ( Type = jpeg,png,jpg )</p>       
         
                               
       </div>

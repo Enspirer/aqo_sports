@@ -43,3 +43,7 @@ Breadcrumbs::for('admin.blog.edit', function ($trail) {
 Breadcrumbs::for('admin.advertisement.index', function ($trail) {
     $trail->push('Advertisements', route('admin.advertisement.index'));
 });
+
+Breadcrumbs::for('admin.training_settings', function ($trail) {
+    $trail->push('Training Settings', route('admin.training_settings'));
+});

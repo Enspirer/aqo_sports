@@ -52,7 +52,7 @@
                     <div class="modal-body">
 
                         <div class="form-group">
-                            <label>Image/Videos (jpg,jpeg,png,mp4)</label>
+                            <label>Image/Videos (jpg,jpeg,png,mp4) (Maximum size should be 1MB)</label>
                             <input type="file" class="form-control" name="image" required>
                         </div>
 
@@ -119,7 +119,7 @@
 
                 <h5 class="mb-3">Home Page Slider</h5>
                 <p>Image ( dimensions = width: 730px * height: 464px )</p>
-                <p>Image ( Size = Maximum size should be 25MB )</p>
+                <p>Image ( Size = Maximum size should be 1MB )</p>
                 <p>Image/Video ( Type = jpeg,png,jpg,mp4 )</p>
                 
             </div>

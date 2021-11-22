@@ -27,6 +27,8 @@ Route::get('contact_us/edit/{id}', [ContactUsController::class, 'edit'])->name('
 Route::post('contact_us/update', [ContactUsController::class, 'update'])->name('contact_us.update');
 Route::get('contact_us/delete/{id}', [ContactUsController::class, 'destroy'])->name('contact_us.destroy');
 
+Route::get('training_settings', [TrainingController::class, 'training_settings'])->name('training_settings');
+
 Route::get('training', [TrainingController::class, 'index'])->name('training.index');
 Route::get('training/getdetails', [TrainingController::class, 'getDetails'])->name('training.getDetails');
 Route::get('training/edit/{id}', [TrainingController::class, 'edit'])->name('training.edit');

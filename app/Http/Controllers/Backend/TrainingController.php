@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use DataTables;
 use DB;
 use App\Models\Training;
+use App\Models\TopBanners;
+
 
 class TrainingController extends Controller
 {    
@@ -14,6 +16,16 @@ class TrainingController extends Controller
     {
         return view('backend.training.index');
     }
+
+    public function training_settings()
+    {
+        $main_image = TopBanners::where('position','main_image')->first();
+
+        return view('backend.training.training_settings',[
+            'main_image' => $main_image
+        ]);
+    }
+    
 
     public function getDetails(Request $request)
     {

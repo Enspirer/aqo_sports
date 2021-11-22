@@ -34,7 +34,9 @@ class HomePageController extends Controller
                     'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
                 ]);
             }elseif ($request->image->getClientOriginalExtension() == 'mp4'){
-
+                $this->validate($request, [
+                    'image'  => 'mimes:mp4|max:25000'
+                ]);
             }else{
                 $this->validate($request, [
                     'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
@@ -126,7 +128,9 @@ class HomePageController extends Controller
                     'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
                 ]);
             }elseif ($request->image->getClientOriginalExtension() == 'mp4'){
-
+                $this->validate($request, [
+                    'image'  => 'mimes:mp4|max:25000'
+                ]);
             }else{
                 $this->validate($request, [
                     'image'  => 'mimes:jpeg,png,jpg|max:25000|dimensions:width=730,height=464'
