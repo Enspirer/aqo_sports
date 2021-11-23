@@ -8,18 +8,20 @@
             </div>
             <br>
             <div id="add_mark_container">
-                @foreach(json_decode($competition_details->marks_sections) as $key=>$marks_section)
-                    <div class="card" id="constine_mark_{{$key}}">
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label>Mark Section</label>
-                                <input type="text" value="{{$marks_section}}" name="marks_sections[]" class="form-control" oninvalid="tabInvalied('score_board_settings_ruleTabs')" required></div>
-                            <button class="btn btn-danger" onclick="deleteRule('constine_mark_{{$key}}')">
-                                <i class="fa fa-trash"></i>
+                @if($competition_details->marks_sections != null)
+                    @foreach(json_decode($competition_details->marks_sections) as $key=>$marks_section)
+                        <div class="card" id="constine_mark_{{$key}}">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Mark Section</label>
+                                    <input type="text" value="{{$marks_section}}" name="marks_sections[]" class="form-control" oninvalid="tabInvalied('score_board_settings_ruleTabs')" required></div>
+                                <button class="btn btn-danger" onclick="deleteRule('constine_mark_{{$key}}')">
+                                    <i class="fa fa-trash"></i>
                                 </button>
                             </div>
                         </div>
-                @endforeach
+                    @endforeach
+                @endif
             </div>
 
         </div>
@@ -32,23 +34,21 @@
             <br>
             <div id="add_round_container">
 
-
-                @foreach(json_decode($competition_details->rounds_section) as $key=>$round_section)
-                    <div class="card" id="constine_{{$key}}">
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label>Round Section</label>
-                                <input type="text" name="rounds_section[]" class="form-control" value="{{$round_section}}" oninvalid="" required>
+                @if($competition_details->rounds_section != null)
+                    @foreach(json_decode($competition_details->rounds_section) as $key=>$round_section)
+                        <div class="card" id="constine_{{$key}}">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Round Section</label>
+                                    <input type="text" name="rounds_section[]" class="form-control" value="{{$round_section}}" oninvalid="" required>
+                                </div>
+                                <button class="btn btn-danger" onclick="deleteRule('constine_{{$key}}')">
+                                    <i class="fa fa-trash"></i>
+                                </button>
                             </div>
-                            <button class="btn btn-danger" onclick="deleteRule('constine_{{$key}}')">
-                                <i class="fa fa-trash"></i>
-                            </button>
                         </div>
-                    </div>
-                @endforeach
-
-
-
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
