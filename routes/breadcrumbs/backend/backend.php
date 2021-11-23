@@ -29,15 +29,15 @@ Breadcrumbs::for('admin.training.edit', function ($trail) {
 });
 
 Breadcrumbs::for('admin.blog.index', function ($trail) {
-    $trail->push('Post', route('admin.blog.index'));
+    $trail->push('Blog & Posts', route('admin.blog.index'));
 });
 
 Breadcrumbs::for('admin.blog.create', function ($trail) {
-    $trail->push('Create Post', route('admin.blog.create'));
+    $trail->push('Create', route('admin.blog.create'));
 });
 
 Breadcrumbs::for('admin.blog.edit', function ($trail) {
-    $trail->push('Edit Post', route('admin.blog.edit',1));
+    $trail->push('Edit', route('admin.blog.edit',1));
 });
 
 Breadcrumbs::for('admin.advertisement.index', function ($trail) {
