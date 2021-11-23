@@ -230,15 +230,17 @@
                                                         <th rowspan="2" class="titulka" style="width:70px">Country</th>
                                                         <th rowspan="2" class="titulka">Name/Club</th>
                                                         <th rowspan="2" class="titulka" style="width:50px; border-right:1px solid gray">Year</th>
+                                                       @if($roundSection != null)
                                                         @foreach($roundSection as $roundSectioenn)
                                                             <th colspan="{{count($markSection)}}" style="text-align:center; border-right:1px solid gray">
                                                                 {{$roundSectioenn}}
                                                             </th>
                                                         @endforeach
+                                                       @endif
 
                                                         <th rowspan="2" class="titulka" style="width:50px ; border-right:1px solid gray">Score</th>
                                                     </tr>
-
+                                                    @if($roundSection != null)
                                                     <tr>
                                                         @foreach($roundSection as $roundSectioenn)
                                                             @foreach($markSection as $markSectionItem)
@@ -246,6 +248,7 @@
                                                             @endforeach
                                                         @endforeach
                                                     </tr>
+                                                    @endif
                                                 </thead>
 
 
@@ -260,24 +263,28 @@
                                                                 <td rowspan="2">{{\App\Models\Auth\User::where('id',$competitor_detail->user_id)->first()->first_name}} {{\App\Models\Auth\User::where('id',$competitor_detail->user_id)->first()->last_name}}</td>
                                                                 <td rowspan="2" style="text-align:center; border-right:1px solid gray;">{{ date_format($competitor_detail->created_at,'Y') }}</td>
 
-                                                                @foreach($roundSection as $deround_details)
-                                                                    <td colspan="{{count($markSection)}}" style="text-align:center;font-size:12px; border-right:1px solid gray; ">
-                                                                        <b>{{round_total($competitor_detail->id,$deround_details,$deround_details)}}</b>
-                                                                        <div style="float:right; font-size:10px">{{\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitor_detail->id)->where('competition_id',$competitor_detail->competition_id)->where('round_name',$deround_details)->count()}}</div>
-                                                                    </td>
-                                                                @endforeach
+                                                                @if($roundSection != null)
+                                                                    @foreach($roundSection as $deround_details)
+                                                                        <td colspan="{{count($markSection)}}" style="text-align:center;font-size:12px; border-right:1px solid gray; ">
+                                                                            <b>{{round_total($competitor_detail->id,$deround_details,$deround_details)}}</b>
+                                                                            <div style="float:right; font-size:10px">{{\Modules\Competition\Entities\JudgmentMarks::where('competitor_id',$competitor_detail->id)->where('competition_id',$competitor_detail->competition_id)->where('round_name',$deround_details)->count()}}</div>
+                                                                        </td>
+                                                                    @endforeach
+                                                                @endif
 
 
                                                                 <td rowspan="2" style="text-align:center;font-size:14px; border-right:1px solid gray;">
                                                                     <b>{{get_competitor_all_score($competitor_detail->id)}}</b>
                                                                 </td>
                                                                 <tr>
-                                                                    @foreach($roundSection as $oulem)
+                                                                    @if($roundSection != null)
+                                                                        @foreach($roundSection as $oulem)
 
-                                                                        @foreach($markSection as $markSectionItem)
-                                                                            <td style="text-align:center;font-size:12px;">{{judge_marks_total($competitor_detail->id,$markSectionItem,$oulem)}}</td>
+                                                                            @foreach($markSection as $markSectionItem)
+                                                                                <td style="text-align:center;font-size:12px;">{{judge_marks_total($competitor_detail->id,$markSectionItem,$oulem)}}</td>
+                                                                            @endforeach
                                                                         @endforeach
-                                                                    @endforeach
+                                                                    @endif
                                                                 </tr>
                                                             @endforeach
                                                         </tr>
