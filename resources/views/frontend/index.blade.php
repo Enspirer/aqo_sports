@@ -344,7 +344,7 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-12">
-                                    <img src="{{url('files/aqo_group',$aqo->image)}}" alt="" class="img-fluid w-100" style="object-fit: contain;">
+                                    <img src="{{url('files/aqo_group',$aqo->image)}}" alt="" class="img-fluid w-100" style="object-fit: contain; height:100px;">
                                     <p class="mt-3" style="text-align: justify;">{{$aqo->description}}</p>
                                 </div>
                             </div>
