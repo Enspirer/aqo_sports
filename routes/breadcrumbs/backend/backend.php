@@ -47,3 +47,10 @@ Breadcrumbs::for('admin.advertisement.index', function ($trail) {
 Breadcrumbs::for('admin.training_settings', function ($trail) {
     $trail->push('Training Settings', route('admin.training_settings'));
 });
+
+Breadcrumbs::for('admin.aqo_group.index', function ($trail) {
+    $trail->push('Aqo Groups', route('admin.aqo_group.index'));
+});
+Breadcrumbs::for('admin.aqo_group.edit', function ($trail) {
+    $trail->push('Edit Aqo Groups', route('admin.aqo_group.edit',1));
+});

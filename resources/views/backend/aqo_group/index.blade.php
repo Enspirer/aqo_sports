@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Home Page Slider'))
+@section('title', __('Aqo Groups'))
 
 @section('content')
     
@@ -10,7 +10,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Home Page&nbsp;</strong>
+                    <strong>Aqo Groups&nbsp;</strong>
 
                     <div class="btn btn-info pull-right ml-3" data-toggle="modal" data-target="#exampleModal">Add New</div>
                    
@@ -40,8 +40,7 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form action="{{route('admin.homepage.store')}}" method="post" enctype="multipart/form-data">
-
+                <form action="{{route('admin.aqo_group.store')}}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Add New</h5>
@@ -52,8 +51,13 @@
                     <div class="modal-body">
 
                         <div class="form-group">
-                            <label>Image/Videos (jpg,jpeg,png,mp4)</label>
+                            <label>Image (jpg,jpeg,png)</label>
                             <input type="file" class="form-control" name="image" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" name="description" rows="4"></textarea>
                         </div>
 
                         <div class="form-group">
@@ -117,11 +121,10 @@
             </div>
             <div class="modal-body">
 
-                <h5 class="mb-3">Home Page Slider</h5>
-                <p>Image ( dimensions = width: 730px * height: 464px )</p>
+                <h5 class="mb-3">Aqo Groups</h5>
+                <p>Image ( Dimensions = width: 300px * height: 154px )</p>
                 <p>Image ( Size = Maximum size should be 1MB )</p>
-                <p>Video ( Size = Maximum size should be 25MB )</p>
-                <p>Image/Video ( Type = jpeg,png,jpg,mp4 )</p>
+                <p>Image ( Type = jpeg,png,jpg )</p>
                 
             </div>
 
@@ -150,7 +153,7 @@
         $(function () {
             var table = $('#villadatatable').DataTable({
                 processing: true,
-                ajax: "{{route('admin.homepage.getdetails')}}",
+                ajax: "{{route('admin.aqo_group.getdetails')}}",
                 serverSide: true,
                 order: [[0, "desc"]],
                 columns: [
@@ -170,7 +173,7 @@
 
             $('#ok_button').click(function(){
             $.ajax({
-            url:"homepage/delete/"+user_id,
+            url:"aqo_group/delete/"+user_id,
             
             success:function(data)
             {

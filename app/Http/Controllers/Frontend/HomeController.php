@@ -8,7 +8,7 @@ use Modules\Competition\Entities\Competition;
 use App\Models\HomePage;
 use App\Models\HomepageAd;
 use App\Models\HomepageMultipleAd;
-
+use App\Models\AqoGroup;
 
 /**
  * Class HomeController.
@@ -30,6 +30,9 @@ class HomeController extends Controller
         $middle_top = HomepageMultipleAd::where('position','middle_top')->first();
         $middle_bottom = HomepageMultipleAd::where('position','middle_bottom')->first();
 
+        $aqo_group = AqoGroup::orderby('order','ASC')->get();
+        // dd($aqo_group);
+
         return view('frontend.index',[
             'competitionCategory' => $competitionCategory,
             'trendingCompetition' => $trendingCompetition,
@@ -38,7 +41,8 @@ class HomeController extends Controller
             'left' => $left,
             'right' => $right,
             'middle_top' => $middle_top,
-            'middle_bottom' => $middle_bottom
+            'middle_bottom' => $middle_bottom,
+            'aqo_group' => $aqo_group
         ]);
 
     }
