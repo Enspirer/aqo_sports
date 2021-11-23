@@ -104,7 +104,7 @@
                                     <i class="bi bi-envelope-fill"></i>
                                 </div>
                                 <div class="col-11">
-                                    <p class="mb-3">info@aqose.com</p>
+                                    <p class="mb-3">aondaatje@yahoo.ca</p>
                                 </div>
                             </div>
                         </div>
