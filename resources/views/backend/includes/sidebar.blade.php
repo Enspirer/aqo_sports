@@ -61,7 +61,7 @@
             <li class="nav-item nav-dropdown ">
                 <a class="nav-link nav-dropdown-toggle " href="#">
                     <i class="nav-icon fas fa-running"></i>
-                    Training
+                    Training Page
                 </a>
 
                 <ul class="nav-dropdown-items">
@@ -77,7 +77,6 @@
                     </li>
                  </ul>
             </li> 
-
             
                        
             <li class="nav-item">
@@ -87,12 +86,25 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link {{active_class(Route::is('admin/homepage'))}}" href="{{ route('admin.homepage.index') }}">
+            <li class="nav-item nav-dropdown ">
+                <a class="nav-link nav-dropdown-toggle " href="#">
                     <i class="nav-icon far fa-images"></i>
-                    Home Page Slider
+                        Home Page
                 </a>
-            </li>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/homepage'))}}" href="{{ route('admin.homepage.index') }}">
+                            Slider
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/aqo_group'))}}" href="{{ route('admin.aqo_group.index') }}">
+                           Aqo Group
+                        </a>
+                    </li>
+                 </ul>
+            </li> 
+            
 
             <li class="nav-item">
                 <a class="nav-link {{active_class(Route::is('admin/contact_us'))}}" href="{{ route('admin.contact_us.index') }}">
@@ -100,9 +112,6 @@
                     Contact Us
                 </a>
             </li>
-
-
-
 
 
             <li class="nav-title">

@@ -21,6 +21,13 @@ Route::get('homepage/edit/{id}', [HomePageController::class, 'edit'])->name('hom
 Route::post('homepage/update', [HomePageController::class, 'update'])->name('homepage.update');
 Route::get('homepage/delete/{id}', [HomePageController::class, 'destroy'])->name('homepage.destroy');
 
+Route::get('aqo_group', [HomePageController::class, 'aqo_group_index'])->name('aqo_group.index');
+Route::post('aqo_group/store', [HomePageController::class, 'aqo_group_store'])->name('aqo_group.store');
+Route::get('aqo_group/getdetails', [HomePageController::class, 'aqo_group_getdetails'])->name('aqo_group.getdetails');
+Route::get('aqo_group/edit/{id}', [HomePageController::class, 'aqo_group_edit'])->name('aqo_group.edit');
+Route::post('aqo_group/update', [HomePageController::class, 'aqo_group_update'])->name('aqo_group.update');
+Route::get('aqo_group/delete/{id}', [HomePageController::class, 'aqo_group_destroy'])->name('aqo_group.destroy');
+
 Route::get('contact_us', [ContactUsController::class, 'index'])->name('contact_us.index');
 Route::get('contact_us/getdetails', [ContactUsController::class, 'getDetails'])->name('contact_us.getDetails');
 Route::get('contact_us/edit/{id}', [ContactUsController::class, 'edit'])->name('contact_us.edit');
