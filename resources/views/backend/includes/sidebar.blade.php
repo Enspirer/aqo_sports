@@ -54,7 +54,7 @@
             <li class="nav-item">
                 <a class="nav-link {{active_class(Route::is('admin/blog'))}}" href="{{ route('admin.blog.index') }}">
                 <i class="nav-icon fas fa-newspaper"></i>
-                    Posts
+                    Blog & Posts
                 </a>
             </li>
 

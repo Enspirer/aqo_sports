@@ -20,7 +20,7 @@
                         <i class="bi bi-envelope-fill" style="color: #8a6e4b;"></i>
                     </div>
                     <div class="col-10 pl-0">
-                        <p class="text-white mb-3">info@aqose.com</p>
+                        <p class="text-white mb-3">aondaatje@yahoo.ca</p>
                     </div>
                 </div>
 
