@@ -142,9 +142,10 @@
 }
 
 .card-social i {
-    font-size: 1.9rem;
+    font-size: 20px;
     background-color: #8a6e4b;
     padding: 0.2rem 0.4rem;
+    border-radius: 4px;
 }
 
 .card-social {
@@ -247,7 +248,7 @@
         background-image: linear-gradient(45deg, rgb(157, 44, 41, 0.7) , rgb(45, 26, 147, 0.7));
         transition: bottom 0.8s;
     }
-    
+
     .trending .arrow {
         position: absolute;
         bottom: 2.5rem;
@@ -260,11 +261,11 @@
         cursor: pointer;
         transition: all 0.8s;
     }
-    
+
     .trans-caption {
         bottom: 0px!important;
     }
-    
+
     .trans-arrow {
         bottom: 7.6rem!important;
         transform: rotate(180deg);
@@ -357,7 +358,7 @@
         background-image: linear-gradient(45deg, rgb(157, 44, 41, 0.7) , rgb(45, 26, 147, 0.7));
         transition: bottom 0.8s;
     }
-    
+
     .trending .arrow {
         position: absolute;
         bottom: 2.5rem;
@@ -370,11 +371,11 @@
         cursor: pointer;
         transition: all 0.8s;
     }
-    
+
     .trans-caption {
         bottom: 0px!important;
     }
-    
+
     .trans-arrow {
         bottom: 7.6rem!important;
         transform: rotate(180deg);
