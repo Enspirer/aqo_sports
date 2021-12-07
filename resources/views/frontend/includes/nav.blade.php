@@ -153,6 +153,10 @@
         </li>
 
         <li>
+            <a href="#" class="{{ Request::segment(1) == 'posts' ? 'active' : null }}">Rankings</a>
+        </li>
+
+        <li>
             <a href="{{ route('frontend.contact') }}" class="{{ Request::segment(1) == 'contact' ? 'active' : null }}">Contact Us</a>
         </li>
 
