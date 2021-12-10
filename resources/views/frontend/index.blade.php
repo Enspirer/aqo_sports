@@ -14,9 +14,23 @@
     <div class="main">
         <div class="hero-image">
 
+
             <div class="container">
                 <div class="" style="margin-bottom: 20px;padding: 10px;border-radius: 10px;">
-                    
+                    <div class="srarchBar">
+                        <form action="{{url('competition/explorer/search_keyword')}}" method="post">
+                            {{csrf_field()}}
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                </div>
+                                <input type="text" class="form-control" name="search_keyword" placeholder="Try Rhythmic Gymnastic" autocomplete="off">
+                                <div class="input-group-append">
+                                    <button style="background: #002857;" class="btn btn-success" type="submit">Find Competitions</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-8 mb-3 mb-md-0">
