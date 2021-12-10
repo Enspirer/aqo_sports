@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\ContactUs;
 use Mail;  
 use \App\Mail\ContactUsMail;
+use Modules\Competition\Entities\Competition;
+use Modules\Competition\Entities\Competitor;
 
 /**
  * Class ContactController.
@@ -63,5 +65,41 @@ class ContactController extends Controller
         Mail::send(new SendContact($request));
 
         return redirect()->back()->withFlashSuccess(__('alerts.frontend.contact.sent'));
+    }
+
+    public function ranking(Request $request)
+    {
+        // dd($request);
+        $competitons = Competition::where('status',1)->get();
+        // dd($competitons);        
+
+        $competitionDetails = Competition::where('id',$request->competition)->first();
+
+
+        if($competitionDetails == null){
+
+            return view('frontend.ranking',[
+                'competitons' => $competitons,
+                'competitionDetails' => $competitionDetails
+            ]);
+
+        }else{
+
+            $competitionDetails = Competition::where('id',$request->competition)->first();
+            $markSection = json_decode($competitionDetails->marks_sections);
+            $roundSection = json_decode($competitionDetails->rounds_section);
+            $competitorDetails = Competitor::where('competition_id',$request->competition)->where('competitor_status',1)->orderBy('rank','ASC')->get();
+            // dd($markSection);
+
+            return view('frontend.ranking',[
+                'competitons' => $competitons,
+                'markSection' => $markSection,
+                'roundSection' => $roundSection,
+                'competitor_details' => $competitorDetails,
+                'competitionDetails' => $competitionDetails
+            ]);
+
+        }
+        
     }
 }

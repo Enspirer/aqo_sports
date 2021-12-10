@@ -10,6 +10,7 @@ use Modules\Competition\Entities\Competition;
 use Modules\Competition\Entities\CompetitionCategory;
 use Modules\Competition\Entities\Competitor;
 use DataTables;
+use DB;
 
 
 class CompetitorController extends Controller
@@ -99,6 +100,53 @@ class CompetitorController extends Controller
         );
 
         return redirect()->route('admin.competitior.index',$request->competition_id)->withFlashSuccess('Updated Successfully');
+
+    }
+
+    public function add_rank(Request $request)
+    {    
+        $competitor = Competitor::where('id', $request->hidden_id)->first();
+
+        $edit_order=$competitor->rank;
+        $request_order=$request->rank;
+
+        // dd($request_order);
+
+        if($edit_order != null){
+            if($request_order< $edit_order){
+
+                Competitor::where('rank','>=',$request_order)
+                    ->where('rank','<',$edit_order)
+                    ->update([
+                        'rank' => DB::Raw('rank + 1')
+                    ]);
+    
+            }else{
+                Competitor::where('rank','<=',$request_order)
+                    ->where('rank','>',$edit_order)
+                    ->update([
+                        'rank' => DB::Raw('rank - 1')
+                    ]); 
+            }
+        }else{
+            if($request->rank < 2)
+            {
+                $top_rank = DB::table('competitors')->update(array('rank' => DB::Raw('rank + 1')));   
+            }elseif($request->rank >= 2){
+                $top_rank = DB::table('competitors')->where('rank','>=',$request->rank)->update(array('rank' => DB::Raw('rank + 1')));
+            }
+            else{
+            } 
+                        
+        }        
+
+        $add_rank = Competitor::where('id',$request->hidden_id)->update(
+            [
+                'rank' => $request->rank
+            ]
+        );
+
+        return back()->withFlashSuccess('Updated Successfully');
 
     }
 

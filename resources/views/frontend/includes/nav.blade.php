@@ -153,7 +153,7 @@
         </li>
 
         <li>
-            <a href="#" class="{{ Request::segment(1) == 'posts' ? 'active' : null }}">Rankings</a>
+            <a href="{{ route('frontend.ranking') }}" class="{{ Request::segment(1) == 'posts' ? 'active' : null }}">Rankings</a>
         </li>
 
         <li>

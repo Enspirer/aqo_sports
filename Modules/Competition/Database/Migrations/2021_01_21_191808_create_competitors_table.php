@@ -20,6 +20,7 @@ class CreateCompetitorsTable extends Migration
             $table->integer('competitor_status')->default(0)->comment('0 is pending, 1 is approved, 2 is banned');
             $table->integer('score')->default(0);
             $table->text('description')->nullable();
+            $table->text('rank')->nullable();
             $table->text('competition_id');
             $table->text('competition_form')->nullable();
             $table->text('competition_details')->nullable();

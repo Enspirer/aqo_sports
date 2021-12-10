@@ -1,3 +1,4 @@
+
 <?php
 
 Route::get('competition', 'CompetitionController@index')->name('competition');
@@ -38,6 +39,9 @@ Route::get('competitiors_details/view/{id}', 'CompetitorController@show')->name(
 Route::get('competitiors_details/performance/{id}', 'CompetitorController@performance')->name('competitior.performance');
 Route::get('competitiors/delete/{id}', 'CompetitorController@destroy')->name('competitior.destroy');
 Route::post('competitiors_add','CompetitorController@changeStatus')->name('competitior.change_status');
+
+
+Route::post('add_rank','CompetitorController@add_rank')->name('competitior.add_rank');
 
 
 Route::get('category', 'CategoryController@index')->name('category.index');

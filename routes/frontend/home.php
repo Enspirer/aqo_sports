@@ -42,6 +42,9 @@ Route::get('blog-posts/{id}', [BlogPostController::class, 'index'])->name('blog_
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::post('contact/store', [ContactController::class, 'store'])->name('contact.store');
 
+Route::get('ranking', [ContactController::class, 'ranking'])->name('ranking');
+// Route::post('ranking/store', [ContactController::class, 'ranking'])->name('ranking.store');
+
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'
