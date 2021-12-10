@@ -67,14 +67,12 @@ class ContactController extends Controller
         return redirect()->back()->withFlashSuccess(__('alerts.frontend.contact.sent'));
     }
 
-    public function ranking(Request $request)
+    public function ranking($competiton_id)
     {
-        // dd($request);
         $competitons = Competition::where('status',1)->get();
         // dd($competitons);        
 
-        $competitionDetails = Competition::where('id',$request->competition)->first();
-
+        $competitionDetails = Competition::where('id',$competiton_id)->first();
 
         if($competitionDetails == null){
 
@@ -84,11 +82,11 @@ class ContactController extends Controller
             ]);
 
         }else{
-
-            $competitionDetails = Competition::where('id',$request->competition)->first();
+            
+            $competitionDetails = Competition::where('id',$competiton_id)->first();
             $markSection = json_decode($competitionDetails->marks_sections);
             $roundSection = json_decode($competitionDetails->rounds_section);
-            $competitorDetails = Competitor::where('competition_id',$request->competition)->where('competitor_status',1)->orderBy('rank','ASC')->get();
+            $competitorDetails = Competitor::where('competition_id',$competiton_id)->where('competitor_status',1)->orderBy('rank','ASC')->get();
             // dd($markSection);
 
             return view('frontend.ranking',[
@@ -102,4 +100,60 @@ class ContactController extends Controller
         }
         
     }
+
+    public function search_ranking(Request $request)
+    {
+        //  dd($request);      
+
+         return redirect()->route('frontend.ranking',$request->competition);
+    }
+
+    
+
+    public function votes($competiton_id)
+    {
+        $competitons = Competition::where('status',1)->get();
+        // dd($competitons);        
+
+        $competitionDetails = Competition::where('id',$competiton_id)->first();
+        $getCompetitorDetails = Competitor::getAppliedCompetitorsUsers($competiton_id,1);
+        // dd($getCompetitorDetails);
+
+        if($competitionDetails == null){
+
+            return view('frontend.votes',[
+                'competitons' => $competitons,
+                'competition_details' => $competitionDetails,
+                'getCompetitorDetails' => $getCompetitorDetails
+            ]);
+
+        }else{
+            // dd('aa');
+
+
+            // $getCompetitorDetails = Competitor::getAppliedCompetitorsUsers($competiton_id,1);
+            // dd($markSection);
+
+            $getCompetitorDetails = Competitor::getAppliedCompetitorsUsers($competiton_id,1);
+            // dd($getCompetitorDetails);
+
+            return view('frontend.votes',[
+                'competitons' => $competitons,
+                'competition_details' => $competitionDetails,
+                'getCompetitorDetails' => $getCompetitorDetails,
+            ]);
+
+        }
+        
+    }
+
+    public function search_votes(Request $request)
+    {
+        //  dd($request);      
+
+         return redirect()->route('frontend.votes',$request->competition);
+    }
+
+
+
 }
