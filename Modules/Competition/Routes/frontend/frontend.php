@@ -14,5 +14,3 @@ Route::post('search_result', 'CompetitionController@searchFilters')->name('searc
 
 Route::post('explorer/competition_page/voting', 'CompetitionController@competitionVoting')->name('competition_page_voting');
 
-
-?>
