@@ -153,11 +153,11 @@
         </li>
 
         <li>
-            <a href="{{ route('frontend.ranking') }}" class="{{ Request::segment(1) == 'ranking' ? 'active' : null }}">Rankings</a>
+            <a href="{{ route('frontend.ranking','competition_detail') }}" class="{{ Request::segment(1) == 'ranking' ? 'active' : null }}">Rankings</a>
         </li>
 
         <li>
-            <a href="{{ route('frontend.votes') }}" class="{{ Request::segment(1) == 'votes' ? 'active' : null }}">Votes</a>
+            <a href="{{ route('frontend.votes','competition_detail_two') }}" class="{{ Request::segment(1) == 'votes' ? 'active' : null }}">Votes</a>
         </li>
 
         <li>

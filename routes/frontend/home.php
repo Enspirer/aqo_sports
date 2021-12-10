@@ -42,8 +42,11 @@ Route::get('blog-posts/{id}', [BlogPostController::class, 'index'])->name('blog_
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::post('contact/store', [ContactController::class, 'store'])->name('contact.store');
 
-Route::get('ranking', [ContactController::class, 'ranking'])->name('ranking');
-Route::get('votes', [ContactController::class, 'votes'])->name('votes');
+Route::get('ranking/{competiton_id}', [ContactController::class, 'ranking'])->name('ranking');
+Route::post('search_ranking', [ContactController::class, 'search_ranking'])->name('search_ranking');
+
+Route::get('votes/{competiton_id}', [ContactController::class, 'votes'])->name('votes');
+Route::post('search_votes', [ContactController::class, 'search_votes'])->name('search_votes');
 
 /*
  * These frontend controllers require the user to be logged in

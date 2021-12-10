@@ -16,7 +16,7 @@
                 <div class="col-12">
                     <h3 class="text-center">Select a Competiton</h3>
                     <br>
-                    <form action="{{route('frontend.votes')}}" method="get">
+                    <form action="{{route('frontend.search_votes')}}" method="post">
                     {{csrf_field()}}
                         <div class="row d-flex justify-content-center">                    
                             <div class="col-4">
