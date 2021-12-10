@@ -338,6 +338,7 @@ class CompetitionController extends Controller
 
     public function competitionVoting(Request $request)
     {    
+        // dd($request);
         
         $user_id = auth()->user()->id;
             

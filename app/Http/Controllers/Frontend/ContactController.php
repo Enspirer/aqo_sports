@@ -84,7 +84,7 @@ class ContactController extends Controller
             ]);
 
         }else{
-
+            
             $competitionDetails = Competition::where('id',$request->competition)->first();
             $markSection = json_decode($competitionDetails->marks_sections);
             $roundSection = json_decode($competitionDetails->rounds_section);
@@ -102,4 +102,45 @@ class ContactController extends Controller
         }
         
     }
+
+    public function votes(Request $request)
+    {
+        // dd($request);
+        $competitons = Competition::where('status',1)->get();
+        // dd($competitons);        
+
+        $competitionDetails = Competition::where('id',$request->competition)->first();
+        $getCompetitorDetails = Competitor::getAppliedCompetitorsUsers($request->competition,1);
+        // dd($getCompetitorDetails);
+
+        if($competitionDetails == null){
+
+            return view('frontend.votes',[
+                'competitons' => $competitons,
+                'competition_details' => $competitionDetails,
+                'getCompetitorDetails' => $getCompetitorDetails
+            ]);
+
+        }else{
+            // dd('aa');
+
+
+            // $getCompetitorDetails = Competitor::getAppliedCompetitorsUsers($request->competition,1);
+            // dd($markSection);
+
+            $getCompetitorDetails = Competitor::getAppliedCompetitorsUsers($request->competition,1);
+            // dd($getCompetitorDetails);
+
+            return view('frontend.votes',[
+                'competitons' => $competitons,
+                'competition_details' => $competitionDetails,
+                'getCompetitorDetails' => $getCompetitorDetails,
+            ]);
+
+        }
+        
+    }
+
+
+
 }
