@@ -18,7 +18,7 @@
                 <div class="" style="margin-bottom: 20px;padding: 10px;border-radius: 10px;">
                     <div class="srarchBar">
                         <form action="{{url('competition/explorer/search_keyword')}}" method="post">
-                            <input type="hidden" name="_token" value="rDKgXH78GxyDhkVkumgQl739ZbMZBHl6u0m5uDhk">
+                            {{csrf_field()}}
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
