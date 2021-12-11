@@ -8,7 +8,7 @@ use App\Http\Requests\Frontend\Contact\SendContactRequest;
 use Illuminate\Http\Request;
 use App\Models\ContactUs;
 use Mail;  
-use \App\Mail\ContactUsMail;
+use App\Mail\ContactUsMail;
 use Modules\Competition\Entities\Competition;
 use Modules\Competition\Entities\Competitor;
 

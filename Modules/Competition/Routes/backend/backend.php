@@ -1,4 +1,3 @@
-
 <?php
 
 Route::get('competition', 'CompetitionController@index')->name('competition');
@@ -58,11 +57,4 @@ Route::get('become_judge/get_details', 'BecomeJudgeController@get_details')->nam
 Route::get('become_judge/show/{id}', 'BecomeJudgeController@show')->name('become_judge.show');
 Route::get('become_judge/delete/{id}', 'BecomeJudgeController@destroy')->name('become_judge.destroy');
 Route::post('become_judge/update', 'BecomeJudgeController@update')->name('become_judge.update');
-
-// Route::get('votes','VotesController@index')->name('votes.index');
-// Route::get('votes/get_details', 'VotesController@get_details')->name('votes.get_details');
-// Route::get('votes/show/{id}', 'VotesController@show')->name('votes.show');
-// Route::get('votes/delete/{id}', 'VotesController@destroy')->name('votes.destroy');
-// Route::post('votes/update', 'VotesController@update')->name('votes.update');
-
 
