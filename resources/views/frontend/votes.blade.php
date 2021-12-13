@@ -28,7 +28,7 @@
                                 </select>
                             </div>
                             <div class="col-1">
-                                <input type="submit" class="btn rounded-pill text-light px-4 py-2 ml-2 ms-2 btn-success" value="Search" />
+                                <input type="submit" class="btn rounded-pill text-light px-4 py-2 ml-2 ms-2 btn-success" value="View Votes" />
                             </div>
                         </div>
                     </form>
