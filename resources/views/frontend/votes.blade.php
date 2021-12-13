@@ -4,22 +4,22 @@
 
 
 @push('after-styles')
-    <link rel="stylesheet" href="{{ url('aqo_se/Styles/css/contact_us.css') }}">
+    <link rel="stylesheet" href="{{ url('aqo_se/Styles/css/votes.css') }}">
 @endpush
 
 @section('content')
 
     <div class="container" style="margin-bottom:200px">
             
-        <div class="container">
-            <div class="row align-items-center mt-2 p-5 px-5">
+        <div class="container inner-container">
+            <div class="row align-items-center mt-2 p-5 px-5 mobile-full">
                 <div class="col-12">
                     <h3 class="text-center">Select a Competiton</h3>
                     <br>
-                    <form action="{{route('frontend.search_votes')}}" method="post">
+                    <form action="{{route('frontend.search_votes')}}" method="post" class="filter-form">
                     {{csrf_field()}}
-                        <div class="row d-flex justify-content-center">                    
-                            <div class="col-4">
+                        <div class="row d-flex justify-content-center mobile-row">                    
+                            <div class="col-4 col-mobile-12">
                                 <select id="competition" class="form-control" name="competition" required>
                                     <option value="" class="text-center" selected disabled>------ Select Here ------</option>   
                                     @foreach($competitons as $key => $competiton)
@@ -27,8 +27,8 @@
                                     @endforeach                         
                                 </select>
                             </div>
-                            <div class="col-1">
-                                <input type="submit" class="btn rounded-pill text-light px-4 py-2 ml-2 ms-2 btn-success" value="View Votes" />
+                            <div class="col-1 mobile-row">
+                                <input type="submit" class="btn rounded-pill text-light px-4 py-2 ml-2 ms-2 btn-success rank-btn" value="View Votes" />
                             </div>
                         </div>
                     </form>
@@ -39,25 +39,29 @@
 
         @if($competition_details != null)
 
-            <div class="row align-items-center mt-5">
-                <div class="col-4">
+            <div class="row align-items-center mt-5 competition-row">
+                <div class="col-4 mobile-full-image">
                     <img src="{{url('files',$competition_details->feature_image) }}" class="img-fluid" style="object-fit: cover;" width="100%"/>
                 </div>
 
-                <div class="col-8 ps-5">
+                <div class="col-8 ps-5 mobile-full-one">
                     <h3 class="fw-bolder" style="color: #E84C4C">{{$competition_details->competition_name}}</h3>
 
                         <div class="row">
                             <div class="col-6">
                                 @if($competition_details->started_date == null)
                                 @else
-                                    <p>Started Date : {{ $competition_details->started_date }}</p>
+                                    <p>Started Date : 
+                                        <br class="mobile-break">
+                                        {{ $competition_details->started_date }}</p>
                                 @endif
                             </div>
                             <div class="col-6 text-right">
                                 @if($competition_details->end_date == null)
                                 @else
-                                    <p>End Date : {{ $competition_details->end_date }}</p>
+                                    <p>End Date : 
+                                        <br class="mobile-break">
+                                        {{ $competition_details->end_date }}</p>
                                 @endif  
                             </div>
                         </div>                                 
@@ -70,7 +74,7 @@
                 </div>
             </div>
 
-            <div class="row align-items-center mt-5">
+            <div class="row align-items-center mt-5 mobile-table-row">
                 <table class="table table-hover">
                     <thead>
                         <tr class="align-items-center">
@@ -95,10 +99,10 @@
                                                 @if(is_voted($competiotrDetail['competitor_id'], $competition_details->id))
                                                     <button type="submit" class="btn btn-primary" disabled>Voted</button>
                                                 @else
-                                                    <button type="submit" class="btn btn-primary">Vote Now</button>
+                                                    <button type="submit" class="btn btn-primary mobile-vote-button">Vote Now</button>
                                                 @endif
                                             @else
-                                                <a href="{{ route('frontend.auth.login') }}" type="button" class="btn btn-primary">Vote Now</a>
+                                                <a href="{{ route('frontend.auth.login') }}" type="button" class="btn btn-primary mobile-vote-button">Vote Now</a>
                                             @endauth
                                         </td>
 

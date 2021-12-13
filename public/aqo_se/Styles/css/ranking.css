@@ -1,0 +1,56 @@
+@media screen and (max-width: 767px) {
+    .inner-container {
+        margin-top:30px;
+        padding: 0 !important;
+    }
+    .mobile-full {
+        padding: 0 !important;
+    }
+    .filter-form {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+    .mobile-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .col-mobile-12 {
+        flex: 1;
+        max-width: 100%;
+        justify-content: center; 
+    }
+    .rank-btn {
+        margin-top:
+        15px;
+    }
+    .competition-row {
+        flex-direction: column;
+    }
+    .mobile-full-one {
+        flex: 1;
+        max-width: 80%;
+        padding-left:0;
+        padding-right:0;
+        padding-top:30px;
+    }
+    .mobile-card{
+        padding:10px;
+        overflow: auto;
+    }
+    .mobile-full-image{
+        flex:1;
+        max-width:85%;
+        margin-bottom:30px;
+    }
+    .mobile-break{
+        display: block !important;
+    }
+}
+.mobile-break{
+    display: none;
+}

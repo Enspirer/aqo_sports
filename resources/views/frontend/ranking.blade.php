@@ -4,22 +4,26 @@
 
 
 @push('after-styles')
-    <link rel="stylesheet" href="{{ url('aqo_se/Styles/css/contact_us.css') }}">
+    <link rel="stylesheet" href="{{ url('aqo_se/Styles/css/ranking.css') }}">
 @endpush
 
 @section('content')
 
+<style>  
+    
+</style>
+
     <div class="container" style="margin-bottom:200px">
             
-        <div class="container">
-            <div class="row align-items-center mt-2 p-5 px-5">
+        <div class="container inner-container">
+            <div class="row align-items-center mt-2 p-5 px-5 mobile-full">
                 <div class="col-12">
                     <h3 class="text-center">Select a Competiton</h3>
                     <br>
                     <form action="{{route('frontend.search_ranking')}}" method="post" class="filter-form">
                     {{csrf_field()}}
-                        <div class="row d-flex justify-content-center">                    
-                            <div class="col-4">
+                        <div class="row d-flex justify-content-center mobile-row">                    
+                            <div class="col-4 col-mobile-12">
                                 <select id="competition" class="form-control" name="competition" required>
                                     <option value="" class="text-center" selected disabled>------ Select Here ------</option>   
                                     @foreach($competitons as $key => $competiton)
@@ -27,8 +31,8 @@
                                     @endforeach                         
                                 </select>
                             </div>
-                            <div class="col-1">
-                                <input type="submit" class="btn rounded-pill text-light px-4 py-2 ml-2 ms-2 btn-success" value="View Ranks" />
+                            <div class="col-1 mobile-row">
+                                <input type="submit" class="btn rounded-pill text-light px-4 py-2 ml-2 ms-2 btn-success rank-btn" value="View Ranks" />
                             </div>
                         </div>
                     </form>
@@ -39,25 +43,29 @@
 
         @if($competitionDetails != null)
 
-            <div class="row align-items-center mt-5">
-                <div class="col-4">
+            <div class="row align-items-center mt-5 competition-row">
+                <div class="col-4 mobile-full-image">
                     <img src="{{url('files',$competitionDetails->feature_image) }}" class="img-fluid" style="object-fit: cover;" width="100%"/>
                 </div>
 
-                <div class="col-8 ps-5">
+                <div class="col-8 ps-5 mobile-full-one">
                     <h3 class="fw-bolder" style="color: #E84C4C">{{$competitionDetails->competition_name}}</h3>
 
                         <div class="row">
                             <div class="col-6">
                                 @if($competitionDetails->started_date == null)
                                 @else
-                                    <p>Started Date : {{ $competitionDetails->started_date }}</p>
+                                    <p>Started Date : 
+                                    <br class="mobile-break"> 
+                                    {{ $competitionDetails->started_date }}</p>
                                 @endif
                             </div>
                             <div class="col-6 text-right">
                                 @if($competitionDetails->end_date == null)
                                 @else
-                                    <p>End Date : {{ $competitionDetails->end_date }}</p>
+                                    <p>End Date : 
+                                    <br class="mobile-break">    
+                                    {{ $competitionDetails->end_date }}</p>
                                 @endif  
                             </div>
                         </div>                                 
@@ -72,7 +80,7 @@
 
             <div class="row mt-5">
                 <div class="col">
-                    <div class="card" style="padding: 10px;">
+                    <div class="card mobile-card" style="padding: 10px;">
                         <table id="myTablePrihlasky" class="table table-hover table-bordered table-condensed ">
                             <thead>
                                 <tr>
