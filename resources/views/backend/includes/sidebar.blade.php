@@ -4,7 +4,7 @@
     }
 
     .notification {
-    background-color: grey;
+    background-color: red;
     color: white;
     text-decoration: none;
     position: relative;

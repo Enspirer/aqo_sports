@@ -1,4 +1,4 @@
-<section class="container-fluid pt-4 pt-md-5 pb-3 text-white footer" style="background: transparent linear-gradient(180deg, #002a89 0%, #002855 100%) 0% 0% no-repeat padding-box">
+<section class="container-fluid pt-4 pt-md-5 pb-3 text-white footer" style="background-color: #002857;">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-3 first-column">

@@ -20,12 +20,15 @@
                     {{csrf_field()}}
                         <div class="row d-flex justify-content-center">                    
                             <div class="col-4">
-                                <select id="competition" class="form-control" name="competition" onchange="this.form.submit()">
-                                    <option value="#" class="text-center" selected disabled>------ Select Here ------</option>   
+                                <select id="competition" class="form-control" name="competition" required>
+                                    <option value="" class="text-center" selected disabled>------ Select Here ------</option>   
                                     @foreach($competitons as $key => $competiton)
                                         <option value="{{$competiton->id}}">{{$competiton->competition_name}}</option>   
                                     @endforeach                         
                                 </select>
+                            </div>
+                            <div class="col-1">
+                                <input type="submit" class="btn rounded-pill text-light px-4 py-2 ml-2 ms-2 btn-success" value="Search" />
                             </div>
                         </div>
                     </form>
