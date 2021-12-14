@@ -110,7 +110,7 @@
                             <a href="{{url('/')}}" class="{{ Request::segment(1) == '' ? 'active' : null }}">Home</a>
                         </li>
                         <li>
-                            <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}" class="{{ Request::segment(1) == 'competition' ? 'active' : null }}">Explore</a>
+                            <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}" class="{{ Request::segment(1) == 'competition' ? 'active' : null }}">Events</a>
                         </li>
                         <li>
                             <a href="{{ route('frontend.training') }}" class="{{ Request::segment(1) == 'training' ? 'active' : null }}">Training</a>
@@ -139,7 +139,7 @@
             <a href="{{url('/')}}" class="{{ Request::segment(1) == '' ? 'active' : null }}">Home</a>
         </li>
         <li>
-            <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}" class="{{ Request::segment(1) == 'competition' ? 'active' : null }}">Explore</a>
+            <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}" class="{{ Request::segment(1) == 'competition' ? 'active' : null }}">Events</a>
         </li>
         <li>
             <a href="{{ route('frontend.training') }}" class="{{ Request::segment(1) == 'training' ? 'active' : null }}">Training</a>

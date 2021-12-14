@@ -22,7 +22,7 @@
                         <a href="#">Home</a>
                     </li>
                     <li>
-                        <a href="#">Explore</a>
+                        <a href="#">Events</a>
                     </li>
                     <li>
                         <a href="#">Training</a>

@@ -1,4 +1,4 @@
-<section class="container-fluid pt-4 pt-md-5 pb-3 text-white footer" style="background-color: #002857;">
+<section class="container-fluid pt-4 pt-md-5 pb-3 text-white footer" style="background-color: #002979;">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-3 first-column">
@@ -37,7 +37,7 @@
             <div class="col-12 col-md-3 links" style="padding-left: 6rem;">
                 <h5 class="fw-bolder mt-3 mb-4">Quick Links</h5>
                 <a href="{{ route('frontend.index') }}" class="mb-3 text-decoration-none text-white">Home</a> <br>
-                <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}" class="mb-3 text-decoration-none text-white">Explore</a> <br>
+                <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}" class="mb-3 text-decoration-none text-white">Events</a> <br>
                 <a href="{{ route('frontend.training') }}" class="mb-3 text-decoration-none text-white">Training</a> <br>
                 <a href="{{ route('frontend.about_us') }}" class="mb-3 text-decoration-none text-white">About Us</a>
             </div>

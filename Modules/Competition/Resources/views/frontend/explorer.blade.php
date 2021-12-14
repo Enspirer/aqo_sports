@@ -42,11 +42,11 @@
                     @if($keyword == 'all')
                         @if($category_name == 'All')
                             <span>
-                            <a href="">Explorer</a>
+                            <a href="">Events</a>
                         </span>
                         @else
                             <span>
-                             <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}">Explorer</a>
+                             <a href="{{route('frontend.explorer', ['category','keyword','desc','country','start_date','end_date'])}}">Events</a>
                         </span>
                             <i class="fa fa-angle-right" aria-hidden="true"></i>
                             <span>{{$category_name}}</span>

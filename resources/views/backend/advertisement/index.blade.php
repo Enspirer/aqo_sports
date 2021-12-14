@@ -107,7 +107,7 @@
             <a class="list-group-item list-group-item-action" data-toggle="list" href="#training_ad">Training Page Ad</a>
             <a class="list-group-item list-group-item-action" data-toggle="list" href="#home_multiple_ad">Home Page Multiple Ads</a>
             <a class="list-group-item list-group-item-action" data-toggle="list" href="#news_multiple_ad">News Page Multiple Ads</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="#explore_multiple_ad">Explore Page Multiple Ads</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#explore_multiple_ad">Events Page Multiple Ads</a>
         </div>
         </div>
         <div class="col-md-9">
@@ -1482,13 +1482,13 @@
         <p>Image ( Type = jpeg,png,jpg )</p>
 
         <hr>
-        <h5 class="mb-3">Top Banner Ad in Explore Page</h5>
+        <h5 class="mb-3">Top Banner Ad in Events Page</h5>
         <p>Image ( dimensions = width: 1110px * height: 128px )</p>
         <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image ( Type = jpeg,png,jpg )</p>
 
         <hr>
-        <h5 class="mb-3">Explore Page Multiple Ads</h5>
+        <h5 class="mb-3">Events Page Multiple Ads</h5>
         <p>Image Left ( dimensions = width: 540px * height: 320px )</p>
         <p>Image Right ( dimensions = width: 375px * height: 155px )</p>
         <p>Image Middle Top ( dimensions = width: 375px * height: 155px )</p>
@@ -1565,13 +1565,13 @@ $("#close-btn").click(function () {
         <p>Image ( Type = jpeg,png,jpg )</p>
 
         <hr>
-        <h5 class="mb-3">Top Banner Ad in Explore Page</h5>
+        <h5 class="mb-3">Top Banner Ad in Events Page</h5>
         <p>Image ( dimensions = width: 1110px * height: 128px )</p>
         <p>Image ( Size = Maximum size should be 1MB )</p>
         <p>Image ( Type = jpeg,png,jpg )</p>
 
         <hr>
-        <h5 class="mb-3">Explore Page Multiple Ads</h5>
+        <h5 class="mb-3">Events Page Multiple Ads</h5>
         <p>Image Left ( dimensions = width: 540px * height: 320px )</p>
         <p>Image Right ( dimensions = width: 375px * height: 155px )</p>
         <p>Image Middle Top ( dimensions = width: 375px * height: 155px )</p>
